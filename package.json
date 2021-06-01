@@ -1,0 +1,43 @@
+{
+  "name": "tod",
+  "version": "1.0.0",
+  "description": "Tema område del",
+  "scripts": {
+    "color-tokens": "a11y-color-tokens --outputDirPath='src/sass' --colorTokensPath='src/_theme/color-tokens.js'",
+    "watch:sass": "sass --no-source-map --watch src/sass:public/css",
+    "watch:eleventy": "eleventy --serve",
+    "build:sass": "sass --no-source-map src/sass:public/css",
+    "build:eleventy": "eleventy",
+    "start": "npm-run-all color-tokens build:sass --parallel watch:*",
+    "build": "npm-run-all color-tokens build:sass --parallel build:*",
+    "postbuild": "postcss public/css/*.css -u autoprefixer cssnano -r"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jensnti/tod.git"
+  },
+  "keywords": ["education"],
+  "author": "Jens Andreasson",
+  "license": "GPL 3",
+  "bugs": {
+    "url": "https://github.com/jensnti/tod/issues"
+  },
+  "homepage": "https://github.com/jensnti/tod#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-navigation": "^0.2.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.1",
+    "@11tyrocks/eleventy-plugin-emoji-readtime": "^1.0.1",
+    "a11y-color-tokens": "^0.4.0",
+    "autoprefixer": "^10.2.6",
+    "bootstrap": "^5.0.0-beta3",
+    "cssnano": "^5.0.4",
+    "markdown-it": "^10.0.0",
+    "markdown-it-anchor": "^7.1.0",
+    "nice-color-palettes": "^3.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.0",
+    "postcss-cli": "^8.3.1",
+    "sass": "^1.34.0"
+  }
+}
