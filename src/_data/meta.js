@@ -1,3 +1,4 @@
+/* Låt bli */
 const colors = require('nice-color-palettes');
 
 function getRandomIntInclusive(min, max) {
@@ -9,15 +10,16 @@ function getRandomIntInclusive(min, max) {
 const color = colors[getRandomIntInclusive(0, colors.length)];
 const pick = color[getRandomIntInclusive(0, color.length)];
 
+/* Här nedanför kan du ändra */
 module.exports = {
     // NOTE: `process.env.URL` is provided by Netlify, and may need
     // adjusted pending your host
     url: process.env.URL || 'http://localhost:8080',
     // page language
     language: 'sv',
-    // adjust based on your course title, måste överrensstämma med src/index.md title front matter
+   // Sidans namn, måste överrensstämma med src/index.md title front matter
     siteName: 'Ämnestitel',
-    themeColor: pick, // pick or color string '#121212'
+    themeColor: pick, // pick or color string '#ff4e50'
     siteDescription:
         'Instruktionssida för siteskaparen för Tema Område Del, TOD.',
     author: {
