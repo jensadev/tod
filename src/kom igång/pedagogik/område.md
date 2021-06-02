@@ -9,7 +9,7 @@ eleventyNavigation:
 {% intro %}
 
 ## Introduktion
-
+Området samlar delarna.
 
 ### Tänk på
  -

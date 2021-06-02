@@ -1,18 +1,16 @@
 ---
-title: Tema
+title: Skapa ett område
 eleventyNavigation:
-    key: tema
-    parent: pedagogik
-    order: 0
+    key: skapa ett område
+    parent: min kurs
+    order: 2
     excerpt: 
 ---
 {% intro %}
 
 ## Introduktion
-Temat samlar ett antal områden.
 
-### Tänk på
- -
+### Sidan använder
 
 {% endintro %}
 
@@ -25,5 +23,9 @@ Temat samlar ett antal områden.
 {% uppgifter %}
 
 ## Uppgifter
+### ⭐
+#### Uppgift 1
+
+
 
 {% enduppgifter %}
