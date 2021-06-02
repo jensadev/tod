@@ -7,8 +7,8 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
 }
 
-const color = colors[getRandomIntInclusive(0, colors.length)];
-const pick = color[getRandomIntInclusive(0, color.length)];
+const color = colors && colors[getRandomIntInclusive(0, colors.length)];
+const pick = color && color[getRandomIntInclusive(0, color.length)];
 
 /* Här nedanför kan du ändra */
 module.exports = {
