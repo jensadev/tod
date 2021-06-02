@@ -16,18 +16,18 @@ layout: base.njk
         {% if entry.children.length %}
             {% for child in entry.children %}
                 <div class="accordion-item">
-                    <h3 class="accordion-header" id="heading-{{ child.title | slugUrl }}">
+                    <h3 class="accordion-header" id="heading-{{ child.title | slug }}">
                         <button
                             class="accordion-button collapsed"
                             type="button"
                             data-bs-toggle="collapse"
-                            data-bs-target="#{{ child.title | slugUrl }}"
+                            data-bs-target="#{{ child.title | slug }}"
                             aria-expanded="false"
-                            aria-controls="{{ child.title | slugUrl }}">
+                            aria-controls="{{ child.title | slug }}">
                             {{ child.title | capitalize }}
                         </button>
                     </h3>
-                    <div id="{{ child.title | slugUrl }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ child.title | slugUrl }}" data-bs-parent="#accordion">
+                    <div id="{{ child.title | slug }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ child.title | slug }}" data-bs-parent="#accordion">
                         <div class="accordion-body">
                             {% if child.children.length %}
                                 <ul class="list-unstyled">

@@ -73,14 +73,6 @@ module.exports = function (eleventyConfig) {
         return s.charAt(0).toUpperCase() + s.slice(1)
     });
 
-    eleventyConfig.addFilter('slugUrl', (str) => {
-        return slugify(str, {
-            lower: true,
-            strict: false,
-            remove: /["]/g,
-          });
-    });
-
     /* Markdown Overrides */
     let markdownLibrary = markdownIt({
         html: true
