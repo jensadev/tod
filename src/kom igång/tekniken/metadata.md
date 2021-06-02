@@ -3,20 +3,34 @@ title: Metadata
 eleventyNavigation:
     key: metadata
     parent: tekniken
-    order: 1
+    order: 2
     excerpt: 
 ---
 {% intro %}
 
 ## Introduktion
 
-### Sidan använder
+Sidans metadata sparas i en speciell javascript-fil. Denna behöver redigeras för
+att sidans funktioner ska fungera.
+
+### Tänk på
+- 🛑 Ändra inte funktionerna i början av filen
+- Vill du välja färg för sidan, använd en färgkod i themeColor
+- Sidan är i javascript, syntax är viktigt
 
 {% endintro %}
 
 {% instruktioner %}
 
 ## Instruktioner
+
+Öppna src/_data/meta.js för redigering.
+
+Redigera
+- siteName
+- themeColor
+- siteDescription
+- author
 
 ```js
 module.exports = {
@@ -47,6 +61,6 @@ module.exports = {
 ### ⭐
 #### Uppgift 1
 
-
+Redigera och spara meta.js
 
 {% enduppgifter %}
