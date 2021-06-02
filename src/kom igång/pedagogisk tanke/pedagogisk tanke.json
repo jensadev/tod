@@ -2,5 +2,5 @@
     "tags": "pedagogisk tanke",
     "category": "del",
     "layout": "part.njk",
-    "permalink": "{{ page.filePathStem | splice | slug }}/{{ title | slug }}.html"
+    "permalink": "{{ page.filePathStem | splice | slugUrl }}/{{ title | slug }}.html"
 }
