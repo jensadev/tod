@@ -1,7 +1,12 @@
 /** look away 💩 **/
 let storage, part, subject, assignmentsElements, extra, area;
 
-const strip = (str) => str.trim().toLowerCase().replace(/ /g, '-');
+const strip = (str) => str.trim()
+    .toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/å/g, 'a')
+    .replace(/ä/g, 'a')
+    .replace(/ö/g, 'o');
 
 const checkAssignmentExists = (arr, id) => {
     let check = -1;
