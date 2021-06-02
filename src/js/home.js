@@ -1,6 +1,6 @@
 let storage;
 
-const strip = (str) => str.trim().toLowerCase().replace(/ /g, '');
+const strip = (str) => str.trim().toLowerCase().replace(/ /g, '-');
 
 const checkAssignmentsStatus = (arr, supposedLength = 0) => {
     let count = 0;

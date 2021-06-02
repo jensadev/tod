@@ -1,4 +1,4 @@
-const strip = (str) => str.trim().toLowerCase().replace(/ /g, '');
+const strip = (str) => str.trim().toLowerCase().replace(/ /g, '-');
 
 window.addEventListener('load', () => {
     const span = document.querySelector('#title');
