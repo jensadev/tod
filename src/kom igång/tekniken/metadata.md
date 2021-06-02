@@ -15,6 +15,7 @@ att sidans funktioner ska fungera.
 
 ### Tänk på
 - 🛑 Ändra inte funktionerna i början av filen
+- siteName i metadata måste stämma överrens med title i src/index.md
 - Vill du välja färg för sidan, använd en färgkod i themeColor
 - Sidan är i javascript, syntax är viktigt
 
@@ -24,7 +25,7 @@ att sidans funktioner ska fungera.
 
 ## Instruktioner
 
-Öppna src/_data/meta.js för redigering.
+Öppna ```src/_data/meta.js``` för redigering.
 
 Redigera
 - siteName
@@ -52,6 +53,19 @@ module.exports = {
 };
 ```
 
+🛑 Om du ändrat siteName så måste du även redigera title front matter i ```src/index.md```
+
+🛑 siteName under eleventyNavigation skrivs i små bokstäver
+
+```njk
+---
+title: siteName
+layout: "home.njk"
+category: ämne
+eleventyNavigation:
+    key: siteName
+---
+```
 
 {% endinstruktioner %}
 
@@ -62,5 +76,9 @@ module.exports = {
 #### Uppgift 1
 
 Redigera och spara meta.js
+
+#### Uppgift 2
+
+Redigera titel i index.md
 
 {% enduppgifter %}
