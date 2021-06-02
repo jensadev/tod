@@ -1,9 +1,9 @@
 ---
-title: Pedagogik
+title: Pedagogisk tanke
 layout: "area.njk"
 category: område
 eleventyNavigation:
-    key: pedagogik
+    key: pedagogisk tanke
     parent: kom igång
     order: 0
     excerpt: 

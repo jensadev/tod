@@ -1,15 +1,15 @@
 ---
-title: Del
+title: Tema
 eleventyNavigation:
-    key: del
-    parent: pedagogik
-    order: 2
+    key: tema
+    parent: pedagogisk tanke
+    order: 0
     excerpt: 
 ---
 {% intro %}
 
 ## Introduktion
-
+Temat samlar ett antal områden.
 
 ### Tänk på
  -

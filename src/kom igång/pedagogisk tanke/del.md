@@ -1,15 +1,15 @@
 ---
-title: Område
+title: Del
 eleventyNavigation:
-    key: område
-    parent: pedagogik
-    order: 1
+    key: del
+    parent: pedagogisk tanke
+    order: 2
     excerpt: 
 ---
 {% intro %}
 
 ## Introduktion
-Området samlar delarna.
+
 
 ### Tänk på
  -
