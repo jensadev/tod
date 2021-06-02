@@ -57,7 +57,7 @@ module.exports = {
 
 🛑 siteName under eleventyNavigation skrivs i små bokstäver
 
-```njk
+```md
 ---
 title: siteName
 layout: "home.njk"

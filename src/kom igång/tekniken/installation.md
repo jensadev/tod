@@ -63,6 +63,6 @@ Klona templaten.
 
 #### Uppgift 2
 
-Installera beroenden och starta npm scriptet.
+Installera och kör npm script.
 
 {% enduppgifter %}
