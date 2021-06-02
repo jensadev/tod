@@ -45,9 +45,9 @@ module.exports = {
     siteDescription:
         'Instruktionssida för siteskaparen för Tema Område Del, TOD.',
     author: {
-        name: 'Jens Andreasson',
-        email: 'jensandreasson77@gmail.com',
-        url: 'https://jensa.xyz'
+        name: '',
+        email: '',
+        url: ''
     }
 };
 ```

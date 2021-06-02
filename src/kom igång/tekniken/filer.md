@@ -50,7 +50,7 @@ src/ 📁 här finner du projektets filer
     _includes/ 🛑📁 templater för projektets sidor
     _theme/ 🛑📁🔧
     dump.njk 🛑 templat
-    favicon.ico 🛑✔️ site icon, edit if you wish
+    favicon.ico 🛑✔️ favicon, redigera om du vill
     images/ ✔️📁🍱 spara bilder du använder här
     index.md ✔️📝 Ämnesindex, måste redigeras
     js/ 🛑📁 javascript för sidan

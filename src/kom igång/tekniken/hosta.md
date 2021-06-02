@@ -23,14 +23,15 @@ För att hosta sidan, så att andra kan använda den så använder den här guid
 
 Skapa ett konto på [Netlify](https://www.netlify.com/).
 
-Klicka på [New site form Git](https://app.netlify.com/start) för att skapa en ny sida 
-från ett GitHub repo.
+Klicka här för att [skapa en sida från ett GitHub repo](https://app.netlify.com/start).
+
  - Välj att koppla Netlify till GitHub
  - Konfigurera GitHub så att Netlify kan läsa ditt repo
+ - Sök reda på ditt repo
  - Följ guiden
     - Publish dir är public/
  - Vänta medans Netlify kör ```npm build```
- - Surfa till din kurssida!
+ - Surfa till din kurssida
 
 {% endinstruktioner %}
 
@@ -40,6 +41,6 @@ från ett GitHub repo.
 ### ⭐
 #### Uppgift 1
 
-
+Hosta din första kurssida
 
 {% enduppgifter %}
