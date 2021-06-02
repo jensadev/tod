@@ -12,4 +12,4 @@ Just den här delen skrivs med en shortcode för en stilad ingress.
 
 Innehåll kan självklart skrivas som en vanlig paragraf och formatteras med [Markdown](https://www.markdownguide.org/).
 
-Läs mer om hur du kommer igång under följande områden.
+Den här sidan är uppbyggd med samma system som du kommer att skapa.

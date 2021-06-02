@@ -1,11 +1,11 @@
 ---
-title: Område
+title: Pedagogik
 layout: "area.njk"
 category: område
 eleventyNavigation:
-    key: område
-    parent: pedagogisk tanke
-    order: 1
+    key: pedagogik
+    parent: kom igång
+    order: 0
     excerpt: 
 ---
 ## Området {{ title }} innehåller följande delar

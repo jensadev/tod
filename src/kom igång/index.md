@@ -1,12 +1,12 @@
 ---
-title: Pedagogisk tanke
+title: Kom igång
 layout: "theme.njk"
 category: tema
 permalink: "{{ page.filePathStem | splice | slugUrl }}/{{ title | slug }}.html"
 eleventyNavigation:
-    key: pedagogisk tanke
+    key: kom igång
     parent: ämnestitel
     order: 0
-    excerpt: Förklaring av den tanke som ligger bakom systemet och dess delar.
+    excerpt: Pedagogisk tanke, installation och annat du behöver veta
 ---
 ## Temat {{ title }} innehåller följande områden
