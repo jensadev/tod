@@ -1,0 +1,45 @@
+---
+title: Hosta
+eleventyNavigation:
+    key: hosta
+    parent: tekniken
+    order: 3
+    excerpt: 
+---
+{% intro %}
+
+## Introduktion
+
+För att hosta sidan, så att andra kan använda den så använder den här guiden
+[Netlify](https://www.netlify.com/).
+
+### Sidan använder
+
+{% endintro %}
+
+{% instruktioner %}
+
+## Instruktioner
+
+Skapa ett konto på [Netlify](https://www.netlify.com/).
+
+Klicka på [New site form Git](https://app.netlify.com/start) för att skapa en ny sida 
+från ett GitHub repo.
+ - Välj att koppla Netlify till GitHub
+ - Konfigurera GitHub så att Netlify kan läsa ditt repo
+ - Följ guiden
+    - Publish dir är public/
+ - Vänta medans Netlify kör ```npm build```
+ - Surfa till din kurssida!
+
+{% endinstruktioner %}
+
+{% uppgifter %}
+
+## Uppgifter
+### ⭐
+#### Uppgift 1
+
+
+
+{% enduppgifter %}
