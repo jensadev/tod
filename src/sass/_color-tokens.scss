@@ -1,0 +1,19 @@
+/* 🛑 STOP!
+  Do not change this file directly.
+  Modify colors in src/_theme/color-tokens.js
+ */
+
+$color-primary: #55443d !default;
+$color-on-primary: #BEB4AF !default;
+
+$base-color-tokens: ("primary");
+
+$color-tokens: (
+  "color-primary": $color-primary,
+  "color-on-primary": $color-on-primary
+) !default;
+
+@mixin color-tokens() {
+  --color-primary: #{$color-primary};
+  --color-on-primary: #{$color-on-primary};
+}
