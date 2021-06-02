@@ -3,7 +3,7 @@ title: Skapa ett tema
 eleventyNavigation:
     key: skapa ett tema
     parent: min kurs
-    order: 1
+    order: 2
     excerpt: 
 ---
 {% intro %}

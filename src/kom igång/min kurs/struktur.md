@@ -1,16 +1,18 @@
 ---
-title: Skapa ett ämne
+title: Struktur
 eleventyNavigation:
-    key: skapa ett ämne
+    key: struktur
     parent: min kurs
-    order: 1
+    order: 0
     excerpt: 
 ---
 {% intro %}
 
 ## Introduktion
 
-### Sidan använder
+
+### Tänk på
+ -
 
 {% endintro %}
 
@@ -23,9 +25,5 @@ eleventyNavigation:
 {% uppgifter %}
 
 ## Uppgifter
-### ⭐
-#### Uppgift 1
-
-
 
 {% enduppgifter %}

@@ -3,7 +3,7 @@ title: Skapa en del
 eleventyNavigation:
     key: skapa en del
     parent: min kurs
-    order: 3
+    order: 4
     excerpt: 
 ---
 {% intro %}

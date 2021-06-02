@@ -3,7 +3,7 @@ title: Skapa ett område
 eleventyNavigation:
     key: skapa ett område
     parent: min kurs
-    order: 2
+    order: 3
     excerpt: 
 ---
 {% intro %}
