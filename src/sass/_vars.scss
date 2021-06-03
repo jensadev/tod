@@ -249,3 +249,28 @@ $breadcrumb-divider:                quote(">");
 $breadcrumb-divider-flipped:        $breadcrumb-divider !default;
 $breadcrumb-border-radius:          null !default;
 // scss-docs-end breadcrumb-variables
+
+// Progress bars
+
+// scss-docs-start progress-variables
+$progress-height:                   map-get($border-widths , 5);
+$progress-font-size:                $font-size-base * .75 !default;
+$progress-bg:                       $gray-200 !default;
+$progress-border-radius:            0;
+$progress-box-shadow:               $box-shadow-inset !default;
+$progress-bar-color:                $white !default;
+$progress-bar-bg:                   $primary !default;
+$progress-bar-animation-timing:     1s linear infinite !default;
+$progress-bar-transition:           width .6s ease !default;
+// scss-docs-end progress-variables
+
+
+// Cards
+
+// scss-docs-start card-variables
+
+$card-border-radius:                0;
+$card-border-width:                 0;
+$card-inner-border-radius:          0;
+
+// scss-docs-end card-variables

@@ -31,7 +31,8 @@ h3 {
 
 .instructions {
     @media (min-width: 768px) {
-        border-left: 1px solid #dee2e6; border-right: 1px solid #dee2e6;
+        border-left: 1px solid #dee2e6;
+        border-right: 1px solid #dee2e6;
     }
     table {
         width: 100%;
@@ -43,7 +44,7 @@ h3 {
             vertical-align: bottom;
             tr {
                 th {
-                    padding: .5rem .5rem;
+                    padding: 0.5rem 0.5rem;
                     background-color: var(--bs-table-bg);
                     border-bottom-width: 1px;
                     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
@@ -53,7 +54,7 @@ h3 {
         tbody {
             tr {
                 td {
-                    padding: .5rem .5rem;
+                    padding: 0.5rem 0.5rem;
                     background-color: var(--bs-table-bg);
                     border-bottom-width: 1px;
                     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
@@ -76,6 +77,7 @@ h3 {
 
 .accordion-item {
     border: none;
+    margin-bottom: 0;
 }
 
 .accordion-button {
@@ -110,7 +112,8 @@ h3 {
     border: 0;
     border-radius: 0;
     overflow-anchor: none;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
 }
 
 .accordion-child {
@@ -122,14 +125,9 @@ h3 {
     }
 }
 
-.progress {
-    // border-radius: 0;
-    height: map-get($border-widths , 5);
-}
-
 .stars {
     font-size: map-get($font-sizes, 4);
-    padding-left: .777rem;
+    padding-left: 0.777rem;
 }
 
 .bg-theme {
@@ -165,11 +163,19 @@ h3 {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
-  }
-  .video-wrapper iframe {
+}
+.video-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-  }
+}
+
+.card {
+    border: none;
+}
+
+.nav-link {
+    padding: 0;
+}

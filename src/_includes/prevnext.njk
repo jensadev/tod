@@ -1,7 +1,7 @@
 {% set currentPage %}{{ page.fileSlug }}{% endset %}
 {% set navPages = collections.all | eleventyNavigation(eleventyNavigation.parent) %}
-<nav class="mt-2">
-    <ul class="nav justify-content-between w-100 text-uppercase">
+<nav class="mt-3">
+    <ul class="nav justify-content-between w-100">
         {%- set previousPost = navPages | prev(page.url) %}
         <li class="nav-item">
             {%- if previousPost %}
