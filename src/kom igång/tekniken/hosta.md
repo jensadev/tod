@@ -3,7 +3,7 @@ title: Hosta
 eleventyNavigation:
     key: hosta
     parent: tekniken
-    order: 3
+    order: 6
     excerpt: 
 ---
 {% intro %}
@@ -20,6 +20,8 @@ För att hosta sidan, så att andra kan använda den så använder den här guid
 {% instruktioner %}
 
 ## Instruktioner
+
+🛑 Kom tillbaka till den här delen när du är klar med resten av guiden.
 
 Skapa ett konto på [Netlify](https://www.netlify.com/).
 

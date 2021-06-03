@@ -3,7 +3,7 @@ title: Metadata
 eleventyNavigation:
     key: metadata
     parent: tekniken
-    order: 2
+    order: 3
     excerpt: 
 ---
 {% intro %}
@@ -24,6 +24,8 @@ att sidans funktioner ska fungera.
 {% instruktioner %}
 
 ## Instruktioner
+
+🛑 Vänta med redigeringen av metadata tills du är klar med [Min kurs delen](../min-kurs/min-kurs.html) av guiden.
 
 Öppna ```src/_data/meta.js``` för redigering.
 

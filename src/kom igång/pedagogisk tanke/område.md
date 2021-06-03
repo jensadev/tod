@@ -9,7 +9,7 @@ eleventyNavigation:
 {% intro %}
 
 ## Introduktion
-Området samlar delarna.
+Ett område är en specifik del i ett tema. Det kan vara olika system, tekniker osv.
 
 ### Tänk på
  -

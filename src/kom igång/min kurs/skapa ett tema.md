@@ -9,6 +9,7 @@ eleventyNavigation:
 {% intro %}
 
 ## Introduktion
+I detta repo kan du skapa ditt första tema. 
 
 ### Sidan använder
 

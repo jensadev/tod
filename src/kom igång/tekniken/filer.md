@@ -3,7 +3,7 @@ title: Filer
 eleventyNavigation:
     key: filer
     parent: tekniken
-    order: 1
+    order: 2
     excerpt: 
 ---
 {% intro %}

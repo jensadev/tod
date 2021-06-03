@@ -3,7 +3,7 @@ title: Installation
 eleventyNavigation:
     key: installation
     parent: tekniken
-    order: 0
+    order: 1
     excerpt: 
 ---
 {% intro %}
