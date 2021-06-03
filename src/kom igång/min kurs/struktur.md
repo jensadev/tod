@@ -35,6 +35,8 @@ Studera strukturen för den här guiden.
         - ```index.md``` för området med områdets front matter
         - ```del.md``` där del är namnet på en del, ex. *struktur.md*
 
+{% image "./src/images/struktur.png", "Skärmdump av strukturen" %}
+
 {% endinstruktioner %}
 
 {% uppgifter %}

@@ -3,7 +3,7 @@ title: Hosta
 eleventyNavigation:
     key: hosta
     parent: tekniken
-    order: 6
+    order: 8
     excerpt: 
 ---
 {% intro %}
