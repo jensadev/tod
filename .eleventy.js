@@ -3,7 +3,28 @@ const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 const slugify = require('slugify');
-const emojiReadTime = require("@11tyrocks/eleventy-plugin-emoji-readtime");
+const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
+const Image = require('@11ty/eleventy-img');
+
+async function imageShortcode(src, alt, sizes) {
+    let metadata = await Image(src, {
+        widths: [600],
+        formats: ['avif', 'jpeg'],
+        outputDir: './public/img/'
+    });
+
+    let imageAttributes = {
+        alt,
+        sizes,
+        loading: 'lazy',
+        decoding: 'async'
+    };
+
+    // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
+    return Image.generateHTML(metadata, imageAttributes, {
+        whitespaceMode: 'inline'
+    });
+}
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.setDataDeepMerge(true);
@@ -11,21 +32,25 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
     eleventyConfig.addPlugin(emojiReadTime, {
         emoji: '📕',
-        label: "minuters läsning",
+        label: 'minuters läsning',
         wpm: 160,
-        bucketSize: 3,
-      });
+        bucketSize: 3
+    });
 
     eleventyConfig.addWatchTarget('./src/sass/');
     eleventyConfig.addWatchTarget('./src/js/');
 
     eleventyConfig.addPassthroughCopy('./src/js');
-    eleventyConfig.addPassthroughCopy('./src/images');
+    // eleventyConfig.addPassthroughCopy('./src/images');
     eleventyConfig.addPassthroughCopy('./src/favicon.ico');
 
-    eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+    eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
 
-    eleventyConfig.addShortcode("youtube", (code) => {
+    eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+    eleventyConfig.addLiquidShortcode("image", imageShortcode);
+    eleventyConfig.addJavaScriptFunction("image", imageShortcode);
+
+    eleventyConfig.addShortcode('youtube', (code) => {
         return `<div class="video-wrapper"><iframe 
             width="560"
             height="315"
@@ -59,33 +84,32 @@ module.exports = function (eleventyConfig) {
         return path.split('/').slice(0, -1).join('/');
     });
 
-    eleventyConfig.addFilter("prev", (arr, currPage) => {
+    eleventyConfig.addFilter('prev', (arr, currPage) => {
         const currentIndex = arr.findIndex((page) => page.url === currPage);
-        return arr[currentIndex -1];
-      });
+        return arr[currentIndex - 1];
+    });
 
-      eleventyConfig.addFilter("next", (arr, currPage) => {
+    eleventyConfig.addFilter('next', (arr, currPage) => {
         const currentIndex = arr.findIndex((page) => page.url === currPage);
-        return arr[currentIndex +1];
-      });
+        return arr[currentIndex + 1];
+    });
 
     eleventyConfig.addFilter('capitalize ', (str) => {
-        return s.charAt(0).toUpperCase() + s.slice(1)
+        return s.charAt(0).toUpperCase() + s.slice(1);
     });
 
     eleventyConfig.addFilter('slugUrl', (str) => {
         return slugify(str, {
             lower: true,
             strict: false,
-            remove: /["]/g,
-          });
+            remove: /["]/g
+        });
     });
 
     /* Markdown Overrides */
     let markdownLibrary = markdownIt({
         html: true
-    })
-    .use(markdownItAnchor, {
+    }).use(markdownItAnchor, {
         permalink: true,
         permalinkClass: 'anchor',
         permalinkSymbol: '#',
@@ -108,4 +132,4 @@ module.exports = function (eleventyConfig) {
         }
     };
 };
-665
+665;
