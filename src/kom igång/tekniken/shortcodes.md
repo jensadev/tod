@@ -1,9 +1,9 @@
 ---
-title: Videos
+title: Shortcodes
 eleventyNavigation:
-    key: videos
+    key: shortcodes
     parent: tekniken
-    order: 7
+    order: 6
     excerpt: 
 ---
 {% intro %}

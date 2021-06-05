@@ -3,7 +3,7 @@ title: Bilder
 eleventyNavigation:
     key: bilder
     parent: tekniken
-    order: 6
+    order: 7
     excerpt: 
 ---
 {% intro %}

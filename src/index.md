@@ -6,7 +6,7 @@ eleventyNavigation:
     key: ämnestitel
 ---
 {% lead %}
-Detta är ämnets indexsida som kommer att visas innan ämnets olika områden.
+Detta är ämnets indexsida som kommer att visas innan ämnets olika teman och områden.
 Just den här delen skrivs med en shortcode för en stilad ingress.
 {% endlead %}
 
