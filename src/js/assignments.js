@@ -36,6 +36,7 @@ const createLabel = (text) => {
 
 const createCheckbox = (id, type) => {
     const input = document.createElement('input');
+    input.classList.add('checkbox');
     input.type = "checkbox";
     input.name = id;
     input.id = id;
