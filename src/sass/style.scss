@@ -8,7 +8,7 @@ li {
 
 h1 {
     max-width: 15ch;
-    letter-spacing: -.1rem;
+    letter-spacing: -.0777rem;
     font-weight: $font-weight-bold !important;
 }
 
@@ -153,13 +153,14 @@ h3 {
 }
 
 .breadcrumb-item {
+    letter-spacing: .0777rem;
     &::before {
         color: shift-color($color-on-primary, $link-shade-percentage) !important;
     }
     &.active {
         color: shift-color($color-on-primary, $link-shade-percentage) !important;
     }
-}
+} 
 
 .nav-item {
     display: flex;
