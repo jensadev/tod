@@ -1,6 +1,7 @@
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
+const mila = require('markdown-it-link-attributes');
 const markdownItAnchor = require('markdown-it-anchor');
 const slugify = require('slugify');
 const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
@@ -122,6 +123,13 @@ module.exports = function (eleventyConfig) {
                 .toLowerCase()
                 .replace(/[\s+~\/]/g, '-')
                 .replace(/[().`,%·'"!?¿:@*]/g, '')
+    })
+    .use(mila, {
+        pattern: /^https:/,
+        attrs: {
+            target: '_blank',
+            rel: 'noopener'
+        }
     });
     eleventyConfig.setLibrary('md', markdownLibrary);
 
@@ -132,4 +140,3 @@ module.exports = function (eleventyConfig) {
         }
     };
 };
-665;

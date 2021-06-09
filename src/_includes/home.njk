@@ -10,7 +10,11 @@ layout: base.njk
         <div class="mt-3 accordion-item">
             <h2 class="accordion-header">
                 {# <a class="accordion-link" href="{{ entry.url | url }}">{{ entry.title | capitalize }}</a> #}
-                <span class="accordion-link">{{ entry.title | capitalize }}</span>
+                <span
+                    class="accordion-link"
+                    title="{{ entry.excerpt }}">
+                    {{ entry.title | capitalize }}
+                </span>
             </h2>
         </div>
         {% if entry.children.length %}
@@ -20,6 +24,7 @@ layout: base.njk
                         <button
                             class="accordion-button collapsed"
                             type="button"
+                            title="{{ child.excerpt }}"
                             data-bs-toggle="collapse"
                             data-bs-target="#{{ child.title | slug }}"
                             aria-expanded="false"
@@ -27,12 +32,23 @@ layout: base.njk
                             {{ child.title | capitalize }}
                         </button>
                     </h3>
-                    <div id="{{ child.title | slug }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ child.title | slug }}" data-bs-parent="#accordion">
+                    <div 
+                        id="{{ child.title | slug }}"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="heading-{{ child.title | slug }}"
+                        data-bs-parent="#accordion">
                         <div class="accordion-body">
                             {% if child.children.length %}
                                 <ul class="list-unstyled">
                                 {% for child in child.children %}
-                                    <li class="d-flex align-items-center"><a  class="accordion-child" href="{{ child.url | url }}">{{ child.title | capitalize }}</a></li>
+                                    <li class="d-flex align-items-center">
+                                        <a 
+                                            title="{{ child.excerpt }}"
+                                            class="accordion-child"
+                                            href="{{ child.url | url }}">
+                                            {{ child.title | capitalize }}
+                                        </a>
+                                    </li>
                                 {% endfor %}
                                 </ul>
                             {% endif %}

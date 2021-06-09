@@ -27,14 +27,16 @@
         <header class="bg-theme color-theme">
             <div class="container pt-4 pb-1">
                 <h1 class="text-nowrap text-uppercase">
-                    {% if category %}
-                        {{ category | capitalize }} -
-                    {% endif %}
-                    {% if page.fileSlug %}
-                        {{ title }}
-                    {% else %}
-                        {{ meta.siteName }}
-                    {% endif %}
+                    <a class="site-header" href="/" title="Tillbaka till startsidan">
+                        {% if category %}
+                            {{ category | capitalize }} -
+                        {% endif %}
+                        {% if page.fileSlug %}
+                            {{ title }}
+                        {% else %}
+                            {{ meta.siteName }}
+                        {% endif %}
+                    </a>
                 </h1>
                 {% include "breadcrumbs.njk" %}
             </div>
