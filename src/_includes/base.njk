@@ -25,20 +25,16 @@
     </head>
     <body class="page-{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %}">
         <header class="bg-theme color-theme">
-            <div class="container pt-4 pb-1">
-                <h1 class="text-nowrap text-uppercase">
-                    <a class="site-header" href="/" title="Tillbaka till startsidan">
-                        {% if category %}
-                            {{ category | capitalize }} -
-                        {% endif %}
-                        {% if page.fileSlug %}
-                            {{ title }}
-                        {% else %}
+            <div class="container pt-3 pb-1">
+                {% if page.fileSlug === '' %}
+                    <h1 class="text-nowrap text-uppercase">
+                        <a class="site-header" href="/" title="Tillbaka till startsidan">
                             {{ meta.siteName }}
-                        {% endif %}
-                    </a>
-                </h1>
-                {% include "breadcrumbs.njk" %}
+                        </a>
+                    </h1>
+                {% else %}
+                    {% include "breadcrumbs.njk" %}
+                {% endif %}
             </div>
         </header>
         <main class="container pt-4">

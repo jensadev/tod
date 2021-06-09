@@ -18,6 +18,20 @@ h3 {
     max-width: 25ch;
 }
 
+h1 {
+    font-size: map-get($font-sizes, 1);
+}
+h2 {
+    font-size: map-get($font-sizes, 3);
+    font-weight: $font-weight-bold;
+}
+h3 {
+    font-size: map-get($font-sizes, 4);
+}
+h4 {
+    font-size: map-get($font-sizes, 4);
+}
+
 .navbar {
     position: relative;
     display: flex;
@@ -107,7 +121,7 @@ h3 {
 
 .accordion-link {
     font-size: map-get($font-sizes, 2);
-    font-weight: 700;
+    font-weight: $font-weight-bold !important;
     text-decoration: none;
     position: relative;
     display: flex;
@@ -189,8 +203,8 @@ h3 {
 }
 
 .checkbox {
-    width: 1.333rem;
-    height: 1.333rem;
+    width: 1rem;
+    height: 1rem;
 }
 
 .site-header {
@@ -199,4 +213,10 @@ h3 {
     &:hover {
         color: inherit;
     }
+}
+
+.part-title {
+    font-size: map-get($font-sizes, 2);
+    font-weight: $font-weight-bold;
+    margin-bottom: map-get($spacers, 1);
 }
