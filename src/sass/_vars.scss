@@ -64,7 +64,6 @@ $body-bg:                   $gray-100;
 $body-color:                $gray-900 !default;
 $body-text-align:           null !default;
 
-
 // Links
 //
 // Style anchor elements.
@@ -77,6 +76,8 @@ $link-hover-decoration:                   null !default;
 
 $stretched-link-pseudo-element:           after !default;
 $stretched-link-z-index:                  1 !default;
+
+$text-muted:                  $gray-700;
 
 // Paragraphs
 //
@@ -241,7 +242,7 @@ $breadcrumb-font-size:              null !default;
 $breadcrumb-padding-y:              0 !default;
 $breadcrumb-padding-x:              0 !default;
 $breadcrumb-item-padding-x:         .5rem !default;
-$breadcrumb-margin-bottom:          1rem !default;
+$breadcrumb-margin-bottom:          .5rem;
 $breadcrumb-bg:                     null !default;
 $breadcrumb-divider-color:          $gray-600 !default;
 $breadcrumb-active-color:           $gray-600 !default;
