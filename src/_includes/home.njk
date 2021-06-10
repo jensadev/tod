@@ -12,7 +12,7 @@ layout: base.njk
                 {# <a class="accordion-link" href="{{ entry.url | url }}">{{ entry.title | capitalize }}</a> #}
                 <span
                     class="accordion-link"
-                    title="{{ entry.excerpt }}">
+                    title="Tema: {{ entry.excerpt }}">
                     {{ entry.title | capitalize }}
                 </span>
             </h2>
@@ -24,7 +24,7 @@ layout: base.njk
                         <button
                             class="accordion-button collapsed"
                             type="button"
-                            title="{{ child.excerpt }}"
+                            title="Område: {{ child.excerpt }}"
                             data-bs-toggle="collapse"
                             data-bs-target="#{{ child.title | slug }}"
                             aria-expanded="false"
@@ -43,7 +43,7 @@ layout: base.njk
                                 {% for child in child.children %}
                                     <li class="d-flex align-items-center">
                                         <a 
-                                            title="{{ child.excerpt }}"
+                                            title="Del: {{ child.excerpt }}"
                                             class="accordion-child"
                                             href="{{ child.url | url }}">
                                             {{ child.title | capitalize }}
