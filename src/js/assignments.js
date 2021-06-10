@@ -1,5 +1,5 @@
 /** look away 💩 **/
-let storage, part, subject, assignmentsElements, extra, area;
+let storage, part, subject, assignmentsElements, extra, area, facit;
 
 const strip = (str) => str.trim()
     .toLowerCase()
@@ -7,6 +7,16 @@ const strip = (str) => str.trim()
     .replace(/å/g, 'a')
     .replace(/ä/g, 'a')
     .replace(/ö/g, 'o');
+
+const showElement = (element) => {
+    element.classList.add('visible');
+    element.classList.remove('invisible');
+}
+
+const hideElement = (element) => {
+    element.classList.remove('visible');
+    element.classList.add('invisible');
+}
 
 const checkAssignmentExists = (arr, id) => {
     let check = -1;
@@ -66,11 +76,15 @@ const createCheckbox = (id, type) => {
 
         if (type === 'basic' && extra) {
             if (checkAssignmentsStatus(storage[area][part][type], assignmentsElements.basic.length)) {
-                extra.classList.add('visible');
-                extra.classList.remove('invisible');
+                showElement(extra);
+                if (facit) {
+                    facit.classList.remove('d-none');
+                }
             } else {
-                extra.classList.remove('visible');
-                extra.classList.add('invisible');
+                hideElement(extra);
+                if (facit) {
+                    facit.classList.add('d-none');
+                }
             }
         }
         window.localStorage.setItem(subject, JSON.stringify(storage));
@@ -108,6 +122,9 @@ window.addEventListener('load', () => {
     subject = strip(title[1]);
     part = strip(title[0]);
     area = strip(document.querySelector('#area').textContent);
+
+    facit = document.querySelector('.facit');
+
     const assignmentsContainer = document.querySelector('.assignments')
     if (!assignmentsContainer) return;
     extra = assignmentsContainer.querySelector('.extra');
@@ -143,11 +160,15 @@ window.addEventListener('load', () => {
 
     if(extra) {
         if (checkAssignmentsStatus(storage[area][part].basic, assignmentsElements.basic.length) ) {
-            extra.classList.add('visible');
-            extra.classList.remove('invisible');
+            showElement(extra);
+            if (facit) {
+                facit.classList.remove('d-none');
+            }
         } else {
-            extra.classList.remove('visible');
-            extra.classList.add('invisible');
+            hideElement(extra);
+            if (facit) {
+                facit.classList.add('d-none');
+            }
         }    
     }
 
