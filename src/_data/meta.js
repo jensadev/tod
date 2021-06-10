@@ -7,8 +7,16 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
 }
 
-const color = colors && colors[getRandomIntInclusive(0, colors.length)];
-const pick = color && color[getRandomIntInclusive(0, color.length)];
+const getColorPick = () => {
+    try {
+        const color = colors[getRandomIntInclusive(0, colors.length)];
+        const pick = color[getRandomIntInclusive(0, color.length)];
+        return pick;
+    } catch (e) {
+        console.log(e);
+        return '#121212';
+    }
+};
 
 /* Här nedanför kan du ändra */
 module.exports = {
@@ -19,7 +27,7 @@ module.exports = {
     language: 'sv',
    // Sidans namn, måste överrensstämma med src/index.md title front matter
     siteName: 'Ämnestitel',
-    themeColor: pick, // pick or color string '#ff4e50'
+    themeColor: getColorPick(), // pick or color string '#ff4e50'
     siteDescription:
         'Instruktionssida för siteskaparen för Tema Område Del, TOD.',
     author: {
