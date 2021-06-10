@@ -33,3 +33,10 @@ eleventyNavigation:
 
 
 {% enduppgifter %}
+
+{% facit %}
+
+## Facit
+
+
+{% endfacit %}

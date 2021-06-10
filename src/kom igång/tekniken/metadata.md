@@ -15,8 +15,8 @@ att sidans funktioner ska fungera.
 
 ### Tänk på
 - 🛑 Ändra inte funktionerna i början av filen
-- siteName i metadata måste stämma överrens med title i src/index.md
-- Vill du välja färg för sidan, använd en färgkod i themeColor
+- siteName i metadata måste stämma överrens med title i ```src/index.md```
+- Vill du välja färg för sidan, ange en färgkod i themeColor
 - Sidan är i javascript, syntax är viktigt
 
 {% endintro %}
@@ -25,7 +25,10 @@ att sidans funktioner ska fungera.
 
 ## Instruktioner
 
-🛑 Vänta med redigeringen av metadata tills du är klar med [Min kurs delen](../min-kurs/min-kurs.html) av guiden.
+🛑 När du redigerar metadata(```siteName:``` egenskapen) så kommer guiden att sluta fungera.
+Detta på grund av att temat [Kom igång](/kom-igang/kom-igang.html) är kopplat till ```siteName: 'Ämnestitel'```. 
+Av den anledningen kan det vara klokt att kolla igenom 
+[Min kurs delen](../min-kurs/min-kurs.html) av guiden först.
 
 Öppna ```src/_data/meta.js``` för redigering.
 
@@ -55,9 +58,9 @@ module.exports = {
 };
 ```
 
-🛑 Om du ändrat siteName så måste du även redigera title front matter i ```src/index.md```
+🛑 Om du ändrat siteName så måste du även redigera title front matter i ```src/index.md```.
 
-🛑 siteName under eleventyNavigation skrivs i små bokstäver
+🛑 key: siteName under eleventyNavigation skrivs i små bokstäver.
 
 ```md
 ---
@@ -77,10 +80,35 @@ eleventyNavigation:
 ### ⭐
 #### Uppgift 1
 
-Redigera och spara meta.js
+Redigera och spara ```meta.js```.
 
 #### Uppgift 2
 
-Redigera titel i index.md
+Redigera titel i ```index.md```.
 
 {% enduppgifter %}
+
+{% facit %}
+
+## Facit
+
+#### Uppgift 1
+
+Kontrollera så att du har startat Eleventys-byggsystem.
+
+```bash
+npm start
+```
+Efter att du redigerat filen och sparat så kommer din sida byggas på nytt.
+Stämmer inte din metadata överrens med front matter i ```index.md``` så kommer byggscriptet
+generera fel och din sida kommer inte byggas.
+
+#### Uppgift 2
+
+Om du redigerat key under eleventyNavigation och sparat så kommer byggscriptet 
+att köras igen. Om de nu stämmer överrens så bör sidan bygga utan problem.
+
+Ladda sidan på [localhost](http://localhost:8080) och kontrollera att dina 
+senaste ändringar syns.
+
+{% endfacit %}
