@@ -4,9 +4,9 @@ layout: base.njk
 <span id="area" class="visually-hidden">{{ eleventyNavigation.parent }}</span>
 
 <div class="row p-2 bg-white">
-    <header class="d-flex justify-content-between align-items-baseline border-bottom mb-2">
+    <header class="d-flex justify-content-between align-items-baseline border-bottom mb-3">
         <h1 class="part-title" id="title">
-            <a class="anchor" href="#title">#</a>{{ title }}
+            {{ title }}<a class="anchor" href="#title">#</a>
         </h1>
         <span class="text-muted">{{ content | emojiReadTime }}</span>
     </header>

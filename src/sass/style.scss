@@ -8,7 +8,7 @@ li {
 
 h1 {
     max-width: 15ch;
-    letter-spacing: -.0777rem;
+    letter-spacing: -0.0777rem;
     font-weight: $font-weight-bold !important;
 }
 
@@ -84,7 +84,20 @@ h4 {
 }
 
 .anchor {
-    text-decoration: none;
+    text-decoration:none;
+    margin-left: map-get($spacers , 1);
+}
+a[href].anchor,
+a[href].anchor:visited {
+    visibility:hidden
+}
+:focus>a[href].anchor,
+:focus>a[href].anchor:visited,
+:hover>a[href].anchor,
+:hover>a[href].anchor:visited,
+a[href].anchor:focus,
+a[href].anchor:focus:visited {
+    visibility:visible;
 }
 
 .accordion {
@@ -100,7 +113,7 @@ h4 {
 }
 
 .accordion-button {
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
     font-size: map-get($font-sizes, 3);
     padding: map-get($spacers, 3) map-get($spacers, 4);
     &:hover {
@@ -167,14 +180,14 @@ h4 {
 }
 
 .breadcrumb-item {
-    letter-spacing: .0777rem;
+    letter-spacing: 0.0777rem;
     &::before {
         color: shift-color($color-on-primary, $link-shade-percentage) !important;
     }
     &.active {
         color: shift-color($color-on-primary, $link-shade-percentage) !important;
     }
-} 
+}
 
 .nav-item {
     display: flex;
@@ -218,5 +231,19 @@ h4 {
 .part-title {
     font-size: map-get($font-sizes, 2);
     font-weight: $font-weight-bold;
-    margin-bottom: map-get($spacers, 1);
+}
+
+.facit {
+    padding-top: map-get($spacers, 3);
+    padding-bottom: map-get($spacers, 3);
+    @media (min-width: map-get($grid-breakpoints, md)) {
+        column-count: 2;
+    }
+    h2 {
+        column-span: all;
+    }
+}
+
+pre {
+    margin-bottom: map-get($spacers, 3) !important;
 }
