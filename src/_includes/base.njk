@@ -21,11 +21,12 @@
             {% if page.fileSlug %}
                 {{ title }} -
             {% endif %}
-            {{ meta.siteName }}</title>
+            {{ meta.siteName }}
+        </title>
     </head>
     <body class="page-{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %}">
         <header class="bg-theme color-theme">
-            <div class="container pt-3 pb-1">
+            <div class="container pt-3 pb-2">
                 {% if page.fileSlug === '' %}
                     <h1 class="text-nowrap text-uppercase">
                         <a class="site-header" href="/" title="Tillbaka till startsidan">
@@ -40,19 +41,7 @@
         <main class="container pt-4">
             {{ content | safe }}
         </main>
-        <footer class="mt-auto py-5">
-            <div class="container">
-                <p class="text-muted">Kursen och sidans innehåll &copy; {% year %}
-                    {{ meta.author.name }}.</p>
-                <p class="text-muted">Sidan är skapad av Jens Andreasson utifrån Kaj Schmidts pedagogiska funderingar.</p>
-                <p class="text-muted">Hittar du något som är fel eller inte fungerar, rapportera gärna en
-                    <a href="https://github.com/jensnti/tod-webbutveckling/issues">issue</a>
-                    på GitHub.</p>
-                <p class="text-muted">En mall att bygga från finns på
-                    <a class="text-reset" href="https://github.com/jensnti/tod">GitHub</a>.
-                </p>
-            </div>
-        </footer>
+        {% include "footer.njk" %}
         <script
             defer
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
