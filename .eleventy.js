@@ -66,7 +66,7 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addPairedShortcode('instruktioner', function (content) {
-        return `<section class="col-md-6 my-4 my-md-0 instructions">${content}</section>`;
+        return `<section class="col-md-6 my-3 my-md-0 instructions">${content}</section>`;
     });
 
     eleventyConfig.addPairedShortcode('uppgifter', function (content) {
@@ -75,6 +75,10 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addPairedShortcode('extra', function (content) {
         return `<div class="extra">${content}</div>`;
+    });
+
+    eleventyConfig.addPairedShortcode('facit', function (content) {
+        return `<section class="col border-top mt-3 facit">${content}</section>`;
     });
 
     eleventyConfig.addPairedShortcode('lead', function (content) {
@@ -115,7 +119,7 @@ module.exports = function (eleventyConfig) {
         permalinkClass: 'anchor',
         permalinkSymbol: '#',
         permalinkSpace: false,
-        permalinkBefore: true,
+        permalinkBefore: false,
         level: [1, 2, 3],
         slugify: (s) =>
             s
