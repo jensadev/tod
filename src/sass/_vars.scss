@@ -251,7 +251,7 @@ $breadcrumb-font-size:              null !default;
 $breadcrumb-padding-y:              0 !default;
 $breadcrumb-padding-x:              0 !default;
 $breadcrumb-item-padding-x:         .5rem !default;
-$breadcrumb-margin-bottom:          .5rem;
+$breadcrumb-margin-bottom:          0rem;
 $breadcrumb-bg:                     null !default;
 $breadcrumb-divider-color:          $gray-600 !default;
 $breadcrumb-active-color:           $gray-600 !default;
@@ -284,3 +284,9 @@ $card-border-width:                 0;
 $card-inner-border-radius:          0;
 
 // scss-docs-end card-variables
+
+// scss-docs-start dropdown-variables
+$dropdown-border-radius:            0;
+$dropdown-min-width:                10rem !default;
+
+$input-border-radius:                   0;

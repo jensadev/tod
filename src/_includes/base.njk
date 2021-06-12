@@ -25,19 +25,7 @@
         </title>
     </head>
     <body class="page-{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %}">
-        <header class="bg-theme color-theme">
-            <div class="container pt-3 pb-2">
-                {% if page.fileSlug === '' %}
-                    <h1 class="text-nowrap text-uppercase">
-                        <a class="site-header" href="/" title="Tillbaka till startsidan">
-                            {{ meta.siteName }}
-                        </a>
-                    </h1>
-                {% else %}
-                    {% include "breadcrumbs.njk" %}
-                {% endif %}
-            </div>
-        </header>
+        {% include "header.njk" %}
         <main class="container pt-4">
             {{ content | safe }}
         </main>
