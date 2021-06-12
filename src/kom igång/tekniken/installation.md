@@ -4,7 +4,7 @@ eleventyNavigation:
     key: installation
     parent: tekniken
     order: 1
-    excerpt: 
+    excerpt: Det första steget i att skapa din egen kurswebb
 ---
 {% intro %}
 

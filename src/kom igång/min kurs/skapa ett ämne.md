@@ -3,8 +3,8 @@ title: Skapa ett ämne
 eleventyNavigation:
     key: skapa ett ämne
     parent: min kurs
-    order: 4
-    excerpt: 
+    order: 2
+    excerpt: Ämnessidan är introduktionen till kursen
 ---
 {% intro %}
 

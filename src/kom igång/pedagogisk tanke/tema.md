@@ -4,7 +4,7 @@ eleventyNavigation:
     key: tema
     parent: pedagogisk tanke
     order: 0
-    excerpt: 
+    excerpt: Teman är större koncept i kursen
 ---
 {% intro %}
 

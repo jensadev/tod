@@ -4,7 +4,7 @@ eleventyNavigation:
     key: struktur
     parent: min kurs
     order: 1
-    excerpt: 
+    excerpt: Kurswebben är byggd efter en satt struktur, den är viktig att följa för att systemet ska fungera
 ---
 {% intro %}
 

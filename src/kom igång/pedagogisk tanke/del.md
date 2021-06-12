@@ -4,7 +4,7 @@ eleventyNavigation:
     key: del
     parent: pedagogisk tanke
     order: 2
-    excerpt: 
+    excerpt: Den minsta delen i system och här finns det pedagogiska materialet med uppgifter att göra
 ---
 {% intro %}
 

@@ -4,7 +4,7 @@ eleventyNavigation:
     key: område
     parent: pedagogisk tanke
     order: 1
-    excerpt: 
+    excerpt: Kursens övergripande teman bryts ned i områden
 ---
 {% intro %}
 

@@ -3,8 +3,8 @@ title: Skapa ett tema
 eleventyNavigation:
     key: skapa ett tema
     parent: min kurs
-    order: 2
-    excerpt: 
+    order: 3
+    excerpt: Teman skapas i systemets src mapp och samlar ett eller flera områden
 ---
 {% intro %}
 

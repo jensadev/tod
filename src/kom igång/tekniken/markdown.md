@@ -4,7 +4,7 @@ eleventyNavigation:
     key: markdown
     parent: tekniken
     order: 5
-    excerpt: 
+    excerpt: Innehållet på kurswebbens sidor skrivs i Markdown
 ---
 {% intro %}
 

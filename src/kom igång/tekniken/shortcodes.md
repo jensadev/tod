@@ -4,7 +4,7 @@ eleventyNavigation:
     key: shortcodes
     parent: tekniken
     order: 6
-    excerpt: 
+    excerpt: För att visa innehållet finns det ett antal shortcodes till hjälp
 ---
 {% intro %}
 

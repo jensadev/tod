@@ -4,7 +4,7 @@ eleventyNavigation:
     key: bilder
     parent: tekniken
     order: 7
-    excerpt: 
+    excerpt: För att inkludera bilder i dina delar så krävs det en speciell shortcode
 ---
 {% intro %}
 
