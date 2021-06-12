@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
 
         resultElement.innerHTML = '';
         if (results && results.length > 0) {
-            resultElement.classList.add('show');
+            // resultElement.classList.add('show');
             results.map((result) => {
                 if (i > 10) return;
                 const { id, title, excerpt } = result.doc;
@@ -29,17 +29,17 @@ window.addEventListener('load', () => {
                 p.textContent = excerpt;
                 li.appendChild(p);
 
-                window.addEventListener('click', function handler() {
-                    resultElement.classList.remove('show');
-                    resultElement.innerHTML = '';
-                    document.querySelector('#search-input').value = '';
-                    window.removeEventListener('click', handler);
-                });
+                // window.addEventListener('click', function handler() {
+                //     // resultElement.classList.remove('show');
+                //     resultElement.innerHTML = '';
+                //     document.querySelector('#search-input').value = '';
+                //     window.removeEventListener('click', handler);
+                // });
 
                 i += 1;
             });
         } else {
-            resultElement.classList.remove('show');
+            resultElement.innerHTML = '<li class="dropdown-item disabled">Hittade inga sökresultat</li>';
         }
     };
 

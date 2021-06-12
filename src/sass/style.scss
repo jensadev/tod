@@ -253,20 +253,19 @@ pre {
     margin-bottom: map-get($spacers, 3) !important;
 }
 
-.dropdown-menu {
-    @media (min-width: map-get($grid-breakpoints, md)) {
-        right: 0;
-    }
-    @media (max-width: map-get($grid-breakpoints, md)) {
-        width: 100%;
-    }
-}
+// .dropdown-menu {
+//     @media (min-width: map-get($grid-breakpoints, md)) {
+//         right: 0;
+//     }
+//     @media (max-width: map-get($grid-breakpoints, md)) {
+//         width: 100%;
+//     }
+// }
 
 .dropdown-item {
     overflow: hidden;
     position: relative;
     box-sizing: border-box;
-
     p {
         overflow: hidden;
     }
