@@ -1,0 +1,20 @@
+<nav class="navbar bg-theme color-theme">
+    <div class="container py-3 d-md-flex align-items-center justify-content-between">
+        {% if page.fileSlug === '' %}
+            <h1 class="site-header">
+                <a href="/" title="Tillbaka till startsidan">
+                    {{ meta.siteName }}
+                </a>
+            </h1>
+        {% else %}
+            {% include "breadcrumbs.njk" %}
+        {% endif %}
+        <div class="dropdown d-none d-md-block">
+            <label class="visually-hidden" for="search-input">Sök</label>
+            <input class="form-control" autocomplete="off" type="search" placeholder="Sök..." id="search-input" aria-label="Sök" data-bs-toggle="dropdown"/>
+            <ol id="search-results" class="dropdown-menu dropdown-menu-end" aria-labelledby="search-input">
+                <li class="dropdown-item disabled">Skriv för att söka på sidan...</li>
+            </ol>
+        </div>
+    </div>
+</nav>

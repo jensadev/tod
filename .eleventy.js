@@ -6,6 +6,7 @@ const markdownItAnchor = require('markdown-it-anchor');
 const slugify = require('slugify');
 const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
 const Image = require('@11ty/eleventy-img');
+const searchFilter = require('./src/filters/searchFilter');
 
 async function imageShortcode(src, alt, sizes) {
     let metadata = await Image(src, {
@@ -38,6 +39,11 @@ module.exports = function (eleventyConfig) {
         bucketSize: 3
     });
 
+    eleventyConfig.addFilter('search', searchFilter);
+    eleventyConfig.addCollection('tod', (collection) => {
+        return [...collection.getFilteredByGlob('./src/**/*.md')];
+    });
+
     eleventyConfig.addWatchTarget('./src/sass/');
     eleventyConfig.addWatchTarget('./src/js/');
 
@@ -47,9 +53,9 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
 
-    eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-    eleventyConfig.addLiquidShortcode("image", imageShortcode);
-    eleventyConfig.addJavaScriptFunction("image", imageShortcode);
+    eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
+    eleventyConfig.addLiquidShortcode('image', imageShortcode);
+    eleventyConfig.addJavaScriptFunction('image', imageShortcode);
 
     eleventyConfig.addShortcode('youtube', (code) => {
         return `<div class="video-wrapper"><iframe 
@@ -114,27 +120,28 @@ module.exports = function (eleventyConfig) {
     /* Markdown Overrides */
     let markdownLibrary = markdownIt({
         html: true
-    }).use(markdownItAnchor, {
-        permalink: true,
-        permalinkClass: 'anchor',
-        permalinkSymbol: '#',
-        permalinkSpace: false,
-        permalinkBefore: false,
-        level: [1, 2, 3],
-        slugify: (s) =>
-            s
-                .trim()
-                .toLowerCase()
-                .replace(/[\s+~\/]/g, '-')
-                .replace(/[().`,%·'"!?¿:@*]/g, '')
     })
-    .use(mila, {
-        pattern: /^https:/,
-        attrs: {
-            target: '_blank',
-            rel: 'noopener'
-        }
-    });
+        .use(markdownItAnchor, {
+            permalink: true,
+            permalinkClass: 'anchor',
+            permalinkSymbol: '#',
+            permalinkSpace: false,
+            permalinkBefore: false,
+            level: [1, 2, 3],
+            slugify: (s) =>
+                s
+                    .trim()
+                    .toLowerCase()
+                    .replace(/[\s+~\/]/g, '-')
+                    .replace(/[().`,%·'"!?¿:@*]/g, '')
+        })
+        .use(mila, {
+            pattern: /^https:/,
+            attrs: {
+                target: '_blank',
+                rel: 'noopener'
+            }
+        });
     eleventyConfig.setLibrary('md', markdownLibrary);
 
     return {

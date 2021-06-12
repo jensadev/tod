@@ -3,8 +3,8 @@ title: Skapa ett område
 eleventyNavigation:
     key: skapa ett område
     parent: min kurs
-    order: 3
-    excerpt: 
+    order: 4
+    excerpt: Området skapas under tema, med en egen mapp och index fil
 ---
 {% intro %}
 

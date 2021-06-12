@@ -25,23 +25,13 @@
         </title>
     </head>
     <body class="page-{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %}">
-        <header class="bg-theme color-theme">
-            <div class="container pt-3 pb-2">
-                {% if page.fileSlug === '' %}
-                    <h1 class="text-nowrap text-uppercase">
-                        <a class="site-header" href="/" title="Tillbaka till startsidan">
-                            {{ meta.siteName }}
-                        </a>
-                    </h1>
-                {% else %}
-                    {% include "breadcrumbs.njk" %}
-                {% endif %}
-            </div>
-        </header>
+        {% include "header.njk" %}
         <main class="container pt-4">
             {{ content | safe }}
         </main>
         {% include "footer.njk" %}
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+        <script defer src="/js/search.js"></script>
         <script
             defer
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

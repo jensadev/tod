@@ -4,7 +4,7 @@ eleventyNavigation:
     key: filer
     parent: tekniken
     order: 2
-    excerpt: 
+    excerpt: Kurswebben har en bestämd filstruktur som måste följas för att den ska kunna byggas
 ---
 {% intro %}
 

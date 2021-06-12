@@ -4,7 +4,7 @@ eleventyNavigation:
     key: front matter
     parent: tekniken
     order: 4
-    excerpt: Förklaring av front matter
+    excerpt: Beskriver extra information om kurswebbens sidor
 ---
 {% intro %}
 

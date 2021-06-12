@@ -4,7 +4,7 @@ eleventyNavigation:
     key: hosta
     parent: tekniken
     order: 8
-    excerpt: 
+    excerpt: Hosting på engelska, hosta eller hysa på svenska är något som krävs för att kurswebben ska kunna användas
 ---
 {% intro %}
 

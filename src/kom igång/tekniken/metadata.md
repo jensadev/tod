@@ -4,7 +4,7 @@ eleventyNavigation:
     key: metadata
     parent: tekniken
     order: 3
-    excerpt: 
+    excerpt: Sidans metadata är information till byggsystemet
 ---
 {% intro %}
 
