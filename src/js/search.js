@@ -39,7 +39,7 @@ window.addEventListener('load', () => {
                 i += 1;
             });
         } else {
-            resultElement.innerHTML = '<li class="dropdown-item disabled">Hittade inga sökresultat</li>';
+            resultElement.innerHTML = '<li class="dropdown-item disabled">Hittade inga sökresultat, försök igen</li>';
         }
     };
 
