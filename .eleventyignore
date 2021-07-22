@@ -1,1 +1,2 @@
-src/sass/*.md
+src/scss/*.md
+node_modules

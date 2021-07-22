@@ -8,6 +8,9 @@ const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
 const Image = require('@11ty/eleventy-img');
 const searchFilter = require('./src/filters/searchFilter');
 
+// Create a helpful production flag
+const isProduction = process.env.NODE_ENV === 'production';
+
 async function imageShortcode(src, alt, sizes) {
     let metadata = await Image(src, {
         widths: [600],
@@ -47,8 +50,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget('./src/sass/');
     eleventyConfig.addWatchTarget('./src/js/');
 
-    eleventyConfig.addPassthroughCopy('./src/js');
-    // eleventyConfig.addPassthroughCopy('./src/images');
     eleventyConfig.addPassthroughCopy('./src/favicon.ico');
 
     eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
@@ -143,6 +144,8 @@ module.exports = function (eleventyConfig) {
             }
         });
     eleventyConfig.setLibrary('md', markdownLibrary);
+
+    eleventyConfig.setUseGitIgnore(false);
 
     return {
         dir: {
