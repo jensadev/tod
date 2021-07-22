@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+const siteSearch =  () => {
     const search = (e) => {
         const results = window.searchIndex.search(e.target.value, {
             bool: 'OR',
@@ -11,7 +11,6 @@ window.addEventListener('load', () => {
 
         resultElement.innerHTML = '';
         if (results && results.length > 0) {
-            // resultElement.classList.add('show');
             results.map((result) => {
                 if (i > 10) return;
                 const { id, title, excerpt } = result.doc;
@@ -51,4 +50,6 @@ window.addEventListener('load', () => {
                 .addEventListener('input', search);
         })
     );
-});
+};
+
+export { siteSearch };
