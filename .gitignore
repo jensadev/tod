@@ -105,3 +105,4 @@ dist
 
 public
 .vscode/settings.json
+src/sass/_color-tokens.scss

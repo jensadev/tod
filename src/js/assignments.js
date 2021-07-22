@@ -1,12 +1,9 @@
+import { strip } from './strip';
+import { checkAssignmentsStatus, checkAssignmentExists } from './check';
+import confetti from 'canvas-confetti';
+
 /** look away 💩 **/
 let storage, part, subject, assignmentsElements, extra, area, facit;
-
-const strip = (str) => str.trim()
-    .toLowerCase()
-    .replace(/ /g, '-')
-    .replace(/å/g, 'a')
-    .replace(/ä/g, 'a')
-    .replace(/ö/g, 'o');
 
 const showElement = (element) => {
     element.classList.add('visible');
@@ -18,23 +15,7 @@ const hideElement = (element) => {
     element.classList.add('invisible');
 }
 
-const checkAssignmentExists = (arr, id) => {
-    let check = -1;
-    arr.forEach((element, index) => {
-        if (element.id === id) check = index;
-    });
-    return check;
-};
-
 const format = (str) => [str.slice(0, -1), ' ', str.slice(-1)].join('');
-
-const checkAssignmentsStatus = (arr, supposedLength) => {
-    let count = 0;
-    arr.forEach(element => {
-        if (element.completed === true) count += 1;
-    });
-    return supposedLength === count ? true : false;
-};
 
 const createLabel = (text) => {
     const label = document.createElement('label');
@@ -117,8 +98,11 @@ const getAssignments = (container) => {
     };
 }
 
-window.addEventListener('load', () => {
+const assignments = () => {
     const title = document.title.split('-');
+
+    if (title[1] === undefined) return;
+    
     subject = strip(title[1]);
     part = strip(title[0]);
     area = strip(document.querySelector('#area').textContent);
@@ -190,4 +174,6 @@ window.addEventListener('load', () => {
     checkBoxElements.forEach(el => {
         el.insertAdjacentElement('beforebegin', createLabel(el.id));
     });
-});
+};
+
+export { assignments };
