@@ -15,7 +15,7 @@ async function imageShortcode(src, alt, sizes) {
     let metadata = await Image(src, {
         widths: [600],
         formats: ['avif', 'jpeg'],
-        outputDir: './public/img/'
+        outputDir: './dist/img/'
     });
 
     let imageAttributes = {
@@ -50,6 +50,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget('./src/sass/');
     eleventyConfig.addWatchTarget('./src/js/');
 
+    eleventyConfig.addPassthroughCopy('./src/fonts');
     eleventyConfig.addPassthroughCopy('./src/favicon.ico');
 
     eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
@@ -150,7 +151,8 @@ module.exports = function (eleventyConfig) {
     return {
         dir: {
             input: 'src',
-            output: 'public'
-        }
+            output: 'dist'
+        },
+        passthroughFileCopy: true
     };
 };

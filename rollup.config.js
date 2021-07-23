@@ -13,7 +13,7 @@ export default {
         //     file: 'public/js/main.bundle.js'
         // },
         {
-            file: 'public/js/bundle.min.js',
+            file: 'dist/js/bundle.min.js',
             format: 'iife',
             name: 'main'
         }
