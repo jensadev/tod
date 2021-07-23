@@ -21,16 +21,14 @@
         }
     }
 
-    &__form {
-        display: block;
-        width: 100%;
-    }
-
     &__dropdown {
         position: relative;
 
         &-menu {
             position: absolute;
+            background-color: $gray-100;
+            background-clip: padding-box;
+            padding: ms(-2);
         }
 
         &-item {
