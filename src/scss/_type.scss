@@ -77,3 +77,24 @@ h2 {
 h3 {
     font-size: ms(1);
 }
+
+p,
+li {
+    max-width: 60ch;
+}
+
+h1 {
+    max-width: 15ch;
+    letter-spacing: - ms(-9);
+}
+
+h2,
+h3 {
+    overflow-wrap: break-word;
+    max-width: 25ch;
+}
+
+.lead {
+    font-size: ms(1);
+    font-weight: 300;
+}
