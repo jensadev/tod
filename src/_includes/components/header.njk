@@ -10,9 +10,11 @@
             {% include "components/breadcrumbs.njk" %}
         {% endif %}
         <div class="navbar__dropdown">
-            <label class="visually-hidden" for="search-input">Sök</label>
-            <input class="navbar__form" autocomplete="off" type="search" placeholder="Sök..." id="search-input" aria-label="Sök" />
-            <ol id="search-results" class="navbar__dropdown-menu" aria-labelledby="search-input">
+            <form class="form">
+                <label class="visually-hidden" for="search-input">Sök</label>
+                <input class="form__control" autocomplete="off" type="search" placeholder="Sök..." id="search-input" aria-label="Sök" />
+            </form>
+            <ol id="search-results" class="navbar__dropdown-menu d-none" aria-labelledby="search-input">
                 <li class="navbar__dropdown-item--disabled">Skriv för att söka på sidan...</li>
             </ol>
         </div>
