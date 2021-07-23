@@ -11,6 +11,7 @@ const siteSearch =  () => {
 
         resultElement.innerHTML = '';
         if (results && results.length > 0) {
+            resultElement.classList.remove('d-none');
             results.map((result) => {
                 if (i > 10) return;
                 const { id, title, excerpt } = result.doc;
@@ -30,7 +31,10 @@ const siteSearch =  () => {
 
                 i += 1;
             });
+        } else if (results && results.length < 1) {
+            resultElement.classList.add('d-none')
         } else {
+            resultElement.classList.remove('d-none');
             resultElement.innerHTML = '<li class="navbar__dropdown-item--disabled">Hittade inga sökresultat, försök igen</li>';
         }
     };
