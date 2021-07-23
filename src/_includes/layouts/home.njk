@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: layouts/base.njk
 ---
 
 {{ content | safe }}
@@ -9,7 +9,6 @@ layout: base.njk
     {% for entry in navPages %}
         <div class="mt-3 accordion-item">
             <h2 class="accordion-header">
-                {# <a class="accordion-link" href="{{ entry.url | url }}">{{ entry.title | capitalize }}</a> #}
                 <span
                     class="accordion-link"
                     title="Tema: {{ entry.excerpt }}">

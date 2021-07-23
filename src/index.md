@@ -1,6 +1,6 @@
 ---
 title: Ämnestitel
-layout: "home.njk"
+layout: "layouts/home.njk"
 category: ämne
 eleventyNavigation:
     key: ämnestitel

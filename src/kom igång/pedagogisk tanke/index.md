@@ -1,6 +1,6 @@
 ---
 title: Pedagogisk tanke
-layout: "area.njk"
+layout: "layouts/area.njk"
 category: område
 eleventyNavigation:
     key: pedagogisk tanke

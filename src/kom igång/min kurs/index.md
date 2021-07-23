@@ -1,6 +1,6 @@
 ---
 title: Min kurs
-layout: "area.njk"
+layout: "layouts/area.njk"
 category: område
 eleventyNavigation:
     key: min kurs

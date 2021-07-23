@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: layouts/base.njk
 ---
 <span id="area" class="visually-hidden">{{ eleventyNavigation.parent }}</span>
 
@@ -13,6 +13,4 @@ layout: base.njk
     {{ content | safe }}
 </div>
 
-{% include "prevnext.njk" %}
-{# <script async defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script> #}
-{# <script defer src="{{ '/js/assignments.js' }}"></script> #}
+{% include "components/prevnext.njk" %}

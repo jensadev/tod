@@ -1,6 +1,6 @@
 ---
 title: Tekniken
-layout: "area.njk"
+layout: "layouts/area.njk"
 category: område
 eleventyNavigation:
     key: tekniken
