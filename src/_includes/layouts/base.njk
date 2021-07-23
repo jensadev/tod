@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ meta.language }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{{ meta.siteDescription }}">
+        <meta name="theme-color" content="{{ meta.themeColor }}">
+        <link rel='icon' type='image/x-icon' href='/favicon.ico'/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"
+            integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="{{ '/css/main.css' }}">
+        <title>
+            {% if page.fileSlug %}
+                {{ title }} -
+            {% endif %}
+            {{ meta.siteName }}
+        </title>
+    </head>
+    <body class="page-{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %}">
+        {% include "components/header.njk" %}
+        <main class="container" tabindex="-1" role="main">
+            {{ content | safe }}
+        </main>
+        {% include "components/footer.njk" %}
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+        <script defer src="/js/bundle.min.js"></script>
+    </body>
+</html>

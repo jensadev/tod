@@ -1,0 +1,27 @@
+@import "reset";
+
+@import "type";
+
+@import "color-tokens";
+
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-900: #212529;
+
+
+@import "utilities/visually-hidden";
+@import "utilities/container";
+
+body {
+    scroll-behavior: smooth;
+}
+
+main:focus {
+    outline: none;
+}
+
+@import "components/navbar";
+@import "components/footer";

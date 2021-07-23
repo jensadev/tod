@@ -1,0 +1,20 @@
+.footer {
+    padding-top: ms(3);
+    padding-bottom: ms(4);
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__col {
+        width: 50%;
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+    }
+
+    p {
+        color: $gray-600;
+    }
+}

@@ -15,7 +15,7 @@ const siteSearch =  () => {
                 if (i > 10) return;
                 const { id, title, excerpt } = result.doc;
                 const li = document.createElement('li');
-                li.classList.add('dropdown-item');
+                li.classList.add('navbar__dropdown-item');
                 resultElement.appendChild(li);
 
                 const a = document.createElement('a');
@@ -28,17 +28,10 @@ const siteSearch =  () => {
                 p.textContent = excerpt;
                 li.appendChild(p);
 
-                // window.addEventListener('click', function handler() {
-                //     // resultElement.classList.remove('show');
-                //     resultElement.innerHTML = '';
-                //     document.querySelector('#search-input').value = '';
-                //     window.removeEventListener('click', handler);
-                // });
-
                 i += 1;
             });
         } else {
-            resultElement.innerHTML = '<li class="dropdown-item disabled">Hittade inga sökresultat, försök igen</li>';
+            resultElement.innerHTML = '<li class="navbar__dropdown-item--disabled">Hittade inga sökresultat, försök igen</li>';
         }
     };
 

@@ -1,0 +1,45 @@
+.navbar {
+    color: $color-primary;
+    background-color: $color-on-primary;
+    padding: ms(-2) 0;
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    &__header {
+        white-space: nowrap;
+        text-transform: uppercase;
+        margin-bottom: 0rem;
+        a {
+            text-decoration: none;
+            color: inherit;
+            &:hover {
+                color: inherit;
+            }
+        }
+    }
+
+    &__form {
+        display: block;
+        width: 100%;
+    }
+
+    &__dropdown {
+        position: relative;
+
+        &-menu {
+            position: absolute;
+        }
+
+        &-item {
+            display: block;
+            width: 100%;
+            &--disabled {
+                color: $gray-600;
+                pointer-events: none;
+            }
+        }
+    }
+}
