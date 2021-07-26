@@ -16,7 +16,7 @@ const siteSearch =  () => {
                 if (i > 10) return;
                 const { id, title, excerpt } = result.doc;
                 const li = document.createElement('li');
-                li.classList.add('navbar__dropdown-item');
+                li.classList.add('dropdown__menu-item');
                 resultElement.appendChild(li);
 
                 const a = document.createElement('a');
@@ -35,7 +35,7 @@ const siteSearch =  () => {
             resultElement.classList.add('d-none')
         } else {
             resultElement.classList.remove('d-none');
-            resultElement.innerHTML = '<li class="navbar__dropdown-item--disabled">Hittade inga sökresultat, försök igen</li>';
+            resultElement.innerHTML = '<li class="dropdown__menu-item--disabled">Hittade inga sökresultat, försök igen</li>';
         }
     };
 
