@@ -4,13 +4,12 @@ layout: layouts/base.njk
 
 {{ content | safe }}
 
-<div class="mt-4 accordion accordion-flush" id="accordion">
+<div class="accordion flow" id="accordion">
     {% set navPages = collections.all | eleventyNavigation(title.toLowerCase()) %}
     {% for entry in navPages %}
-        <div class="mt-3 accordion-item">
-            <h2 class="accordion-header">
+        <div class="accordion__item">
+            <h2 class="accordion__item-header">
                 <span
-                    class="accordion-link"
                     title="Tema: {{ entry.excerpt }}">
                     {{ entry.title | capitalize }}
                 </span>
@@ -18,32 +17,30 @@ layout: layouts/base.njk
         </div>
         {% if entry.children.length %}
             {% for child in entry.children %}
-                <div class="accordion-item">
-                    <h3 class="accordion-header" id="heading-{{ child.title | slug }}">
+                <div class="accordion__item">
+                    <h3 
+                        class="accordion__item-header"
+                        id="heading-{{ child.title | slug }}">
                         <button
-                            class="accordion-button collapsed"
+                            class="accordion__item-button"
                             type="button"
                             title="Område: {{ child.excerpt }}"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#{{ child.title | slug }}"
-                            aria-expanded="false"
                             aria-controls="{{ child.title | slug }}">
                             {{ child.title | capitalize }}
                         </button>
                     </h3>
                     <div 
                         id="{{ child.title | slug }}"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="heading-{{ child.title | slug }}"
-                        data-bs-parent="#accordion">
-                        <div class="accordion-body">
+                        class="accordion__item-collapse"
+                        aria-labelledby="heading-{{ child.title | slug }}">
+                        <div class="accordion__item-body">
                             {% if child.children.length %}
-                                <ul class="list-unstyled">
+                                <ul>
                                 {% for child in child.children %}
-                                    <li class="d-flex align-items-center">
+                                    <li>
                                         <a 
                                             title="Del: {{ child.excerpt }}"
-                                            class="accordion-child"
+                                            class="accordion__item-link"
                                             href="{{ child.url | url }}">
                                             {{ child.title | capitalize }}
                                         </a>

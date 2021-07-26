@@ -20,6 +20,7 @@ $gray-900: #212529;
 body {
     scroll-behavior: smooth;
     background-color: $gray-200;
+    color: $gray-900;
 }
 
 main {
@@ -30,6 +31,13 @@ main {
     }
 }
 
+.bg-theme {
+    background-color: $color-primary
+}
+
 @import "components/navbar";
+@import "components/dropdown";
 @import "components/footer";
 @import "components/form";
+@import "components/accordion";
+@import "components/progress";
