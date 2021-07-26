@@ -1,0 +1,22 @@
+<nav class="navbar" role="navigation" aria-label="Primary">
+    <div class="container navbar__inner">
+        {% if page.fileSlug === '' %}
+            <h1 class="navbar__header">
+                <a href="/" title="Tillbaka till startsidan">
+                    {{ meta.siteName }}
+                </a>
+            </h1>
+        {% else %}
+            {% include "components/breadcrumbs.njk" %}
+        {% endif %}
+        <div class="dropdown">
+            <form class="form">
+                <label class="visually-hidden" for="search-input">Sök</label>
+                <input class="form__control" autocomplete="off" type="search" placeholder="Sök..." id="search-input" aria-label="Sök" />
+            </form>
+            <ol id="search-results" class="dropdown__menu flow d-none" aria-labelledby="search-input">
+                <li class="dropdown__menu-item--disabled">Skriv för att söka på sidan...</li>
+            </ol>
+        </div>
+    </div>
+</nav>

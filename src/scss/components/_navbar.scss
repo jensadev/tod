@@ -20,24 +20,4 @@
             }
         }
     }
-
-    &__dropdown {
-        position: relative;
-
-        &-menu {
-            position: absolute;
-            background-color: $gray-100;
-            background-clip: padding-box;
-            padding: ms(-2);
-        }
-
-        &-item {
-            display: block;
-            width: 100%;
-            &--disabled {
-                color: $gray-600;
-                pointer-events: none;
-            }
-        }
-    }
 }
