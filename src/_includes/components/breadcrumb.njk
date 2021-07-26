@@ -2,17 +2,17 @@
 <nav aria-label="breadcrumb">
     {% if currentPage == "" %}
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+            <li class="breadcrumb__item breadcrumb__item--active" aria-current="page">{{ title }}</li>
         </ol>
     {% else %}
         {% set navPages = collections.all | eleventyNavigationBreadcrumb(currentPage, {includeSelf: true}) %}
         <ol class="breadcrumb">
             {% for entry in navPages %}
-                <li {% if entry.url == page.url %} class="breadcrumb-item active" aria-current="page" {% else %} class="breadcrumb-item" {% endif %}>
+                <li {% if entry.url == page.url %} class="breadcrumb__item breadcrumb__item--active" aria-current="page" {% else %} class="breadcrumb__item" {% endif %}>
                     {% if entry.url == page.url %}
                         {{ entry.title | capitalize }}
                     {% else %}
-                        <a class="link-theme" href="{{ entry.url | url }}">{{ entry.title | capitalize }}</a>
+                        <a class="breadcrumb__item-link" href="{{ entry.url | url }}">{{ entry.title | capitalize }}</a>
                     {% endif %}
                 </li>
             {% endfor %}

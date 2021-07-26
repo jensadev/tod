@@ -32,7 +32,11 @@ main {
 }
 
 .bg-theme {
-    background-color: $color-primary
+    background-color: $color-primary;
+}
+
+.stars {
+    padding-left: ms(-1);
 }
 
 @import "components/navbar";
@@ -41,3 +45,4 @@ main {
 @import "components/form";
 @import "components/accordion";
 @import "components/progress";
+@import "components/breadcrumb";
