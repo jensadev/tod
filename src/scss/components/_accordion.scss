@@ -36,7 +36,6 @@
 
         &-collapse {
             overflow: hidden;
-            max-height: 0;
             transition: max-height 0.2s ease-out;
         }
 
@@ -60,4 +59,8 @@
 
 .active:after {
     transform: rotate(-180deg);
+}
+
+.mh-0 {
+    max-height: 0;
 }
