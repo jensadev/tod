@@ -27,8 +27,8 @@ body {
 }
 
 main {
-    padding-top: ms(3);
-    padding-bottom: ms(3);
+    padding-top: ms(1);
+    padding-bottom: ms(1);
     &:focus {
         outline: none;
     }
@@ -51,5 +51,6 @@ main {
 @import "components/breadcrumb";
 @import "components/anchor";
 @import "components/nav-bottom";
+@import "components/category-list";
 
 @import "components/part";
