@@ -1,7 +1,6 @@
 const accordion = () => {
     const accordionElement = document.querySelector('#accordion');
-    console.log(accordionElement);
-    if (accordionElement === 'undefined') return;
+    if (accordionElement === 'undefined' || accordionElement === null) return;
     const accordionItems = accordionElement.querySelectorAll('.accordion__item');
 
     accordionItems.forEach((item) => {

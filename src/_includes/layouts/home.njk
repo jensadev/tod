@@ -35,7 +35,7 @@ layout: layouts/base.njk
                         aria-labelledby="heading-{{ child.title | slug }}">
                         <div class="accordion__item-body">
                             {% if child.children.length %}
-                                <ul>
+                                <ul class="accordion__item-list">
                                 {% for child in child.children %}
                                     <li>
                                         <a 
