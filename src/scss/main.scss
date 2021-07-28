@@ -17,6 +17,7 @@ $black: #000;
 @import "utilities/container";
 @import 'utilities/flow';
 @import 'utilities/display';
+@import 'utilities/list';
 
 body {
     scroll-behavior: smooth;
@@ -47,3 +48,6 @@ main {
 @import "components/accordion";
 @import "components/progress";
 @import "components/breadcrumb";
+@import "components/anchor";
+
+@import "components/part";

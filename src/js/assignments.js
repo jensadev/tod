@@ -107,11 +107,11 @@ const assignments = () => {
     part = strip(title[0]);
     area = strip(document.querySelector('#area').textContent);
 
-    facit = document.querySelector('.facit');
+    facit = document.querySelector('.part__solution');
 
-    const assignmentsContainer = document.querySelector('.assignments')
+    const assignmentsContainer = document.querySelector('.part__assignments')
     if (!assignmentsContainer) return;
-    extra = assignmentsContainer.querySelector('.extra');
+    extra = assignmentsContainer.querySelector('.part_assignments-extra');
 
     assignmentsElements = getAssignments(assignmentsContainer);
 
@@ -157,16 +157,12 @@ const assignments = () => {
     }
 
     assignmentsElements.basic.forEach(element => {
-        element.classList.add('d-flex');
-        element.classList.add('justify-content-between');
-        element.classList.add('align-items-center');
+        element.classList.add('part__assignments-header');
         element.appendChild(createCheckbox(strip(element.textContent), 'basic'));
     });
 
     assignmentsElements.extra.forEach(element => {
-        element.classList.add('d-flex');
-        element.classList.add('justify-content-between');
-        element.classList.add('align-items-center');
+        element.classList.add('part__assignments-header');
         element.appendChild(createCheckbox(strip(element.textContent), 'extra'));
     });
 

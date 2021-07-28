@@ -1,0 +1,61 @@
+.part {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $gray-100;
+
+    padding: ms(-1);
+
+    &__header {
+        flex-shrink: 0;
+        width: 100%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+
+        padding: 0 ms(-1);
+        margin-bottom: ms(-2);
+
+        border-bottom: 1px solid $gray-300;
+    }
+
+    &__introduction {
+        padding: ms(-1);
+
+        @media (min-width: 768px) {
+            flex: 0 0 auto;
+            width: 25%;
+        }
+    }
+
+    &__instructions {
+        padding: ms(-1);
+
+        @media (min-width: 768px) {
+            flex: 0 0 auto;
+            width: 50%;
+
+            border-left: 1px solid $gray-300;
+            border-right: 1px solid $gray-300;
+        }
+    }
+
+    &__assignments {
+        padding: ms(-1);
+
+        @media (min-width: 768px) {
+            flex: 0 0 auto;
+            width: 25%;
+        }
+
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__solution {
+
+    }
+}

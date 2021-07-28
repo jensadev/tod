@@ -70,23 +70,23 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addPairedShortcode('intro', function (content) {
-        return `<section class="col-md-3 intro">${content}</section>`;
+        return `<section class="part__introduction flow">${content}</section>`;
     });
 
     eleventyConfig.addPairedShortcode('instruktioner', function (content) {
-        return `<section class="col-md-6 my-3 my-md-0 instructions">${content}</section>`;
+        return `<section class="part__instructions flow">${content}</section>`;
     });
 
     eleventyConfig.addPairedShortcode('uppgifter', function (content) {
-        return `<section class="col-md-3 assignments">${content}</section>`;
+        return `<section class="part__assignments flow">${content}</section>`;
     });
 
     eleventyConfig.addPairedShortcode('extra', function (content) {
-        return `<div class="extra">${content}</div>`;
+        return `<div class="part__assignments-extra">${content}</div>`;
     });
 
     eleventyConfig.addPairedShortcode('facit', function (content) {
-        return `<section class="col border-top mt-3 facit">${content}</section>`;
+        return `<section class="part__solution flow">${content}</section>`;
     });
 
     eleventyConfig.addPairedShortcode('lead', function (content) {
