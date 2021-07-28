@@ -56,6 +56,11 @@
     }
 
     &__solution {
+        width: 100%;
+        padding: ms(0) ms(-1);
+        margin-top: ms(-2);
+        border-top: 1px solid $gray-300;
 
+        column-count: 2;
     }
 }
