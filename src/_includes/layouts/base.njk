@@ -25,7 +25,7 @@
     </head>
     <body class="page-{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %}">
         {% include "components/navigation.njk" %}
-        <main class="container flow" tabindex="-1" role="main">
+        <main class="container flow" tabindex="-1" role="main" id="main-content">
             {{ content | safe }}
         </main>
         {% include "components/footer.njk" %}
