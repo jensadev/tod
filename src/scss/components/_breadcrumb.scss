@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .breadcrumb {
     display: flex;
     flex-wrap: wrap;
@@ -5,9 +7,10 @@
     margin: 0;
     list-style: none;
     color: $color-on-primary;
+    font-size: ms(1);
     &__item {
         &--active {
-            color: $color-on-primary;
+            color: color.scale($color-on-primary, $alpha: -20%);
         }
         + .breadcrumb__item {
             padding-left: ms(-2);
@@ -20,6 +23,7 @@
         }
         &-link {
             color: $color-on-primary;
+            text-decoration: none;
         }
     }
 }
