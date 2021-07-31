@@ -1,11 +1,11 @@
 {% set currentPage %}{{ page.fileSlug }}{% endset %}
 {% set navPages = collections.all | eleventyNavigation(eleventyNavigation.parent) %}
-<nav class="mt-3">
-    <ul class="nav justify-content-between w-100">
+<nav class="nav-bottom" role="navigation">
+    <ul class="nav-bottom__list">
         {%- set previousPost = navPages | prev(page.url) %}
-        <li class="nav-item">
+        <li class="nav-bottom__list-item">
             {%- if previousPost %}
-                <a class="nav-link d-flex align-items-center" href="{{ previousPost.url | url }}">
+                <a class="nav-bottom__list-item-link" href="{{ previousPost.url | url }}">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -17,15 +17,15 @@
                             fill-rule="evenodd"
                             d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                     </svg>
-                    <span class="ps-2">{{ previousPost.title | capitalize }}</span>
+                    <span class="nav-bottom__list-text--left">{{ previousPost.title | capitalize }}</span>
                 </a>
             {% endif %}
         </li>
         {%- set nextPost = navPages | next(page.url) %}
-        <li class="nav-item">
+        <li class="nav-bottom__list-item">
             {%- if nextPost %}
-                <a class="nav-link d-flex align-items-center" href="{{ nextPost.url | url }}">
-                    <span class="pe-2">{{ nextPost.title | capitalize }}</span>
+                <a class="nav-bottom__list-item-link" href="{{ nextPost.url | url }}">
+                    <span class="nav-bottom__list-text--right">{{ nextPost.title | capitalize }}</span>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"

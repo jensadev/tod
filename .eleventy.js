@@ -15,7 +15,7 @@ async function imageShortcode(src, alt, sizes) {
     let metadata = await Image(src, {
         widths: [600],
         formats: ['avif', 'jpeg'],
-        outputDir: './public/img/'
+        outputDir: './dist/img/'
     });
 
     let imageAttributes = {
@@ -50,6 +50,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget('./src/sass/');
     eleventyConfig.addWatchTarget('./src/js/');
 
+    eleventyConfig.addPassthroughCopy('./src/fonts');
     eleventyConfig.addPassthroughCopy('./src/favicon.ico');
 
     eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
@@ -59,7 +60,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addJavaScriptFunction('image', imageShortcode);
 
     eleventyConfig.addShortcode('youtube', (code) => {
-        return `<div class="video-wrapper"><iframe 
+        return `<div class="video__wrapper"><iframe 
             width="560"
             height="315"
             src="https://www.youtube-nocookie.com/embed/${code}"
@@ -69,23 +70,23 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addPairedShortcode('intro', function (content) {
-        return `<section class="col-md-3 intro">${content}</section>`;
+        return `<section class="part__introduction flow">${content}</section>`;
     });
 
     eleventyConfig.addPairedShortcode('instruktioner', function (content) {
-        return `<section class="col-md-6 my-3 my-md-0 instructions">${content}</section>`;
+        return `<section class="part__instructions flow">${content}</section>`;
     });
 
     eleventyConfig.addPairedShortcode('uppgifter', function (content) {
-        return `<section class="col-md-3 assignments">${content}</section>`;
+        return `<section class="part__assignments flow">${content}</section>`;
     });
 
     eleventyConfig.addPairedShortcode('extra', function (content) {
-        return `<div class="extra">${content}</div>`;
+        return `<div class="part__assignments-extra">${content}</div>`;
     });
 
     eleventyConfig.addPairedShortcode('facit', function (content) {
-        return `<section class="col border-top mt-3 facit">${content}</section>`;
+        return `<section class="part__solution flow">${content}</section>`;
     });
 
     eleventyConfig.addPairedShortcode('lead', function (content) {
@@ -150,7 +151,8 @@ module.exports = function (eleventyConfig) {
     return {
         dir: {
             input: 'src',
-            output: 'public'
-        }
+            output: 'dist'
+        },
+        passthroughFileCopy: true
     };
 };

@@ -1,0 +1,23 @@
+.navbar {
+    color: $color-on-primary;
+    background-color: $color-primary;
+    padding: ms(-2) 0;
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    &__header {
+        white-space: nowrap;
+        text-transform: uppercase;
+        margin-bottom: 0rem;
+        a {
+            text-decoration: none;
+            color: inherit;
+            &:hover {
+                color: inherit;
+            }
+        }
+    }
+}

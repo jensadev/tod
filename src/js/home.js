@@ -5,7 +5,7 @@ const createProgress = (segments = 0, total = 0) => {
     const progress = document.createElement('div');
     progress.classList.add('progress');
     const bar = document.createElement('div');
-    bar.classList.add('progress-bar');
+    bar.classList.add('progress__bar');
     // bar.classList.add('progress-bar-striped');
     bar.classList.add('bg-theme');
     bar.setAttribute('style', `width: ${segments * total}%`);
@@ -18,7 +18,7 @@ const home = () => {
 
     const storage = JSON.parse(window.localStorage.getItem(subject));
 
-    const sections = document.querySelectorAll('.accordion-item');
+    const sections = document.querySelectorAll('.accordion__item');
 
     let themes = [];
 

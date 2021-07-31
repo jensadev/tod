@@ -3,7 +3,7 @@ import { checkAssignmentsStatus, checkAssignmentExists } from './check';
 import confetti from 'canvas-confetti';
 
 /** look away 💩 **/
-let storage, part, subject, assignmentsElements, extra, area, facit;
+let storage, part, subject, assignmentsElements, extra, area, solution;
 
 const showElement = (element) => {
     element.classList.add('visible');
@@ -55,16 +55,16 @@ const createCheckbox = (id, type) => {
             storage[area][part][type][index].date = Date.now();
         }
 
-        if (type === 'basic' && extra) {
+        if (type === 'basic') {
             if (checkAssignmentsStatus(storage[area][part][type], assignmentsElements.basic.length)) {
-                showElement(extra);
-                if (facit) {
-                    facit.classList.remove('d-none');
+                if (extra) showElement(extra);
+                if (solution) {
+                    solution.classList.remove('d-none');
                 }
             } else {
-                hideElement(extra);
-                if (facit) {
-                    facit.classList.add('d-none');
+                if (extra) hideElement(extra);
+                if (solution) {
+                    solution.classList.add('d-none');
                 }
             }
         }
@@ -107,11 +107,11 @@ const assignments = () => {
     part = strip(title[0]);
     area = strip(document.querySelector('#area').textContent);
 
-    facit = document.querySelector('.facit');
+    solution = document.querySelector('.part__solution');
 
-    const assignmentsContainer = document.querySelector('.assignments')
+    const assignmentsContainer = document.querySelector('.part__assignments')
     if (!assignmentsContainer) return;
-    extra = assignmentsContainer.querySelector('.extra');
+    extra = assignmentsContainer.querySelector('.part__assignments-extra');
 
     assignmentsElements = getAssignments(assignmentsContainer);
 
@@ -142,31 +142,25 @@ const assignments = () => {
         extra: assignmentsElements.extra.length
     };
 
-    if(extra) {
-        if (checkAssignmentsStatus(storage[area][part].basic, assignmentsElements.basic.length) ) {
-            showElement(extra);
-            if (facit) {
-                facit.classList.remove('d-none');
-            }
-        } else {
-            hideElement(extra);
-            if (facit) {
-                facit.classList.add('d-none');
-            }
-        }    
-    }
+    if (checkAssignmentsStatus(storage[area][part].basic, assignmentsElements.basic.length) ) {
+        if (extra) showElement(extra);
+        if (solution) {
+            solution.classList.remove('d-none');
+        }
+    } else {
+        if (extra) hideElement(extra);
+        if (solution) {
+            solution.classList.add('d-none');
+        }
+    }    
 
     assignmentsElements.basic.forEach(element => {
-        element.classList.add('d-flex');
-        element.classList.add('justify-content-between');
-        element.classList.add('align-items-center');
+        element.classList.add('part__assignments-header');
         element.appendChild(createCheckbox(strip(element.textContent), 'basic'));
     });
 
     assignmentsElements.extra.forEach(element => {
-        element.classList.add('d-flex');
-        element.classList.add('justify-content-between');
-        element.classList.add('align-items-center');
+        element.classList.add('part__assignments-header');
         element.appendChild(createCheckbox(strip(element.textContent), 'extra'));
     });
 

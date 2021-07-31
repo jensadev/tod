@@ -1,0 +1,27 @@
+{% set currentPage %}{{ page.fileSlug }}{% endset %}
+{% set navPages = collections.all | eleventyNavigation(currentPage) %}
+{% macro renderNavListItem(entry, index) %}
+    <div class="card">
+        <div class="card__header">
+            <h3 class="card__title">{{ index }}. {{ entry.title | capitalize }}</h3>
+        </div>
+        <div class="card__body">
+            <p class="card__text">{{ entry.excerpt }}</p>
+            {%- if entry.children.length -%}
+                <ol>
+                    {% for child in entry.children %}
+                        <li>{{ child.title | capitalize }}</li>
+                    {% endfor %}
+                </ol>
+            {% endif %}
+            <p class="card__text">
+                <a class="stretched-link" href="{{ entry.url | url }}">{{ entry.title | capitalize }}</a>
+            </p>
+        </div>
+    </div>
+{% endmacro %}
+<div class="category-list">
+    {% for entry in navPages %}
+        {{ renderNavListItem(entry, loop.index) }}
+    {% endfor %}
+</div>

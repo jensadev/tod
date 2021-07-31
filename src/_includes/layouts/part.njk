@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+---
+<span id="area" class="visually-hidden">{{ eleventyNavigation.parent }}</span>
+
+<div class="part">
+    <header class="part__header">
+        <h1 class="part__header-title" id="title">
+            {{ title }}<a class="anchor" href="#title">#</a>
+        </h1>
+        <span class="text-muted">{{ content | emojiReadTime }}</span>
+    </header>
+    {{ content | safe }}
+</div>
+
+{% include "components/nav-bottom.njk" %}

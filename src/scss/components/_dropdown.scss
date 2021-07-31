@@ -1,0 +1,22 @@
+.dropdown {
+    position: relative;
+    color: $gray-900;
+    
+    &__menu {
+        position: absolute;
+        background-color: $white;
+        background-clip: padding-box;
+        padding: ms(-2);
+        min-width: ms(11);
+        right: 0;
+
+        &-item {
+            display: block;
+            width: 100%;
+            &--disabled {
+                color: $gray-600;
+                pointer-events: none;
+            }
+        }
+    }
+}
