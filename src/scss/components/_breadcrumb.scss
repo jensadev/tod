@@ -7,7 +7,9 @@
     margin: 0;
     list-style: none;
     color: $color-on-primary;
-    font-size: ms(1);
+    @media (min-width: 768px) {
+        font-size: ms(1);
+    }
     &__item {
         &--active {
             color: color.scale($color-on-primary, $alpha: -20%);
