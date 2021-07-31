@@ -33,7 +33,6 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.6",
     "@11tyrocks/eleventy-plugin-emoji-readtime": "^1.0.1",
     "a11y-color-tokens": "^0.4.0",
-    "bootstrap": "^5.0.0-beta3",
     "canvas-confetti": "^1.4.0",
     "elasticlunr": "^0.9.5",
     "markdown-it": "^10.0.0",
