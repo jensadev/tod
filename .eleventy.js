@@ -60,7 +60,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addJavaScriptFunction('image', imageShortcode);
 
     eleventyConfig.addShortcode('youtube', (code) => {
-        return `<div class="video-wrapper"><iframe 
+        return `<div class="video__wrapper"><iframe 
             width="560"
             height="315"
             src="https://www.youtube-nocookie.com/embed/${code}"
