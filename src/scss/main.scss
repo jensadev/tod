@@ -42,6 +42,10 @@ main {
     padding-left: ms(-1);
 }
 
+.invisible {
+    display: none;
+}
+
 @import "components/navbar";
 @import "components/dropdown";
 @import "components/footer";
