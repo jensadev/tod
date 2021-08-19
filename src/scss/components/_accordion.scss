@@ -1,6 +1,9 @@
 .accordion {
     background-color: $gray-100;
     &__item {
+        &--top {
+            --flow-space: 0rem;
+        }
         h2 {
             padding: ms(0);
         }
