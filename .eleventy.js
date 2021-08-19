@@ -82,7 +82,7 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addPairedShortcode('extra', function (content) {
-        return `<div class="part__assignments-extra">${content}</div>`;
+        return `<div class="part__assignments-extra flow">${content}</div>`;
     });
 
     eleventyConfig.addPairedShortcode('facit', function (content) {
