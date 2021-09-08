@@ -13,14 +13,14 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 async function imageShortcode(src, alt, sizes) {
     let metadata = await Image(src, {
-        widths: [600],
-        formats: ['avif', 'jpeg'],
+        widths: [300, 600],
+        formats: ['webp', 'avif', 'jpeg'],
         outputDir: './dist/img/'
     });
 
     let imageAttributes = {
-        alt,
-        sizes,
+        alt: alt,
+        sizes : sizes || '100%',
         loading: 'lazy',
         decoding: 'async'
     };
