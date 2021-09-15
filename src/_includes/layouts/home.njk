@@ -3,7 +3,7 @@ layout: layouts/base.njk
 ---
 
 {{ content | safe }}
-
+{% include "components/updates.njk" %}
 <div class="accordion flow" id="accordion">
     {% set navPages = collections.all | eleventyNavigation(title.toLowerCase()) %}
     {% for entry in navPages %}

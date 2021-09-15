@@ -10,8 +10,8 @@
     "build:sass": "sass --no-source-map src/scss:dist/css",
     "build:eleventy": "eleventy",
     "build:rollup": "rollup -c",
-    "start": "npm-run-all color-tokens build:sass --parallel watch:*",
-    "build": "npm-run-all color-tokens build:sass --parallel build:*"
+    "start": "npm-run-all color-tokens --parallel watch:*",
+    "build": "npm-run-all color-tokens --parallel build:*"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "@11tyrocks/eleventy-plugin-emoji-readtime": "^1.0.1",
     "a11y-color-tokens": "^0.4.0",
     "canvas-confetti": "^1.4.0",
+    "date-fns": "^2.23.0",
     "elasticlunr": "^0.9.5",
     "markdown-it": "^10.0.0",
     "markdown-it-anchor": "^7.1.0",

@@ -6,7 +6,8 @@ const markdownItAnchor = require('markdown-it-anchor');
 const slugify = require('slugify');
 const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
 const Image = require('@11ty/eleventy-img');
-const searchFilter = require('./src/filters/searchFilter');
+const searchFilter = require('./src/filters/search-filter');
+const dateFilter = require('./src/filters/date-filter');
 
 // Create a helpful production flag
 const isProduction = process.env.NODE_ENV === 'production';
@@ -43,6 +44,9 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addFilter('search', searchFilter);
+    eleventyConfig.addFilter('htmlDateString', dateFilter.htmlDateString);
+    eleventyConfig.addFilter('readableDate', dateFilter.readableDate);
+
     eleventyConfig.addCollection('tod', (collection) => {
         return [...collection.getFilteredByGlob('./src/**/*.md')];
     });
