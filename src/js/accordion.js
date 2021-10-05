@@ -8,6 +8,7 @@ const accordion = () => {
         const collapse = item.querySelector('.accordion__item-collapse');
         collapse.classList.add('mh-0');
         item.addEventListener('click', () => {
+            if (e.target.nodeName === 'A') return;
             const button = item.querySelector('button');
             button.classList.toggle('active');
             if (collapse.style.maxHeight) {
