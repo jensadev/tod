@@ -1,5 +1,5 @@
 import strip from '../utils/strip';
-import _ from 'lodash';
+import _find from 'lodash/fp/find';
 
 const showElement = (element) => {
     element.classList.add('visible');
@@ -57,7 +57,7 @@ const setupAssignments = (element, storage, tod) => {
     showHideElements(storage.checkCompleted(status, 'basic'), 'basic');
     const assignmentsElements = element.querySelectorAll('h4');
     assignmentsElements.forEach((element) => {
-        let result = _.find(status.assignments, [
+        let result = _find(status.assignments, [
             'name',
             strip(element.textContent)
         ]);
