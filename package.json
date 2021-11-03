@@ -37,6 +37,7 @@
     "canvas-confetti": "^1.4.0",
     "date-fns": "^2.23.0",
     "elasticlunr": "^0.9.5",
+    "lodash": "^4.17.21",
     "markdown-it": "^10.0.0",
     "markdown-it-anchor": "^7.1.0",
     "markdown-it-link-attributes": "^3.0.0",
