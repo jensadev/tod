@@ -2,49 +2,41 @@ const jsdom = require('@tbranyen/jsdom');
 const { JSDOM } = jsdom;
 const minify = require('../utils/minify.js');
 const slugify = require('slugify');
-
 const fs = require('fs');
-
-const strip = (str) => {
-    if (str === undefined) return;
-    return str
-        .trim()
-        .toLowerCase()
-        .replace(/ /g, '-')
-        .replace(/å/g, 'a')
-        .replace(/ä/g, 'a')
-        .replace(/ö/g, 'o');
-};
+const strip = require('../utils/strip.js');
 
 function getAssignments(document) {
     const basicAssignments = [
-        ...document.querySelectorAll(
-            '.part__assignments > h4'
-        )
+        ...document.querySelectorAll('.part__assignments > h4')
     ];
-    let basic = [];
+    let assignments = [];
     if (basicAssignments.length > 0) {
         basicAssignments.forEach((assignment) => {
-            basic.push(strip(assignment.textContent));
+            assignments.push({
+                name: strip(assignment.textContent),
+                type: 'basic',
+                completed: false,
+                date: null
+            });
         });
     }
 
     const extraAssignments = [
-        ...document.querySelectorAll(
-            '.part__assignments-extra > h4'
-        )
+        ...document.querySelectorAll('.part__assignments-extra > h4')
     ];
-    let extra = [];
+
     if (extraAssignments.length > 0) {
         extraAssignments.forEach((assignment) => {
-            extra.push(strip(assignment.textContent));
+            assignments.push({
+                name: strip(assignment.textContent),
+                type: 'extra',
+                completed: false,
+                date: null
+            });
         });
     }
 
-    return {
-        basic: basic,
-        extra: extra
-    }
+    return assignments;
 }
 
 module.exports = function (value, outputPath) {
@@ -59,7 +51,7 @@ module.exports = function (value, outputPath) {
 
         if (structure !== undefined) {
             const path = './src/json/tod.json';
-            let json, subject, theme, area, part;
+            let json, name, theme, area, part;
 
             try {
                 if (!fs.existsSync(path)) {
@@ -82,9 +74,9 @@ module.exports = function (value, outputPath) {
             }
 
             if (structure[0] !== undefined) {
-                subject = strip(structure[0].textContent);
-                if (json.subject === undefined) {
-                    json.subject = subject;
+                name = strip(structure[0].textContent);
+                if (json.name === undefined) {
+                    json.name = name;
                 }
                 if (json.themes === undefined) {
                     json.themes = [];
