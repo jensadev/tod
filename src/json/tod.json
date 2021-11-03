@@ -1,59 +1,170 @@
 {
-  "amnestitel": {
-    "kom-igang": {
-      "min-kurs": {
-        "skapa-en-del": [
-          "uppgift-1"
-        ],
-        "skapa-ett-omrade": [
-          "uppgift-1"
-        ],
-        "skapa-ett-tema": [
-          "uppgift-1"
-        ],
-        "skapa-ett-amne": [
-          "uppgift-1"
-        ],
-        "struktur": [
-          "uppgift-1"
-        ]
-      },
-      "pedagogisk-tanke": {
-        "del": [],
-        "omrade": [],
-        "tema": []
-      },
-      "tekniken": {
-        "bilder": [
-          "uppgift-1"
-        ],
-        "filer": [
-          "uppgift-1"
-        ],
-        "front-matter": [
-          "uppgift-1",
-          "uppgift-2"
-        ],
-        "hosta": [
-          "uppgift-1"
-        ],
-        "installation": [
-          "uppgift-1",
-          "uppgift-2"
-        ],
-        "markdown": [
-          "uppgift-1",
-          "uppgift-2"
-        ],
-        "metadata": [
-          "uppgift-1",
-          "uppgift-2"
-        ],
-        "shortcodes": [
-          "uppgift-1",
-          "uppgift-2"
-        ]
-      }
+  "subject": "amnestitel",
+  "themes": [
+    {
+      "name": "kom-igang",
+      "areas": [
+        {
+          "name": "min-kurs",
+          "parts": [
+            {
+              "name": "skapa-en-del",
+              "assignments": {
+                "basic": [
+                  "uppgift-1"
+                ],
+                "extra": []
+              }
+            },
+            {
+              "name": "skapa-ett-omrade",
+              "assignments": {
+                "basic": [
+                  "uppgift-1"
+                ],
+                "extra": []
+              }
+            },
+            {
+              "name": "skapa-ett-tema",
+              "assignments": {
+                "basic": [
+                  "uppgift-1"
+                ],
+                "extra": []
+              }
+            },
+            {
+              "name": "skapa-ett-amne",
+              "assignments": {
+                "basic": [
+                  "uppgift-1"
+                ],
+                "extra": []
+              }
+            },
+            {
+              "name": "struktur",
+              "assignments": {
+                "basic": [
+                  "uppgift-1"
+                ],
+                "extra": []
+              }
+            }
+          ]
+        },
+        {
+          "name": "pedagogisk-tanke",
+          "parts": [
+            {
+              "name": "del",
+              "assignments": {
+                "basic": [],
+                "extra": []
+              }
+            },
+            {
+              "name": "omrade",
+              "assignments": {
+                "basic": [],
+                "extra": []
+              }
+            },
+            {
+              "name": "tema",
+              "assignments": {
+                "basic": [],
+                "extra": []
+              }
+            }
+          ]
+        },
+        {
+          "name": "tekniken",
+          "parts": [
+            {
+              "name": "bilder",
+              "assignments": {
+                "basic": [
+                  "uppgift-1"
+                ],
+                "extra": []
+              }
+            },
+            {
+              "name": "filer",
+              "assignments": {
+                "basic": [
+                  "uppgift-1"
+                ],
+                "extra": []
+              }
+            },
+            {
+              "name": "front-matter",
+              "assignments": {
+                "basic": [
+                  "uppgift-1",
+                  "uppgift-2"
+                ],
+                "extra": []
+              }
+            },
+            {
+              "name": "hosta",
+              "assignments": {
+                "basic": [
+                  "uppgift-1"
+                ],
+                "extra": []
+              }
+            },
+            {
+              "name": "installation",
+              "assignments": {
+                "basic": [
+                  "uppgift-1",
+                  "uppgift-2"
+                ],
+                "extra": []
+              }
+            },
+            {
+              "name": "markdown",
+              "assignments": {
+                "basic": [
+                  "uppgift-1",
+                  "uppgift-2"
+                ],
+                "extra": []
+              }
+            },
+            {
+              "name": "metadata",
+              "assignments": {
+                "basic": [
+                  "uppgift-1",
+                  "uppgift-2"
+                ],
+                "extra": []
+              }
+            },
+            {
+              "name": "shortcodes",
+              "assignments": {
+                "basic": [
+                  "uppgift-1",
+                  "uppgift-2"
+                ],
+                "extra": [
+                  "uppgift-3"
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
-  }
+  ]
 }

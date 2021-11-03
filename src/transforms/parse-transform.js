@@ -16,6 +16,37 @@ const strip = (str) => {
         .replace(/ö/g, 'o');
 };
 
+function getAssignments(document) {
+    const basicAssignments = [
+        ...document.querySelectorAll(
+            '.part__assignments > h4'
+        )
+    ];
+    let basic = [];
+    if (basicAssignments.length > 0) {
+        basicAssignments.forEach((assignment) => {
+            basic.push(strip(assignment.textContent));
+        });
+    }
+
+    const extraAssignments = [
+        ...document.querySelectorAll(
+            '.part__assignments-extra > h4'
+        )
+    ];
+    let extra = [];
+    if (extraAssignments.length > 0) {
+        extraAssignments.forEach((assignment) => {
+            extra.push(strip(assignment.textContent));
+        });
+    }
+
+    return {
+        basic: basic,
+        extra: extra
+    }
+}
+
 module.exports = function (value, outputPath) {
     if (outputPath.endsWith('.html')) {
         const DOM = new JSDOM(value, {
@@ -52,39 +83,61 @@ module.exports = function (value, outputPath) {
 
             if (structure[0] !== undefined) {
                 subject = strip(structure[0].textContent);
-                if (json[subject] === undefined) {
-                    json[subject] = {};
+                if (json.subject === undefined) {
+                    json.subject = subject;
+                }
+                if (json.themes === undefined) {
+                    json.themes = [];
                 }
             }
 
             if (structure[1] !== undefined) {
                 theme = strip(structure[1].textContent);
-                if (json[subject][theme] === undefined) {
-                    json[subject][theme] = {};
+
+                let themeObj = json.themes.find((o) => o.name === theme);
+
+                if (themeObj === undefined) {
+                    let temp = {};
+                    temp.name = theme;
+                    temp.areas = [];
+                    json.themes.push(temp);
                 }
             }
 
             if (structure[2] !== undefined) {
                 area = strip(structure[2].textContent);
-                if (json[subject][theme][area] === undefined) {
-                    json[subject][theme][area] = {};
+                let themeObj = json.themes.find((o) => o.name === theme);
+
+                if (themeObj !== undefined) {
+                    let areaObj = themeObj.areas.find((o) => o.name === area);
+
+                    if (areaObj === undefined) {
+                        let temp = {};
+                        temp.name = area;
+                        temp.parts = [];
+                        themeObj.areas.push(temp);
+                    }
                 }
             }
 
             if (structure[3] !== undefined) {
                 part = strip(structure[3].textContent);
-                if (json[subject][theme][area][part] === undefined) {
-                    json[subject][theme][area][part] = [];
-                }
-                const basicAssignments = [
-                    ...document.querySelectorAll('.part__assignments > h4')
-                ];
-                let temp = [];
-                basicAssignments.forEach((assignment) => {
-                    temp.push(strip(assignment.textContent));
-                });
-                if (json[subject][theme][area][part] !== temp) {
-                    json[subject][theme][area][part] = temp;
+                let themeObj = json.themes.find((o) => o.name === theme);
+                if (themeObj !== undefined) {
+                    let areaObj = themeObj.areas.find((o) => o.name === area);
+                    if (areaObj !== undefined) {
+                        let partObj = areaObj.parts.find(
+                            (o) => o.name === part
+                        );
+                        if (partObj === undefined) {
+                            let temp = {};
+                            temp.name = part;
+                            temp.assignments = getAssignments(document);
+                            areaObj.parts.push(temp);
+                        } else {
+                            partObj.assignments = getAssignments(document);
+                        }
+                    }
                 }
             }
 
