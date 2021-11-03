@@ -1,0 +1,59 @@
+{
+  "amnestitel": {
+    "kom-igang": {
+      "min-kurs": {
+        "skapa-en-del": [
+          "uppgift-1"
+        ],
+        "skapa-ett-omrade": [
+          "uppgift-1"
+        ],
+        "skapa-ett-tema": [
+          "uppgift-1"
+        ],
+        "skapa-ett-amne": [
+          "uppgift-1"
+        ],
+        "struktur": [
+          "uppgift-1"
+        ]
+      },
+      "pedagogisk-tanke": {
+        "del": [],
+        "omrade": [],
+        "tema": []
+      },
+      "tekniken": {
+        "bilder": [
+          "uppgift-1"
+        ],
+        "filer": [
+          "uppgift-1"
+        ],
+        "front-matter": [
+          "uppgift-1",
+          "uppgift-2"
+        ],
+        "hosta": [
+          "uppgift-1"
+        ],
+        "installation": [
+          "uppgift-1",
+          "uppgift-2"
+        ],
+        "markdown": [
+          "uppgift-1",
+          "uppgift-2"
+        ],
+        "metadata": [
+          "uppgift-1",
+          "uppgift-2"
+        ],
+        "shortcodes": [
+          "uppgift-1",
+          "uppgift-2"
+        ]
+      }
+    }
+  }
+}

@@ -30,6 +30,9 @@ eleventyNavigation:
 ### ⭐
 #### Uppgift 1
 
+
+
+#### Uppgift 2
 ### ⭐⭐
 {% extra %}
 
