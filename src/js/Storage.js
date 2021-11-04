@@ -10,7 +10,7 @@ export default class Storage {
         if (storage === null) {
             storage = data;
         } else {
-            storage = _merge(data, storage);
+            storage = _merge(storage, data);
         }
 
         this.setStorage(storage);
@@ -28,32 +28,38 @@ export default class Storage {
     find(theme, area, part) {
         let result;
         if (theme) {
-            result = _find(this.storage.themes, ['name', theme]);
+            result = _find(['name', theme], this.storage.themes);
         }
         if (area) {
-            result = _find(result.areas, ['name', area]);
+            result = _find(['name', area], result.areas);
         }
         if (part) {
-            result = _find(result.parts, ['name', part]);
+            result = _find(['name', part], result.parts);
         }
         return result;
     }
 
     updateAssignment(theme, area, part, assignment) {
         let partResult = this.find(theme, area, part);
-        let result = _find(partResult.assignments, assignment);
+        let result = _find(assignment, partResult.assignments);
         result.completed = !result.completed;
         this.save();
     }
 
     checkCompleted(status, type) {
-        let count = _filter(status.assignments, {
-            type: type
-        });
-        let completed = _filter(status.assignments, {
-            completed: true,
-            type: type
-        });
+        let count = _filter(
+            {
+                type: type
+            },
+            status.assignments
+        );
+        let completed = _filter(
+            {
+                completed: true,
+                type: type
+            },
+            status.assignments
+        );
 
         return count.length === completed.length;
     }

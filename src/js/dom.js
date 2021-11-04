@@ -57,10 +57,10 @@ const setupAssignments = (element, storage, tod) => {
     showHideElements(storage.checkCompleted(status, 'basic'), 'basic');
     const assignmentsElements = element.querySelectorAll('h4');
     assignmentsElements.forEach((element) => {
-        let result = _find(status.assignments, [
-            'name',
-            strip(element.textContent)
-        ]);
+        let result = _find(
+            ['name', strip(element.textContent)],
+            status.assignments
+        );
         const box = createCheckbox(element, result.name, result.completed);
         box.addEventListener('change', () => {
             storage.updateAssignment(...tod, result);
