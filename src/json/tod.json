@@ -1,3 +1,216 @@
 {
-
+  "name": "amnestitel",
+  "themes": [
+    {
+      "name": "kom-igang",
+      "areas": [
+        {
+          "name": "min-kurs",
+          "parts": [
+            {
+              "name": "skapa-ett-omrade",
+              "assignments": [
+                {
+                  "name": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "name": "skapa-en-del",
+              "assignments": [
+                {
+                  "name": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "name": "skapa-ett-tema",
+              "assignments": [
+                {
+                  "name": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "name": "skapa-ett-amne",
+              "assignments": [
+                {
+                  "name": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "name": "struktur",
+              "assignments": [
+                {
+                  "name": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "pedagogisk-tanke",
+          "parts": [
+            {
+              "name": "del",
+              "assignments": []
+            },
+            {
+              "name": "omrade",
+              "assignments": []
+            },
+            {
+              "name": "tema",
+              "assignments": []
+            }
+          ]
+        },
+        {
+          "name": "tekniken",
+          "parts": [
+            {
+              "name": "bilder",
+              "assignments": [
+                {
+                  "name": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "name": "filer",
+              "assignments": [
+                {
+                  "name": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "name": "front-matter",
+              "assignments": [
+                {
+                  "name": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "name": "uppgift-2",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "name": "hosta",
+              "assignments": [
+                {
+                  "name": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "name": "installation",
+              "assignments": [
+                {
+                  "name": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "name": "uppgift-2",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "name": "metadata",
+              "assignments": [
+                {
+                  "name": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "name": "uppgift-2",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "name": "markdown",
+              "assignments": [
+                {
+                  "name": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "name": "uppgift-2",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "name": "shortcodes",
+              "assignments": [
+                {
+                  "name": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "name": "uppgift-2",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "name": "uppgift-3",
+                  "type": "extra",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
