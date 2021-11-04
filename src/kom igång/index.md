@@ -7,6 +7,6 @@ eleventyNavigation:
     key: kom igång
     parent: ämnestitel
     order: 0
-    excerpt: Pedagogisk tanke, installation och vad du behöver veta för att skapa din egen kurs
+    excerpt: Pedagogisk tanke, teknik och vad du behöver veta för att skapa din egen kurs
 ---
 ## Temat {{ title }} innehåller följande områden

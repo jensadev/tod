@@ -1,6 +1,7 @@
 .accordion {
     background-color: $gray-100;
     &__item {
+        border-bottom: 1px solid $gray-200;
         &--top {
             --flow-space: 0rem;
         }

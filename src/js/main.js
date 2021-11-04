@@ -1,11 +1,10 @@
-const { home } = require('./home');
-const { accordion } = require('./accordion');
-const { assignments } = require('./assignments');
-const { siteSearch } = require('./search');
+import { accordion } from './accordion';
+import { siteSearch } from './search';
+
+import { setup } from './setup';
 
 window.addEventListener('load', () => {
-    home();
     accordion();
-    assignments();
     siteSearch();
+    setup();
 });
