@@ -45,6 +45,7 @@ const createCheckbox = (element, id, checked) => {
     input.id = id;
     input.checked = checked || false;
     const label = createLabel(id);
+    element.classList.add('part__assignments-header');
     element.appendChild(label);
     element.appendChild(input);
     return input;
