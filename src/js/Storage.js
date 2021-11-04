@@ -1,4 +1,3 @@
-import _find from 'lodash/fp/find';
 import _merge from 'lodash/fp/merge';
 export default class Storage {
     constructor(data, subject) {
@@ -31,20 +30,22 @@ export default class Storage {
     find(theme, area, part) {
         let result;
         if (theme) {
-            result = _find(['name', theme], this.storage.themes);
+            result = this.storage.themes.find((t) => t.name === theme);
         }
         if (area) {
-            result = _find(['name', area], result.areas);
+            result = result.areas.find((a) => a.name === area);
         }
         if (part) {
-            result = _find(['name', part], result.parts);
+            result = result.parts.find((p) => p.name === part);
         }
         return result;
     }
 
     updateAssignment(theme, area, part, assignment) {
         let partResult = this.find(theme, area, part);
-        let result = _find(assignment, partResult.assignments);
+        const result = partResult.assignments.find(
+            ({ name }) => name === assignment.name
+        );
         result.completed = !result.completed;
         result.date = Date.now();
         this.save();
