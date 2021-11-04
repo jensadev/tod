@@ -2,7 +2,6 @@ import data from '../json/tod.json';
 import strip from '../utils/strip';
 import Storage from './Storage';
 import { setupAssignments, createStars, createProgressBar } from './dom';
-import _filter from 'lodash/fp/filter';
 
 const setup = () => {
     let subject, theme, area, part;
