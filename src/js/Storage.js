@@ -7,6 +7,12 @@ export default class Storage {
         this.subject = subject;
 
         let storage = JSON.parse(window.localStorage.getItem(this.subject));
+
+        if (!storage.name) {
+            console.error('Old data, cleaning up. Unfortunately progress will be reset.');
+            storage = null;
+        }
+
         storage = storage === null ? data : _merge(data, storage);
 
         this.setStorage(storage);
@@ -60,7 +66,7 @@ export default class Storage {
         return {
             total: count.length,
             completed: completed.length
-        }
+        };
     }
 
     checkCompleted(status, type) {
