@@ -8,7 +8,9 @@ layout: layouts/base.njk
     {% set navPages = collections.all | eleventyNavigation(title.toLowerCase()) %}
     {% for entry in navPages %}
         <div class="accordion__item accordion__item--top">
-            <h2 class="accordion__item-header">
+            <h2
+                class="accordion__item-header"
+                id="heading-{{ entry.title | slug }}">
                 <span
                     title="Tema: {{ entry.excerpt }}">
                     {{ entry.title | capitalize }}
@@ -37,7 +39,7 @@ layout: layouts/base.njk
                             {% if child.children.length %}
                                 <ul class="accordion__item-list">
                                 {% for child in child.children %}
-                                    <li>
+                                    <li id="part-{{ child.title | slug }}">
                                         <a 
                                             title="Del: {{ child.excerpt }}"
                                             class="accordion__item-link"
