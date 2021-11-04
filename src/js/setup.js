@@ -36,8 +36,8 @@ const setup = () => {
                 area.parts.map((part) => {
                     // works needs refactor
                     let count = storage.countAssignments(part, 'basic');
-                    areaTotal = areaTotal + count.total;
-                    areaCompleted = areaCompleted + count.completed;
+                    areaTotal += count.total;
+                    areaCompleted += count.completed;
                     if (storage.checkCompleted(part, 'basic')) {
                         const partElement = document.querySelector(
                             `#part-${part.name}`
@@ -55,8 +55,8 @@ const setup = () => {
                     `#heading-${area.name}`
                 ).parentElement;
                 createProgressBar(areaElement, areaTotal, areaCompleted);
-                themeTotal = themeTotal + areaTotal;
-                themeCompleted = themeCompleted + areaCompleted;
+                themeTotal += areaTotal;
+                themeCompleted += areaCompleted;
             });
             const themeHeader = document.querySelector(
                 `#heading-${theme.name}`

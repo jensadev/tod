@@ -19,12 +19,10 @@ const showHideElements = (status, type) => {
         if (solution) {
             showElement(solution);
         }
-    } else {
-        if (type === 'basic') {
-            if (extra) hideElement(extra);
-            if (solution) {
-                hideElement(solution);
-            }
+    } else if (type === 'basic') {
+        if (extra) hideElement(extra);
+        if (solution) {
+            hideElement(solution);
         }
     }
 };

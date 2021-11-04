@@ -1,7 +1,7 @@
-const { accordion } = require('./accordion');
-const { siteSearch } = require('./search');
+import { accordion } from './accordion';
+import { siteSearch } from './search';
 
-const { setup } = require('./setup');
+import { setup } from './setup';
 
 window.addEventListener('load', () => {
     accordion();

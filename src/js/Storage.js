@@ -7,11 +7,7 @@ export default class Storage {
         this.subject = subject;
 
         let storage = JSON.parse(window.localStorage.getItem(this.subject));
-        if (storage === null) {
-            storage = data;
-        } else {
-            storage = _merge(data, storage);
-        }
+        storage = storage === null ? data : _merge(data, storage);
 
         this.setStorage(storage);
         this.save();
@@ -50,14 +46,14 @@ export default class Storage {
     countAssignments(status, type) {
         let count = _filter(
             {
-                type: type
+                type
             },
             status.assignments
         );
         let completed = _filter(
             {
                 completed: true,
-                type: type
+                type
             },
             status.assignments
         );
