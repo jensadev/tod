@@ -72,4 +72,28 @@ const setupAssignments = (element, storage, tod) => {
     });
 };
 
-export { setupAssignments };
+const createStars = (element, type = 'basic') => {
+    const el = document.createElement('span');
+    el.classList.add('stars');
+    if (type === 'basic') {
+        el.textContent = '⭐';
+    } else {
+        el.textContent = '⭐⭐';
+    }
+    element.appendChild(el);
+}
+
+const createProgressBar = (element, total = 0, completed = 0) => {
+    const width = 100 / total;
+    const segmentWidth = total != 0 ? (width) : 0; 
+    const progress = document.createElement('div');
+    progress.classList.add('progress');
+    const bar = document.createElement('div');
+    bar.classList.add('progress__bar');
+    bar.classList.add('bg-theme');
+    bar.setAttribute('style', `width: ${segmentWidth * completed}%`);
+    progress.appendChild(bar);
+    element.insertAdjacentElement('beforeend', progress);
+};
+
+export { setupAssignments, createStars, createProgressBar };
