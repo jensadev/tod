@@ -1,6 +1,5 @@
 import data from '../json/tod.json';
 import strip from '../utils/strip';
-// import _ from 'lodash';
 import Storage from './Storage';
 import { setupAssignments, createStars, createProgressBar } from './dom';
 import _filter from 'lodash/fp/filter';
