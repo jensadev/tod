@@ -9,7 +9,7 @@ export default class Storage {
         let storage = JSON.parse(window.localStorage.getItem(this.subject));
 
         if (!storage.name) {
-            console.error('Old data, cleaning up. Unfortunately progress will be reset.');
+            console.error('Corrupt data, cleaning up. Unfortunately progress will be reset.');
             storage = null;
         }
 
