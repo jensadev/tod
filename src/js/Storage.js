@@ -10,7 +10,7 @@ export default class Storage {
         if (storage === null) {
             storage = data;
         } else {
-            storage = _merge(storage, data);
+            storage = _merge(data, storage);
         }
 
         this.setStorage(storage);
@@ -43,10 +43,11 @@ export default class Storage {
         let partResult = this.find(theme, area, part);
         let result = _find(assignment, partResult.assignments);
         result.completed = !result.completed;
+        result.date = Date.now();
         this.save();
     }
 
-    checkCompleted(status, type) {
+    countAssignments(status, type) {
         let count = _filter(
             {
                 type: type
@@ -60,8 +61,20 @@ export default class Storage {
             },
             status.assignments
         );
+        return {
+            total: count.length,
+            completed: completed.length
+        }
+    }
 
-        return count.length === completed.length;
+    checkCompleted(status, type) {
+        let check = this.countAssignments(status, type);
+        if (check.total > 0) return check.total === check.completed;
+        return false;
+    }
+
+    getThemes() {
+        return this.storage.themes;
     }
 
     save() {
