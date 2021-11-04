@@ -1,4 +1,4 @@
-import _merge from 'lodash/fp/merge';
+import merge from '../utils/merge';
 export default class Storage {
     constructor(data, subject) {
         this.data = data;
@@ -13,7 +13,8 @@ export default class Storage {
             storage = null;
         }
 
-        storage = storage === null ? data : _merge(data, storage);
+        // adds new things to storage, if they don't exist
+        storage = storage === null ? data : merge(storage, data);
 
         this.setStorage(storage);
         this.save();
