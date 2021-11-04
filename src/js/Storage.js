@@ -1,6 +1,4 @@
-import _find from 'lodash/fp/find';
-import _filter from 'lodash/fp/filter';
-import _merge from 'lodash/fp/merge';
+import merge from '../utils/merge';
 export default class Storage {
     constructor(data, subject) {
         this.data = data;
@@ -9,11 +7,14 @@ export default class Storage {
         let storage = JSON.parse(window.localStorage.getItem(this.subject));
 
         if (storage != null && !storage.name) {
-            console.error('Corrupt data, cleaning up. Unfortunately progress will be reset.');
+            console.error(
+                'Corrupt data, cleaning up. Unfortunately progress will be reset.'
+            );
             storage = null;
         }
 
-        storage = storage === null ? data : _merge(data, storage);
+        // adds new things to storage, if they don't exist
+        storage = storage === null ? data : merge(storage, data);
 
         this.setStorage(storage);
         this.save();
@@ -30,39 +31,36 @@ export default class Storage {
     find(theme, area, part) {
         let result;
         if (theme) {
-            result = _find(['name', theme], this.storage.themes);
+            result = this.storage.themes.find((t) => t.name === theme);
         }
         if (area) {
-            result = _find(['name', area], result.areas);
+            result = result.areas.find((a) => a.name === area);
         }
         if (part) {
-            result = _find(['name', part], result.parts);
+            result = result.parts.find((p) => p.name === part);
         }
         return result;
     }
 
     updateAssignment(theme, area, part, assignment) {
         let partResult = this.find(theme, area, part);
-        let result = _find(assignment, partResult.assignments);
+        const result = partResult.assignments.find(
+            ({ name }) => name === assignment.name
+        );
         result.completed = !result.completed;
         result.date = Date.now();
         this.save();
     }
 
     countAssignments(status, type) {
-        let count = _filter(
-            {
-                type
-            },
-            status.assignments
+        let count = status.assignments.filter(
+            (assignment) => assignment.type === type
         );
-        let completed = _filter(
-            {
-                completed: true,
-                type
-            },
-            status.assignments
+        let completed = status.assignments.filter(
+            (assignment) =>
+                assignment.completed === true && assignment.type === type
         );
+
         return {
             total: count.length,
             completed: completed.length
