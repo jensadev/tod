@@ -1,5 +1,4 @@
 import _find from 'lodash/fp/find';
-import _filter from 'lodash/fp/filter';
 import _merge from 'lodash/fp/merge';
 export default class Storage {
     constructor(data, subject) {
@@ -9,7 +8,9 @@ export default class Storage {
         let storage = JSON.parse(window.localStorage.getItem(this.subject));
 
         if (storage != null && !storage.name) {
-            console.error('Corrupt data, cleaning up. Unfortunately progress will be reset.');
+            console.error(
+                'Corrupt data, cleaning up. Unfortunately progress will be reset.'
+            );
             storage = null;
         }
 
@@ -50,19 +51,14 @@ export default class Storage {
     }
 
     countAssignments(status, type) {
-        let count = _filter(
-            {
-                type
-            },
-            status.assignments
+        let count = status.assignments.filter(
+            (assignment) => assignment.type === type
         );
-        let completed = _filter(
-            {
-                completed: true,
-                type
-            },
-            status.assignments
+        let completed = status.assignments.filter(
+            (assignment) =>
+                assignment.completed === true && assignment.type === type
         );
+
         return {
             total: count.length,
             completed: completed.length
