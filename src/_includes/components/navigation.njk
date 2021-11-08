@@ -1,7 +1,8 @@
 <a class="skip-link" href="#main-content">Hoppa till sidans innehåll</a>
 <nav class="navbar" role="navigation" aria-label="Primary">
     <div class="container navbar__inner">
-        {% if page.fileSlug === '' %}
+        {% set currentPage = page.fileSlug %}
+        {% if currentPage == '' %}
             <h1 class="navbar__header">
                 <a href="/" title="Tillbaka till startsidan">
                     {{ meta.siteName }}
