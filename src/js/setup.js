@@ -1,7 +1,7 @@
 import data from '../json/tod.json';
 import strip from '../utils/strip';
 import Storage from './Storage';
-import { setupAssignments, createStars, createProgressBar } from './dom';
+import { setupAssignments, createStars, createProgressBar, showHideTests } from './dom';
 
 const setup = () => {
     let subject, theme, area, part;
@@ -55,14 +55,25 @@ const setup = () => {
                 createProgressBar(areaElement, areaTotal, areaCompleted);
                 themeTotal += areaTotal;
                 themeCompleted += areaCompleted;
+                // this should be refactored, moved outside of loop
+                storage.updateArea(theme.name, area.name, areaTotal === areaCompleted);
             });
             const themeHeader = document.querySelector(
                 `#heading-${theme.name}`
-            ).parentElement;
+            );
 
-            createProgressBar(themeHeader, themeTotal, themeCompleted);
+            if (themeHeader) {
+                createProgressBar(
+                    themeHeader.parentElement,
+                    themeTotal,
+                    themeCompleted
+                );
+            }
         });
     }
+
+    const testElements = document.querySelectorAll('.test');
+    showHideTests(testElements, storage);
 };
 
 export { setup };
