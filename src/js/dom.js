@@ -1,12 +1,12 @@
 import strip from '../utils/strip';
 
 const showElement = (element) => {
-    element.classList.add('visible');
+    // element.classList.add('visible');
     element.classList.remove('invisible');
 };
 
 const hideElement = (element) => {
-    element.classList.remove('visible');
+    // element.classList.remove('visible');
     element.classList.add('invisible');
 };
 
@@ -37,6 +37,7 @@ const createLabel = (text) => {
 };
 
 const createCheckbox = (element, id, checked) => {
+    if (!element) return;
     const input = document.createElement('input');
     input.classList.add('checkbox');
     input.type = 'checkbox';
@@ -51,6 +52,7 @@ const createCheckbox = (element, id, checked) => {
 };
 
 const setupAssignments = (element, storage, tod) => {
+    if (!element) return;
     let status = storage.find(...tod);
     showHideElements(storage.checkCompleted(status, 'basic'), 'basic');
     const assignmentsElements = element.querySelectorAll('h4');
@@ -70,6 +72,7 @@ const setupAssignments = (element, storage, tod) => {
 };
 
 const createStars = (element, type = 'basic') => {
+    if (!element) return;
     const el = document.createElement('span');
     el.classList.add('stars');
     if (type === 'basic') {
@@ -81,6 +84,7 @@ const createStars = (element, type = 'basic') => {
 }
 
 const createProgressBar = (element, total = 0, completed = 0) => {
+    if (!element) return;
     const width = 100 / total;
     const segmentWidth = total != 0 ? (width) : 0; 
     const progress = document.createElement('div');
@@ -93,4 +97,25 @@ const createProgressBar = (element, total = 0, completed = 0) => {
     element.insertAdjacentElement('beforeend', progress);
 };
 
-export { setupAssignments, createStars, createProgressBar };
+const showHideTests = (elements, storage) => {
+    if (!elements) return;
+    elements.forEach((element) => {
+        let result;
+        if (element.tagName === 'DIV') {
+            result = element.querySelector('.stretched-link');
+        } else {
+            const a = element.querySelector('a');
+            result = a ? a : element;
+        }
+        const areaTitle = strip(result.textContent).replace('slutuppgift-', '');
+        let area = storage.findBy(areaTitle);
+        // storage.getTod(areaTitle);
+        if (area?.completed) {
+            showElement(element);
+        } else {
+            hideElement(element);
+        }
+    });
+}
+
+export { setupAssignments, createStars, createProgressBar, showHideTests };
