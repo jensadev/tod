@@ -44,7 +44,7 @@ main {
 }
 
 .invisible {
-    display: none;
+    display: none !important;
 }
 
 @import "components/navbar";
