@@ -2,9 +2,9 @@
 {% set navPages = collections.all | eleventyNavigation(eleventyNavigation.parent) %}
 <nav class="nav-bottom" role="navigation">
     <ul class="nav-bottom__list">
-        {%- set previousPost = navPages | prev(page.url) %}
+        {% set previousPost = navPages | prev(page.url) %}
         <li class="nav-bottom__list-item">
-            {%- if previousPost %}
+            {% if previousPost %}
                 <a class="nav-bottom__list-item-link" href="{{ previousPost.url | url }}">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -21,9 +21,9 @@
                 </a>
             {% endif %}
         </li>
-        {%- set nextPost = navPages | next(page.url) %}
-        <li class="nav-bottom__list-item">
-            {%- if nextPost %}
+        {% set nextPost = navPages | next(page.url) %}
+        <li class="nav-bottom__list-item {{ 'test' if nextPost.test }}">
+            {% if nextPost %}
                 <a class="nav-bottom__list-item-link" href="{{ nextPost.url | url }}">
                     <span class="nav-bottom__list-text--right">{{ nextPost.title | capitalize }}</span>
                     <svg

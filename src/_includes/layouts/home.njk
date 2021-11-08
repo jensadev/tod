@@ -39,7 +39,7 @@ layout: layouts/base.njk
                             {% if child.children.length %}
                                 <ul class="accordion__item-list">
                                 {% for child in child.children %}
-                                    <li id="part-{{ child.title | slug }}">
+                                    <li id="part-{{ child.title | slug }}" class="{{ 'test' if child.test }}">
                                         <a 
                                             title="Del: {{ child.excerpt }}"
                                             class="accordion__item-link"

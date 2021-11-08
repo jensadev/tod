@@ -1,7 +1,7 @@
 {% set currentPage %}{{ page.fileSlug }}{% endset %}
 {% set navPages = collections.all | eleventyNavigation(currentPage) %}
 {% macro renderNavListItem(entry, index) %}
-    <div class="card">
+    <div class="card {{ 'test' if entry.test }}">
         <div class="card__header">
             <h3 class="card__title">{{ index }}. {{ entry.title | capitalize }}</h3>
         </div>
@@ -10,7 +10,7 @@
             {%- if entry.children.length -%}
                 <ol>
                     {% for child in entry.children %}
-                        <li>{{ child.title | capitalize }}</li>
+                        <li class="{{ 'test' if child.test }}">{{ child.title | capitalize }}</li>
                     {% endfor %}
                 </ol>
             {% endif %}
