@@ -38,26 +38,26 @@ const setup = () => {
                     areaCompleted += count.completed;
                     if (storage.checkCompleted(part, 'basic')) {
                         const partElement = document.querySelector(
-                            `#part-${part.name}`
+                            `#part-${part.part}`
                         );
                         createStars(partElement);
                     }
                     if (storage.checkCompleted(part, 'extra')) {
                         const partElement = document.querySelector(
-                            `#part-${part.name}`
+                            `#part-${part.part}`
                         );
                         createStars(partElement, 'extra');
                     }
                 });
                 const areaElement = document.querySelector(
-                    `#heading-${area.name}`
+                    `#heading-${area.area}`
                 );
                 createProgressBar(areaElement, areaTotal, areaCompleted);
                 themeTotal += areaTotal;
                 themeCompleted += areaCompleted;
             });
             const themeHeader = document.querySelector(
-                `#heading-${theme.name}`
+                `#heading-${theme.theme}`
             );
             createProgressBar(themeHeader, themeTotal, themeCompleted);
         });

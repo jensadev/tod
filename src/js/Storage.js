@@ -6,7 +6,7 @@ export default class Storage {
 
         let storage = JSON.parse(window.localStorage.getItem(this.subject));
 
-        if (storage != null && !storage.name) {
+        if (storage != null && !storage.subject) {
             console.error(
                 'Corrupt data, cleaning up. Unfortunately progress will be reset.'
             );
@@ -31,21 +31,21 @@ export default class Storage {
     find(theme, area, part) {
         let result;
         if (theme) {
-            result = this.storage.themes.find((t) => t.name === theme);
+            result = this.storage.themes.find((t) => t.theme === theme);
         }
         if (area) {
-            result = result.areas.find((a) => a.name === area);
+            result = result.areas.find((a) => a.area === area);
         }
         if (part) {
-            result = result.parts.find((p) => p.name === part);
+            result = result.parts.find((p) => p.part === part);
         }
         return result;
     }
 
-    updateAssignment(theme, area, part, assignment) {
+    updateAssignment(theme, area, part, a) {
         let partResult = this.find(theme, area, part);
         const result = partResult.assignments.find(
-            ({ name }) => name === assignment.name
+            ({ assignment }) => assignment === a.assignment
         );
         result.completed = !result.completed;
         result.date = Date.now();
