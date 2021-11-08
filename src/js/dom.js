@@ -1,12 +1,10 @@
 import strip from '../utils/strip';
 
 const showElement = (element) => {
-    element.classList.add('visible');
     element.classList.remove('invisible');
 };
 
 const hideElement = (element) => {
-    element.classList.remove('visible');
     element.classList.add('invisible');
 };
 
@@ -37,6 +35,7 @@ const createLabel = (text) => {
 };
 
 const createCheckbox = (element, id, checked) => {
+    if (!element) return;
     const input = document.createElement('input');
     input.classList.add('checkbox');
     input.type = 'checkbox';
@@ -51,6 +50,7 @@ const createCheckbox = (element, id, checked) => {
 };
 
 const setupAssignments = (element, storage, tod) => {
+    if (!element) return;
     let status = storage.find(...tod);
     showHideElements(storage.checkCompleted(status, 'basic'), 'basic');
     const assignmentsElements = element.querySelectorAll('h4');
@@ -70,6 +70,7 @@ const setupAssignments = (element, storage, tod) => {
 };
 
 const createStars = (element, type = 'basic') => {
+    if (!element) return;
     const el = document.createElement('span');
     el.classList.add('stars');
     if (type === 'basic') {
@@ -81,6 +82,7 @@ const createStars = (element, type = 'basic') => {
 }
 
 const createProgressBar = (element, total = 0, completed = 0) => {
+    if (!element) return;
     const width = 100 / total;
     const segmentWidth = total != 0 ? (width) : 0; 
     const progress = document.createElement('div');
@@ -90,7 +92,7 @@ const createProgressBar = (element, total = 0, completed = 0) => {
     bar.classList.add('bg-theme');
     bar.setAttribute('style', `width: ${segmentWidth * completed}%`);
     progress.appendChild(bar);
-    element.insertAdjacentElement('beforeend', progress);
+    element.parentElement.insertAdjacentElement('beforeend', progress);
 };
 
 export { setupAssignments, createStars, createProgressBar };

@@ -51,15 +51,14 @@ const setup = () => {
                 });
                 const areaElement = document.querySelector(
                     `#heading-${area.name}`
-                ).parentElement;
+                );
                 createProgressBar(areaElement, areaTotal, areaCompleted);
                 themeTotal += areaTotal;
                 themeCompleted += areaCompleted;
             });
             const themeHeader = document.querySelector(
                 `#heading-${theme.name}`
-            ).parentElement;
-
+            );
             createProgressBar(themeHeader, themeTotal, themeCompleted);
         });
     }
