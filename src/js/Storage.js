@@ -1,4 +1,6 @@
 import merge from '../utils/merge';
+import deepSearch from '../utils/deepSearch';
+import findPath from '../utils/findPath';
 export default class Storage {
     constructor(data, subject) {
         this.data = data;
@@ -42,6 +44,30 @@ export default class Storage {
         return result;
     }
 
+    findBy(name) {
+        let result = deepSearch(this.storage, 'name', (k, v) => v === name);
+        return result;
+    }
+
+    getTod(name) {
+        // const result = this.findBy(name);
+        const tod = findPath(this.storage, "name");
+        console.log(tod)
+        // const result = this.find(tod[0], tod[1], tod[2]);
+        // console.log(result);
+        // checkCompleted(result, 'basic');
+    }
+
+    updateArea(theme, area, completed) {
+        let areaResult = this.find(theme, area);
+        if (areaResult.completed !== completed) {
+            areaResult.completed = completed;
+            areaResult.date = Date.now();
+            console.log(areaResult);
+            this.save();
+        }
+    }
+
     updateAssignment(theme, area, part, assignment) {
         let partResult = this.find(theme, area, part);
         const result = partResult.assignments.find(
@@ -69,7 +95,8 @@ export default class Storage {
 
     checkCompleted(status, type) {
         let check = this.countAssignments(status, type);
-        if (check.total > 0) return check.total === check.completed;
+        const result = check.total === check.completed
+        if (check.total > 0) return result;
         return false;
     }
 
