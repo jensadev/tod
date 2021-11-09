@@ -1,0 +1,10 @@
+---
+layout: layouts/base.njk
+templateEngineOverride: njk
+---
+
+{{ content | safe }}
+
+{% set navPages = collections.slutuppgifter | fixTestsPages(navPages) %}
+
+{% include "components/categorylist.njk" %}
