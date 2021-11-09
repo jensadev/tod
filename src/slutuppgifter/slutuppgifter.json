@@ -1,0 +1,6 @@
+{
+    "tags": "slutuppgifter",
+    "category": "slutuppgifter",
+    "layout": "layouts/part.njk",
+    "permalink": "{{ page.filePathStem | splice | slugUrl }}/{{ title | slug }}.html"
+}
