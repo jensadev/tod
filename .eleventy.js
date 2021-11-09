@@ -22,8 +22,8 @@ async function imageShortcode(src, alt, sizes) {
     });
 
     let imageAttributes = {
-        alt: alt,
-        sizes : sizes || '100%',
+        alt,
+        sizes: sizes || '100%',
         loading: 'lazy',
         decoding: 'async'
     };
@@ -32,6 +32,21 @@ async function imageShortcode(src, alt, sizes) {
     return Image.generateHTML(metadata, imageAttributes, {
         whitespaceMode: 'inline'
     });
+}
+
+// https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
+function sortArray(array, property, direction) {
+    direction = direction || 1;
+    array.sort(function compare(a, b) {
+        let comparison = 0;
+        if (a[property] > b[property]) {
+            comparison = 1 * direction;
+        } else if (a[property] < b[property]) {
+            comparison = -1 * direction;
+        }
+        return comparison;
+    });
+    return array; // Chainable
 }
 
 module.exports = function (eleventyConfig) {
@@ -100,14 +115,15 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addFilter('fixTestsPages', (object) => {
-        const result = [];
+        let result = [];
         for (const [key, value] of Object.entries(object)) {
-            let temp = {}
+            let temp = {};
             temp.title = value.data.title;
             temp.excerpt = value.data.eleventyNavigation.excerpt;
             temp.url = value.url;
             result.push(temp);
-          }
+        }
+        result = sortArray(result, 'order');
         return result;
     });
 
@@ -137,34 +153,33 @@ module.exports = function (eleventyConfig) {
         });
     });
 
-    
     /* Markdown Overrides */
     let markdownLibrary = markdownIt({
         html: true
     })
-    .use(markdownItAnchor, {
-        permalink: true,
-        permalinkClass: 'anchor',
-        permalinkSymbol: '#',
-        permalinkSpace: false,
-        permalinkBefore: false,
-        level: [1, 2, 3],
-        slugify: (s) =>
-        s
-        .trim()
-        .toLowerCase()
-        .replace(/[\s+~\/]/g, '-')
-        .replace(/[().`,%·'"!?¿:@*]/g, '')
-    })
-    .use(mila, {
-        pattern: /^https:/,
-        attrs: {
-            target: '_blank',
-            rel: 'noopener'
-        }
-    });
+        .use(markdownItAnchor, {
+            permalink: true,
+            permalinkClass: 'anchor',
+            permalinkSymbol: '#',
+            permalinkSpace: false,
+            permalinkBefore: false,
+            level: [1, 2, 3],
+            slugify: (s) =>
+                s
+                    .trim()
+                    .toLowerCase()
+                    .replace(/[\s+~\/]/g, '-')
+                    .replace(/[().`,%·'"!?¿:@*]/g, '')
+        })
+        .use(mila, {
+            pattern: /^https:/,
+            attrs: {
+                target: '_blank',
+                rel: 'noopener'
+            }
+        });
     eleventyConfig.setLibrary('md', markdownLibrary);
-    
+
     eleventyConfig.addTransform('parse', parseTransform);
     eleventyConfig.setUseGitIgnore(false);
 
