@@ -99,6 +99,18 @@ module.exports = function (eleventyConfig) {
         return `<p class="lead">${content}</p>`;
     });
 
+    eleventyConfig.addFilter('fixTestsPages', (object) => {
+        const result = [];
+        for (const [key, value] of Object.entries(object)) {
+            let temp = {}
+            temp.title = value.data.title;
+            temp.excerpt = value.data.eleventyNavigation.excerpt;
+            temp.url = value.url;
+            result.push(temp);
+          }
+        return result;
+    });
+
     eleventyConfig.addFilter('splice', (path) => {
         return path.split('/').slice(0, -1).join('/');
     });
