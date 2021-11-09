@@ -1,7 +1,7 @@
 import data from '../json/tod.json';
 import strip from '../utils/strip';
 import Storage from './Storage';
-import { setupAssignments, createStars, createProgressBar } from './dom';
+import { setupAssignments, createStars, createProgressBar, showHideTests } from './dom';
 
 const setup = () => {
     let subject, theme, area, part;
@@ -62,6 +62,8 @@ const setup = () => {
             createProgressBar(themeHeader, themeTotal, themeCompleted);
         });
     }
+    const testElements = document.querySelectorAll('.test');
+    showHideTests(testElements, storage);
 };
 
 export { setup };
