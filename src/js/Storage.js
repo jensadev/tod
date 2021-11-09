@@ -77,7 +77,39 @@ export default class Storage {
         return this.storage.themes;
     }
 
+    checkArea(name) {
+        let result = deepSearch(
+            this.getStorage(),
+            'area',
+            (k, v) => v === name
+        );
+        let completed = 0;
+        result.parts.forEach((part) => {
+            const test = this.checkCompleted(part, 'basic');
+            if (test) {
+                completed += 1;
+            }
+        });
+        return completed === result.parts.length;
+    }
+
     save() {
         window.localStorage.setItem(this.subject, JSON.stringify(this.storage));
     }
+}
+
+// modified from https://stackoverflow.com/questions/15523514/find-by-key-deep-in-a-nested-array
+function deepSearch(object, key, predicate) {
+    if (object.hasOwnProperty(key) && predicate(key, object[key]) === true) {
+        return object;
+    }
+
+    for (let i = 0; i < Object.keys(object).length; i++) {
+        const nextObject = object[Object.keys(object)[i]];
+        if (nextObject && typeof nextObject === 'object') {
+            let o = deepSearch(nextObject, key, predicate);
+            if (o != null) return o;
+        }
+    }
+    return null;
 }
