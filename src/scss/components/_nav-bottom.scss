@@ -1,12 +1,16 @@
 .nav-bottom {
     padding: ms(-1) 0;
-    
+
     &__list {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
 
         width: 100%;
+
+        &-item {
+            font-weight: 400 !important;
+        }
 
         &-item-link {
             display: flex;
