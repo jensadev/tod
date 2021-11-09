@@ -3,7 +3,7 @@ title: Slutuppgift min kurs
 eleventyNavigation:
     key: slutuppgift min kurs
     parent: min kurs
-    order: 100
+    order: 110
     excerpt: Efter att du avslutat arbetet med området Min kurs kan du göra slutuppgiften för att pröva dina kunskaper.
     test: true
 ---
