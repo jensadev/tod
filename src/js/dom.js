@@ -95,4 +95,24 @@ const createProgressBar = (element, total = 0, completed = 0) => {
     element.parentElement.insertAdjacentElement('beforeend', progress);
 };
 
-export { setupAssignments, createStars, createProgressBar };
+const showHideTests = (elements, storage) => {
+    if (!elements) return;
+    elements.forEach((element) => {
+        let result;
+        if (element.tagName === 'DIV') {
+            result = element.querySelector('.stretched-link');
+        } else {
+            const a = element.querySelector('a');
+            result = a ? a : element;
+        }
+        const areaTitle = strip(result.textContent).replace('slutuppgift-', '');
+        let checkArea = storage.checkArea(areaTitle);
+        if (checkArea) {
+            showElement(element);
+        } else {
+            hideElement(element);
+        }
+    });
+}
+
+export { setupAssignments, createStars, createProgressBar, showHideTests };
