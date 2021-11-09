@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+---
+
+{{ content | safe }}
+
+{% set currentPage = page.fileSlug %}
+{% set navPages = collections.all | eleventyNavigation(currentPage) %}
+{% include "components/categorylist.njk" %}

@@ -1,11 +1,15 @@
 {
     "items": [
         {
-            "text": "✨Stor uppdatering av storage för uppgifter",
+            "text": "✨ Slutuppgifter. Tyvärr så försvinner dina sparade uppgifter med denna uppdatering.",
+            "date": "2021-11-09"
+        },
+        {
+            "text": "✨ Stor uppdatering av storage för uppgifter",
             "date": "2021-11-04"
         },
         {
-            "text": "Uppdaterat kod för att visa uppdateringar",
+            "text": "✨ Uppdaterat kod för att visa uppdateringar",
             "date": "2021-09-13"
         }
     ]

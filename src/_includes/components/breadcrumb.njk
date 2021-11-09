@@ -1,10 +1,5 @@
-{% set currentPage %}{{ page.fileSlug }}{% endset %}
-<nav aria-label="breadcrumb">
-    {% if currentPage == "" %}
-        <ol class="breadcrumb">
-            <li class="breadcrumb__item breadcrumb__item--active" aria-current="page">{{ title }}</li>
-        </ol>
-    {% else %}
+{% if currentPage != '' %}
+    <nav aria-label="breadcrumb">
         {% set navPages = collections.all | eleventyNavigationBreadcrumb(currentPage, {includeSelf: true}) %}
         <ol class="breadcrumb">
             {% for entry in navPages %}
@@ -17,5 +12,5 @@
                 </li>
             {% endfor %}
         </ol>
-    {% endif %}
-</nav>
+    </nav>
+{% endif %}

@@ -7,10 +7,7 @@ layout: layouts/base.njk
     integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"/>
-
-
-<span id="area" class="visually-hidden">{{ eleventyNavigation.parent }}</span>
-
+{% set test = eleventyNavigation.test %}
 <div class="part">
     <header class="part__header">
         <h1 class="part__header-title" id="title">
@@ -18,7 +15,13 @@ layout: layouts/base.njk
         </h1>
         <span class="text-muted">{{ content | emojiReadTime }}</span>
     </header>
-    {{ content | safe }}
+{% if test %}
+    <section class="part__test flow">
+        {{ content | safe }}
+    </section>
 </div>
-
+{% else %}
+        {{ content | safe }}
+</div>
 {% include "components/nav-bottom.njk" %}
+{% endif %}

@@ -13,7 +13,7 @@ function getAssignments(document) {
     if (basicAssignments.length > 0) {
         basicAssignments.forEach((assignment) => {
             assignments.push({
-                name: strip(assignment.textContent),
+                assignment: strip(assignment.textContent),
                 type: 'basic',
                 completed: false,
                 date: null
@@ -28,7 +28,7 @@ function getAssignments(document) {
     if (extraAssignments.length > 0) {
         extraAssignments.forEach((assignment) => {
             assignments.push({
-                name: strip(assignment.textContent),
+                assignment: strip(assignment.textContent),
                 type: 'extra',
                 completed: false,
                 date: null
@@ -75,8 +75,8 @@ module.exports = function (value, outputPath) {
 
             if (structure[0] !== undefined) {
                 name = strip(structure[0].textContent);
-                if (json.name === undefined) {
-                    json.name = name;
+                if (json.subject === undefined) {
+                    json.subject = name;
                 }
                 if (json.themes === undefined) {
                     json.themes = [];
@@ -86,11 +86,11 @@ module.exports = function (value, outputPath) {
             if (structure[1] !== undefined) {
                 theme = strip(structure[1].textContent);
 
-                let themeObj = json.themes.find((o) => o.name === theme);
+                let themeObj = json.themes.find((o) => o.theme === theme);
 
                 if (themeObj === undefined) {
                     let temp = {};
-                    temp.name = theme;
+                    temp.theme = theme;
                     temp.areas = [];
                     json.themes.push(temp);
                 }
@@ -98,14 +98,14 @@ module.exports = function (value, outputPath) {
 
             if (structure[2] !== undefined) {
                 area = strip(structure[2].textContent);
-                let themeObj = json.themes.find((o) => o.name === theme);
+                let themeObj = json.themes.find((o) => o.theme === theme);
 
                 if (themeObj !== undefined) {
-                    let areaObj = themeObj.areas.find((o) => o.name === area);
+                    let areaObj = themeObj.areas.find((o) => o.area === area);
 
                     if (areaObj === undefined) {
                         let temp = {};
-                        temp.name = area;
+                        temp.area = area;
                         temp.parts = [];
                         themeObj.areas.push(temp);
                     }
@@ -114,16 +114,16 @@ module.exports = function (value, outputPath) {
 
             if (structure[3] !== undefined) {
                 part = strip(structure[3].textContent);
-                let themeObj = json.themes.find((o) => o.name === theme);
+                let themeObj = json.themes.find((o) => o.theme === theme);
                 if (themeObj !== undefined) {
-                    let areaObj = themeObj.areas.find((o) => o.name === area);
+                    let areaObj = themeObj.areas.find((o) => o.area === area);
                     if (areaObj !== undefined) {
                         let partObj = areaObj.parts.find(
-                            (o) => o.name === part
+                            (o) => o.part === part
                         );
                         if (partObj === undefined) {
                             let temp = {};
-                            temp.name = part;
+                            temp.part = part;
                             temp.assignments = getAssignments(document);
                             areaObj.parts.push(temp);
                         } else {

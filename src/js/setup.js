@@ -1,7 +1,7 @@
 import data from '../json/tod.json';
 import strip from '../utils/strip';
 import Storage from './Storage';
-import { setupAssignments, createStars, createProgressBar } from './dom';
+import { setupAssignments, createStars, createProgressBar, showHideTests } from './dom';
 
 const setup = () => {
     let subject, theme, area, part;
@@ -38,30 +38,32 @@ const setup = () => {
                     areaCompleted += count.completed;
                     if (storage.checkCompleted(part, 'basic')) {
                         const partElement = document.querySelector(
-                            `#part-${part.name}`
+                            `#part-${part.part}`
                         );
                         createStars(partElement);
                     }
                     if (storage.checkCompleted(part, 'extra')) {
                         const partElement = document.querySelector(
-                            `#part-${part.name}`
+                            `#part-${part.part}`
                         );
                         createStars(partElement, 'extra');
                     }
                 });
                 const areaElement = document.querySelector(
-                    `#heading-${area.name}`
+                    `#heading-${area.area}`
                 );
                 createProgressBar(areaElement, areaTotal, areaCompleted);
                 themeTotal += areaTotal;
                 themeCompleted += areaCompleted;
             });
             const themeHeader = document.querySelector(
-                `#heading-${theme.name}`
+                `#heading-${theme.theme}`
             );
             createProgressBar(themeHeader, themeTotal, themeCompleted);
         });
     }
+    const testElements = document.querySelectorAll('.test');
+    showHideTests(testElements, storage);
 };
 
 export { setup };

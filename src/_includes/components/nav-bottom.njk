@@ -22,7 +22,7 @@
             {% endif %}
         </li>
         {%- set nextPost = navPages | next(page.url) %}
-        <li class="nav-bottom__list-item">
+        <li class="nav-bottom__list-item {{ 'test' if nextPost.test }}">
             {%- if nextPost %}
                 <a class="nav-bottom__list-item-link" href="{{ nextPost.url | url }}">
                     <span class="nav-bottom__list-text--right">{{ nextPost.title | capitalize }}</span>

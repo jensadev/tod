@@ -6,7 +6,7 @@ export default class Storage {
 
         let storage = JSON.parse(window.localStorage.getItem(this.subject));
 
-        if (storage != null && !storage.name) {
+        if (storage != null && !storage.subject) {
             console.error(
                 'Corrupt data, cleaning up. Unfortunately progress will be reset.'
             );
@@ -31,21 +31,21 @@ export default class Storage {
     find(theme, area, part) {
         let result;
         if (theme) {
-            result = this.storage.themes.find((t) => t.name === theme);
+            result = this.storage.themes.find((t) => t.theme === theme);
         }
         if (area) {
-            result = result.areas.find((a) => a.name === area);
+            result = result.areas.find((a) => a.area === area);
         }
         if (part) {
-            result = result.parts.find((p) => p.name === part);
+            result = result.parts.find((p) => p.part === part);
         }
         return result;
     }
 
-    updateAssignment(theme, area, part, assignment) {
+    updateAssignment(theme, area, part, a) {
         let partResult = this.find(theme, area, part);
         const result = partResult.assignments.find(
-            ({ name }) => name === assignment.name
+            ({ assignment }) => assignment === a.assignment
         );
         result.completed = !result.completed;
         result.date = Date.now();
@@ -77,7 +77,39 @@ export default class Storage {
         return this.storage.themes;
     }
 
+    checkArea(name) {
+        let result = deepSearch(
+            this.getStorage(),
+            'area',
+            (k, v) => v === name
+        );
+        let completed = 0;
+        result.parts.forEach((part) => {
+            const test = this.checkCompleted(part, 'basic');
+            if (test) {
+                completed += 1;
+            }
+        });
+        return completed === result.parts.length;
+    }
+
     save() {
         window.localStorage.setItem(this.subject, JSON.stringify(this.storage));
     }
+}
+
+// modified from https://stackoverflow.com/questions/15523514/find-by-key-deep-in-a-nested-array
+function deepSearch(object, key, predicate) {
+    if (object.hasOwnProperty(key) && predicate(key, object[key]) === true) {
+        return object;
+    }
+
+    for (let i = 0; i < Object.keys(object).length; i++) {
+        const nextObject = object[Object.keys(object)[i]];
+        if (nextObject && typeof nextObject === 'object') {
+            let o = deepSearch(nextObject, key, predicate);
+            if (o != null) return o;
+        }
+    }
+    return null;
 }
