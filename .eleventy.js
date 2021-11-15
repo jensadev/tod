@@ -3,53 +3,16 @@ const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
 const mila = require('markdown-it-link-attributes');
 const markdownItAnchor = require('markdown-it-anchor');
-const slugify = require('slugify');
+const glob = require('fast-glob');
 const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
-const Image = require('@11ty/eleventy-img');
-const searchFilter = require('./src/filters/search-filter');
-const dateFilter = require('./src/filters/date-filter');
+const fs = require('fs');
 
 const parseTransform = require('./src/transforms/parse-transform.js');
 
 // Create a helpful production flag
 const isProduction = process.env.NODE_ENV === 'production';
 
-async function imageShortcode(src, alt, sizes) {
-    let metadata = await Image(src, {
-        widths: [300, 600],
-        formats: ['webp', 'avif', 'jpeg'],
-        outputDir: './dist/img/'
-    });
-
-    let imageAttributes = {
-        alt,
-        sizes: sizes || '100%',
-        loading: 'lazy',
-        decoding: 'async'
-    };
-
-    // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
-    return Image.generateHTML(metadata, imageAttributes, {
-        whitespaceMode: 'inline'
-    });
-}
-
-// https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
-function sortArray(array, property, direction) {
-    direction = direction || 1;
-    array.sort(function compare(a, b) {
-        let comparison = 0;
-        if (a[property] > b[property]) {
-            comparison = 1 * direction;
-        } else if (a[property] < b[property]) {
-            comparison = -1 * direction;
-        }
-        return comparison;
-    });
-    return array; // Chainable
-}
-
-module.exports = function (eleventyConfig) {
+module.exports = (eleventyConfig) => {
     eleventyConfig.setDataDeepMerge(true);
     eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
@@ -57,105 +20,55 @@ module.exports = function (eleventyConfig) {
         emoji: '📕',
         label: 'minuters läsning',
         wpm: 160,
-        bucketSize: 3
-    });
-
-    eleventyConfig.addFilter('search', searchFilter);
-    eleventyConfig.addFilter('htmlDateString', dateFilter.htmlDateString);
-    eleventyConfig.addFilter('readableDate', dateFilter.readableDate);
-
-    eleventyConfig.addCollection('tod', (collection) => {
-        return [...collection.getFilteredByGlob('./src/**/*.md')];
+        bucketSize: 3,
     });
 
     eleventyConfig.addWatchTarget('./src/sass/');
     eleventyConfig.addWatchTarget('./src/js/');
 
+    eleventyConfig.addPassthroughCopy('src/robots.txt');
     eleventyConfig.addPassthroughCopy('./src/fonts');
     eleventyConfig.addPassthroughCopy('./src/favicon.ico');
 
-    eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
-
-    eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
-    eleventyConfig.addLiquidShortcode('image', imageShortcode);
-    eleventyConfig.addJavaScriptFunction('image', imageShortcode);
-
-    eleventyConfig.addShortcode('youtube', (code) => {
-        return `<div class="video__wrapper"><iframe 
-            width="560"
-            height="315"
-            src="https://www.youtube-nocookie.com/embed/${code}"
-            title="YouTube video player"
-            frameborder="0"
-            allowfullscreen></iframe></div>`;
+    // Filters
+    glob.sync(['src/filters/*.js']).forEach((file) => {
+        let filters = require('./' + file);
+        Object.keys(filters).forEach((name) =>
+            eleventyConfig.addFilter(name, filters[name])
+        );
     });
 
-    eleventyConfig.addPairedShortcode('intro', function (content) {
-        return `<section class="part__introduction flow">${content}</section>`;
-    });
-
-    eleventyConfig.addPairedShortcode('instruktioner', function (content) {
-        return `<section class="part__instructions flow">${content}</section>`;
-    });
-
-    eleventyConfig.addPairedShortcode('uppgifter', function (content) {
-        return `<section class="part__assignments flow">${content}</section>`;
-    });
-
-    eleventyConfig.addPairedShortcode('extra', function (content) {
-        return `<div class="part__assignments-extra flow">${content}</div>`;
-    });
-
-    eleventyConfig.addPairedShortcode('facit', function (content) {
-        return `<section class="part__solution flow">${content}</section>`;
-    });
-
-    eleventyConfig.addPairedShortcode('lead', function (content) {
-        return `<p class="lead">${content}</p>`;
-    });
-
-    eleventyConfig.addFilter('fixTestsPages', (object) => {
-        let result = [];
-        for (const [key, value] of Object.entries(object)) {
-            let temp = {};
-            temp.title = value.data.title;
-            temp.excerpt = value.data.eleventyNavigation.excerpt;
-            temp.url = value.url;
-            result.push(temp);
-        }
-        result = sortArray(result, 'order');
-        return result;
-    });
-
-    eleventyConfig.addFilter('splice', (path) => {
-        return path.split('/').slice(0, -1).join('/');
-    });
-
-    eleventyConfig.addFilter('prev', (arr, currPage) => {
-        const currentIndex = arr.findIndex((page) => page.url === currPage);
-        return arr[currentIndex - 1];
-    });
-
-    eleventyConfig.addFilter('next', (arr, currPage) => {
-        const currentIndex = arr.findIndex((page) => page.url === currPage);
-        return arr[currentIndex + 1];
-    });
-
-    eleventyConfig.addFilter('capitalize ', (str) => {
-        return s.charAt(0).toUpperCase() + s.slice(1);
-    });
-
-    eleventyConfig.addFilter('slugUrl', (str) => {
-        return slugify(str, {
-            lower: true,
-            strict: false,
-            remove: /["]/g
+    // Shortcodes
+    glob.sync(['src/shortcodes/*.js']).forEach((file) => {
+        let shortcodes = require('./' + file);
+        Object.keys(shortcodes).forEach((name) => {
+            if (name === 'image') {
+                eleventyConfig.addNunjucksAsyncShortcode(
+                    name,
+                    shortcodes[name]
+                );
+            } else {
+                eleventyConfig.addShortcode(name, shortcodes[name]);
+            }
         });
+    });
+
+    // PairedShortcodes
+    glob.sync(['src/paired-shortcodes/*.js']).forEach((file) => {
+        let pairedShortcodes = require('./' + file);
+        Object.keys(pairedShortcodes).forEach((name) =>
+            eleventyConfig.addPairedShortcode(name, pairedShortcodes[name])
+        );
+    });
+
+    // Collections
+    eleventyConfig.addCollection('tod', (collection) => {
+        return [...collection.getFilteredByGlob('./src/**/*.md')];
     });
 
     /* Markdown Overrides */
     let markdownLibrary = markdownIt({
-        html: true
+        html: true,
     })
         .use(markdownItAnchor, {
             permalink: true,
@@ -169,25 +82,46 @@ module.exports = function (eleventyConfig) {
                     .trim()
                     .toLowerCase()
                     .replace(/[\s+~\/]/g, '-')
-                    .replace(/[().`,%·'"!?¿:@*]/g, '')
+                    .replace(/[().`,%·'"!?¿:@*]/g, ''),
         })
         .use(mila, {
             pattern: /^https:/,
             attrs: {
                 target: '_blank',
-                rel: 'noopener'
-            }
+                rel: 'noopener',
+            },
         });
     eleventyConfig.setLibrary('md', markdownLibrary);
 
-    eleventyConfig.addTransform('parse', parseTransform);
     eleventyConfig.setUseGitIgnore(false);
 
+    // 404
+    eleventyConfig.setBrowserSyncConfig({
+        callbacks: {
+            ready: (err, bs) => {
+                bs.addMiddleware('*', (req, res) => {
+                    const content_404 = fs.readFileSync('dist/404.html');
+                    // Add 404 http status code in request header.
+                    res.writeHead(404, {
+                        'Content-Type': 'text/html; charset=UTF-8',
+                    });
+                    // Provides the 404 content without redirect.
+                    res.write(content_404);
+                    res.end();
+                });
+            },
+        },
+    });
+
+    // Transforms
+    eleventyConfig.addTransform('parse', parseTransform);
+
     return {
+        markdownTemplateEngine: 'njk',
         dir: {
             input: 'src',
-            output: 'dist'
+            output: 'dist',
         },
-        passthroughFileCopy: true
+        passthroughFileCopy: true,
     };
 };
