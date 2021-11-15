@@ -1,28 +1,29 @@
+/* eslint-disable require-jsdoc */
 const jsdom = require('@tbranyen/jsdom');
 const { JSDOM } = jsdom;
-const minify = require('../utils/minify.js');
-const slugify = require('slugify');
+// const minify = require('../utils/minify.js');
+// const slugify = require('slugify');
 const fs = require('fs');
 const strip = require('../utils/strip.js');
 
 function getAssignments(document) {
     const basicAssignments = [
-        ...document.querySelectorAll('.part__assignments > h4')
+        ...document.querySelectorAll('.part__assignments > h4'),
     ];
-    let assignments = [];
+    const assignments = [];
     if (basicAssignments.length > 0) {
         basicAssignments.forEach((assignment) => {
             assignments.push({
                 assignment: strip(assignment.textContent),
                 type: 'basic',
                 completed: false,
-                date: null
+                date: null,
             });
         });
     }
 
     const extraAssignments = [
-        ...document.querySelectorAll('.part__assignments-extra > h4')
+        ...document.querySelectorAll('.part__assignments-extra > h4'),
     ];
 
     if (extraAssignments.length > 0) {
@@ -31,7 +32,7 @@ function getAssignments(document) {
                 assignment: strip(assignment.textContent),
                 type: 'extra',
                 completed: false,
-                date: null
+                date: null,
             });
         });
     }
@@ -42,7 +43,7 @@ function getAssignments(document) {
 module.exports = function (value, outputPath) {
     if (outputPath.endsWith('.html')) {
         const DOM = new JSDOM(value, {
-            resources: 'usable'
+            resources: 'usable',
         });
 
         const document = DOM.window.document;
@@ -51,7 +52,11 @@ module.exports = function (value, outputPath) {
 
         if (structure !== undefined) {
             const path = './src/json/tod.json';
-            let json, name, theme, area, part;
+            let json;
+            let name;
+            let theme;
+            let area;
+            let part;
 
             try {
                 if (!fs.existsSync(path)) {
@@ -86,10 +91,10 @@ module.exports = function (value, outputPath) {
             if (structure[1] !== undefined) {
                 theme = strip(structure[1].textContent);
 
-                let themeObj = json.themes.find((o) => o.theme === theme);
+                const themeObj = json.themes.find((o) => o.theme === theme);
 
                 if (themeObj === undefined) {
-                    let temp = {};
+                    const temp = {};
                     temp.theme = theme;
                     temp.areas = [];
                     json.themes.push(temp);
@@ -98,13 +103,13 @@ module.exports = function (value, outputPath) {
 
             if (structure[2] !== undefined) {
                 area = strip(structure[2].textContent);
-                let themeObj = json.themes.find((o) => o.theme === theme);
+                const themeObj = json.themes.find((o) => o.theme === theme);
 
                 if (themeObj !== undefined) {
-                    let areaObj = themeObj.areas.find((o) => o.area === area);
+                    const areaObj = themeObj.areas.find((o) => o.area === area);
 
                     if (areaObj === undefined) {
-                        let temp = {};
+                        const temp = {};
                         temp.area = area;
                         temp.parts = [];
                         themeObj.areas.push(temp);
@@ -114,15 +119,15 @@ module.exports = function (value, outputPath) {
 
             if (structure[3] !== undefined) {
                 part = strip(structure[3].textContent);
-                let themeObj = json.themes.find((o) => o.theme === theme);
+                const themeObj = json.themes.find((o) => o.theme === theme);
                 if (themeObj !== undefined) {
-                    let areaObj = themeObj.areas.find((o) => o.area === area);
+                    const areaObj = themeObj.areas.find((o) => o.area === area);
                     if (areaObj !== undefined) {
-                        let partObj = areaObj.parts.find(
+                        const partObj = areaObj.parts.find(
                             (o) => o.part === part
                         );
                         if (partObj === undefined) {
-                            let temp = {};
+                            const temp = {};
                             temp.part = part;
                             temp.assignments = getAssignments(document);
                             areaObj.parts.push(temp);
@@ -140,7 +145,7 @@ module.exports = function (value, outputPath) {
             }
         }
 
-        return '<!DOCTYPE html>\r\n' + document.documentElement.outerHTML;
+        return `<!DOCTYPE html>\r\n${document.documentElement.outerHTML}`;
     }
     return value;
 };

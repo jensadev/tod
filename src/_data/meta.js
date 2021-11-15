@@ -4,7 +4,7 @@ const colors = require('nice-color-palettes');
 const getRandomIntInclusive = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
 };
 
 const getColorPick = () => {
@@ -25,7 +25,7 @@ module.exports = {
     url: process.env.URL || 'http://localhost:8080',
     // page language
     language: 'sv',
-   // Sidans namn, måste överrensstämma med src/index.md title front matter
+    // Sidans namn, måste överrensstämma med src/index.md title front matter
     siteName: 'Ämnestitel',
     themeColor: getColorPick(), // pick or color string '#ff4e50'
     siteDescription:
@@ -33,6 +33,6 @@ module.exports = {
     author: {
         name: 'Jens Andreasson',
         email: 'jensandreasson77@gmail.com',
-        url: 'https://jensa.xyz'
-    }
+        url: 'https://jensa.xyz',
+    },
 };

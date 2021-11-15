@@ -1,10 +1,18 @@
 import data from '../json/tod.json';
 import strip from '../utils/strip';
+import {
+    createProgressBar,
+    createStars,
+    setupAssignments,
+    showHideTests,
+} from './dom';
 import Storage from './Storage';
-import { setupAssignments, createStars, createProgressBar, showHideTests } from './dom';
 
 const setup = () => {
-    let subject, theme, area, part;
+    let subject;
+    let theme;
+    let area;
+    let part;
     const nav = document.querySelectorAll('nav .breadcrumb li');
     if (nav.length === 0) {
         subject = strip(document.title);
@@ -33,7 +41,7 @@ const setup = () => {
                 let areaCompleted = 0;
                 area.parts.map((part) => {
                     // works needs refactor
-                    let count = storage.countAssignments(part, 'basic');
+                    const count = storage.countAssignments(part, 'basic');
                     areaTotal += count.total;
                     areaCompleted += count.completed;
                     if (storage.checkCompleted(part, 'basic')) {

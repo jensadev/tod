@@ -1,10 +1,11 @@
 const accordion = () => {
     const accordionElement = document.querySelector('#accordion');
     if (accordionElement === 'undefined' || accordionElement === null) return;
-    const accordionItems = accordionElement.querySelectorAll('.accordion__item');
+    const accordionItems =
+        accordionElement.querySelectorAll('.accordion__item');
 
     accordionItems.forEach((item) => {
-        if(item.querySelector('h2')) return;
+        if (item.querySelector('h2')) return;
         const collapse = item.querySelector('.accordion__item-collapse');
         collapse.classList.add('mh-0');
         item.addEventListener('click', (e) => {

@@ -11,4 +11,4 @@ module.exports = function merge(source, target) {
         }
     }
     return target; // we're replacing in-situ, so this is more for chaining than anything else
-}
+};

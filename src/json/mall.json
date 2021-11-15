@@ -10,13 +10,8 @@
                         {
                             "name": "skapa-en-del",
                             "assignments": {
-                                    "basic": [
-                                        "uppgift-1",
-                                        "uppgift-2"
-                                    ],
-                                    "extra": [
-                                        "uppgift-3"
-                                    ]
+                                "basic": ["uppgift-1", "uppgift-2"],
+                                "extra": ["uppgift-3"]
                             }
                         }
                     ]

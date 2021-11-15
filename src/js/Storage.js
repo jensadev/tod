@@ -1,4 +1,7 @@
+/* eslint-disable require-jsdoc */
+import deepSearch from '../utils/deep-search';
 import merge from '../utils/merge';
+
 export default class Storage {
     constructor(data, subject) {
         this.data = data;
@@ -37,13 +40,13 @@ export default class Storage {
             result = result.areas.find((a) => a.area === area);
         }
         if (part) {
-            result = result.parts.find((p) => p.part === part);
+            return result.parts.find((p) => p.part === part);
         }
         return result;
     }
 
     updateAssignment(theme, area, part, a) {
-        let partResult = this.find(theme, area, part);
+        const partResult = this.find(theme, area, part);
         const result = partResult.assignments.find(
             ({ assignment }) => assignment === a.assignment
         );
@@ -53,22 +56,22 @@ export default class Storage {
     }
 
     countAssignments(status, type) {
-        let count = status.assignments.filter(
+        const count = status.assignments.filter(
             (assignment) => assignment.type === type
         );
-        let completed = status.assignments.filter(
+        const completed = status.assignments.filter(
             (assignment) =>
                 assignment.completed === true && assignment.type === type
         );
 
         return {
             total: count.length,
-            completed: completed.length
+            completed: completed.length,
         };
     }
 
     checkCompleted(status, type) {
-        let check = this.countAssignments(status, type);
+        const check = this.countAssignments(status, type);
         if (check.total > 0) return check.total === check.completed;
         return false;
     }
@@ -78,7 +81,7 @@ export default class Storage {
     }
 
     checkArea(name) {
-        let result = deepSearch(
+        const result = deepSearch(
             this.getStorage(),
             'area',
             (k, v) => v === name
@@ -96,20 +99,4 @@ export default class Storage {
     save() {
         window.localStorage.setItem(this.subject, JSON.stringify(this.storage));
     }
-}
-
-// modified from https://stackoverflow.com/questions/15523514/find-by-key-deep-in-a-nested-array
-function deepSearch(object, key, predicate) {
-    if (object.hasOwnProperty(key) && predicate(key, object[key]) === true) {
-        return object;
-    }
-
-    for (let i = 0; i < Object.keys(object).length; i++) {
-        const nextObject = object[Object.keys(object)[i]];
-        if (nextObject && typeof nextObject === 'object') {
-            let o = deepSearch(nextObject, key, predicate);
-            if (o != null) return o;
-        }
-    }
-    return null;
 }
