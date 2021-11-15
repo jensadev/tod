@@ -6,6 +6,7 @@ eleventyNavigation:
     order: 5
     excerpt: Innehållet på kurswebbens sidor skrivs i Markdown
 ---
+
 {% intro %}
 
 ## Introduktion
@@ -29,7 +30,9 @@ Fråga Jens efter den lilla gröna boken, [GitHub flavored markdown](https://gui
 {% uppgifter %}
 
 ## Uppgifter
+
 ### ⭐
+
 #### Uppgift 1
 
 Läs Markdown

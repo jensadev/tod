@@ -6,6 +6,7 @@ eleventyNavigation:
     order: 4
     excerpt: Området skapas under tema, med en egen mapp och index fil
 ---
+
 {% intro %}
 
 ## Introduktion
@@ -23,9 +24,9 @@ eleventyNavigation:
 {% uppgifter %}
 
 ## Uppgifter
+
 ### ⭐
+
 #### Uppgift 1
-
-
 
 {% enduppgifter %}

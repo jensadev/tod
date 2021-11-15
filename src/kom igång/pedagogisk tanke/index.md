@@ -1,12 +1,13 @@
 ---
 title: Pedagogisk tanke
-layout: "layouts/theme-area.njk"
+layout: 'layouts/theme-area.njk'
 category: område
-permalink: "{{ page.filePathStem | splice | slugUrl }}/index.html"
+permalink: '{{ page.filePathStem | splice | slugUrl }}/index.html'
 eleventyNavigation:
     key: pedagogisk tanke
     parent: kom igång
     order: 0
     excerpt: Här hittar du en introduktion till sättet att tänk och arbeta med den här modellen
 ---
+
 ## Området {{ title }} innehåller följande delar

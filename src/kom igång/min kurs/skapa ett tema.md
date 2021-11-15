@@ -6,10 +6,12 @@ eleventyNavigation:
     order: 3
     excerpt: Teman skapas i systemets src mapp och samlar ett eller flera områden
 ---
+
 {% intro %}
 
 ## Introduktion
-I detta repo kan du skapa ditt första tema. 
+
+I detta repo kan du skapa ditt första tema.
 
 ### Sidan använder
 
@@ -24,9 +26,9 @@ I detta repo kan du skapa ditt första tema.
 {% uppgifter %}
 
 ## Uppgifter
+
 ### ⭐
+
 #### Uppgift 1
-
-
 
 {% enduppgifter %}

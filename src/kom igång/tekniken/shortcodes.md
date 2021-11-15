@@ -6,11 +6,10 @@ eleventyNavigation:
     order: 6
     excerpt: För att visa innehållet finns det ett antal shortcodes till hjälp
 ---
+
 {% intro %}
 
 ## Introduktion
-
-
 
 ### Sidan använder
 
@@ -20,18 +19,20 @@ eleventyNavigation:
 
 ## Instruktioner
 
-
-
 {% endinstruktioner %}
 
 {% uppgifter %}
 
 ## Uppgifter
+
 ### ⭐
+
 #### Uppgift 1
 
 #### Uppgift 2
+
 ### ⭐⭐
+
 {% extra %}
 
 #### Uppgift 3
@@ -41,6 +42,5 @@ eleventyNavigation:
 {% enduppgifter %}
 
 {% facit %}
-
 
 {% endfacit %}
