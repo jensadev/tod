@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
-import deepSearch from '../utils/deep-search';
-import merge from '../utils/merge';
+import { deepSearch } from './deep-search';
+import { merge } from './merge';
 
 export default class Storage {
     constructor(data, subject) {

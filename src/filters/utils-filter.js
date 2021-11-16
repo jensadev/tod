@@ -12,32 +12,48 @@ const sortArray = (array, property, direction = 1) => {
     return array; // Chainable
 };
 
-module.exports = {
-    fixTestsPages: (object) => {
-        let result = [];
-        // key,  removed
-        for (const [key, value] of Object.entries(object)) {
-            const temp = {};
-            temp.title = value.data.title;
-            temp.excerpt = value.data.eleventyNavigation.excerpt;
-            temp.url = value.url;
-            result.push(temp);
-        }
-        result = sortArray(result, 'order');
-        return result;
-    },
-    capitalize: (s) => {
-        return s.charAt(0).toUpperCase() + s.slice(1);
-    },
-    next: (array, current) => {
-        const currentIndex = array.findIndex((page) => page.url === current);
-        return array[currentIndex + 1];
-    },
-    prev: (array, current) => {
-        const currentIndex = array.findIndex((page) => page.url === current);
-        return array[currentIndex - 1];
-    },
-    splice: (path) => {
-        return path.split('/').slice(0, -1).join('/');
-    },
+// const fixTestsPages = (object) => {
+//     let result = [];
+//     // key,  removed
+
+//     for (const value of Object.entries(object)) {
+//         console.log(value);
+//         const temp = {};
+//         temp.title = value.data.title;
+//         temp.excerpt = value.data.eleventyNavigation.excerpt;
+//         temp.url = value.url;
+//         result.push(temp);
+//     }
+//     result = sortArray(result, 'order');
+//     return result;
+// };
+
+const fixTestsPages = (pages) => {
+    let result = pages.map((page) => {
+        let temp = {};
+        temp.title = page.data.title;
+        temp.excerpt = page.data.eleventyNavigation.excerpt;
+        temp.url = page.url;
+        temp.order = page.data.order;
+        return temp;
+    });
+    return sortArray(result, 'order');
 };
+
+const capitalize = (s) => {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+};
+
+const next = (array, current) => {
+    const currentIndex = array.findIndex((page) => page.url === current);
+    return array[currentIndex + 1];
+};
+const prev = (array, current) => {
+    const currentIndex = array.findIndex((page) => page.url === current);
+    return array[currentIndex - 1];
+};
+const splice = (path) => {
+    return path.split('/').slice(0, -1).join('/');
+};
+
+module.exports = { capitalize, fixTestsPages, next, prev, splice };

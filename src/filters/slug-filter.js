@@ -1,10 +1,11 @@
 const slugify = require('slugify');
 
-module.exports = {
-    slugUrl: (str) =>
-        slugify(str, {
-            lower: true,
-            strict: false,
-            remove: /["]/g,
-        }),
+const slugUrl = (str) => {
+    return slugify(str, {
+        lower: true,
+        strict: false,
+        remove: /["]/g,
+    });
 };
+
+module.exports = { slugUrl };

@@ -1,3 +1,5 @@
-module.exports = function minify(input) {
-    return input.replace(/\s{2,}/g, '').replace(/\'/g, '"');
+const minify = (input) => {
+    return input.replace(/\s{2,}/g, '').replace(/'/g, '"');
 };
+
+module.exports = { minify };

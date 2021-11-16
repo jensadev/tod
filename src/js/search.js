@@ -42,6 +42,7 @@ const siteSearch = () => {
 
     fetch('/search-index.json').then((response) =>
         response.json().then((rawIndex) => {
+            // eslint-disable-next-line no-undef
             window.searchIndex = elasticlunr.Index.load(rawIndex);
             document
                 .querySelector('#search-input')

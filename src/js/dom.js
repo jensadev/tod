@@ -1,4 +1,4 @@
-import strip from '../utils/strip';
+import { strip } from './strip';
 
 const showElement = (element) => {
     element.classList.remove('invisible');

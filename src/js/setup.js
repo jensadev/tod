@@ -1,5 +1,4 @@
 import data from '../json/tod.json';
-import strip from '../utils/strip';
 import {
     createProgressBar,
     createStars,
@@ -7,6 +6,7 @@ import {
     showHideTests,
 } from './dom';
 import Storage from './Storage';
+import { strip } from './strip';
 
 const setup = () => {
     let subject;

@@ -1,6 +1,10 @@
 // modified from https://stackoverflow.com/questions/15523514/find-by-key-deep-in-a-nested-array
-module.exports = function deepSearch(object, key, predicate) {
-    if (object.hasOwnProperty(key) && predicate(key, object[key]) === true) {
+const deepSearch = (object, key, predicate) => {
+    // if (object.hasOwnProperty(key) && predicate(key, object[key]) === true) {
+    if (
+        Object.prototype.hasOwnProperty.call(object, key) &&
+        predicate(key, object[key]) === true
+    ) {
         return object;
     }
 
@@ -13,3 +17,5 @@ module.exports = function deepSearch(object, key, predicate) {
     }
     return null;
 };
+
+export { deepSearch };
