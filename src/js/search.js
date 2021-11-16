@@ -21,7 +21,6 @@ const siteSearch = () => {
 
                 const a = document.createElement('a');
                 a.setAttribute('href', id);
-                a.classList.add('stretched-link');
                 a.textContent = title;
                 li.appendChild(a);
 
