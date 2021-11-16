@@ -6,6 +6,7 @@ eleventyNavigation:
     order: 7
     excerpt: För att inkludera bilder i dina delar så krävs det en speciell shortcode
 ---
+
 {% intro %}
 
 ## Introduktion
@@ -21,27 +22,30 @@ Denna shortcode baserar sig i sin tur på [11tys bild-plugin](https://www.11ty.d
 
 ## Instruktioner
 
- - Välj en bild och kopiera in den i ```/src/images/```
- - Öppna det markdown dokument som du ska inkludera bilden i
- - Inkludera följande shortcode
+-   Välj en bild och kopiera in den i `/src/images/`
+-   Öppna det markdown dokument som du ska inkludera bilden i
+-   Inkludera följande shortcode
 
-**Notera att shortcodes skrivs med ```{ %``` som öppningstagg och ```% }``` som stängningstagg, utan mellanslag.**
+**Notera att shortcodes skrivs med `{ %` som öppningstagg och `% }` som stängningstagg, utan mellanslag.**
 De går inte att skriva ut korrekt här i templaten...
 
 Mellan shortcode taggarna skriver du
+
 ```md
-image "./src/images/filnamn.filändelse", "Beskrivande text för bilden" 
-``` 
+image "./src/images/filnamn.filändelse", "Beskrivande text för bilden"
+```
 
 Bilden kommer automatiskt kopieras, döpas om och optimeras när sidan skapas.
-Resultatet finner du i byggmappen, ```/public/img/```
+Resultatet finner du i byggmappen, `/public/img/`
 
 {% endinstruktioner %}
 
 {% uppgifter %}
 
 ## Uppgifter
+
 ### ⭐
+
 #### Uppgift 1
 
 Testa att använda en bild i en av dina delar

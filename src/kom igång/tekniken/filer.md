@@ -6,9 +6,11 @@ eleventyNavigation:
     order: 2
     excerpt: Kurswebben har en bestämd filstruktur som måste följas för att den ska kunna byggas
 ---
+
 {% intro %}
 
 ## Introduktion
+
 Det här projektet innehåller ett större antal filer för att möjliggöra dess funktion.
 De filer du faktiskt behöver ändra på för att skapa din kurs kommer att förklaras under
 området [Min kurs](../min-kurs/min-kurs.html).
@@ -16,10 +18,11 @@ området [Min kurs](../min-kurs/min-kurs.html).
 Den här delens funktion är enbart en kort introduktion.
 
 ### Tänk på
- - Sidan byggs programmerbart
- - Det är viktigt med stora och små bokstäver
- - Små missar i konfigurationen kan göra att det inte fungerar
- - Fråga om du behöver hjälp
+
+-   Sidan byggs programmerbart
+-   Det är viktigt med stora och små bokstäver
+-   Små missar i konfigurationen kan göra att det inte fungerar
+-   Fråga om du behöver hjälp
 
 {% endintro %}
 
@@ -31,12 +34,12 @@ Den här delens funktion är enbart en kort introduktion.
 
 ✔️ Måste/kan redigeras
 
-📁 Kom igång mappen innehåller material för den här guiden. Det är även en 
- mall för hur du skapar och konfigurerar din kurs.
+📁 Kom igång mappen innehåller material för den här guiden. Det är även en
+mall för hur du skapar och konfigurerar din kurs.
 
 ```shell
 .eleventy.js 🛑🔧 kärnan i byggsystemet och konfiguration för 11ty
-.eleventyignore 🛑🙈 filer som ska ignoreras av 11ty 
+.eleventyignore 🛑🙈 filer som ska ignoreras av 11ty
 .git 🛑 git filer
 .gitignore 🛑🙈 filer som ska ignoreras av git
 .prettierrc 🔧 prettier konfiguration om du använder det
@@ -71,7 +74,9 @@ src/ 📁 här finner du projektets filer
 {% uppgifter %}
 
 ## Uppgifter
+
 ### ⭐
+
 #### Uppgift 1
 
 Kolla igenom projektets filer.

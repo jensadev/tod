@@ -1,6 +1,6 @@
 const elasticlunr = require('elasticlunr');
 
-module.exports = function (collection) {
+const search = (collection) => {
     // what fields we'd like our index to consist of
     let index = elasticlunr(function () {
         this.addField('title');
@@ -18,9 +18,11 @@ module.exports = function (collection) {
             id: page.url,
             title: page.template.frontMatter.data.title,
             tags: tags,
-            excerpt: page.template.frontMatter.data.eleventyNavigation.excerpt
+            excerpt: page.template.frontMatter.data.eleventyNavigation.excerpt,
         });
     });
 
     return index.toJSON();
 };
+
+module.exports = { searchFilter: search };

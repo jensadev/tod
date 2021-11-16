@@ -1,8 +1,8 @@
-const siteSearch =  () => {
+const siteSearch = () => {
     const search = (e) => {
         const results = window.searchIndex.search(e.target.value, {
             bool: 'OR',
-            expand: true
+            expand: true,
         });
 
         const resultElement = document.querySelector('#search-results');
@@ -32,15 +32,17 @@ const siteSearch =  () => {
                 i += 1;
             });
         } else if (results && results.length < 1) {
-            resultElement.classList.add('d-none')
+            resultElement.classList.add('d-none');
         } else {
             resultElement.classList.remove('d-none');
-            resultElement.innerHTML = '<li class="dropdown__menu-item--disabled">Hittade inga sökresultat, försök igen</li>';
+            resultElement.innerHTML =
+                '<li class="dropdown__menu-item--disabled">Hittade inga sökresultat, försök igen</li>';
         }
     };
 
     fetch('/search-index.json').then((response) =>
         response.json().then((rawIndex) => {
+            // eslint-disable-next-line no-undef
             window.searchIndex = elasticlunr.Index.load(rawIndex);
             document
                 .querySelector('#search-input')

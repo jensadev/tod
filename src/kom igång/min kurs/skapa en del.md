@@ -6,6 +6,7 @@ eleventyNavigation:
     order: 5
     excerpt: Delen är den minsta delen och innehåller en eller flera uppgifter att göra
 ---
+
 {% intro %}
 
 ## Introduktion
@@ -23,9 +24,9 @@ eleventyNavigation:
 {% uppgifter %}
 
 ## Uppgifter
+
 ### ⭐
+
 #### Uppgift 1
-
-
 
 {% enduppgifter %}

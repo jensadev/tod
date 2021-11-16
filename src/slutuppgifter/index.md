@@ -1,8 +1,8 @@
 ---
 title: Slutuppgifter
-layout: "layouts/tests.njk"
+layout: 'layouts/tests.njk'
 category: slutuppgifter
-permalink: "{{ page.filePathStem | splice | slugUrl }}/index.html"
+permalink: '{{ page.filePathStem | splice | slugUrl }}/index.html'
 eleventyExcludeFromCollections: true
 ---
 

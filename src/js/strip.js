@@ -8,4 +8,4 @@ const strip = (str) => {
         .replace(/ö/g, 'o');
 };
 
-module.exports = strip;
+export { strip };

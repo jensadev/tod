@@ -6,6 +6,7 @@ eleventyNavigation:
     order: 4
     excerpt: Beskriver extra information om kurswebbens sidor
 ---
+
 {% intro %}
 
 ## Introduktion
@@ -16,9 +17,10 @@ Det är information till templat-motorn som bygger sidan.
 Front matter skapar strukturen, navigationen och placerar filen på rätt ställe.
 
 ### Tänk på
- - Front matter måste finnas med i .md filerna
- - Formatteringen
- - eleventyNavigation är det som styr navigeringen på sidan 
+
+-   Front matter måste finnas med i .md filerna
+-   Formatteringen
+-   eleventyNavigation är det som styr navigeringen på sidan
 
 {% endintro %}
 
@@ -29,12 +31,12 @@ Front matter skapar strukturen, navigationen och placerar filen på rätt ställ
 Den här sidans front matter ser ut som följer.
 **Det är front matter för en del.**
 
-- title: sidans titel, som du vill att den ska visas
-- eleventNavigation:
-    - key: används för navigationen, små bokstäver
-    - parent: måste vara satt till det index och den mapp som delen ligger i
-    - order: navigationsordningen, kan skippas
-    - excerpt: valfri, en kort beskrivning av delen
+-   title: sidans titel, som du vill att den ska visas
+-   eleventNavigation:
+    -   key: används för navigationen, små bokstäver
+    -   parent: måste vara satt till det index och den mapp som delen ligger i
+    -   order: navigationsordningen, kan skippas
+    -   excerpt: valfri, en kort beskrivning av delen
 
 ```md
 ---
@@ -47,13 +49,13 @@ eleventyNavigation:
 ---
 ```
 
-Utöver detta så lägger 11ty till front matter för delarna baserat på ```.json``` filen i foldern
+Utöver detta så lägger 11ty till front matter för delarna baserat på `.json` filen i foldern
 med samma namn. Den här delen som hör till tekniken ärver alltså front matter från
-```tekniken.json```.
+`tekniken.json`.
 
 Detta används för varje område och styr delarna i området.
 Filen måste vara med och du behöver döpa den till området.
-Redigera sedan värdet för ```tags```. Är det flera taggar så används en array, ```["tag", "tag"]```.
+Redigera sedan värdet för `tags`. Är det flera taggar så används en array, `["tag", "tag"]`.
 
 ```json
 {
@@ -69,7 +71,9 @@ Redigera sedan värdet för ```tags```. Är det flera taggar så används en arr
 {% uppgifter %}
 
 ## Uppgifter
+
 ### ⭐
+
 #### Uppgift 1
 
 Kolla igenom front matter för en eller flera delar

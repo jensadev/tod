@@ -2,7 +2,7 @@
 <nav class="navbar" role="navigation" aria-label="Primary">
     <div class="container navbar__inner">
         {% set currentPage = page.fileSlug %}
-        {% if currentPage == '' %}
+        {% if currentPage == '' or currentPage.includes('404') %}
             <h1 class="navbar__header">
                 <a href="/" title="Tillbaka till startsidan">
                     {{ meta.siteName }}

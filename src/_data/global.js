@@ -6,5 +6,5 @@ module.exports = {
                 .substring(1);
         };
         return `${segment()}-${segment()}-${segment()}`;
-    }
+    },
 };
