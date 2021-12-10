@@ -1,16 +1,33 @@
 .button {
     display: inline-block;
-    padding: 0.5em 1em;
-    background: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    color: #333;
+    padding: ms(-2) ms(0);
+    background: $color-primary;
+    border: 1px solid $gray-300;
+    color: $color-on-primary;
     text-decoration: none;
-    font-family: sans-serif;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: ms(0);
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: ms(-8);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    &:hover {
+        border: 1px solid $gray-600;
+    }
+    &__close {
+        background: transparent;
+        border: none;
+        padding: ms(-2);
+        font-size: ms(0);
+        position: absolute;
+        right: 0;
+        top: 0;
+        line-height: 1;
+        cursor: pointer;
+        color: $gray-900;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+            color: $gray-600;
+        }
+    }
 }

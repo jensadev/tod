@@ -1,11 +1,12 @@
 .continue {
+    z-index: 1100;
     position: fixed;
     background-color: $gray-100;
     right: 2vmin;
     bottom: 2vmin;
     max-width: 30ch;
     width: 100%;
-    padding: ms(1);
+    padding: ms(0);
     border-bottom: 1px solid $gray-200;
     @media (max-width: 576px) {
         display: none;
@@ -16,10 +17,23 @@
         grid-gap: ms(1);
     }
     &__header {
+        padding-top: ms(1);
         text-align: center;
     }
     &__list {
         display: flex;
         flex-wrap: wrap;
+        li {
+            display: flex;
+            span:first-child {
+                width: 8ch;
+            }
+            a {
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }
