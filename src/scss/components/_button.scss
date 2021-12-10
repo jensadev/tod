@@ -1,0 +1,16 @@
+.button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #333;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}

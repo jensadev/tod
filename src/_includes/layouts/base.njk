@@ -20,6 +20,7 @@
         <main class="container flow" tabindex="-1" role="main" id="main-content">
             {{ content | safe }}
         </main>
+        {% include "components/continue.njk" %}
         {% include "components/footer.njk" %}
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
         <script defer src="/js/bundle.min.js"></script>

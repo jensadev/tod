@@ -25,6 +25,7 @@ body {
     scroll-behavior: smooth;
     background-color: $gray-200;
     color: $gray-900;
+    min-height: 100vh;
 }
 
 main {
@@ -64,5 +65,7 @@ li.test{
 @import "components/card";
 @import "components/video";
 @import "components/updates";
+@import "components/continue";
+@import "components/button";
 
 @import "components/part";

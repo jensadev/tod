@@ -25,6 +25,28 @@ const setup = () => {
 
     const storage = new Storage(data, subject);
 
+    const last = storage.getLastCompleted();
+    if (last) {
+        const continueElement = document.querySelector('.continue');
+        if (continueElement) {
+            const list = continueElement.querySelectorAll('li');
+            list[0].querySelectorAll(
+                'span'
+            )[1].textContent += ` : ${last.theme}`;
+            list[1].querySelectorAll(
+                'span'
+            )[1].textContent += ` : ${last.area}`;
+            list[2].querySelectorAll(
+                'span'
+            )[1].textContent += ` : ${last.part}`;
+        }
+        const continueButton = document.querySelector('.continue__button');
+        if (continueButton) {
+            console.log(`${last.theme}/${last.area}/${last.part}`);
+            continueButton.href = `/${last.theme}/${last.area}/${last.part}.html`;
+        }
+    }
+
     if (part) {
         setupAssignments(
             document.querySelector('.part__assignments'),
