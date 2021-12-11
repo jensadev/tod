@@ -116,7 +116,10 @@ export default class Storage {
                 });
             });
         });
-        return completed.sort((a, b) => b.date - a.date)[0];
+        if (completed.length > 0) {
+            return completed.sort((a, b) => b.date - a.date)[0];
+        }
+        return false;
     }
 
     save() {

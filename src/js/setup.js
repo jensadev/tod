@@ -31,14 +31,16 @@ const setup = () => {
     const storage = new Storage(data, subject);
 
     const lastCompletedAssignment = storage.lastCompletedAssignment();
+    const continueElement = document.querySelector('.continue');
     if (lastCompletedAssignment) {
         let check = localStorage.getItem('continue');
         if (check && Date.now() - 7200000 > check) {
             localStorage.removeItem('continue');
             check = false;
         }
-        const continueElement = document.querySelector('.continue');
         continuePopup(continueElement, check, lastCompletedAssignment);
+    } else {
+        continueElement.classList.add('invisible');
     }
 
     if (part) {

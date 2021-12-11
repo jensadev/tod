@@ -1,5 +1,6 @@
-const youtube = (code) => {
-    return `<div class="video-wrapper">
+module.exports = {
+    youtube: (code) => {
+        return `<div class="video__wrapper">
         <iframe 
         width="560"
         height="315"
@@ -9,6 +10,5 @@ const youtube = (code) => {
         allowfullscreen>
         </iframe>
         </div>`;
+    },
 };
-
-module.exports = youtube;
