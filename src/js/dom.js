@@ -1,4 +1,4 @@
-import { strip } from './strip';
+import { restore, strip } from './strip';
 
 const showElement = (element) => {
     element.classList.remove('invisible');
@@ -119,4 +119,49 @@ const showHideTests = (elements, storage) => {
     });
 };
 
-export { createProgressBar, createStars, setupAssignments, showHideTests };
+const popupItem = (element, text, href) => {
+    if (!element) return;
+    const link = element.querySelector('a');
+    if (link) {
+        link.textContent = restore(text);
+        link.href = href;
+    }
+};
+
+const continuePopup = (element, check, last) => {
+    if (element) {
+        if (check) {
+            element.classList.add('invisible');
+        }
+        const close = element.querySelector('.button__close');
+        close.addEventListener('click', () => {
+            const now = Date.now();
+            localStorage.setItem('continue', now);
+            element.classList.add('invisible');
+        });
+        const list = element.querySelectorAll('li');
+        popupItem(list[0], last.theme, `/${last.theme}`);
+        popupItem(list[1], last.area, `/${last.theme}/${last.area}/`);
+        popupItem(
+            list[2],
+            last.part,
+            `/${last.theme}/${last.area}/${last.part}.html`
+        );
+    }
+    const continueButton = document.querySelector('.continue__button');
+    if (continueButton) {
+        continueButton.href = `/${last.theme}/${last.area}/${last.part}.html`;
+        continueButton.addEventListener('click', () => {
+            const now = Date.now();
+            localStorage.setItem('continue', now);
+        });
+    }
+};
+
+export {
+    continuePopup,
+    createProgressBar,
+    createStars,
+    setupAssignments,
+    showHideTests,
+};

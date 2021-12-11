@@ -1,5 +1,6 @@
 import data from '../json/tod.json';
 import {
+    continuePopup,
     createProgressBar,
     createStars,
     setupAssignments,
@@ -16,6 +17,10 @@ const setup = () => {
     const nav = document.querySelectorAll('nav .breadcrumb li');
     if (nav.length === 0) {
         subject = strip(document.title);
+        if (subject.includes('404')) {
+            // prevent subject from being set to 404
+            subject = subject.split('---')[2];
+        }
     } else {
         subject = strip(nav[0].textContent);
         theme = nav[1] ? strip(nav[1].textContent) : null;
@@ -24,48 +29,16 @@ const setup = () => {
     }
 
     const storage = new Storage(data, subject);
-    const restore = (str) =>
-        str.substring(0, 1).toUpperCase() +
-        str.substring(1).replaceAll('-', ' ');
-    const last = storage.getLastCompleted();
-    if (last) {
+
+    const lastCompletedAssignment = storage.lastCompletedAssignment();
+    if (lastCompletedAssignment) {
         let check = localStorage.getItem('continue');
-        if (check && Date.now() - 3600000 > check) {
-            console.log(check);
-            console.log('2 timmar senare');
+        if (check && Date.now() - 7200000 > check) {
             localStorage.removeItem('continue');
             check = false;
         }
         const continueElement = document.querySelector('.continue');
-        if (continueElement) {
-            if (check) {
-                continueElement.classList.add('invisible');
-            }
-            const close = continueElement.querySelector('.button__close');
-            close.addEventListener('click', () => {
-                const now = Date.now();
-                localStorage.setItem('continue', now);
-                continueElement.classList.add('invisible');
-            });
-            const list = continueElement.querySelectorAll('li');
-            list[0].querySelector('a').textContent = `${restore(last.theme)}`;
-            list[0].querySelector('a').href = `/${last.theme}`;
-            list[1].querySelector('a').textContent = `${restore(last.area)}`;
-            list[1].querySelector('a').href = `/${last.theme}/${last.area}/`;
-            list[2].querySelector('a').textContent = `${restore(last.part)}`;
-            list[2].querySelector(
-                'a'
-            ).href = `/${last.theme}/${last.area}/${last.part}.html`;
-        }
-        const continueButton = document.querySelector('.continue__button');
-        if (continueButton) {
-            console.log(`${last.theme}/${last.area}/${last.part}`);
-            continueButton.href = `/${last.theme}/${last.area}/${last.part}.html`;
-            continueButton.addEventListener('click', () => {
-                const now = Date.now();
-                localStorage.setItem('continue', now);
-            });
-        }
+        continuePopup(continueElement, check, lastCompletedAssignment);
     }
 
     if (part) {

@@ -96,7 +96,7 @@ export default class Storage {
         return completed === result.parts.length;
     }
 
-    getLastCompleted() {
+    lastCompletedAssignment() {
         const themes = this.getThemes();
         let completed = [];
         themes.forEach((theme) => {
