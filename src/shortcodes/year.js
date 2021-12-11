@@ -1,5 +1,5 @@
-const year = () => {
-    return `${new Date().getFullYear()}`;
+module.exports = {
+    year: () => {
+        return `${new Date().getFullYear()}`;
+    },
 };
-
-module.exports = { year };
