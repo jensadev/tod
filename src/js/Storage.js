@@ -96,6 +96,29 @@ export default class Storage {
         return completed === result.parts.length;
     }
 
+    lastCompletedAssignment() {
+        const themes = this.getThemes();
+        let completed = [];
+        themes.forEach((theme) => {
+            theme.areas.forEach((area) => {
+                area.parts.forEach((part) => {
+                    part.assignments.forEach((assignment) => {
+                        if (assignment.completed === true) {
+                            completed.push({
+                                theme: theme.theme,
+                                area: area.area,
+                                part: part.part,
+                                assignment: assignment.assignment,
+                                date: assignment.date,
+                            });
+                        }
+                    });
+                });
+            });
+        });
+        return completed.sort((a, b) => b.date - a.date)[0];
+    }
+
     save() {
         window.localStorage.setItem(this.subject, JSON.stringify(this.storage));
     }

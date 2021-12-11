@@ -1,5 +1,6 @@
 import data from '../json/tod.json';
 import {
+    continuePopup,
     createProgressBar,
     createStars,
     setupAssignments,
@@ -16,6 +17,10 @@ const setup = () => {
     const nav = document.querySelectorAll('nav .breadcrumb li');
     if (nav.length === 0) {
         subject = strip(document.title);
+        if (subject.includes('404')) {
+            // prevent subject from being set to 404
+            subject = subject.split('---')[2];
+        }
     } else {
         subject = strip(nav[0].textContent);
         theme = nav[1] ? strip(nav[1].textContent) : null;
@@ -24,6 +29,17 @@ const setup = () => {
     }
 
     const storage = new Storage(data, subject);
+
+    const lastCompletedAssignment = storage.lastCompletedAssignment();
+    if (lastCompletedAssignment) {
+        let check = localStorage.getItem('continue');
+        if (check && Date.now() - 7200000 > check) {
+            localStorage.removeItem('continue');
+            check = false;
+        }
+        const continueElement = document.querySelector('.continue');
+        continuePopup(continueElement, check, lastCompletedAssignment);
+    }
 
     if (part) {
         setupAssignments(
