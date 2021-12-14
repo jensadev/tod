@@ -6,7 +6,7 @@ En starter för kurswebbar.
 
 # Licens
 
-Systemet och innehållet på den här sidan är licensierat under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+Systemet och innehållet på den här sidan är licensierat under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 
 ## Syfte
 
