@@ -2,7 +2,7 @@
 title: Slutuppgifter
 layout: 'layouts/tests.njk'
 category: slutuppgifter
-permalink: '{{ page.filePathStem | splice | slugUrl }}/index.html'
+permalink: '{{ page.filePathStem | splice | slugUrl }}/'
 eleventyExcludeFromCollections: true
 ---
 
