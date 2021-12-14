@@ -13,7 +13,7 @@ eleventyNavigation:
 
 Det här projektet innehåller ett större antal filer för att möjliggöra dess funktion.
 De filer du faktiskt behöver ändra på för att skapa din kurs kommer att förklaras under
-området [Min kurs](../min-kurs/min-kurs.html).
+området [Min kurs](/kom-igang/min-kurs/).
 
 Den här delens funktion är enbart en kort introduktion.
 

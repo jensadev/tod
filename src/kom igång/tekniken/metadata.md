@@ -28,9 +28,9 @@ att sidans funktioner ska fungera.
 ## Instruktioner
 
 🛑 När du redigerar metadata(`siteName:` egenskapen) så kommer guiden att sluta fungera.
-Detta på grund av att temat [Kom igång](/kom-igang/kom-igang.html) är kopplat till `siteName: 'Ämnestitel'`.
+Detta på grund av att temat [Kom igång](/kom-igang/) är kopplat till `siteName: 'Ämnestitel'`.
 Av den anledningen kan det vara klokt att kolla igenom
-[Min kurs delen](../min-kurs/min-kurs.html) av guiden först.
+[Min kurs delen](/kom-igang/min-kurs/) av guiden först.
 
 Öppna `src/_data/meta.js` för redigering.
 
