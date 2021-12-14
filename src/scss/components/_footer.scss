@@ -1,5 +1,5 @@
 .footer {
-    padding-top: ms(3);
+    padding-top: ms(2);
     padding-bottom: ms(4);
     &__inner {
         display: flex;
@@ -8,6 +8,7 @@
     }
 
     &__col {
+        padding-top: ms(0);
         width: 50%;
         @media (max-width: 768px) {
             width: 100%;
@@ -16,5 +17,8 @@
 
     p {
         color: $gray-700;
+    }
+    &__license-image {
+        display: inline-block;
     }
 }

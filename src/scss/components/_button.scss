@@ -12,7 +12,8 @@
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     &:hover {
-        border: 1px solid $gray-600;
+        border-color: $gray-600;
+        box-shadow: 0 0 0 ms(-5) rgba(222, 226, 230, 0.5);
     }
     &__close {
         background: transparent;
