@@ -145,12 +145,12 @@ const continuePopup = (element, check, last) => {
         popupItem(
             list[2],
             last.part,
-            `/${last.theme}/${last.area}/${last.part}.html`
+            `/${last.theme}/${last.area}/${last.part}/`
         );
     }
     const continueButton = document.querySelector('.continue__button');
     if (continueButton) {
-        continueButton.href = `/${last.theme}/${last.area}/${last.part}.html`;
+        continueButton.href = `/${last.theme}/${last.area}/${last.part}/`;
         continueButton.addEventListener('click', () => {
             const now = Date.now();
             localStorage.setItem('continue', now);
