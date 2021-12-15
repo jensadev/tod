@@ -10,7 +10,19 @@
     &__col {
         padding-top: ms(0);
         width: 50%;
+        &:first-child {
+            padding-right: ms(0);
+        }
+        &:last-child {
+            padding-left: ms(0);
+        }
         @media (max-width: 768px) {
+            &:first-child {
+                padding-right: 0;
+            }
+            &:last-child {
+                padding-left: 0;
+            }
             width: 100%;
         }
     }
