@@ -29,6 +29,7 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addPassthroughCopy('src/robots.txt');
     eleventyConfig.addPassthroughCopy('./src/fonts');
     eleventyConfig.addPassthroughCopy('./src/favicon.ico');
+    // eleventyConfig.addPassthroughCopy({'./src/assets/icons': 'icons'});
 
     // Filters
     glob.sync(['src/filters/*.js']).forEach((file) => {
