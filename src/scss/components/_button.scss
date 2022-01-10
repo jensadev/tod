@@ -1,3 +1,4 @@
+@use "sass:color";
 .button {
     display: inline-block;
     padding: ms(-2) ms(0);
@@ -14,6 +15,14 @@
     &:hover {
         border-color: $gray-600;
         box-shadow: 0 0 0 ms(-5) rgba(222, 226, 230, 0.5);
+    }
+    &__icon {
+        line-height: 1;
+        border: 0;
+        &:hover {
+            box-shadow: none;
+            color: color.scale($color-on-primary, $alpha: -20%);
+        }
     }
     &__close {
         background: transparent;

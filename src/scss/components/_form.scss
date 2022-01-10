@@ -1,11 +1,8 @@
 .form {
+    transition: all 0.5s ease;
     padding: ms(-1);
-    padding-right: 0;
+    width: 100%;
     &__control {
-        display: none;
-        @media (min-width: 768px) {
-            display: block;
-        }
         width: 100%;
         padding: ms(-5) ms(-4);
         font-size: ms(0);
@@ -17,6 +14,15 @@
             border-color: $gray-600;
             box-shadow: 0 0 0 ms(-5) rgba(222, 226, 230, 0.5);
         }
+    }
+    &--hidden {
+        opacity: 0;
+        overflow: hidden;
+        max-width: 0;
+    }
+    &--visible {
+        opacity: 1;
+        max-width: 100%;
     }
 }
 
