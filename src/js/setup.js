@@ -28,6 +28,8 @@ const setup = () => {
         part = nav[3] ? strip(nav[3].textContent) : null;
     }
 
+    const view = localStorage.getItem('view');
+
     const consent = localStorage.getItem('consent');
 
     if (!consent) {
@@ -98,14 +100,26 @@ const setup = () => {
                     const areaElement = document.querySelector(
                         `#heading-${area.area}`
                     );
-                    createProgressBar(areaElement, areaTotal, areaCompleted);
+                    if (view === 'grid') {
+                        // grid view
+                    } else {
+                        createProgressBar(
+                            areaElement,
+                            areaTotal,
+                            areaCompleted
+                        );
+                    }
                     themeTotal += areaTotal;
                     themeCompleted += areaCompleted;
                 });
                 const themeHeader = document.querySelector(
                     `#heading-${theme.theme}`
                 );
-                createProgressBar(themeHeader, themeTotal, themeCompleted);
+                if (view === 'grid') {
+                    // grid view
+                } else {
+                    createProgressBar(themeHeader, themeTotal, themeCompleted);
+                }
             });
         }
         const testElements = document.querySelectorAll('.test');

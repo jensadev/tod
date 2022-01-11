@@ -1,4 +1,4 @@
-const nav = () => {
+const view = () => {
     // const search = document.querySelector('.button__search');
     // if (search) {
     //     const form = document.querySelector('.form');
@@ -33,10 +33,12 @@ const nav = () => {
             }
             state = state === 'list' ? 'grid' : 'list';
             localStorage.setItem('view', state);
-            grid.classList.toggle('invisible');
-            list.classList.toggle('invisible');
+            // grid.classList.toggle('invisible');
+            // list.classList.toggle('invisible');
+
+            location.reload();
         });
     }
 };
 
-export { nav };
+export { view };
