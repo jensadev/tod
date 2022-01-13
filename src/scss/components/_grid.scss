@@ -1,0 +1,36 @@
+.grid {
+    background-color: $gray-100;
+    display: flex;
+    &__item {
+        &--top {
+            --flow-space: 0rem;
+        }
+        h2 {
+            padding: ms(0);
+        }
+        h3 {
+            padding: ms(0);
+            padding-top: 0;
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+            path {
+                stroke: $color-primary;
+                stroke-width: 5;
+                fill: none;
+                stroke-linecap: square;
+            }
+        }
+    }
+}
+
+/*
+<svg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
+<style>
+    path{animation:stroke 5s infinite linear;}
+    @keyframes stroke{to{stroke-dashoffset:776;}}
+</style>
+<path d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square'stroke-width='3' stroke-dasharray='388'/>
+</svg>
+*/

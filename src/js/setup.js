@@ -102,6 +102,13 @@ const setup = () => {
                     );
                     if (view === 'grid') {
                         // grid view
+                        console.log(areaElement);
+                        areaElement.classList.remove('accordion__item-header');
+                        const areaButton = areaElement.querySelector('button');
+                        areaButton.classList.remove('accordion__item-button');
+                        const areaParent = areaElement.parentElement;
+                        areaParent.classList.remove('accordion__item');
+                        areaParent.classList.add('grid__item');
                     } else {
                         createProgressBar(
                             areaElement,
@@ -117,6 +124,54 @@ const setup = () => {
                 );
                 if (view === 'grid') {
                     // grid view
+                    const collapseAreas = document.querySelectorAll(
+                        '.accordion__item-collapse'
+                    );
+                    collapseAreas.forEach((collapseArea) => {
+                        console.log(collapseArea);
+                        collapseArea.classList.add('invisible');
+                    });
+                    const container = document.querySelector('.accordion');
+                    if (container) {
+                        container.classList.remove('accordion');
+                        container.classList.add('grid');
+                    }
+                    if (themeHeader) {
+                        themeHeader.classList.remove('accordion__item-header');
+                        if (themeHeader?.parentElement) {
+                            const parent = themeHeader.parentElement;
+                            parent.classList.remove('accordion__item');
+                            parent.classList.add('grid__item');
+
+                            const svg = document.createElementNS(
+                                'http://www.w3.org/2000/svg',
+                                'svg'
+                            );
+                            svg.setAttribute('viewBox', '0 0 100 100');
+                            svg.setAttribute('width', '100');
+                            svg.setAttribute('height', '100');
+                            const path = document.createElementNS(
+                                'http://www.w3.org/2000/svg',
+                                'path'
+                            );
+                            path.setAttribute(
+                                'd',
+                                'M1.5 1.5 l97 0l0 97l-97 0 l0 -97'
+                            );
+                            svg.appendChild(path);
+                            const borderLength = path.getTotalLength() + 5;
+                            path.style.strokeDashoffset = borderLength;
+                            path.style.strokeDasharray = `${borderLength}, ${borderLength}`;
+                            console.log(borderLength);
+                            const w = 100 / themeTotal;
+                            const sw = themeTotal != 0 ? w : 0;
+                            const offset =
+                                ((sw * themeCompleted) / 100) * borderLength;
+                            path.style.strokeDashoffset = borderLength - offset;
+                            parent.appendChild(svg);
+                            console.log(themeTotal, themeCompleted);
+                        }
+                    }
                 } else {
                     createProgressBar(themeHeader, themeTotal, themeCompleted);
                 }
