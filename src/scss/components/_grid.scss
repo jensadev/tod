@@ -1,36 +1,79 @@
 .grid {
     background-color: $gray-100;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
     &__item {
-        &--top {
-            --flow-space: 0rem;
-        }
-        h2 {
-            padding: ms(0);
-        }
+        z-index: 100;
+        width: ms(8);
+        height: ms(8);
+        position: relative;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        
+        background-color: $gray-100;
+
         h3 {
-            padding: ms(0);
-            padding-top: 0;
+            font-size: ms(0);
+            font-weight: 400;
+            padding-left: ms(-2);
+            padding-right: ms(-2);
+            white-space: nowrap;
+            overflow: hidden;
         }
-        svg {
-            width: 100%;
-            height: 100%;
-            path {
-                stroke: $color-primary;
-                stroke-width: 5;
-                fill: none;
-                stroke-linecap: square;
-            }
-        }
+    }
+
+    &__initials {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: ms(4);
+    }
+
+    &__link {
+        text-decoration: none;
+    }
+
+    &__left, &__right, &__top, &__bottom {
+        background-color: $color-primary;
+        position: absolute;
+    }
+    &__left {
+        top: 0;
+        left: 0;
+        width: ms(-4);
+        height: 100%;
+    }
+    &__right {
+        top: 0;
+        right: 0;
+        width: ms(-4);
+        height: 100%;
+    }
+    &__top {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: ms(-4);
+    }
+    &__bottom {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: ms(-4);
     }
 }
 
 /*
 <svg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
 <style>
-    path{animation:stroke 5s infinite linear;}
+    path{
+        animation:stroke 2s linear;
+    }
     @keyframes stroke{to{stroke-dashoffset:776;}}
 </style>
-<path d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square'stroke-width='3' stroke-dasharray='388'/>
+<path d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke-width='3' stroke-dasharray='388'/>
 </svg>
 */

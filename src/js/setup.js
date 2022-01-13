@@ -2,6 +2,7 @@ import data from '../json/tod.json';
 import {
     continuePopup,
     createProgressBar,
+    createProgressSvg,
     createStars,
     setupAssignments,
     showHideTests,
@@ -76,6 +77,7 @@ const setup = () => {
             themes.map((theme) => {
                 let themeTotal = 0;
                 let themeCompleted = 0;
+                let themeAreaCompleted = 0;
                 theme.areas.map((area) => {
                     let areaTotal = 0;
                     let areaCompleted = 0;
@@ -105,10 +107,45 @@ const setup = () => {
                         console.log(areaElement);
                         areaElement.classList.remove('accordion__item-header');
                         const areaButton = areaElement.querySelector('button');
-                        areaButton.classList.remove('accordion__item-button');
+                        // areaButton.classList.remove('accordion__item-button');
+                        areaElement.removeChild(areaButton);
                         const areaParent = areaElement.parentElement;
                         areaParent.classList.remove('accordion__item');
                         areaParent.classList.add('grid__item');
+
+                        const areaInitials = document.createElement('h2');
+                        areaInitials.classList.add('grid__initials');
+                        const split = areaButton.textContent.trim().split(' ');
+                        const initials =
+                            split.length > 1
+                                ? split[0][0] + split[1][0]
+                                : split[0][0];
+                        areaInitials.textContent = initials;
+                        areaParent.appendChild(areaInitials);
+
+                        const areaLink = document.createElement('a');
+                        areaLink.classList.add('grid__link');
+                        areaLink.classList.add('stretched-link');
+                        areaLink.href = `/${theme.theme}/${area.area}`;
+                        areaLink.textContent = areaButton.textContent.trim();
+                        areaLink.title = areaButton.title;
+                        areaElement.appendChild(areaLink);
+
+                        const top = document.createElement('div');
+                        top.classList.add('grid__top');
+                        const bottom = document.createElement('div');
+                        bottom.classList.add('grid__bottom');
+                        const left = document.createElement('div');
+                        left.classList.add('grid__left');
+                        const right = document.createElement('div');
+                        right.classList.add('grid__right');
+
+                        areaParent.appendChild(top);
+                        areaParent.appendChild(bottom);
+                        areaParent.appendChild(left);
+                        areaParent.appendChild(right);
+
+                        // createProgressSvg(areaParent, areaTotal, areaCompleted);
                     } else {
                         createProgressBar(
                             areaElement,
@@ -118,6 +155,7 @@ const setup = () => {
                     }
                     themeTotal += areaTotal;
                     themeCompleted += areaCompleted;
+                    themeAreaCompleted += areaCompleted === areaTotal ? 1 : 0;
                 });
                 const themeHeader = document.querySelector(
                     `#heading-${theme.theme}`
@@ -128,12 +166,12 @@ const setup = () => {
                         '.accordion__item-collapse'
                     );
                     collapseAreas.forEach((collapseArea) => {
-                        console.log(collapseArea);
                         collapseArea.classList.add('invisible');
                     });
                     const container = document.querySelector('.accordion');
                     if (container) {
                         container.classList.remove('accordion');
+                        container.classList.remove('flow');
                         container.classList.add('grid');
                     }
                     if (themeHeader) {
@@ -142,34 +180,13 @@ const setup = () => {
                             const parent = themeHeader.parentElement;
                             parent.classList.remove('accordion__item');
                             parent.classList.add('grid__item');
-
-                            const svg = document.createElementNS(
-                                'http://www.w3.org/2000/svg',
-                                'svg'
+                            console.log(theme.areas.length, themeAreaCompleted);
+                            createProgressBar(
+                                parent,
+                                theme.areas.length,
+                                themeAreaCompleted,
+                                true
                             );
-                            svg.setAttribute('viewBox', '0 0 100 100');
-                            svg.setAttribute('width', '100');
-                            svg.setAttribute('height', '100');
-                            const path = document.createElementNS(
-                                'http://www.w3.org/2000/svg',
-                                'path'
-                            );
-                            path.setAttribute(
-                                'd',
-                                'M1.5 1.5 l97 0l0 97l-97 0 l0 -97'
-                            );
-                            svg.appendChild(path);
-                            const borderLength = path.getTotalLength() + 5;
-                            path.style.strokeDashoffset = borderLength;
-                            path.style.strokeDasharray = `${borderLength}, ${borderLength}`;
-                            console.log(borderLength);
-                            const w = 100 / themeTotal;
-                            const sw = themeTotal != 0 ? w : 0;
-                            const offset =
-                                ((sw * themeCompleted) / 100) * borderLength;
-                            path.style.strokeDashoffset = borderLength - offset;
-                            parent.appendChild(svg);
-                            console.log(themeTotal, themeCompleted);
                         }
                     }
                 } else {

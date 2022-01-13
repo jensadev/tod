@@ -85,18 +85,44 @@ const createStars = (element, type = 'basic') => {
     element.appendChild(el);
 };
 
-const createProgressBar = (element, total = 0, completed = 0) => {
+const createProgressBar = (element, total = 0, completed = 0, grid) => {
     if (!element) return;
     const width = 100 / total;
     const segmentWidth = total != 0 ? width : 0;
     const progress = document.createElement('div');
     progress.classList.add('progress');
+    if (grid) {
+        progress.classList.add('progress--grid');
+    }
     const bar = document.createElement('div');
     bar.classList.add('progress__bar');
     bar.classList.add('bg-theme');
     bar.setAttribute('style', `width: ${segmentWidth * completed}%`);
     progress.appendChild(bar);
     element.parentElement.insertAdjacentElement('beforeend', progress);
+};
+
+const createProgressSvg = (element, total = 0, completed = 0) => {
+    if (!element) return;
+
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 100 100');
+    svg.setAttribute('width', '100');
+    svg.setAttribute('height', '100');
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', 'M1.5 1.5 l97 0l0 97l-97 0 l0 -97');
+
+    svg.appendChild(path);
+    const borderLength = path.getTotalLength() + 5;
+    path.style.strokeDashoffset = borderLength;
+    path.style.strokeDasharray = `${borderLength}, ${borderLength}`;
+
+    const totalWidth = 100 / total;
+    const segmentWidth = total != 0 ? totalWidth : 0;
+    const offset = ((segmentWidth * completed) / 100) * borderLength;
+    path.style.strokeDashoffset = borderLength - offset;
+    element.appendChild(svg);
 };
 
 const showHideTests = (elements, storage) => {
@@ -161,6 +187,7 @@ const continuePopup = (element, check, last) => {
 export {
     continuePopup,
     createProgressBar,
+    createProgressSvg,
     createStars,
     setupAssignments,
     showHideTests,

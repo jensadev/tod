@@ -10,4 +10,9 @@
         overflow: hidden;
         white-space: nowrap;
     }
+    &--grid {
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+    }
 }
