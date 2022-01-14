@@ -215,6 +215,50 @@
     {
       "theme": "slutuppgifter",
       "areas": []
+    },
+    {
+      "theme": "test-tema",
+      "areas": [
+        {
+          "area": "test-omrade",
+          "parts": [
+            {
+              "part": "test-del",
+              "assignments": []
+            },
+            {
+              "part": "exempel-tema",
+              "assignments": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "exempel-tema",
+      "areas": [
+        {
+          "area": "exempel-ett",
+          "parts": []
+        },
+        {
+          "area": "exempel-tva",
+          "parts": []
+        },
+        {
+          "area": "exempel-tre",
+          "parts": []
+        },
+        {
+          "area": "exempel-fyra",
+          "parts": [
+            {
+              "part": "test-del-tva",
+              "assignments": []
+            }
+          ]
+        }
+      ]
     }
   ]
 }
