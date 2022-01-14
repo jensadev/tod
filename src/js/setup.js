@@ -183,8 +183,14 @@ const setup = () => {
                     const container = document.querySelector('.accordion');
                     if (container) {
                         container.classList.remove('accordion');
-                        container.classList.remove('flow');
+                        container.classList.add('flow');
                         container.classList.add('grid');
+                        const inner = container.querySelectorAll('.accordion__inner');
+                        inner.forEach((inner) => {
+                            inner.classList.remove('accordion__inner');
+                            inner.classList.remove('flow');
+                            inner.classList.add('grid__inner');
+                        });
                     }
                     if (themeHeader) {
                         themeHeader.classList.remove('accordion__item-header');

@@ -1,13 +1,15 @@
 .grid {
     background-color: $gray-100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    flex-wrap: wrap;
-    gap: ms(1);
     padding: ms(1);
-
+    
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        flex-wrap: wrap;
+        gap: ms(1);
+    }
     
     &__item {
         z-index: 100;
