@@ -191,8 +191,10 @@ const createGridProgressBar = (
     if (!element) return;
 
     const width = 100 / total;
-    const segmentWidth = total != 0 ? width : 0;
-    const progress = segmentWidth * completed;
+    const segmentWidth = total !== 0 ? width : 0;
+    let progress = segmentWidth * completed;
+
+    // console.log(total, completed, progress);
 
     const top = document.createElement('div');
     top.classList.add('grid__progress--top');
@@ -234,7 +236,7 @@ const createGridProgressBar = (
     left.classList.add('grid__progress--left');
     bar = document.createElement('div');
     bar.classList.add('grid__progress-bar');
-    bar.setAttribute('style', `height: ${progress < 75 ? 0 : progress }%`);
+    bar.setAttribute('style', `height: ${progress < 75 ? 0 : progress}%`);
     if (theme) {
         bar.classList.add('grid__progress-bar--theme');
         left.classList.add('grid__progress--theme');

@@ -168,17 +168,18 @@ const setup = () => {
                             const parent = themeHeader.parentElement;
                             parent.classList.remove('accordion__item');
                             parent.classList.add('grid__item');
-                            console.log(theme.areas.length, themeAreaCompleted);
+
                             createProgressBar(
                                 parent,
-                                themeTotal, themeCompleted,
+                                themeTotal,
+                                themeCompleted,
                                 true
                             );
 
                             createGridProgressBar(
                                 parent,
                                 theme.areas.length,
-                                themeAreaCompleted,
+                                themeCompleted === 0 ? 0 : themeAreaCompleted,
                                 true
                             );
                         }
