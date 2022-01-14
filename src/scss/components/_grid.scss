@@ -11,6 +11,10 @@
         position: relative;
         flex-wrap: wrap;
         gap: ms(1);
+        @media (min-width: 768px) {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
     }
     
     &__item {
@@ -33,13 +37,23 @@
             @media (max-width: 576px) {
                 flex: 1 0 100%;
             }
+            &:hover {
+                color: $color-on-primary;
+            }
         }
         
+        &:hover {
+            color: $gray-600;
+            box-shadow: inset 0 0 ms(1) rgba(222, 226, 230, .5);
+        }
+
         h2 {
             font-weight: 700;
             text-transform: uppercase;
             font-size: ms(3);
             text-align: center;
+            padding-left: ms(-2);
+            padding-right: ms(-2);
         }
 
         h3 {
@@ -84,8 +98,9 @@
         left: 0;
         width: ms(-4);
         height: 100%;
-        z-index: 10;
-        align-items: flex-end;
+        z-index: 40;
+        flex-direction: column;
+        justify-content: space-between;
         .grid__progress-bar {
             width: 100%;
             height: 0%;
@@ -96,7 +111,7 @@
         right: 0;
         width: ms(-4);
         height: 100%;
-        z-index: 30;
+        z-index: 20;
         .grid__progress-bar {
             width: 100%;
             height: 0%;
@@ -107,7 +122,7 @@
         left: 0;
         width: 100%;
         height: ms(-4);
-        z-index: 40;
+        z-index: 30;
     }
     &__progress--bottom {
         bottom: 0;
@@ -118,15 +133,3 @@
         justify-content: flex-end;
     }
 }
-
-/*
-<svg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'>
-<style>
-    path{
-        animation:stroke 2s linear;
-    }
-    @keyframes stroke{to{stroke-dashoffset:776;}}
-</style>
-<path d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke-width='3' stroke-dasharray='388'/>
-</svg>
-*/

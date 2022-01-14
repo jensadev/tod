@@ -8,14 +8,11 @@ layout: layouts/base.njk
     {% set navPages = collections.all | eleventyNavigation(title.toLowerCase()) %}
     {% for entry in navPages %}
     <div class="accordion__inner flow">
-        <div class="accordion__item accordion__item--top">
+        <div class="accordion__item accordion__item--top" title="Tema: {{ entry.excerpt }}">
             <h2
                 class="accordion__item-header"
                 id="heading-{{ entry.title | slug }}">
-                <span
-                    title="Tema: {{ entry.excerpt }}">
                     {{ entry.title | capitalize }}
-                </span>
             </h2>
         </div>
         {% if entry.children.length %}

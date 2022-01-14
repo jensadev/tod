@@ -195,10 +195,27 @@ const createGridProgressBar = (
     let progress = segmentWidth * completed;
 
     // console.log(total, completed, progress);
+    let bar;
+    // left top
+    const left = document.createElement('div');
+    left.classList.add('grid__progress--left');
+    bar = document.createElement('div');
+    bar.classList.add('grid__progress-bar');
+    bar.classList.add('grid__progress-bar--left-top');
+    console.log(`progress: ${progress}%`);
+    bar.setAttribute('style', `height: ${progress > 12.5 ? 50 : progress}%`);
+    if (theme) {
+        bar.classList.add('grid__progress-bar--theme');
+    }
+    left.appendChild(bar);
 
+    progress -= 12.5;
+
+    // top
+    console.log(`top: ${progress}%`);
     const top = document.createElement('div');
     top.classList.add('grid__progress--top');
-    let bar = document.createElement('div');
+    bar = document.createElement('div');
     bar.classList.add('grid__progress-bar');
     bar.setAttribute('style', `width: ${progress > 25 ? 100 : progress}%`);
     if (theme) {
@@ -206,37 +223,55 @@ const createGridProgressBar = (
         top.classList.add('grid__progress--theme');
     }
     top.appendChild(bar);
+
+    progress -= 25;
+
+    // right
+    console.log(`right: ${progress}%`);
     const right = document.createElement('div');
     right.classList.add('grid__progress--right');
     bar = document.createElement('div');
     bar.classList.add('grid__progress-bar');
     bar.setAttribute(
         'style',
-        `height: ${progress > 50 ? 100 : progress < 25 ? 0 : progress}%`
+        `height: ${progress > 25 ? 100 : progress > 0 ? progress : 0}%`
     );
     if (theme) {
         bar.classList.add('grid__progress-bar--theme');
         right.classList.add('grid__progress--theme');
     }
     right.appendChild(bar);
+
+    progress -= 25;
+
+    // bottom
+    console.log(`bottom: ${progress}%`);
     const bottom = document.createElement('div');
     bottom.classList.add('grid__progress--bottom');
     bar = document.createElement('div');
     bar.classList.add('grid__progress-bar');
     bar.setAttribute(
         'style',
-        `width: ${progress > 75 ? 100 : progress < 50 ? 0 : progress}%`
+        `width: ${progress > 25 ? 100 : progress > 0 ? progress : 0}%`
     );
     if (theme) {
         bar.classList.add('grid__progress-bar--theme');
         bottom.classList.add('grid__progress--theme');
     }
     bottom.appendChild(bar);
-    const left = document.createElement('div');
-    left.classList.add('grid__progress--left');
+
+    progress -= 25;
+
+    // left bottom
+    console.log(`left: ${progress}%`);
     bar = document.createElement('div');
     bar.classList.add('grid__progress-bar');
-    bar.setAttribute('style', `height: ${progress < 75 ? 0 : progress}%`);
+    bar.classList.add('grid__progress-bar--left-bottom');
+    // bottom progress
+    bar.setAttribute(
+        'style',
+        `height: ${progress >= 12.5 ? 50 : progress > 0 ? progress : 0}%`
+    );
     if (theme) {
         bar.classList.add('grid__progress-bar--theme');
         left.classList.add('grid__progress--theme');
