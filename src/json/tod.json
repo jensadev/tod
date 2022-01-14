@@ -246,7 +246,14 @@
             },
             {
               "part": "test-del-ett",
-              "assignments": []
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
             }
           ]
         },
@@ -263,7 +270,14 @@
             },
             {
               "part": "test-del-tva",
-              "assignments": []
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
             }
           ]
         },
@@ -272,7 +286,14 @@
           "parts": [
             {
               "part": "test-del-tre",
-              "assignments": []
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
             }
           ]
         },
@@ -285,11 +306,25 @@
             },
             {
               "part": "test-del-fyra",
-              "assignments": []
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
             },
             {
               "part": "test-del-fyra-tva",
-              "assignments": []
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
             }
           ]
         }
