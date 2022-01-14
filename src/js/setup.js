@@ -133,12 +133,24 @@ const setup = () => {
 
                         const top = document.createElement('div');
                         top.classList.add('grid__top');
+                        let bar = document.createElement('div');
+                        bar.classList.add('grid__bar');
+                        top.appendChild(bar);
                         const bottom = document.createElement('div');
                         bottom.classList.add('grid__bottom');
+                        bar = document.createElement('div');
+                        bar.classList.add('grid__bar');
+                        bottom.appendChild(bar);
                         const left = document.createElement('div');
                         left.classList.add('grid__left');
+                        bar = document.createElement('div');
+                        bar.classList.add('grid__bar');
+                        left.appendChild(bar);
                         const right = document.createElement('div');
                         right.classList.add('grid__right');
+                        bar = document.createElement('div');
+                        bar.classList.add('grid__bar');
+                        right.appendChild(bar);
 
                         areaParent.appendChild(top);
                         areaParent.appendChild(bottom);
