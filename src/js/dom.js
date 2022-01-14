@@ -102,27 +102,14 @@ const createProgressBar = (element, total = 0, completed = 0, grid) => {
     element.parentElement.insertAdjacentElement('beforeend', progress);
 };
 
-const createProgressSvg = (element, total = 0, completed = 0) => {
+const createInitials = (element, text) => {
     if (!element) return;
-
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('viewBox', '0 0 100 100');
-    svg.setAttribute('width', '100');
-    svg.setAttribute('height', '100');
-
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    path.setAttribute('d', 'M1.5 1.5 l97 0l0 97l-97 0 l0 -97');
-
-    svg.appendChild(path);
-    const borderLength = path.getTotalLength() + 5;
-    path.style.strokeDashoffset = borderLength;
-    path.style.strokeDasharray = `${borderLength}, ${borderLength}`;
-
-    const totalWidth = 100 / total;
-    const segmentWidth = total != 0 ? totalWidth : 0;
-    const offset = ((segmentWidth * completed) / 100) * borderLength;
-    path.style.strokeDashoffset = borderLength - offset;
-    element.appendChild(svg);
+    const h2 = document.createElement('h2');
+    h2.classList.add('grid__initials');
+    const split = text.trim().split(' ');
+    const initials = split.length > 1 ? split[0][0] + split[1][0] : split[0][0];
+    h2.textContent = initials;
+    element.appendChild(h2);
 };
 
 const showHideTests = (elements, storage) => {
@@ -184,10 +171,88 @@ const continuePopup = (element, check, last) => {
     }
 };
 
+const createAreaLink = (element, text, title, theme, area) => {
+    if (!element) return;
+    const link = document.createElement('a');
+    link.classList.add('grid__link');
+    link.classList.add('stretched-link');
+    link.href = `/${theme}/${area}`;
+    link.textContent = text;
+    link.title = title;
+    element.appendChild(link);
+};
+
+const createGridProgressBar = (
+    element,
+    total = 0,
+    completed = 0,
+    theme = false
+) => {
+    if (!element) return;
+
+    const width = 100 / total;
+    const segmentWidth = total != 0 ? width : 0;
+    const progress = segmentWidth * completed;
+
+    const top = document.createElement('div');
+    top.classList.add('grid__progress--top');
+    let bar = document.createElement('div');
+    bar.classList.add('grid__progress-bar');
+    bar.setAttribute('style', `width: ${progress > 25 ? 100 : progress}%`);
+    if (theme) {
+        bar.classList.add('grid__progress-bar--theme');
+        top.classList.add('grid__progress--theme');
+    }
+    top.appendChild(bar);
+    const right = document.createElement('div');
+    right.classList.add('grid__progress--right');
+    bar = document.createElement('div');
+    bar.classList.add('grid__progress-bar');
+    bar.setAttribute(
+        'style',
+        `height: ${progress > 50 ? 100 : progress < 25 ? 0 : progress}%`
+    );
+    if (theme) {
+        bar.classList.add('grid__progress-bar--theme');
+        right.classList.add('grid__progress--theme');
+    }
+    right.appendChild(bar);
+    const bottom = document.createElement('div');
+    bottom.classList.add('grid__progress--bottom');
+    bar = document.createElement('div');
+    bar.classList.add('grid__progress-bar');
+    bar.setAttribute(
+        'style',
+        `width: ${progress > 75 ? 100 : progress < 50 ? 0 : progress}%`
+    );
+    if (theme) {
+        bar.classList.add('grid__progress-bar--theme');
+        bottom.classList.add('grid__progress--theme');
+    }
+    bottom.appendChild(bar);
+    const left = document.createElement('div');
+    left.classList.add('grid__progress--left');
+    bar = document.createElement('div');
+    bar.classList.add('grid__progress-bar');
+    bar.setAttribute('style', `height: ${progress < 75 ? 0 : progress }%`);
+    if (theme) {
+        bar.classList.add('grid__progress-bar--theme');
+        left.classList.add('grid__progress--theme');
+    }
+    left.appendChild(bar);
+
+    element.appendChild(top);
+    element.appendChild(right);
+    element.appendChild(bottom);
+    element.appendChild(left);
+};
+
 export {
     continuePopup,
+    createAreaLink,
+    createGridProgressBar,
+    createInitials,
     createProgressBar,
-    createProgressSvg,
     createStars,
     setupAssignments,
     showHideTests,

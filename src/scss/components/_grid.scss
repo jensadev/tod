@@ -17,6 +17,7 @@
         position: relative;
         display: flex;
         flex: 1 0 21%;
+        min-width: ms(8);
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
@@ -32,6 +33,13 @@
             }
         }
         
+        h2 {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: ms(3);
+            text-align: center;
+        }
+
         h3 {
             font-size: ms(0);
             font-weight: 400;
@@ -52,47 +60,54 @@
         text-decoration: none;
     }
     
-    &__bar {
-        background-color: $color-on-primary;
+    &__progress--theme {
+        background-color: $color-primary !important;
     }
 
-    &__left, &__right, &__top, &__bottom {
+    &__progress-bar {
         background-color: $color-primary;
+        &--theme {
+            background-color: $color-on-primary;
+        }
+    }
+
+    &__progress--left, &__progress--right, &__progress--top, &__progress--bottom {
+        background-color: $gray-300;
         position: absolute;
         overflow: hidden;
         display: flex;
     }
-    &__left {
+    &__progress--left {
         top: 0;
         left: 0;
         width: ms(-4);
         height: 100%;
         z-index: 10;
         align-items: flex-end;
-        .grid__bar {
+        .grid__progress-bar {
             width: 100%;
             height: 0%;
         }
     }
-    &__right {
+    &__progress--right {
         top: 0;
         right: 0;
         width: ms(-4);
         height: 100%;
         z-index: 30;
-        .grid__bar {
+        .grid__progress-bar {
             width: 100%;
             height: 0%;
         }
     }
-    &__top {
+    &__progress--top {
         top: 0;
         left: 0;
         width: 100%;
         height: ms(-4);
         z-index: 40;
     }
-    &__bottom {
+    &__progress--bottom {
         bottom: 0;
         left: 0;
         width: 100%;

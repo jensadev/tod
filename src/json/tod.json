@@ -239,7 +239,12 @@
       "areas": [
         {
           "area": "exempel-ett",
-          "parts": []
+          "parts": [
+            {
+              "part": "exempel-tva",
+              "assignments": []
+            }
+          ]
         },
         {
           "area": "exempel-tva",

@@ -2,7 +2,9 @@ import data from '../json/tod.json';
 import {
     continuePopup,
     createProgressBar,
-    createProgressSvg,
+    createAreaLink,
+    createGridProgressBar,
+    createInitials,
     createStars,
     setupAssignments,
     showHideTests,
@@ -104,60 +106,27 @@ const setup = () => {
                     );
                     if (view === 'grid') {
                         // grid view
-                        console.log(areaElement);
                         areaElement.classList.remove('accordion__item-header');
                         const areaButton = areaElement.querySelector('button');
-                        // areaButton.classList.remove('accordion__item-button');
                         areaElement.removeChild(areaButton);
                         const areaParent = areaElement.parentElement;
                         areaParent.classList.remove('accordion__item');
                         areaParent.classList.add('grid__item');
 
-                        const areaInitials = document.createElement('h2');
-                        areaInitials.classList.add('grid__initials');
-                        const split = areaButton.textContent.trim().split(' ');
-                        const initials =
-                            split.length > 1
-                                ? split[0][0] + split[1][0]
-                                : split[0][0];
-                        areaInitials.textContent = initials;
-                        areaParent.appendChild(areaInitials);
+                        createInitials(areaParent, areaButton.textContent);
+                        createAreaLink(
+                            areaElement,
+                            areaButton.textContent.trim(),
+                            areaButton.title,
+                            theme.theme,
+                            area.area
+                        );
 
-                        const areaLink = document.createElement('a');
-                        areaLink.classList.add('grid__link');
-                        areaLink.classList.add('stretched-link');
-                        areaLink.href = `/${theme.theme}/${area.area}`;
-                        areaLink.textContent = areaButton.textContent.trim();
-                        areaLink.title = areaButton.title;
-                        areaElement.appendChild(areaLink);
-
-                        const top = document.createElement('div');
-                        top.classList.add('grid__top');
-                        let bar = document.createElement('div');
-                        bar.classList.add('grid__bar');
-                        top.appendChild(bar);
-                        const bottom = document.createElement('div');
-                        bottom.classList.add('grid__bottom');
-                        bar = document.createElement('div');
-                        bar.classList.add('grid__bar');
-                        bottom.appendChild(bar);
-                        const left = document.createElement('div');
-                        left.classList.add('grid__left');
-                        bar = document.createElement('div');
-                        bar.classList.add('grid__bar');
-                        left.appendChild(bar);
-                        const right = document.createElement('div');
-                        right.classList.add('grid__right');
-                        bar = document.createElement('div');
-                        bar.classList.add('grid__bar');
-                        right.appendChild(bar);
-
-                        areaParent.appendChild(top);
-                        areaParent.appendChild(bottom);
-                        areaParent.appendChild(left);
-                        areaParent.appendChild(right);
-
-                        // createProgressSvg(areaParent, areaTotal, areaCompleted);
+                        createGridProgressBar(
+                            areaParent,
+                            areaTotal,
+                            areaCompleted
+                        );
                     } else {
                         createProgressBar(
                             areaElement,
@@ -185,7 +154,8 @@ const setup = () => {
                         container.classList.remove('accordion');
                         container.classList.add('flow');
                         container.classList.add('grid');
-                        const inner = container.querySelectorAll('.accordion__inner');
+                        const inner =
+                            container.querySelectorAll('.accordion__inner');
                         inner.forEach((inner) => {
                             inner.classList.remove('accordion__inner');
                             inner.classList.remove('flow');
@@ -200,6 +170,12 @@ const setup = () => {
                             parent.classList.add('grid__item');
                             console.log(theme.areas.length, themeAreaCompleted);
                             createProgressBar(
+                                parent,
+                                themeTotal, themeCompleted,
+                                true
+                            );
+
+                            createGridProgressBar(
                                 parent,
                                 theme.areas.length,
                                 themeAreaCompleted,
