@@ -1,8 +1,8 @@
 ---
-title: Test del
+title: Test del tre
 eleventyNavigation:
-    key: test del
-    parent: exempel två
+    key: test del tre
+    parent: exempel tre
     order: 1
     excerpt: Delen är delen
 ---

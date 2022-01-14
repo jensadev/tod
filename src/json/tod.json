@@ -243,22 +243,52 @@
             {
               "part": "exempel-tva",
               "assignments": []
+            },
+            {
+              "part": "test-del-ett",
+              "assignments": []
             }
           ]
         },
         {
           "area": "exempel-tva",
-          "parts": []
+          "parts": [
+            {
+              "part": "exempel-tre",
+              "assignments": []
+            },
+            {
+              "part": "test-tema",
+              "assignments": []
+            },
+            {
+              "part": "test-del-tva",
+              "assignments": []
+            }
+          ]
         },
         {
           "area": "exempel-tre",
-          "parts": []
+          "parts": [
+            {
+              "part": "test-del-tre",
+              "assignments": []
+            }
+          ]
         },
         {
           "area": "exempel-fyra",
           "parts": [
             {
               "part": "test-del-tva",
+              "assignments": []
+            },
+            {
+              "part": "test-del-fyra",
+              "assignments": []
+            },
+            {
+              "part": "test-del-fyra-tva",
               "assignments": []
             }
           ]
