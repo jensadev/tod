@@ -2,6 +2,8 @@
     background-color: $gray-100;
     padding: ms(1);
 
+    --flow-space: #{ms(1)};
+
     &__inner {
         display: flex;
         justify-content: space-between;
