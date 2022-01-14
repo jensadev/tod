@@ -4,9 +4,10 @@ layout: layouts/base.njk
 
 {{ content | safe }}
 {% include "components/updates.njk" %}
-<div class="accordion flow" id="accordion">
+<div class="accordion" id="accordion">
     {% set navPages = collections.all | eleventyNavigation(title.toLowerCase()) %}
     {% for entry in navPages %}
+    <div class="accordion__inner flow">
         <div class="accordion__item accordion__item--top">
             <h2
                 class="accordion__item-header"
@@ -55,5 +56,6 @@ layout: layouts/base.njk
                 </div>
             {% endfor %}
         {% endif %}
+    </div>
     {% endfor %}
 </div>
