@@ -1,7 +1,7 @@
 .grid {
     background-color: $gray-100;
     padding: ms(1);
-    
+
     &__inner {
         display: flex;
         justify-content: space-between;
@@ -26,6 +26,10 @@
         &:first-child {
             color: $color-on-primary;
             background-color: $color-primary;
+            order: -1;
+            @media (max-width: 576px) {
+                flex: 1 0 100%;
+            }
         }
         
         h3 {
