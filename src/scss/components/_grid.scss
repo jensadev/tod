@@ -4,17 +4,26 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+    flex-wrap: wrap;
+    gap: ms(1);
+    padding: ms(1);
+
     &__item {
         z-index: 100;
-        width: ms(8);
         height: ms(8);
         position: relative;
         display: flex;
+        flex: 1 0 21%;
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
         
         background-color: $gray-100;
+
+        &:first-child {
+            color: $color-on-primary;
+            background-color: $color-primary;
+        }
 
         h3 {
             font-size: ms(0);
