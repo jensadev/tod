@@ -1,3 +1,5 @@
+import confetti from 'canvas-confetti';
+
 import { restore, strip } from './strip';
 
 const showElement = (element) => {
@@ -64,6 +66,9 @@ const setupAssignments = (element, storage, tod) => {
             result.completed
         );
         box.addEventListener('change', () => {
+            if (confetti && box.checked) {
+                confetti();
+            }
             storage.updateAssignment(...tod, result);
             showHideElements(
                 storage.checkCompleted(status, result.type),
