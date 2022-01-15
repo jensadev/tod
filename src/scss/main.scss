@@ -40,8 +40,13 @@ main {
     background-color: $color-primary;
 }
 
+.star {
+    transform: translateY(1px);
+}
+
 .stars {
     padding-left: ms(-1);
+    color: $color-primary;
 }
 
 .invisible {

@@ -1,6 +1,10 @@
 {
     "items": [
         {
+            "text": "💄 Nytt gränssnitt, förenklad vy. Ikon i navbar för att växla.",
+            "date": "2021-01-15"
+        },
+        {
             "text": "🚸 Bättre länkar.",
             "date": "2021-12-14"
         },

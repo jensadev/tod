@@ -78,15 +78,41 @@ const setupAssignments = (element, storage, tod) => {
     });
 };
 
+const createStar = (element) => {
+    if (!element) return;
+    const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    star.classList.add('star');
+    star.setAttribute('viewBox', '0 0 24 24');
+    star.setAttribute('width', '16px');
+    star.setAttribute('height', '16px');
+    star.setAttribute('fill', 'currentColor');
+    star.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    let g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', 'M0,0h24v24H0V0z');
+    path.setAttribute('fill', 'none');
+    g.appendChild(path);
+    path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', 'M0,0h24v24H0V0z');
+    path.setAttribute('fill', 'none');
+    g.appendChild(path);
+    star.appendChild(g);
+    g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute(
+        'd',
+        'M12,17.27L18.18,21l-1.64-7.03L22,9.24l-7.19-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27z'
+    );
+    g.appendChild(path);
+    star.appendChild(g);
+    element.appendChild(star);
+};
+
 const createStars = (element, type = 'basic') => {
     if (!element) return;
     const el = document.createElement('span');
     el.classList.add('stars');
-    if (type === 'basic') {
-        el.textContent = '⭐';
-    } else {
-        el.textContent = '⭐⭐';
-    }
+    el.textContent = type === 'basic' ? '⭐' : '⭐⭐';
     element.appendChild(el);
 };
 
