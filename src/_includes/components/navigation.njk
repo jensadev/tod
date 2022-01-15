@@ -22,14 +22,21 @@
         {% else %}
             {% include "components/breadcrumb.njk" %}
         {% endif %}
-        <div class="dropdown">
-            <form class="form">
-                <label class="visually-hidden" for="search-input">Sök</label>
-                <input class="form__control" autocomplete="off" type="search" placeholder="Sök..." id="search-input" aria-label="Sök"/>
-            </form>
-            <ol id="search-results" class="dropdown__menu flow d-none" aria-labelledby="search-input">
-                <li class="dropdown__menu-item--disabled">Skriv för att söka på sidan...</li>
-            </ol>
+        <div class="navbar__left">
+            <div class="dropdown">
+                <form class="form">
+                    <label class="visually-hidden" for="search-input">Sök</label>
+                    <input class="form__control" autocomplete="off" type="search" placeholder="Sök..." id="search-input" aria-label="Sök"/>
+                </form>
+                <ol id="search-results" class="dropdown__menu flow d-none" aria-labelledby="search-input">
+                    <li class="dropdown__menu-item--disabled">Skriv för att söka på sidan...</li>
+                </ol>
+            </div>
+            <button class="button button__icon button__view">
+                <span class="visually-hidden">Byt vy</span>
+                <svg class="icon button__view--grid invisible" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><rect fill="none" height="24" width="24"/><path d="M22,11V3h-7v3H9V3H2v8h7V8h2v10h4v3h7v-8h-7v3h-2V8h2v3H22z M7,9H4V5h3V9z M17,15h3v4h-3V15z M17,5h3v4h-3V5z"/></svg>
+                <svg class="icon button__view--list invisible" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><rect fill="none" height="24" width="24"/><path d="M22,7h-9v2h9V7z M22,15h-9v2h9V15z M5.54,11L2,7.46l1.41-1.41l2.12,2.12l4.24-4.24l1.41,1.41L5.54,11z M5.54,19L2,15.46 l1.41-1.41l2.12,2.12l4.24-4.24l1.41,1.41L5.54,19z"/></svg>
+            </button>
         </div>
     </div>
 </nav>

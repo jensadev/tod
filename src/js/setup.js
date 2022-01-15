@@ -2,6 +2,9 @@ import data from '../json/tod.json';
 import {
     continuePopup,
     createProgressBar,
+    createAreaLink,
+    createGridProgressBar,
+    createInitials,
     createStars,
     setupAssignments,
     showHideTests,
@@ -27,6 +30,8 @@ const setup = () => {
         area = nav[2] ? strip(nav[2].textContent) : null;
         part = nav[3] ? strip(nav[3].textContent) : null;
     }
+
+    const view = localStorage.getItem('view');
 
     const consent = localStorage.getItem('consent');
 
@@ -74,6 +79,7 @@ const setup = () => {
             themes.map((theme) => {
                 let themeTotal = 0;
                 let themeCompleted = 0;
+                let themeAreaCompleted = 0;
                 theme.areas.map((area) => {
                     let areaTotal = 0;
                     let areaCompleted = 0;
@@ -98,14 +104,89 @@ const setup = () => {
                     const areaElement = document.querySelector(
                         `#heading-${area.area}`
                     );
-                    createProgressBar(areaElement, areaTotal, areaCompleted);
+                    if (view === 'grid') {
+                        // grid view
+                        areaElement.classList.remove('accordion__item-header');
+                        const areaButton = areaElement.querySelector('button');
+                        areaElement.removeChild(areaButton);
+                        const areaParent = areaElement.parentElement;
+                        areaParent.classList.remove('accordion__item');
+                        areaParent.classList.add('grid__item');
+
+                        createInitials(areaParent, areaButton.textContent);
+                        createAreaLink(
+                            areaElement,
+                            areaButton.textContent.trim(),
+                            areaButton.title,
+                            theme.theme,
+                            area.area
+                        );
+
+                        createGridProgressBar(
+                            areaParent,
+                            areaTotal,
+                            areaCompleted
+                        );
+                    } else {
+                        createProgressBar(
+                            areaElement,
+                            areaTotal,
+                            areaCompleted
+                        );
+                    }
                     themeTotal += areaTotal;
                     themeCompleted += areaCompleted;
+                    themeAreaCompleted += areaCompleted === areaTotal ? 1 : 0;
                 });
                 const themeHeader = document.querySelector(
                     `#heading-${theme.theme}`
                 );
-                createProgressBar(themeHeader, themeTotal, themeCompleted);
+                if (view === 'grid') {
+                    // grid view
+                    const collapseAreas = document.querySelectorAll(
+                        '.accordion__item-collapse'
+                    );
+                    collapseAreas.forEach((collapseArea) => {
+                        collapseArea.classList.add('invisible');
+                    });
+                    const container = document.querySelector('.accordion');
+                    if (container) {
+                        container.classList.remove('accordion');
+                        container.classList.add('flow');
+                        container.classList.add('grid');
+                        const inner =
+                            container.querySelectorAll('.accordion__inner');
+                        inner.forEach((inner) => {
+                            inner.classList.remove('accordion__inner');
+                            inner.classList.remove('flow');
+                            inner.classList.add('grid__inner');
+                        });
+                    }
+                    if (themeHeader) {
+                        themeHeader.classList.remove('accordion__item-header');
+                        if (themeHeader?.parentElement) {
+                            const parent = themeHeader.parentElement;
+                            parent.classList.remove('accordion__item');
+                            parent.classList.add('grid__item');
+
+                            createProgressBar(
+                                parent,
+                                themeTotal,
+                                themeCompleted,
+                                true
+                            );
+
+                            createGridProgressBar(
+                                parent,
+                                theme.areas.length,
+                                themeCompleted === 0 ? 0 : themeAreaCompleted,
+                                true
+                            );
+                        }
+                    }
+                } else {
+                    createProgressBar(themeHeader, themeTotal, themeCompleted);
+                }
             });
         }
         const testElements = document.querySelectorAll('.test');

@@ -1,3 +1,5 @@
+import confetti from 'canvas-confetti';
+
 import { restore, strip } from './strip';
 
 const showElement = (element) => {
@@ -64,6 +66,9 @@ const setupAssignments = (element, storage, tod) => {
             result.completed
         );
         box.addEventListener('change', () => {
+            if (confetti && box.checked) {
+                confetti();
+            }
             storage.updateAssignment(...tod, result);
             showHideElements(
                 storage.checkCompleted(status, result.type),
@@ -73,30 +78,69 @@ const setupAssignments = (element, storage, tod) => {
     });
 };
 
+const createStar = (element) => {
+    if (!element) return;
+    const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    star.classList.add('star');
+    star.setAttribute('viewBox', '0 0 24 24');
+    star.setAttribute('width', '16px');
+    star.setAttribute('height', '16px');
+    star.setAttribute('fill', 'currentColor');
+    star.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    let g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', 'M0,0h24v24H0V0z');
+    path.setAttribute('fill', 'none');
+    g.appendChild(path);
+    path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', 'M0,0h24v24H0V0z');
+    path.setAttribute('fill', 'none');
+    g.appendChild(path);
+    star.appendChild(g);
+    g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute(
+        'd',
+        'M12,17.27L18.18,21l-1.64-7.03L22,9.24l-7.19-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27z'
+    );
+    g.appendChild(path);
+    star.appendChild(g);
+    element.appendChild(star);
+};
+
 const createStars = (element, type = 'basic') => {
     if (!element) return;
     const el = document.createElement('span');
     el.classList.add('stars');
-    if (type === 'basic') {
-        el.textContent = '⭐';
-    } else {
-        el.textContent = '⭐⭐';
-    }
+    el.textContent = type === 'basic' ? '⭐' : '⭐⭐';
     element.appendChild(el);
 };
 
-const createProgressBar = (element, total = 0, completed = 0) => {
+const createProgressBar = (element, total = 0, completed = 0, grid) => {
     if (!element) return;
     const width = 100 / total;
     const segmentWidth = total != 0 ? width : 0;
     const progress = document.createElement('div');
     progress.classList.add('progress');
+    if (grid) {
+        progress.classList.add('progress--grid');
+    }
     const bar = document.createElement('div');
     bar.classList.add('progress__bar');
     bar.classList.add('bg-theme');
     bar.setAttribute('style', `width: ${segmentWidth * completed}%`);
     progress.appendChild(bar);
     element.parentElement.insertAdjacentElement('beforeend', progress);
+};
+
+const createInitials = (element, text) => {
+    if (!element) return;
+    const h2 = document.createElement('h2');
+    h2.classList.add('grid__initials');
+    const split = text.trim().split(' ');
+    const initials = split.length > 1 ? split[0][0] + split[1][0] : split[0][0];
+    h2.textContent = initials;
+    element.appendChild(h2);
 };
 
 const showHideTests = (elements, storage) => {
@@ -158,8 +202,128 @@ const continuePopup = (element, check, last) => {
     }
 };
 
+const createAreaLink = (element, text, title, theme, area) => {
+    if (!element) return;
+    const link = document.createElement('a');
+    link.classList.add('grid__link');
+    link.classList.add('stretched-link');
+    link.href = `/${theme}/${area}`;
+    link.textContent = text;
+    link.title = title;
+    element.appendChild(link);
+};
+
+const createGridProgressBar = (
+    element,
+    total = 0,
+    completed = 0,
+    theme = false
+) => {
+    if (!element) return;
+
+    const width = 100 / total;
+    const segmentWidth = total !== 0 ? width : 0;
+    let progress = segmentWidth * completed;
+
+    // console.log(total, completed, progress);
+    let bar;
+    // left top
+    const left = document.createElement('div');
+    left.classList.add('grid__progress--left');
+    const leftTop = document.createElement('div');
+    leftTop.classList.add('grid__progress--left-top');
+    const leftBottom = document.createElement('div');
+    leftBottom.classList.add('grid__progress--left-bottom');
+
+    left.appendChild(leftTop);
+    left.appendChild(leftBottom);
+
+    bar = document.createElement('div');
+    bar.classList.add('grid__progress-bar');
+    bar.classList.add('grid__progress-bar--left-top');
+    bar.setAttribute(
+        'style',
+        `height: ${progress >= 12.5 ? 100 : progress * 4}%`
+    );
+    if (theme) {
+        bar.classList.add('grid__progress-bar--theme');
+        leftTop.classList.add('grid__progress--theme');
+    }
+    leftTop.appendChild(bar);
+
+    progress -= 12.5;
+
+    // top
+    const top = document.createElement('div');
+    top.classList.add('grid__progress--top');
+    bar = document.createElement('div');
+    bar.classList.add('grid__progress-bar');
+    bar.setAttribute('style', `width: ${progress >= 25 ? 100 : progress * 4}%`);
+    if (theme) {
+        bar.classList.add('grid__progress-bar--theme');
+        top.classList.add('grid__progress--theme');
+    }
+    top.appendChild(bar);
+
+    progress -= 25;
+
+    // right
+    const right = document.createElement('div');
+    right.classList.add('grid__progress--right');
+    bar = document.createElement('div');
+    bar.classList.add('grid__progress-bar');
+    bar.setAttribute(
+        'style',
+        `height: ${progress >= 25 ? 100 : progress * 4}%`
+    );
+    if (theme) {
+        bar.classList.add('grid__progress-bar--theme');
+        right.classList.add('grid__progress--theme');
+    }
+    right.appendChild(bar);
+
+    progress -= 25;
+
+    // bottom
+    const bottom = document.createElement('div');
+    bottom.classList.add('grid__progress--bottom');
+    bar = document.createElement('div');
+    bar.classList.add('grid__progress-bar');
+    bar.setAttribute('style', `width: ${progress >= 25 ? 100 : progress * 4}%`);
+    if (theme) {
+        bar.classList.add('grid__progress-bar--theme');
+        bottom.classList.add('grid__progress--theme');
+    }
+    bottom.appendChild(bar);
+
+    progress -= 25;
+
+    // left bottom
+    bar = document.createElement('div');
+    bar.classList.add('grid__progress-bar');
+    bar.classList.add('grid__progress-bar--left-bottom');
+    // bottom progress
+    bar.setAttribute(
+        'style',
+        `height: ${progress >= 12.5 ? 100 : progress * 4}%`
+    );
+    if (theme) {
+        bar.classList.add('grid__progress-bar--theme');
+        leftBottom.classList.add('grid__progress--theme');
+    }
+    leftBottom.appendChild(bar);
+
+    element.appendChild(top);
+    element.appendChild(right);
+    element.appendChild(bottom);
+    element.appendChild(left);
+};
+
 export {
     continuePopup,
+    createAreaLink,
+    createGridProgressBar,
+    createInitials,
     createProgressBar,
     createStars,
     setupAssignments,
