@@ -210,8 +210,6 @@ const createGridProgressBar = (
     bar = document.createElement('div');
     bar.classList.add('grid__progress-bar');
     bar.classList.add('grid__progress-bar--left-top');
-    console.log(element);
-    console.log(`progress: ${progress}% : ${segmentWidth}%`);
     bar.setAttribute(
         'style',
         `height: ${progress >= 12.5 ? 100 : progress * 4}%`
@@ -225,7 +223,6 @@ const createGridProgressBar = (
     progress -= 12.5;
 
     // top
-    console.log(`top: ${progress}%`);
     const top = document.createElement('div');
     top.classList.add('grid__progress--top');
     bar = document.createElement('div');
@@ -240,7 +237,6 @@ const createGridProgressBar = (
     progress -= 25;
 
     // right
-    console.log(`right: ${progress}%`);
     const right = document.createElement('div');
     right.classList.add('grid__progress--right');
     bar = document.createElement('div');
@@ -258,7 +254,6 @@ const createGridProgressBar = (
     progress -= 25;
 
     // bottom
-    console.log(`bottom: ${progress}%`);
     const bottom = document.createElement('div');
     bottom.classList.add('grid__progress--bottom');
     bar = document.createElement('div');
@@ -273,7 +268,6 @@ const createGridProgressBar = (
     progress -= 25;
 
     // left bottom
-    console.log(`left: ${progress}%`);
     bar = document.createElement('div');
     bar.classList.add('grid__progress-bar');
     bar.classList.add('grid__progress-bar--left-bottom');

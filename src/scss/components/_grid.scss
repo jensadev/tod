@@ -67,9 +67,7 @@
     }
 
     &__initials {
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: ms(4);
+        font-size: ms(4) !important;
     }
 
     &__link {
