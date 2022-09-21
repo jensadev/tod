@@ -7,14 +7,14 @@
     max-width: 60ch;
     width: 100%;
     padding: ms(0);
-    border-bottom: 1px solid $gray-200;
+    border: 1px solid $gray-200;
     &__inner {
         display: grid;
         justify-items: end;
     }
     &__button {
-        background-color: $gray-100 !important;
-        border: none !important;
+        color: $color-on-primary !important;
+        background-color: $color-primary !important;
         &:hover {
             box-shadow: none !important;
         }

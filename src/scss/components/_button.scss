@@ -1,6 +1,7 @@
 @use "sass:color";
 .button {
-    display: inline-block;
+    display: grid;
+    place-content: center;
     padding: ms(-2) ms(0);
     background: $color-primary;
     border: 1px solid $gray-300;
