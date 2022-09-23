@@ -53,6 +53,10 @@ main {
     display: none !important;
 }
 
+.hidden {
+    display: none;
+}
+
 li.test{
     font-weight: 700;
 }
@@ -79,4 +83,5 @@ li.test{
 @import "components/flash";
 @import "components/button";
 
+@import "components/feedback";
 @import "components/part";
