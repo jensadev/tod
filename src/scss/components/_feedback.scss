@@ -1,0 +1,44 @@
+.feedback {
+    position: fixed;
+    bottom: 0;
+}
+
+.feedback-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: grid;
+    place-content: center;
+    &__header {
+        background-color: $color-primary;
+        color: $color-on-primary;
+        width: 100%;
+        padding: ms(0);
+    }
+    &__inner {
+        background-color: $gray-100;
+        min-width: 16rem;
+    }
+}
+
+.feedback-form {
+    &__section {
+        display: flex;
+        flex-direction: column;
+        input {
+            width: 100%;
+        }
+        text {
+            width: 100%;
+        }
+        &-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: ms(0);
+        }
+    }
+}
