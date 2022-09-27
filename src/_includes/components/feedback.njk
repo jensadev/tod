@@ -24,7 +24,7 @@
                 <input
                     name="page"
                     id="page"
-                    value="{{ page | log }}"
+                    value="{{ page.fileSlug }}"
                     readonly
                     >
             </div>
@@ -36,7 +36,7 @@
                     id="message"
                     rows="4"
                     required="true"
-                    placeholder="Har du feedback? Vi vill gärna höra det, men dela inte känslig information. Har du frågor? Lämna din email så försöker vi svara."></textarea>
+                    placeholder="Har du feedback? Berätta gärna, men dela inte känslig information. Har du frågor? Lämna din email för återkoppling."></textarea>
             </div>
             <div class="feedback-form__section">
                 <label class="feedback-form__label" for="yourEmail">Email (om du önskar återkoppling):</label>
