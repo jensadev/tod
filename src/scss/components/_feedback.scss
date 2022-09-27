@@ -1,9 +1,11 @@
 .feedback {
     position: fixed;
-    bottom: 0;
+    left: 2vmin;
+    bottom: 2vmin;
 }
 
 .feedback-overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -11,8 +13,10 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1200;
-    display: grid;
     place-content: center;
+    &--active {
+        display: grid;
+    }
     &__header {
         background-color: $color-primary;
         color: $color-on-primary;
