@@ -6,7 +6,7 @@ layout: layouts/base.njk
 {% include "components/updates.njk" %}
 <div class="accordion" id="accordion">
     {% set navPages = collections.all | eleventyNavigation(title.toLowerCase()) %}
-    {% for entry in navPages | noHelp %}
+    {% for entry in navPages | filterNavPages %}
     <div class="accordion__inner flow">
         <div class="accordion__item accordion__item--top" title="Tema: {{ entry.excerpt }}">
             <h2
