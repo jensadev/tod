@@ -2,7 +2,7 @@
 title: Tekniken
 layout: 'layouts/theme-area.njk'
 category: område
-permalink: '{{ page.filePathStem | replace("/content/", "/") |splice | slugUrl }}'
+permalink: '{{ page.filePathStem | splice | slugUrl }}/'
 eleventyNavigation:
     key: tekniken
     parent: kom igång

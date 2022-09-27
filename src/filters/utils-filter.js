@@ -53,7 +53,7 @@ const prev = (array, current) => {
     return array[currentIndex - 1];
 };
 const splice = (path) => {
-    return path.split('/').slice(0, -1).join('/');
+    return path.replace('/content/', '/').split('/').slice(0, -1).join('/');
 };
 
 module.exports = { capitalize, fixTestsPages, next, prev, splice };
