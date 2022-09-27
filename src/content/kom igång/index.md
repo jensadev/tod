@@ -2,7 +2,7 @@
 title: Kom igång
 layout: 'layouts/theme-area.njk'
 category: tema
-permalink: '{{ page.filePathStem | splice | slugUrl }}/'
+permalink: '{{ page.filePathStem | replace("/content/", "/") | splice | slugUrl }}'
 eleventyNavigation:
     key: kom igång
     parent: ämnestitel
