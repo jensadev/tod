@@ -294,6 +294,50 @@
                   "date": null
                 }
               ]
+            },
+            {
+              "part": "exempel-fyra",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "test-del-tre-fyra",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "test-del-tre-tva",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "test-del-tre-tre",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
             }
           ]
         },

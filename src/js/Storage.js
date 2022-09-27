@@ -18,7 +18,7 @@ export default class Storage {
         }
 
         // adds new things to storage, if they don't exist
-        storage = storage === null ? data : _merge(storage, data);
+        storage = storage === null ? data : _merge(data, storage);
 
         this.setStorage(storage);
         this.save();
