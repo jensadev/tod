@@ -1,0 +1,67 @@
+<div class="feedback">
+    <button id="feedback-open" class="button button__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+            <path
+                d="M11 11h2V5h-2Zm1 4q.425 0 .713-.288Q13 14.425 13 14t-.287-.713Q12.425 13 12 13t-.712.287Q11 13.575 11 14t.288.712Q11.575 15 12 15ZM2 22V4q0-.825.588-1.413Q3.175 2 4 2h16q.825 0 1.413.587Q22 3.175 22 4v12q0 .825-.587 1.413Q20.825 18 20 18H6Zm2-4.825L5.175 16H20V4H4ZM4 4v13.175Z" />
+        </svg>
+    </button>
+</div>
+
+<div id="feedback-overlay" class="feedback-overlay">
+    <div class="feedback-overlay__inner">
+        <header class="feedback-overlay__header">
+            <h2>Feedback</h2>
+        </header>
+        <form class="feedback-form flow" name="feedback" action="/success" method="POST" netlify-honeypot="bot-field"
+            data-netlify="true">
+            <div class="hidden">
+                <label>
+                    Don’t fill this out if you’re human:
+                </label>
+                <input name="bot-field">
+            </div>
+            <div class="hidden">
+                <input
+                    name="page"
+                    id="page"
+                    value="{{ page.fileSlug }}"
+                    readonly
+                    >
+            </div>
+            <div class="feedback-form__section">
+                <label class="feedback-form__label" for="message">Meddelande:</label>
+                <textarea
+                    class="feedback-form__input"
+                    name="message"
+                    id="message"
+                    rows="4"
+                    required="true"
+                    placeholder="Har du feedback? Berätta gärna, men dela inte känslig information. Har du frågor? Lämna din email för återkoppling."></textarea>
+            </div>
+            <div class="feedback-form__section">
+                <label class="feedback-form__label" for="yourEmail">Email (om du önskar återkoppling):</label>
+                <input class="feedback-form__input" name="email" type="email" id="yourEmail">
+            </div>
+            <div class="feedback-form__section-footer">
+                <button id="feedback-close" class="feedback-form__button button button-cancel" type="button">Ångra</button>
+                <button class="feedback-form__button button" type="submit">Skicka</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    const fbClose = document.querySelector('#feedback-close');
+    const fbOpen = document.querySelector('#feedback-open');
+    const fbOverlay = document.querySelector('#feedback-overlay');
+
+    fbClose.addEventListener('click', (e) => {
+        e.preventDefault();
+        fbOverlay.classList.toggle('feedback-overlay--active');
+    });
+    fbOpen.addEventListener('click', (e) => {
+        e.preventDefault();
+        fbOverlay.classList.toggle('feedback-overlay--active');
+        const fbInput = document.querySelector('#message');
+        fbInput.focus();
+    });
+</script>

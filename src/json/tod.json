@@ -351,6 +351,14 @@
           ]
         }
       ]
+    },
+    {
+      "theme": "hjalp",
+      "areas": []
+    },
+    {
+      "theme": "tack",
+      "areas": []
     }
   ]
 }
