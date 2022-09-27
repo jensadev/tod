@@ -1,7 +1,8 @@
 /* eslint-disable require-jsdoc */
-import { deepSearch } from './deep-search';
-import { merge } from './merge';
+// import { merge } from './merge';
+import _merge from 'lodash/merge';
 
+import { deepSearch } from './deep-search';
 export default class Storage {
     constructor(data, subject) {
         this.data = data;
@@ -17,7 +18,7 @@ export default class Storage {
         }
 
         // adds new things to storage, if they don't exist
-        storage = storage === null ? data : merge(storage, data);
+        storage = storage === null ? data : _merge(storage, data);
 
         this.setStorage(storage);
         this.save();

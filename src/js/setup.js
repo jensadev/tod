@@ -1,10 +1,10 @@
 import data from '../json/tod.json';
 import {
     continuePopup,
-    createProgressBar,
     createAreaLink,
     createGridProgressBar,
     createInitials,
+    createProgressBar,
     createStars,
     setupAssignments,
     showHideTests,
