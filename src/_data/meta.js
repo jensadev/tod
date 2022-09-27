@@ -9,8 +9,8 @@ const getRandomIntInclusive = (min, max) => {
 
 const getColorPick = () => {
     try {
-        const color = colors[getRandomIntInclusive(0, colors.length)];
-        const pick = color[getRandomIntInclusive(0, color.length)];
+        const color = colors[getRandomIntInclusive(0, colors.length - 1)];
+        const pick = color[getRandomIntInclusive(0, color.length - 1)];
         return pick;
     } catch (e) {
         console.log(e);
