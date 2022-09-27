@@ -39,9 +39,10 @@ module.exports = (eleventyConfig) => {
         );
     });
 
-    // get rid of help page for navigation / front page list
-    eleventyConfig.addFilter('noHelp', (value) => {
-        return value.filter((item) => item.key !== 'hjälp');
+    // filter filtered [pages] from navPages
+    eleventyConfig.addFilter('filterNavPages', (value) => {
+        const filtered = ['hjälp', 'tack'];
+        return value.filter((item) => !filtered.includes(item.key));
     });
 
     // Shortcodes
