@@ -42,7 +42,7 @@ Resultatet finner du i byggmappen, `/public/img/`
 
 ## Uppgifter
 
-### ⭐
+### {% star %}
 
 #### Uppgift 1
 

@@ -45,7 +45,7 @@ Studera strukturen för den här guiden.
 
 ## Uppgifter
 
-### ⭐
+### {% star %}
 
 #### Uppgift 1
 

@@ -27,7 +27,7 @@ I detta repo kan du skapa ditt första tema.
 
 ## Uppgifter
 
-### ⭐
+### {% star %}
 
 #### Uppgift 1
 

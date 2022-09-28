@@ -64,7 +64,7 @@ kopia av den här webbplatsen.
 
 ## Uppgifter
 
-### ⭐
+### {% star %}
 
 #### Uppgift 1
 

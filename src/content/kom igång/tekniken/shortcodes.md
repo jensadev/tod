@@ -25,13 +25,13 @@ eleventyNavigation:
 
 ## Uppgifter
 
-### ⭐
+### {% star %}
 
 #### Uppgift 1
 
 #### Uppgift 2
 
-### ⭐⭐
+### {% star %}{% star %}
 
 {% extra %}
 
