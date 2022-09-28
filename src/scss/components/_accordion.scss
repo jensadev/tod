@@ -4,6 +4,11 @@
         border-bottom: 1px solid $gray-200;
         &--top {
             --flow-space: 0rem;
+            background-color: $color-primary;
+            a {
+                color: $color-on-primary;
+                text-decoration: none;
+            }
         }
         h2 {
             padding: ms(0);

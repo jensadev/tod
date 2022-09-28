@@ -12,7 +12,7 @@ layout: layouts/base.njk
             <h2
                 class="accordion__item-header"
                 id="heading-{{ entry.title | slug }}">
-                    {{ entry.title | capitalize }}
+                    <a href="{{ entry.url }}">{{ entry.title | capitalize }}</a>
             </h2>
         </div>
         {% if entry.children.length %}
