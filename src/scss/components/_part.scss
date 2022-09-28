@@ -101,7 +101,9 @@
 
     &__assignments {
         padding: ms(-1);
-
+        h3 {
+            fill: $color-primary;
+        }
         @media (min-width: 768px) {
             flex: 0 0 auto;
             width: 25%;
@@ -111,10 +113,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        &-extra {
-            
         }
     }
 
