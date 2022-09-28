@@ -10,6 +10,12 @@
                 text-decoration: none;
             }
         }
+        &-list {
+            li {
+                display: flex;
+                place-items: center;
+            }
+        }
         h2 {
             padding: ms(0);
         }

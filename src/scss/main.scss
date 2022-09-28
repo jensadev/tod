@@ -37,7 +37,7 @@ main {
 }
 
 .bg-theme {
-    background-color: $color-secondary;
+    background-color: $color-primary;
     // &--top {
     //     background-color: $color-secondary;
     // }
@@ -50,6 +50,7 @@ main {
 .stars {
     padding-left: ms(-1);
     color: $color-primary;
+    fill: $color-primary;
 }
 
 .invisible {
