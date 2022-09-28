@@ -37,10 +37,10 @@ main {
 }
 
 .bg-theme {
-    background-color: $color-primary;
-    &--top {
-        background-color: $color-on-primary;
-    }
+    background-color: $color-secondary;
+    // &--top {
+    //     background-color: $color-secondary;
+    // }
 }
 
 .star {

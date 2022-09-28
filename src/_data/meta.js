@@ -10,13 +10,19 @@ const getRandomIntInclusive = (min, max) => {
 const getColorPick = () => {
     try {
         const color = colors[getRandomIntInclusive(0, colors.length - 1)];
-        const pick = color[getRandomIntInclusive(0, color.length - 1)];
-        return pick;
+        const primary = color.splice(getRandomIntInclusive(0, color.length - 1), 1); // color[getRandomIntInclusive(0, color.length - 1)];
+        const secondary = color.splice(getRandomIntInclusive(0, color.length - 1), 1);
+        return {
+            primary: primary[0],
+            secondary: secondary[0],
+        };
     } catch (e) {
         console.log(e);
         return '#121212';
     }
 };
+
+const colorPicks = getColorPick();
 
 /* Här nedanför kan du ändra */
 module.exports = {
@@ -27,7 +33,8 @@ module.exports = {
     language: 'sv',
     // Sidans namn, måste överrensstämma med src/index.md title front matter
     siteName: 'Ämnestitel',
-    themeColor: getColorPick(), // pick or color string '#ff4e50'
+    primaryColor: colorPicks.primary, // pick or color string '#ff4e50'
+    secondaryColor: colorPicks.secondary, // pick or color string '#ff4e50'
     siteDescription:
         'Instruktionssida för siteskaparen för Tema Område Del, TOD.',
     author: {
