@@ -106,7 +106,6 @@ const createProgressBar = (element, total = 0, completed = 0, grid) => {
     bar.classList.add('progress__bar');
     bar.classList.add('bg-theme');
     bar.setAttribute('style', `width: ${segmentWidth * completed}%`);
-    console.log(element);
     if (element.tagName === 'H2') {
         bar.classList.add('bg-theme--top');
     }
