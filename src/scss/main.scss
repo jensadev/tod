@@ -38,6 +38,9 @@ main {
 
 .bg-theme {
     background-color: $color-primary;
+    &--top {
+        background-color: $color-on-primary;
+    }
 }
 
 .star {

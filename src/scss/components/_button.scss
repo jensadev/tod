@@ -2,16 +2,22 @@
 .button {
     display: grid;
     place-content: center;
-    padding: ms(-2) ms(0);
-    background: $color-primary;
-    border: 1px solid $gray-300;
+
     color: $color-on-primary;
-    text-decoration: none;
+    fill: $color-on-primary;
+    background: $color-primary;
+
+    padding: ms(-2) ms(0);
+    border: 1px solid $gray-300;
+
     font-size: ms(0);
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: ms(-8);
+    text-transform: uppercase;
+    text-decoration: none;
+
     cursor: pointer;
+
     transition: all 0.2s ease-in-out;
     &:hover {
         border-color: $gray-600;
