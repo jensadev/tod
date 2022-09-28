@@ -6,11 +6,35 @@ const markdownItAnchor = require('markdown-it-anchor');
 const glob = require('fast-glob');
 const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
 const fs = require('fs');
+const Image = require("@11ty/eleventy-img");
 
 const parseTransform = require('./src/transforms/parse-transform.js');
 
 // Create a helpful production flag
 const isProduction = process.env.NODE_ENV === 'production';
+
+async function imageShortcode(
+    src,
+    alt,
+    sizes = '(min-width: 30em) 50vw, 100vw'
+) {
+    const metadata = await Image(`./src/images/${src}`, {
+        widths: [300, 600, null],
+        outputDir: './dist/img/',
+    });
+
+    const imageAttributes = {
+        alt,
+        sizes,
+        loading: 'lazy',
+        decoding: 'async',
+    };
+
+    // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
+    return Image.generateHTML(metadata, imageAttributes, {
+        whitespaceMode: 'inline',
+    });
+}
 
 module.exports = (eleventyConfig) => {
     eleventyConfig.setDataDeepMerge(true);
@@ -26,10 +50,14 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addWatchTarget('./src/sass/');
     eleventyConfig.addWatchTarget('./src/js/');
 
-    eleventyConfig.addPassthroughCopy({'src/assets/robots.txt': 'robots.txt'});
+    eleventyConfig.addPassthroughCopy({
+        'src/assets/robots.txt': 'robots.txt',
+    });
     eleventyConfig.addPassthroughCopy('./src/assets/fonts');
-    eleventyConfig.addPassthroughCopy({'./src/assets/favicon.ico': '/favicon.ico'});
-    // eleventyConfig.addPassthroughCopy({'./src/assets/icons': 'icons'});
+    eleventyConfig.addPassthroughCopy({
+        './src/assets/favicon.ico': '/favicon.ico',
+    });
+    eleventyConfig.addPassthroughCopy({'./src/assets/icons': 'icons'});
 
     // Filters
     glob.sync(['src/filters/*.js']).forEach((file) => {
@@ -49,16 +77,11 @@ module.exports = (eleventyConfig) => {
     glob.sync(['src/shortcodes/*.js']).forEach((file) => {
         let shortcodes = require('./' + file);
         Object.keys(shortcodes).forEach((name) => {
-            if (name === 'image') {
-                eleventyConfig.addNunjucksAsyncShortcode(
-                    name,
-                    shortcodes[name]
-                );
-            } else {
-                eleventyConfig.addShortcode(name, shortcodes[name]);
-            }
+            eleventyConfig.addShortcode(name, shortcodes[name]);
         });
     });
+
+    eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
 
     // PairedShortcodes
     glob.sync(['src/paired-shortcodes/*.js']).forEach((file) => {
