@@ -106,7 +106,7 @@ module.exports = (eleventyConfig) => {
             permalinkSymbol: '#',
             permalinkSpace: false,
             permalinkBefore: false,
-            level: [1, 2, 3],
+            level: [1, 2],
             slugify: (s) =>
                 s
                     .trim()
