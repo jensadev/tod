@@ -72,7 +72,7 @@ Redigera sedan värdet för `tags`. Är det flera taggar så används en array, 
 
 ## Uppgifter
 
-### ⭐
+### {% star %}
 
 #### Uppgift 1
 

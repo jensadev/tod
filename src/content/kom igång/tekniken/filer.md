@@ -75,7 +75,7 @@ src/ 📁 här finner du projektets filer
 
 ## Uppgifter
 
-### ⭐
+### {% star %}
 
 #### Uppgift 1
 

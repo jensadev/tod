@@ -81,7 +81,7 @@ eleventyNavigation:
 
 ## Uppgifter
 
-### ⭐
+### {% star %}
 
 #### Uppgift 1
 

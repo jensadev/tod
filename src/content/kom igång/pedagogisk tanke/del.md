@@ -25,7 +25,7 @@ som behöver inhämtas för att förstå helheten som gör området.
 
 ## Instruktioner
 
-Uppgifterna delas upp i ⭐ och ⭐⭐. De tvåstjärniga uppgifterna är fördjupning
+Uppgifterna delas upp i {% star %} och {% star %}{% star %}. De tvåstjärniga uppgifterna är fördjupning
 som kan göras efter grunden, men de är inte obligatoriska.
 
 {% endinstruktioner %}

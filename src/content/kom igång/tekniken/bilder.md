@@ -27,13 +27,11 @@ Denna shortcode baserar sig i sin tur på [11tys bild-plugin](https://www.11ty.d
 -   Inkludera följande shortcode
 
 **Notera att shortcodes skrivs med `{ %` som öppningstagg och `% }` som stängningstagg, utan mellanslag.**
-De går inte att skriva ut korrekt här i templaten...
-
-Mellan shortcode taggarna skriver du
-
-```md
-image "./src/images/filnamn.filändelse", "Beskrivande text för bilden"
+{% raw %}
+```markdown
+{% image "filnamn.filändelse", "Beskrivande text för bilden" %}
 ```
+{% endraw %}
 
 Bilden kommer automatiskt kopieras, döpas om och optimeras när sidan skapas.
 Resultatet finner du i byggmappen, `/public/img/`
@@ -44,7 +42,7 @@ Resultatet finner du i byggmappen, `/public/img/`
 
 ## Uppgifter
 
-### ⭐
+### {% star %}
 
 #### Uppgift 1
 

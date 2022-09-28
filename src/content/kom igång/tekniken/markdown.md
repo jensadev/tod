@@ -31,7 +31,7 @@ Fråga Jens efter den lilla gröna boken, [GitHub flavored markdown](https://gui
 
 ## Uppgifter
 
-### ⭐
+### {% star %}
 
 #### Uppgift 1
 

@@ -42,7 +42,7 @@ Klicka här för att [skapa en sida från ett GitHub repo](https://app.netlify.c
 
 ## Uppgifter
 
-### ⭐
+### {% star %}
 
 #### Uppgift 1
 

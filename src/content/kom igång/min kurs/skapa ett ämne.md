@@ -47,7 +47,7 @@ Din sidas text-innehåll
 
 ## Uppgifter
 
-### ⭐
+### {% star %}
 
 #### Uppgift 1
 

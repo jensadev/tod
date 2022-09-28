@@ -10,8 +10,14 @@ const getRandomIntInclusive = (min, max) => {
 const getColorPick = () => {
     try {
         const color = colors[getRandomIntInclusive(0, colors.length - 1)];
-        const primary = color.splice(getRandomIntInclusive(0, color.length - 1), 1); // color[getRandomIntInclusive(0, color.length - 1)];
-        const secondary = color.splice(getRandomIntInclusive(0, color.length - 1), 1);
+        const primary = color.splice(
+            getRandomIntInclusive(0, color.length - 1),
+            1
+        ); // color[getRandomIntInclusive(0, color.length - 1)];
+        const secondary = color.splice(
+            getRandomIntInclusive(0, color.length - 1),
+            1
+        );
         return {
             primary: primary[0],
             secondary: secondary[0],
