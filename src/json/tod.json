@@ -2,6 +2,18 @@
   "subject": "amnestitel",
   "themes": [
     {
+      "theme": "slutuppgifter",
+      "areas": []
+    },
+    {
+      "theme": "hjalp",
+      "areas": []
+    },
+    {
+      "theme": "tack",
+      "areas": []
+    },
+    {
       "theme": "kom-igang",
       "areas": [
         {
@@ -96,17 +108,6 @@
               ]
             },
             {
-              "part": "filer",
-              "assignments": [
-                {
-                  "assignment": "uppgift-1",
-                  "type": "basic",
-                  "completed": false,
-                  "date": null
-                }
-              ]
-            },
-            {
               "part": "front-matter",
               "assignments": [
                 {
@@ -124,7 +125,7 @@
               ]
             },
             {
-              "part": "hosta",
+              "part": "filer",
               "assignments": [
                 {
                   "assignment": "uppgift-1",
@@ -135,16 +136,10 @@
               ]
             },
             {
-              "part": "installation",
+              "part": "hosta",
               "assignments": [
                 {
                   "assignment": "uppgift-1",
-                  "type": "basic",
-                  "completed": false,
-                  "date": null
-                },
-                {
-                  "assignment": "uppgift-2",
                   "type": "basic",
                   "completed": false,
                   "date": null
@@ -169,7 +164,7 @@
               ]
             },
             {
-              "part": "metadata",
+              "part": "installation",
               "assignments": [
                 {
                   "assignment": "uppgift-1",
@@ -207,14 +202,27 @@
                   "date": null
                 }
               ]
+            },
+            {
+              "part": "metadata",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "assignment": "uppgift-2",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
             }
           ]
         }
       ]
-    },
-    {
-      "theme": "slutuppgifter",
-      "areas": []
     },
     {
       "theme": "test-tema",
@@ -224,49 +232,26 @@
           "parts": [
             {
               "part": "test-del",
-              "assignments": []
-            },
-            {
-              "part": "exempel-tema",
-              "assignments": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "theme": "exempel-tema",
-      "areas": [
-        {
-          "area": "exempel-ett",
-          "parts": [
-            {
-              "part": "exempel-tva",
-              "assignments": []
-            },
-            {
-              "part": "test-del-ett",
               "assignments": [
                 {
                   "assignment": "uppgift-1",
                   "type": "basic",
                   "completed": false,
                   "date": null
+                },
+                {
+                  "assignment": "uppgift-2",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "assignment": "uppgift-3",
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
                 }
               ]
-            }
-          ]
-        },
-        {
-          "area": "exempel-tva",
-          "parts": [
-            {
-              "part": "exempel-tre",
-              "assignments": []
-            },
-            {
-              "part": "test-tema",
-              "assignments": []
             },
             {
               "part": "test-del-tva",
@@ -278,12 +263,7 @@
                   "date": null
                 }
               ]
-            }
-          ]
-        },
-        {
-          "area": "exempel-tre",
-          "parts": [
+            },
             {
               "part": "test-del-tre",
               "assignments": [
@@ -294,115 +274,10 @@
                   "date": null
                 }
               ]
-            },
-            {
-              "part": "exempel-fyra",
-              "assignments": [
-                {
-                  "assignment": "uppgift-1",
-                  "type": "basic",
-                  "completed": false,
-                  "date": null
-                }
-              ]
-            },
-            {
-              "part": "test-del-tre-fyra",
-              "assignments": [
-                {
-                  "assignment": "uppgift-1",
-                  "type": "basic",
-                  "completed": false,
-                  "date": null
-                }
-              ]
-            },
-            {
-              "part": "test-del-tre-tva",
-              "assignments": [
-                {
-                  "assignment": "uppgift-1",
-                  "type": "basic",
-                  "completed": false,
-                  "date": null
-                }
-              ]
-            },
-            {
-              "part": "test-del-tre-tre",
-              "assignments": [
-                {
-                  "assignment": "uppgift-1",
-                  "type": "basic",
-                  "completed": false,
-                  "date": null
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "area": "exempel-fyra",
-          "parts": [
-            {
-              "part": "test-del-tva",
-              "assignments": []
-            },
-            {
-              "part": "test-del-fyra",
-              "assignments": [
-                {
-                  "assignment": "uppgift-1",
-                  "type": "basic",
-                  "completed": false,
-                  "date": null
-                }
-              ]
-            },
-            {
-              "part": "test-del-fyra-tva",
-              "assignments": [
-                {
-                  "assignment": "uppgift-1",
-                  "type": "basic",
-                  "completed": false,
-                  "date": null
-                }
-              ]
-            },
-            {
-              "part": "test-del-fyra-tre",
-              "assignments": [
-                {
-                  "assignment": "uppgift-1",
-                  "type": "basic",
-                  "completed": false,
-                  "date": null
-                }
-              ]
-            },
-            {
-              "part": "test-del-fyra-fyra",
-              "assignments": [
-                {
-                  "assignment": "uppgift-1",
-                  "type": "basic",
-                  "completed": false,
-                  "date": null
-                }
-              ]
             }
           ]
         }
       ]
-    },
-    {
-      "theme": "hjalp",
-      "areas": []
-    },
-    {
-      "theme": "tack",
-      "areas": []
     }
   ]
 }

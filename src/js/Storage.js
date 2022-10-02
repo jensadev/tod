@@ -1,8 +1,18 @@
 /* eslint-disable require-jsdoc */
-// import { merge } from './merge';
-import _merge from 'lodash/merge';
+
+import _isObject from 'lodash/isObject';
 
 import { deepSearch } from './deep-search';
+
+const merge = (target, source) => {
+    Object.keys(source).forEach((key) => {
+        if (_isObject(source[key]))
+            Object.assign(source[key], merge(target[key], source[key]));
+    });
+    Object.assign(target || {}, source);
+    return target;
+};
+
 export default class Storage {
     constructor(data, subject) {
         this.data = data;
@@ -17,10 +27,10 @@ export default class Storage {
             storage = null;
         }
 
-        // adds new things to storage, if they don't exist
-        storage = storage === null ? data : _merge(data, storage);
+        const newStorage =
+            storage === null ? this.data : merge(this.data, storage);
 
-        this.setStorage(storage);
+        this.setStorage(newStorage);
         this.save();
     }
 
