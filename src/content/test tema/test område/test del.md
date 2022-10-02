@@ -21,9 +21,7 @@ En uppgift.
 
 En uppgift.
 
-#### Uppgift 3
 
-En uppgift.
 
 
 {% enduppgifter %}
