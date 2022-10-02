@@ -1,18 +1,7 @@
 /* eslint-disable require-jsdoc */
 
-import _isObject from 'lodash/isObject';
-
 import { deepSearch } from './deep-search';
-
-const merge = (target, source) => {
-    Object.keys(source).forEach((key) => {
-        if (_isObject(source[key]))
-            Object.assign(source[key], merge(target[key], source[key]));
-    });
-    Object.assign(target || {}, source);
-    return target;
-};
-
+import { merge } from './merge';
 export default class Storage {
     constructor(data, subject) {
         this.data = data;
@@ -28,7 +17,7 @@ export default class Storage {
         }
 
         const newStorage =
-            storage === null ? this.data : merge(this.data, storage);
+            storage === null ? this.data : merge(storage, this.data);
 
         this.setStorage(newStorage);
         this.save();
