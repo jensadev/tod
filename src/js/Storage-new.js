@@ -2,14 +2,24 @@ export default class Storage {
     constructor(subject, data) {
         this.subject = subject;
         this.data = data;
+        this.version = 2.0;
 
         let storage = JSON.parse(window.localStorage.getItem(this.subject));
 
+        const storageTemplate = {
+            subject: this.subject,
+            assignments: [],
+            version: this.version,
+        };
+
         if (!storage) {
-            storage = {
-                subject: this.subject,
-                assignments: [],
-            };
+            console.log('Creating new storage');
+            storage = storageTemplate;
+        }
+
+        if (storage.version !== this.version) {
+            console.log('Updating storage');
+            storage = storageTemplate;
         }
 
         this.setStorage(storage);
