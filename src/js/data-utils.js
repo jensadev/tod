@@ -27,10 +27,8 @@ const getAssignmentType = (data, tod, title) => {
 };
 
 const numberOfAssignments = (storage, tod) => {
+    // console.log(tod);
     const dataResult = find(storage.data, tod);
-    // const storageResult = storage.countAssignments(...tod);
-
-    // console.log(storage.countAssignments(...tod, 'basic', true));
 
     const basicTotal = dataResult.assignments.filter(
         (a) => a.type === 'basic'

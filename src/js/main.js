@@ -5,7 +5,7 @@ import { feedback } from './feedback';
 import { siteSearch } from './search';
 // import { setup } from './setup';
 import { setup } from './setup-new';
-import { view } from './view';
+// import { view } from './view';
 
 window.addEventListener('load', () => {
     siteSearch();
@@ -17,11 +17,12 @@ window.addEventListener('load', () => {
             `Ok`
         );
     }
-    view();
-    const state = localStorage.getItem('view');
-    if (state !== 'grid') {
-        accordion();
-    }
+    // view();
+    // const state = localStorage.getItem('view');
+    // if (state !== 'grid') {
+    //     accordion();
+    // }
+    accordion();
     feedback();
-    setup(data, state, consent);
+    setup(data, consent);
 });

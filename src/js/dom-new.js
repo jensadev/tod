@@ -4,7 +4,7 @@ import starSvg from '../assets/icons/grade_FILL1_wght400_GRAD0_opsz24.svg';
 import { getAssignmentType, numberOfAssignments } from './data-utils';
 import { restore, strip } from './strip';
 
-const setupAssignments = (tod, storage) => {
+const setupAssignments = (storage, tod) => {
     const element = document.querySelector('.part__assignments');
     if (!element) return;
     const assignmentData = numberOfAssignments(storage, tod);
@@ -75,6 +75,20 @@ const showHideElements = (status) => {
     }
 };
 
+const createStars = (element, type = 'basic') => {
+    if (!element) return;
+    const el = document.createElement('span');
+    el.classList.add('stars');
+    // el.textContent = type === 'basic' ? `${starSvg}` : `${starSvg} ${starSvg}`;
+    if (type === 'basic') {
+        el.appendChild(starSvg());
+    } else {
+        el.appendChild(starSvg());
+        el.appendChild(starSvg());
+    }
+    element.appendChild(el);
+};
+
 const createCheckbox = (element, id, checked) => {
     if (!element) return;
     const input = document.createElement('input');
@@ -90,6 +104,23 @@ const createCheckbox = (element, id, checked) => {
     return input;
 };
 
+const createProgressBar = (element, total = 0, completed = 0) => {
+    if (!element) return;
+    const width = 100 / total;
+    const segmentWidth = total != 0 ? width : 0;
+    const progress = document.createElement('div');
+    progress.classList.add('progress');
+    const bar = document.createElement('div');
+    bar.classList.add('progress__bar');
+    bar.classList.add('bg-theme');
+    bar.setAttribute('style', `width: ${segmentWidth * completed}%`);
+    if (element.tagName === 'H2') {
+        bar.classList.add('bg-theme--top');
+    }
+    progress.appendChild(bar);
+    element.parentElement.insertAdjacentElement('beforeend', progress);
+};
+
 const format = (str) => [str.slice(0, -1), ' ', str.slice(-1)].join('');
 
 const createLabel = (text) => {
@@ -100,4 +131,4 @@ const createLabel = (text) => {
     return label;
 };
 
-export { setupAssignments };
+export { createProgressBar, createStars, setupAssignments };
