@@ -1,6 +1,7 @@
 export default class Storage {
-    constructor(subject) {
+    constructor(subject, data) {
         this.subject = subject;
+        this.data = data;
 
         let storage = JSON.parse(window.localStorage.getItem(this.subject));
 
@@ -24,28 +25,30 @@ export default class Storage {
     }
 
     find(theme, area, part, assignment) {
-        console.log(theme, area, part);
-        let result;
-        // if (theme) {
-        //     // result = this.storage.themes.find((t) => t.theme === theme);
-        //     result = this.storage.assignments.find(
-        //         (a) => a.theme === theme && a.area === null && a.part === null
-        //     );
-        // }
-        // if (area) {
-        //     result = result.areas.find((a) => a.area === area);
-        // }
-        // if (part) {
-        //     return result.parts.find((p) => p.part === part);
-        // }
+        let result = false;
+        if (theme) {
+            const temp = this.storage.assignments.find(
+                (t) => t.theme === theme
+            );
+            result = temp ? temp : false;
+        }
+        if (area) {
+            const temp = this.storage.assignments.find((a) => a.area === area);
+            result = temp ? temp : false;
+        }
+        if (part) {
+            const temp = this.storage.assignments.find((p) => p.part === part);
+            result = temp ? temp : false;
+        }
         if (assignment) {
-            return this.storage.assignments.find(
+            const temp = this.storage.assignments.find(
                 (a) =>
                     a.theme === theme &&
                     a.area === area &&
                     a.part === part &&
                     a.assignment === assignment
             );
+            result = temp ? temp : false;
         }
 
         return result;
@@ -56,12 +59,13 @@ export default class Storage {
         return result;
     }
 
-    addAssignment(theme, area, part, assignment) {
+    addAssignment(theme, area, part, assignment, type) {
         const newAssignment = {
             theme,
             area,
             part,
             assignment,
+            type,
             completed: false,
             date: null,
         };
@@ -77,6 +81,26 @@ export default class Storage {
             result.date = Date.now();
         }
         this.save();
+    }
+
+    // checkCompleted(status, type) {
+    //     const check = this.countAssignments(status, type);
+    //     if (check.total > 0) return check.total === check.completed;
+    //     return false;
+    // }
+
+    countAssignments(theme, area, part, type, completed) {
+        const result = this.storage.assignments.filter(
+            (assignment) =>
+                assignment.theme === theme &&
+                assignment.area === area &&
+                assignment.part === part
+        );
+
+        return result.filter(
+            (assignment) =>
+                assignment.type === type && assignment.completed === completed
+        ).length;
     }
 
     save() {

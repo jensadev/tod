@@ -1,21 +1,34 @@
 import confetti from 'canvas-confetti';
 
 import starSvg from '../assets/icons/grade_FILL1_wght400_GRAD0_opsz24.svg';
+import { getAssignmentType, numberOfAssignments } from './data-utils';
 import { restore, strip } from './strip';
 
 const setupAssignments = (tod, storage) => {
     const element = document.querySelector('.part__assignments');
     if (!element) return;
-    // showHideElements(storage.checkCompleted(status, 'basic'), 'basic');
-    // const status = storage.find(...tod);
+    const assignmentData = numberOfAssignments(storage, tod);
+    if (assignmentData.total === 0) return;
+
+    console.log(assignmentData);
+
+    showHideElements(assignmentData);
+
     const assignmentsElements = element.querySelectorAll('h4');
     for (const element of assignmentsElements) {
-        console.log(element);
-        // const result = storage.find(...tod, strip(element.textContent));
         let result = storage.getAssignment(...tod, strip(element.textContent));
 
         if (!result) {
-            result = storage.addAssignment(...tod, strip(element.textContent));
+            const type = getAssignmentType(
+                storage.data,
+                tod,
+                strip(element.textContent)
+            );
+            result = storage.addAssignment(
+                ...tod,
+                strip(element.textContent),
+                type
+            );
         }
 
         const box = createCheckbox(
@@ -29,11 +42,36 @@ const setupAssignments = (tod, storage) => {
                 confetti();
             }
             storage.updateAssignment(...tod, result.assignment);
-            // showHideElements(
-            //     storage.checkCompleted(status, result.type),
-            //     result.type
-            // );
+            showHideElements(numberOfAssignments(storage, tod));
         });
+    }
+};
+
+const showElement = (element) => {
+    element.classList.remove('invisible');
+};
+
+const hideElement = (element) => {
+    element.classList.add('invisible');
+};
+
+const showHideElements = (status) => {
+    const solution = document.querySelector('.part__solution');
+    const extra = document.querySelector('.part__assignments-extra');
+    if (status) {
+        if (status.basic.total === status.basic.completed && extra) {
+            showElement(extra);
+            if (solution) {
+                showElement(solution);
+            }
+        } else {
+            if (extra) {
+                hideElement(extra);
+            }
+            if (solution) {
+                hideElement(solution);
+            }
+        }
     }
 };
 

@@ -44,7 +44,8 @@ main {
 }
 
 .star {
-    transform: translateY(1px);
+    // transform: translateY(1px);
+    fill: $color-primary;
 }
 
 .stars {

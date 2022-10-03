@@ -2,8 +2,7 @@ import { setupAssignments } from './dom-new';
 import Storage from './Storage-new';
 import { strip } from './strip';
 
-const setup = (data, viewState = 'list', consentState = null) => {
-    console.log(viewState, consentState);
+const setup = (jsonData, viewState = 'list', consentState = null) => {
     if (!consentState) return;
 
     let subject;
@@ -23,9 +22,8 @@ const setup = (data, viewState = 'list', consentState = null) => {
         area = nav[2] ? strip(nav[2].textContent) : null;
         part = nav[3] ? strip(nav[3].textContent) : null;
     }
-    console.log(subject, theme, area, part);
 
-    const storage = new Storage(subject);
+    const storage = new Storage(subject, jsonData);
 
     if (part) {
         setupAssignments([theme, area, part], storage);
@@ -37,7 +35,7 @@ const setup = (data, viewState = 'list', consentState = null) => {
     } else if (!theme) {
         console.log('setup list');
         // setupList(document.querySelector('.list'), storage);
-        for (const theme of data.themes) {
+        for (const theme of jsonData.themes) {
             console.log(theme);
         }
     }

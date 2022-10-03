@@ -7,6 +7,7 @@ const glob = require('fast-glob');
 const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
 const fs = require('fs');
 const Image = require("@11ty/eleventy-img");
+const mia = require('markdown-it-attrs');
 
 const parseTransform = require('./src/transforms/parse-transform.js');
 
@@ -120,6 +121,9 @@ module.exports = (eleventyConfig) => {
                 target: '_blank',
                 rel: 'noopener',
             },
+        })
+        .use(mia, {
+            allowedAttributes: ['id', 'class'],
         });
     eleventyConfig.setLibrary('md', markdownLibrary);
 
