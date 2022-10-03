@@ -1,3 +1,4 @@
+import { hash } from './hash.js';
 export default class Storage {
     constructor(subject, data) {
         this.subject = subject;
@@ -64,16 +65,21 @@ export default class Storage {
         return result;
     }
 
+    findByID(id) {
+        const temp = this.storage.assignments.find((a) => a.id === id);
+        return temp ? temp : false;
+    }
+
     getAssignment(theme, area, part, assignment) {
-        const result = this.find(theme, area, part, assignment);
+        const result = this.findByID(
+            hash(`${theme}-${area}-${part}-${assignment}`)
+        );
         return result;
     }
 
     addAssignment(theme, area, part, assignment, type) {
         const newAssignment = {
-            theme,
-            area,
-            part,
+            id: hash(`${theme}-${area}-${part}-${assignment}`),
             assignment,
             type,
             completed: false,
@@ -85,7 +91,9 @@ export default class Storage {
     }
 
     updateAssignment(theme, area, part, assignment) {
-        const result = this.find(theme, area, part, assignment);
+        const result = this.findByID(
+            hash(`${theme}-${area}-${part}-${assignment}`)
+        );
         if (result) {
             result.completed = !result.completed;
             result.date = Date.now();

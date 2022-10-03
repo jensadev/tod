@@ -16,6 +16,12 @@ const setupAssignments = (storage, tod) => {
 
     const assignmentsElements = element.querySelectorAll('h4');
     for (const element of assignmentsElements) {
+        /* todo: fix this :)
+         * assignments need to be read from json
+         * then a check needs to be done if we got completed data for it' id
+         * we can do proceed to create the checkbox and progress bar unt so weiter
+         */
+
         let result = storage.getAssignment(...tod, strip(element.textContent));
 
         if (!result) {
@@ -121,13 +127,13 @@ const createProgressBar = (element, total = 0, completed = 0) => {
     element.parentElement.insertAdjacentElement('beforeend', progress);
 };
 
-const format = (str) => [str.slice(0, -1), ' ', str.slice(-1)].join('');
+const format = (str) => [str.slice(0, -1), '-', str.slice(-1)].join('');
 
 const createLabel = (text) => {
     const label = document.createElement('label');
     label.classList.add('visually-hidden');
     label.setAttribute('for', text);
-    label.textContent = `Jag är klar med ${format(text)}`;
+    label.textContent = `Jag är klar med ${text.replace(/-/g, ' ')}`;
     return label;
 };
 
