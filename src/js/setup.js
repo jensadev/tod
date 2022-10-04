@@ -1,4 +1,5 @@
 import {
+    continuePopup,
     createProgressBar,
     createStars,
     setupAssignments,
@@ -31,6 +32,24 @@ const setup = (jsonData, consentState = null) => {
     }
 
     const storage = new Storage(config.subject, jsonData);
+
+    const lastCompletedAssignment = storage.lastCompletedAssignment();
+    if (lastCompletedAssignment) {
+        const assignmentData = storage.findAssignmentByID(
+            lastCompletedAssignment.id,
+            true
+        );
+        if (assignmentData) {
+            const continueElement = document.querySelector('.continue');
+            continueElement.classList.toggle('invisible');
+            let check = localStorage.getItem('continue');
+            if (check && Date.now() - 7200000 > check) {
+                localStorage.removeItem('continue');
+                check = false;
+            }
+            continuePopup(continueElement, check, assignmentData);
+        }
+    }
 
     if (config.part) {
         setupAssignments(storage, config.theme, config.area, config.part);

@@ -34,7 +34,7 @@ export default class Storage {
         this.storage = data;
     }
 
-    find(theme, area, part) {
+    find(theme, area, part, id) {
         let result = false;
         if (theme) {
             const temp = this.data.themes.find((t) => t.theme === theme);
@@ -48,23 +48,61 @@ export default class Storage {
             const temp = result.parts.find((p) => p.part === part);
             result = temp ? temp : false;
         }
-        // if (assignment && result) {
-        //     const temp = result.assignments.find(
-        //         (a) =>
-        //             a.theme === theme &&
-        //             a.area === area &&
-        //             a.part === part &&
-        //             a.assignment === assignment
-        //     );
-        //     result = temp ? temp : false;
-        // }
+        if (id && result) {
+            const temp = result.assignments.find((a) => a.id === id);
+            result = temp ? temp : false;
+        }
 
         return result;
     }
 
-    findAssignmentByID(id) {
-        const temp = this.storage.assignments.find((a) => a.id === id);
-        return temp ? temp : false;
+    findAssignmentByID(id, data = false) {
+        if (!data) {
+            const temp = this.storage.assignments.find((a) => a.id === id);
+            return temp ? temp : false;
+        }
+        const temp = this.data.themes.filter((t) => {
+            return t.areas.find((a) => {
+                return a.parts.find((p) => {
+                    return p.assignments.find((a) => a.id === id);
+                });
+            });
+        });
+        // from temp find theme, area, part and assignment
+        if (temp.length > 0) {
+            const theme = temp[0].theme;
+            const area = temp[0].areas.filter((a) => {
+                return a.parts.find((p) => {
+                    return p.assignments.find((a) => a.id === id);
+                });
+            })[0].area;
+            const part = temp[0].areas
+                .filter((a) => {
+                    return a.parts.find((p) => {
+                        return p.assignments.find((a) => a.id === id);
+                    });
+                })[0]
+                .parts.filter((p) => {
+                    return p.assignments.find((a) => a.id === id);
+                })[0].part;
+            const assignment = temp[0].areas
+                .filter((a) => {
+                    return a.parts.find((p) => {
+                        return p.assignments.find((a) => a.id === id);
+                    });
+                })[0]
+                .parts.filter((p) => {
+                    return p.assignments.find((a) => a.id === id);
+                })[0]
+                .assignments.filter((a) => a.id === id)[0];
+            return {
+                theme,
+                area,
+                part,
+                assignment,
+            };
+        }
+        return false;
     }
 
     getAssignments(theme, area, part) {
@@ -175,6 +213,19 @@ export default class Storage {
             completed,
             finished: total === completed,
         };
+    }
+
+    lastCompletedAssignment() {
+        let completed = [];
+        for (const assignment of this.storage.assignments) {
+            if (assignment.completed) {
+                completed.push(assignment);
+            }
+        }
+        if (completed.length > 0) {
+            return completed.sort((a, b) => b.date - a.date)[0];
+        }
+        return false;
     }
 
     save() {
