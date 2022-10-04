@@ -3,9 +3,7 @@ import { accordion } from './accordion';
 import { consent as consentPopup } from './consent';
 import { feedback } from './feedback';
 import { siteSearch } from './search';
-// import { setup } from './setup';
-import { setup } from './setup-new';
-// import { view } from './view';
+import { setup } from './setup';
 
 window.addEventListener('load', () => {
     siteSearch();
