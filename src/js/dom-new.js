@@ -1,7 +1,6 @@
 import confetti from 'canvas-confetti';
 
 import starSvg from '../assets/icons/grade_FILL1_wght400_GRAD0_opsz24.svg';
-import { hash } from './hash.js';
 import { restore, strip } from './strip';
 
 const setupAssignments = (storage, theme, area, part) => {
@@ -10,7 +9,7 @@ const setupAssignments = (storage, theme, area, part) => {
 
     const assignments = storage.getAssignments(theme, area, part);
 
-    console.log('assignments', assignments);
+    showHideElements(storage.assignmentsStatus(theme, area, part));
 
     if (assignments) {
         const assignmentElements = element.querySelectorAll('h4');
@@ -32,55 +31,10 @@ const setupAssignments = (storage, theme, area, part) => {
                     confetti();
                 }
                 storage.updateAssignment(assignment.id);
-                // showHideElements(numberOfAssignments(storage, tod));
+                showHideElements(storage.assignmentsStatus(theme, area, part));
             });
         }
     }
-
-    // const assignmentData = numberOfAssignments(storage, tod);
-    // if (assignmentData.total === 0) return;
-
-    // console.log(assignmentData);
-
-    // showHideElements(assignmentData);
-
-    // const assignmentsElements = element.querySelectorAll('h4');
-    // for (const element of assignmentsElements) {
-    //     /* todo: fix this :)
-    //      * assignments need to be read from json
-    //      * then a check needs to be done if we got completed data for it' id
-    //      * we can do proceed to create the checkbox and progress bar unt so weiter
-    //      */
-
-    //     let result = storage.getAssignment(...tod, strip(element.textContent));
-
-    //     if (!result) {
-    //         const type = getAssignmentType(
-    //             storage.data,
-    //             tod,
-    //             strip(element.textContent)
-    //         );
-    //         result = storage.addAssignment(
-    //             ...tod,
-    //             strip(element.textContent),
-    //             type
-    //         );
-    //     }
-
-    //     const box = createCheckbox(
-    //         element,
-    //         result.assignment,
-    //         result.completed
-    //     );
-
-    //     box.addEventListener('change', () => {
-    //         if (confetti && box.checked) {
-    //             confetti();
-    //         }
-    //         storage.updateAssignment(...tod, result.assignment);
-    //         showHideElements(numberOfAssignments(storage, tod));
-    //     });
-    // }
 };
 
 const showElement = (element) => {
@@ -92,21 +46,20 @@ const hideElement = (element) => {
 };
 
 const showHideElements = (status) => {
+    if (!status) return;
     const solution = document.querySelector('.part__solution');
     const extra = document.querySelector('.part__assignments-extra');
-    if (status) {
-        if (status.basic.total === status.basic.completed && extra) {
-            showElement(extra);
-            if (solution) {
-                showElement(solution);
-            }
-        } else {
-            if (extra) {
-                hideElement(extra);
-            }
-            if (solution) {
-                hideElement(solution);
-            }
+    if (status.basic.total === status.basic.completed && extra) {
+        showElement(extra);
+        if (solution) {
+            showElement(solution);
+        }
+    } else {
+        if (extra) {
+            hideElement(extra);
+        }
+        if (solution) {
+            hideElement(solution);
         }
     }
 };
@@ -114,7 +67,6 @@ const showHideElements = (status) => {
 const showHideTests = (elements, storage) => {
     if (!elements) return;
     for (const element of elements) {
-        // console.log(element.parentElement);
         let result;
         if (element.tagName === 'DIV') {
             result = element.querySelector('.stretched-link');
@@ -123,9 +75,7 @@ const showHideTests = (elements, storage) => {
             result = a ? a : element;
         }
         const areaTitle = strip(result.textContent).replace('slutuppgift-', '');
-        // console.log(areaTitle);
         const checkArea = storage.areaStatus(strip(areaTitle));
-        // console.log(checkArea.finished);
         if (checkArea.finished) {
             showElement(element);
         } else {
@@ -179,8 +129,6 @@ const createProgressBar = (element, total = 0, completed = 0) => {
     progress.appendChild(bar);
     element.parentElement.insertAdjacentElement('beforeend', progress);
 };
-
-const format = (str) => [str.slice(0, -1), '-', str.slice(-1)].join('');
 
 const createLabel = (text) => {
     const label = document.createElement('label');

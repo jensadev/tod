@@ -1,4 +1,3 @@
-import { hash } from './hash.js';
 export default class Storage {
     constructor(subject, data) {
         this.subject = subject;
@@ -151,12 +150,10 @@ export default class Storage {
     }
 
     findAreaWithTheme(area) {
-        // const themes = this.find();
-        // console.log(this.data.themes);
         const result = this.data.themes.filter((t) => {
             return t.areas.find((a) => a.area === area);
         });
-        // only return matching area from themes
+        // only return matching area with theme
         if (result.length > 0) {
             return {
                 theme: result[0].theme,
@@ -168,7 +165,6 @@ export default class Storage {
 
     areaStatus(area) {
         const result = this.findAreaWithTheme(area);
-        console.log(result);
         let assignmentsCompleted = [];
         if (result) {
             for (const part of result.area.parts) {
@@ -185,7 +181,6 @@ export default class Storage {
         let total = 0;
         let completed = 0;
         for (const assignment of assignmentsCompleted) {
-            console.log(assignment);
             total += assignment.total;
             completed += assignment.basic.completed;
         }

@@ -34,11 +34,12 @@ const setup = (jsonData, consentState = null) => {
 
     if (config.part) {
         setupAssignments(storage, config.theme, config.area, config.part);
-    } else if (!config.theme) {
+        return;
+    }
+    if (!config.theme) {
         for (const theme of jsonData.themes) {
             let themeTotal = 0;
             let themeCompleted = 0;
-            let themeAreaCompleted = 0;
             if (theme.areas.length > 0) {
                 let areaTotal = 0;
                 let areaCompleted = 0;
@@ -49,7 +50,6 @@ const setup = (jsonData, consentState = null) => {
                             area.area,
                             part.part
                         );
-                        console.log(count);
                         if (count.total > 0) {
                             areaTotal += count.basic.total;
                             areaCompleted += count.basic.completed;
@@ -74,11 +74,11 @@ const setup = (jsonData, consentState = null) => {
                     const areaElement = document.querySelector(
                         `#heading-${area.area}`
                     );
+                    console.log(`${area.area} ${areaCompleted}`);
                     createProgressBar(areaElement, areaTotal, areaCompleted);
                 }
                 themeTotal += areaTotal;
                 themeCompleted += areaCompleted;
-                // themeAreaCompleted += areaCompleted === areaTotal ? 1 : 0;
             }
             const themeHeader = document.querySelector(
                 `#heading-${theme.theme}`
