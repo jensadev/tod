@@ -41,15 +41,15 @@ export default class Storage {
             const temp = this.data.themes.find((t) => t.theme === theme);
             result = temp ? temp : false;
         }
-        if (area) {
+        if (area && result) {
             const temp = result.areas.find((a) => a.area === area);
             result = temp ? temp : false;
         }
-        if (part) {
+        if (part && result) {
             const temp = result.parts.find((p) => p.part === part);
             result = temp ? temp : false;
         }
-        if (assignment) {
+        if (assignment && result) {
             const temp = result.assignments.find(
                 (a) =>
                     a.theme === theme &&
@@ -109,18 +109,45 @@ export default class Storage {
     //     return false;
     // }
 
-    countAssignments(theme, area, part, type, completed) {
-        const result = this.storage.assignments.filter(
-            (assignment) =>
-                assignment.theme === theme &&
-                assignment.area === area &&
-                assignment.part === part
-        );
+    countAssignments(theme, area, part) {
+        const assignments = this.getAssignments(theme, area, part);
 
-        return result.filter(
-            (assignment) =>
-                assignment.type === type && assignment.completed === completed
-        ).length;
+        const result = {
+            total: 0,
+            basic: {
+                total: 0,
+                completed: 0,
+            },
+            extra: {
+                total: 0,
+                completed: 0,
+            },
+        };
+
+        if (assignments) {
+            result.total = assignments.length;
+            for (const assignment of assignments) {
+                if (assignment.type === 'basic') {
+                    result.basic.total++;
+                    const assignmentStatus = this.findAssignmentByID(
+                        assignment.id
+                    );
+                    if (assignmentStatus.completed) {
+                        result.basic.completed++;
+                    }
+                }
+                if (assignment.type === 'extra') {
+                    result.extra.total++;
+                    const assignmentStatus = this.findAssignmentByID(
+                        assignment.id
+                    );
+                    if (assignmentStatus.completed) {
+                        result.extra.completed++;
+                    }
+                }
+            }
+            return result;
+        }
     }
 
     save() {
