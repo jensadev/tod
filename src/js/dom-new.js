@@ -19,7 +19,7 @@ const setupAssignments = (storage, theme, area, part) => {
             let el = [...assignmentElements].find((el) => {
                 return el.textContent === title;
             });
-            let storedAssignment = storage.findByID(assignment.id);
+            let storedAssignment = storage.findAssignmentByID(assignment.id);
             if (storedAssignment === false) {
                 storedAssignment = storage.addAssignment(
                     assignment.id,

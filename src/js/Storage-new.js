@@ -63,7 +63,7 @@ export default class Storage {
         return result;
     }
 
-    findByID(id) {
+    findAssignmentByID(id) {
         const temp = this.storage.assignments.find((a) => a.id === id);
         return temp ? temp : false;
     }
@@ -77,10 +77,10 @@ export default class Storage {
         return find(theme, area, part, assignment).type;
     }
 
-    getAssignmentFromStorage(theme, area, part, assignment) {
-        const result = this.findByID(hash(theme + area + part + assignment));
-        return result;
-    }
+    // getAssignmentFromStorage(theme, area, part, assignment) {
+    //     const result = this.findByID(hash(theme + area + part + assignment));
+    //     return result;
+    // }
 
     addAssignment(id, type) {
         const newAssignment = {
@@ -95,7 +95,7 @@ export default class Storage {
     }
 
     updateAssignment(id) {
-        const result = this.findByID(id);
+        const result = this.findAssignmentByID(id);
         if (result) {
             result.completed = !result.completed;
             result.date = Date.now();
