@@ -2,6 +2,12 @@
 echo "TOD - Update Script"
 echo "-------------------"
 
+# check if current directory == tod and if so exit
+if [ -d "tod" ]; then
+    echo "Error: Please dont run this script from the tod directory"
+    exit 1
+fi
+
 # fetch a copy of the tod repo
 git clone https://github.com/jensnti/tod tod-latest
 
@@ -18,6 +24,7 @@ rm -rf src/scss
 rm -rf src/shortcodes
 rm -rf src/tranforms
 rm -rf src/utils
+rm -f src/json/*.json
 
 # copy files from tod-latest
 cp tod-latest/.eleventy.js .
@@ -35,3 +42,5 @@ cp -r tod-latest/src/utils src/
 
 # clean up
 rm -rf tod-latest
+
+echo "To finish the update you must manually update package.json and run npm install"
