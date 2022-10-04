@@ -38,21 +38,19 @@ export default class Storage {
     find(theme, area, part, assignment) {
         let result = false;
         if (theme) {
-            const temp = this.storage.assignments.find(
-                (t) => t.theme === theme
-            );
+            const temp = this.data.themes.find((t) => t.theme === theme);
             result = temp ? temp : false;
         }
         if (area) {
-            const temp = this.storage.assignments.find((a) => a.area === area);
+            const temp = result.areas.find((a) => a.area === area);
             result = temp ? temp : false;
         }
         if (part) {
-            const temp = this.storage.assignments.find((p) => p.part === part);
+            const temp = result.parts.find((p) => p.part === part);
             result = temp ? temp : false;
         }
         if (assignment) {
-            const temp = this.storage.assignments.find(
+            const temp = result.assignments.find(
                 (a) =>
                     a.theme === theme &&
                     a.area === area &&
@@ -70,17 +68,23 @@ export default class Storage {
         return temp ? temp : false;
     }
 
-    getAssignment(theme, area, part, assignment) {
-        const result = this.findByID(
-            hash(`${theme}-${area}-${part}-${assignment}`)
-        );
+    getAssignments(theme, area, part) {
+        const result = this.find(theme, area, part);
+        return result ? result.assignments : false;
+    }
+
+    getAssignmentType(theme, area, part, title) {
+        return find(theme, area, part, title).type;
+    }
+
+    getAssignmentFromStorage(theme, area, part, assignment) {
+        const result = this.findByID(hash(theme + area + part + assignment));
         return result;
     }
 
-    addAssignment(theme, area, part, assignment, type) {
+    addAssignment(id, type) {
         const newAssignment = {
-            id: hash(`${theme}-${area}-${part}-${assignment}`),
-            assignment,
+            id: id,
             type,
             completed: false,
             date: null,
@@ -90,10 +94,8 @@ export default class Storage {
         return newAssignment;
     }
 
-    updateAssignment(theme, area, part, assignment) {
-        const result = this.findByID(
-            hash(`${theme}-${area}-${part}-${assignment}`)
-        );
+    updateAssignment(id) {
+        const result = this.findByID(id);
         if (result) {
             result.completed = !result.completed;
             result.date = Date.now();

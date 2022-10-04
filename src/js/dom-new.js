@@ -1,56 +1,92 @@
 import confetti from 'canvas-confetti';
 
 import starSvg from '../assets/icons/grade_FILL1_wght400_GRAD0_opsz24.svg';
-import { getAssignmentType, numberOfAssignments } from './data-utils';
+import { hash } from './hash.js';
 import { restore, strip } from './strip';
 
-const setupAssignments = (storage, tod) => {
+const setupAssignments = (storage, theme, area, part) => {
     const element = document.querySelector('.part__assignments');
     if (!element) return;
-    const assignmentData = numberOfAssignments(storage, tod);
-    if (assignmentData.total === 0) return;
 
-    console.log(assignmentData);
+    const assignments = storage.getAssignments(theme, area, part);
 
-    showHideElements(assignmentData);
+    // console.log('assignments', assignments);
 
-    const assignmentsElements = element.querySelectorAll('h4');
-    for (const element of assignmentsElements) {
-        /* todo: fix this :)
-         * assignments need to be read from json
-         * then a check needs to be done if we got completed data for it' id
-         * we can do proceed to create the checkbox and progress bar unt so weiter
-         */
+    if (assignments) {
+        const assignmentElements = element.querySelectorAll('h4');
+        for (const assignment of assignments) {
+            const title = restore(assignment.assignment);
+            let el = [...assignmentElements].find((el) => {
+                return el.textContent === title;
+            });
 
-        let result = storage.getAssignment(...tod, strip(element.textContent));
+            console.log(assignment);
 
-        if (!result) {
-            const type = getAssignmentType(
-                storage.data,
-                tod,
-                strip(element.textContent)
-            );
-            result = storage.addAssignment(
-                ...tod,
-                strip(element.textContent),
-                type
-            );
-        }
+            console.log(el);
 
-        const box = createCheckbox(
-            element,
-            result.assignment,
-            result.completed
-        );
-
-        box.addEventListener('change', () => {
-            if (confetti && box.checked) {
-                confetti();
+            const id = hash(theme + area + part + assignment.assignment);
+            console.log(id);
+            let storedAssignment = storage.findByID(id);
+            console.log(storedAssignment);
+            if (storedAssignment === false) {
+                storedAssignment = storage.addAssignment(id, assignment.type);
             }
-            storage.updateAssignment(...tod, result.assignment);
-            showHideElements(numberOfAssignments(storage, tod));
-        });
+
+            const box = createCheckbox(el, title, storedAssignment.completed);
+            box.addEventListener('change', () => {
+                if (confetti && box.checked) {
+                    confetti();
+                }
+                storage.updateAssignment(id);
+                // showHideElements(numberOfAssignments(storage, tod));
+            });
+        }
     }
+
+    // const assignmentData = numberOfAssignments(storage, tod);
+    // if (assignmentData.total === 0) return;
+
+    // console.log(assignmentData);
+
+    // showHideElements(assignmentData);
+
+    // const assignmentsElements = element.querySelectorAll('h4');
+    // for (const element of assignmentsElements) {
+    //     /* todo: fix this :)
+    //      * assignments need to be read from json
+    //      * then a check needs to be done if we got completed data for it' id
+    //      * we can do proceed to create the checkbox and progress bar unt so weiter
+    //      */
+
+    //     let result = storage.getAssignment(...tod, strip(element.textContent));
+
+    //     if (!result) {
+    //         const type = getAssignmentType(
+    //             storage.data,
+    //             tod,
+    //             strip(element.textContent)
+    //         );
+    //         result = storage.addAssignment(
+    //             ...tod,
+    //             strip(element.textContent),
+    //             type
+    //         );
+    //     }
+
+    //     const box = createCheckbox(
+    //         element,
+    //         result.assignment,
+    //         result.completed
+    //     );
+
+    //     box.addEventListener('change', () => {
+    //         if (confetti && box.checked) {
+    //             confetti();
+    //         }
+    //         storage.updateAssignment(...tod, result.assignment);
+    //         showHideElements(numberOfAssignments(storage, tod));
+    //     });
+    // }
 };
 
 const showElement = (element) => {
