@@ -73,16 +73,16 @@ export default class Storage {
         return result ? result.assignments : false;
     }
 
-    getAssignmentType(theme, area, part, assignment) {
-        return find(theme, area, part, assignment).type;
-    }
+    // getAssignmentType(theme, area, part, assignment) {
+    //     return find(theme, area, part, assignment).type;
+    // }
 
     // getAssignmentFromStorage(theme, area, part, assignment) {
     //     const result = this.findByID(hash(theme + area + part + assignment));
     //     return result;
     // }
 
-    addAssignment(id, type) {
+    createAssignment(id, type) {
         const newAssignment = {
             id: id,
             type,
@@ -109,7 +109,7 @@ export default class Storage {
     //     return false;
     // }
 
-    countAssignments(theme, area, part) {
+    assignmentsStatus(theme, area, part) {
         const assignments = this.getAssignments(theme, area, part);
 
         const result = {
@@ -148,6 +148,52 @@ export default class Storage {
             }
             return result;
         }
+    }
+
+    findAreaWithTheme(area) {
+        // const themes = this.find();
+        // console.log(this.data.themes);
+        const result = this.data.themes.filter((t) => {
+            return t.areas.find((a) => a.area === area);
+        });
+        // only return matching area from themes
+        if (result.length > 0) {
+            return {
+                theme: result[0].theme,
+                area: result[0].areas.find((a) => a.area === area),
+            };
+        }
+        return false;
+    }
+
+    areaStatus(area) {
+        const result = this.findAreaWithTheme(area);
+        console.log(result);
+        let assignmentsCompleted = [];
+        if (result) {
+            for (const part of result.area.parts) {
+                const check = this.assignmentsStatus(
+                    result.theme,
+                    result.area.area,
+                    part.part
+                );
+                if (check) {
+                    assignmentsCompleted.push(check);
+                }
+            }
+        }
+        let total = 0;
+        let completed = 0;
+        for (const assignment of assignmentsCompleted) {
+            console.log(assignment);
+            total += assignment.total;
+            completed += assignment.basic.completed;
+        }
+        return {
+            total,
+            completed,
+            finished: total === completed,
+        };
     }
 
     save() {

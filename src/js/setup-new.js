@@ -1,4 +1,9 @@
-import { createProgressBar, createStars, setupAssignments } from './dom-new';
+import {
+    createProgressBar,
+    createStars,
+    setupAssignments,
+    showHideTests,
+} from './dom-new';
 import Storage from './Storage-new';
 import { strip } from './strip';
 
@@ -39,7 +44,7 @@ const setup = (jsonData, consentState = null) => {
                 let areaCompleted = 0;
                 for (const area of theme.areas) {
                     for (const part of area.parts) {
-                        const count = storage.countAssignments(
+                        const count = storage.assignmentsStatus(
                             theme.theme,
                             area.area,
                             part.part
@@ -73,13 +78,15 @@ const setup = (jsonData, consentState = null) => {
                 }
                 themeTotal += areaTotal;
                 themeCompleted += areaCompleted;
-                themeAreaCompleted += areaCompleted === areaTotal ? 1 : 0;
+                // themeAreaCompleted += areaCompleted === areaTotal ? 1 : 0;
             }
             const themeHeader = document.querySelector(
                 `#heading-${theme.theme}`
             );
             createProgressBar(themeHeader, themeTotal, themeCompleted);
         }
+        const testElements = document.querySelectorAll('.test');
+        showHideTests(testElements, storage);
     }
 };
 

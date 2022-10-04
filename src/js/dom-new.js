@@ -21,7 +21,7 @@ const setupAssignments = (storage, theme, area, part) => {
             });
             let storedAssignment = storage.findAssignmentByID(assignment.id);
             if (storedAssignment === false) {
-                storedAssignment = storage.addAssignment(
+                storedAssignment = storage.createAssignment(
                     assignment.id,
                     assignment.type
                 );
@@ -111,6 +111,29 @@ const showHideElements = (status) => {
     }
 };
 
+const showHideTests = (elements, storage) => {
+    if (!elements) return;
+    for (const element of elements) {
+        // console.log(element.parentElement);
+        let result;
+        if (element.tagName === 'DIV') {
+            result = element.querySelector('.stretched-link');
+        } else {
+            const a = element.querySelector('a');
+            result = a ? a : element;
+        }
+        const areaTitle = strip(result.textContent).replace('slutuppgift-', '');
+        // console.log(areaTitle);
+        const checkArea = storage.areaStatus(strip(areaTitle));
+        // console.log(checkArea.finished);
+        if (checkArea.finished) {
+            showElement(element);
+        } else {
+            hideElement(element);
+        }
+    }
+};
+
 const createStars = (element, type = 'basic') => {
     if (!element) return;
     const el = document.createElement('span');
@@ -167,4 +190,4 @@ const createLabel = (text) => {
     return label;
 };
 
-export { createProgressBar, createStars, setupAssignments };
+export { createProgressBar, createStars, setupAssignments, showHideTests };
