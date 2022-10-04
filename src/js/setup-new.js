@@ -41,9 +41,9 @@ const setup = (jsonData, consentState = null) => {
             let themeTotal = 0;
             let themeCompleted = 0;
             if (theme.areas.length > 0) {
-                let areaTotal = 0;
-                let areaCompleted = 0;
                 for (const area of theme.areas) {
+                    let areaTotal = 0;
+                    let areaCompleted = 0;
                     for (const part of area.parts) {
                         const count = storage.assignmentsStatus(
                             theme.theme,
@@ -52,10 +52,7 @@ const setup = (jsonData, consentState = null) => {
                         );
                         if (count.total > 0) {
                             areaTotal += count.basic.total;
-                            areaCompleted +=
-                                count.basic.total === count.basic.completed
-                                    ? 1
-                                    : 0;
+                            areaCompleted += count.basic.completed;
                             if (count.basic.completed === count.basic.total) {
                                 const partElement = document.querySelector(
                                     `#part-${part.part}`
@@ -77,15 +74,16 @@ const setup = (jsonData, consentState = null) => {
                     const areaElement = document.querySelector(
                         `#heading-${area.area}`
                     );
-                    console.log(`${area.area} ${areaCompleted}`);
+                    console.log(area.area, areaTotal, areaCompleted);
                     createProgressBar(areaElement, areaTotal, areaCompleted);
+                    themeTotal += areaTotal > 0 ? areaTotal : 0;
+                    themeCompleted += areaCompleted > 0 ? areaCompleted : 0;
                 }
-                themeTotal += areaTotal;
-                themeCompleted += areaCompleted;
             }
             const themeHeader = document.querySelector(
                 `#heading-${theme.theme}`
             );
+            console.log('------' + theme.theme, themeTotal, themeCompleted);
             createProgressBar(themeHeader, themeTotal, themeCompleted);
         }
         const testElements = document.querySelectorAll('.test');
