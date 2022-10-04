@@ -34,7 +34,7 @@ export default class Storage {
         this.storage = data;
     }
 
-    find(theme, area, part, assignment) {
+    find(theme, area, part) {
         let result = false;
         if (theme) {
             const temp = this.data.themes.find((t) => t.theme === theme);
@@ -108,7 +108,7 @@ export default class Storage {
             },
         };
 
-        if (assignments) {
+        if (assignments.length > 0) {
             result.total = assignments.length;
             for (const assignment of assignments) {
                 if (assignment.type === 'basic') {
@@ -132,6 +132,7 @@ export default class Storage {
             }
             return result;
         }
+        return false;
     }
 
     findAreaWithTheme(area) {

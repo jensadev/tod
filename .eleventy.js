@@ -155,7 +155,6 @@ module.exports = (eleventyConfig) => {
         dir: {
             input: 'src',
             output: 'dist',
-        },
-        passthroughFileCopy: true,
+        }
     };
 };

@@ -50,7 +50,7 @@ const setup = (jsonData, consentState = null) => {
                             area.area,
                             part.part
                         );
-                        if (count.total > 0) {
+                        if (count) {
                             areaTotal += count.basic.total;
                             areaCompleted += count.basic.completed;
                             if (count.basic.completed === count.basic.total) {
