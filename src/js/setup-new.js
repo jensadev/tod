@@ -52,7 +52,10 @@ const setup = (jsonData, consentState = null) => {
                         );
                         if (count.total > 0) {
                             areaTotal += count.basic.total;
-                            areaCompleted += count.basic.completed;
+                            areaCompleted +=
+                                count.basic.total === count.basic.completed
+                                    ? 1
+                                    : 0;
                             if (count.basic.completed === count.basic.total) {
                                 const partElement = document.querySelector(
                                     `#part-${part.part}`
