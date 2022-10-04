@@ -48,16 +48,16 @@ export default class Storage {
             const temp = result.parts.find((p) => p.part === part);
             result = temp ? temp : false;
         }
-        if (assignment && result) {
-            const temp = result.assignments.find(
-                (a) =>
-                    a.theme === theme &&
-                    a.area === area &&
-                    a.part === part &&
-                    a.assignment === assignment
-            );
-            result = temp ? temp : false;
-        }
+        // if (assignment && result) {
+        //     const temp = result.assignments.find(
+        //         (a) =>
+        //             a.theme === theme &&
+        //             a.area === area &&
+        //             a.part === part &&
+        //             a.assignment === assignment
+        //     );
+        //     result = temp ? temp : false;
+        // }
 
         return result;
     }
@@ -71,15 +71,6 @@ export default class Storage {
         const result = this.find(theme, area, part);
         return result ? result.assignments : false;
     }
-
-    // getAssignmentType(theme, area, part, assignment) {
-    //     return find(theme, area, part, assignment).type;
-    // }
-
-    // getAssignmentFromStorage(theme, area, part, assignment) {
-    //     const result = this.findByID(hash(theme + area + part + assignment));
-    //     return result;
-    // }
 
     createAssignment(id, type) {
         const newAssignment = {
@@ -101,12 +92,6 @@ export default class Storage {
         }
         this.save();
     }
-
-    // checkCompleted(status, type) {
-    //     const check = this.countAssignments(status, type);
-    //     if (check.total > 0) return check.total === check.completed;
-    //     return false;
-    // }
 
     assignmentsStatus(theme, area, part) {
         const assignments = this.getAssignments(theme, area, part);
