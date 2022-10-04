@@ -10,7 +10,7 @@ const setupAssignments = (storage, theme, area, part) => {
 
     const assignments = storage.getAssignments(theme, area, part);
 
-    // console.log('assignments', assignments);
+    console.log('assignments', assignments);
 
     if (assignments) {
         const assignmentElements = element.querySelectorAll('h4');
@@ -19,25 +19,19 @@ const setupAssignments = (storage, theme, area, part) => {
             let el = [...assignmentElements].find((el) => {
                 return el.textContent === title;
             });
-
-            console.log(assignment);
-
-            console.log(el);
-
-            const id = hash(theme + area + part + assignment.assignment);
-            console.log(id);
-            let storedAssignment = storage.findByID(id);
-            console.log(storedAssignment);
+            let storedAssignment = storage.findByID(assignment.id);
             if (storedAssignment === false) {
-                storedAssignment = storage.addAssignment(id, assignment.type);
+                storedAssignment = storage.addAssignment(
+                    assignment.id,
+                    assignment.type
+                );
             }
-
             const box = createCheckbox(el, title, storedAssignment.completed);
             box.addEventListener('change', () => {
                 if (confetti && box.checked) {
                     confetti();
                 }
-                storage.updateAssignment(id);
+                storage.updateAssignment(assignment.id);
                 // showHideElements(numberOfAssignments(storage, tod));
             });
         }

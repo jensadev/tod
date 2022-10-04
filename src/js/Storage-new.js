@@ -73,8 +73,8 @@ export default class Storage {
         return result ? result.assignments : false;
     }
 
-    getAssignmentType(theme, area, part, title) {
-        return find(theme, area, part, title).type;
+    getAssignmentType(theme, area, part, assignment) {
+        return find(theme, area, part, assignment).type;
     }
 
     getAssignmentFromStorage(theme, area, part, assignment) {

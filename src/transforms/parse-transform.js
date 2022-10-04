@@ -6,15 +6,27 @@ const { JSDOM } = jsdom;
 const fs = require('fs');
 const strip = require('../utils/strip.js');
 
-function getAssignments(document) {
+function djb2_xor(str) {
+    let len = str.length;
+    let h = 5381;
+
+    for (let i = 0; i < len; i++) {
+        h = (h * 33) ^ str.charCodeAt(i);
+    }
+    return h >>> 0;
+}
+
+function getAssignments(document, theme, area, part) {
     const basicAssignments = [
         ...document.querySelectorAll('.part__assignments > h4'),
     ];
     const assignments = [];
     if (basicAssignments.length > 0) {
         basicAssignments.forEach((assignment) => {
+            const title = strip(assignment.textContent);
             assignments.push({
-                assignment: strip(assignment.textContent),
+                assignment: title,
+                id: djb2_xor(theme + area + part + title),
                 type: 'basic',
                 completed: false,
                 date: null,
@@ -28,8 +40,10 @@ function getAssignments(document) {
 
     if (extraAssignments.length > 0) {
         extraAssignments.forEach((assignment) => {
+            const title = strip(assignment.textContent);
             assignments.push({
-                assignment: strip(assignment.textContent),
+                assignment: title,
+                id: djb2_xor(theme + area + part + title),
                 type: 'extra',
                 completed: false,
                 date: null,
@@ -129,10 +143,20 @@ module.exports = function (value, outputPath) {
                         if (partObj === undefined) {
                             const temp = {};
                             temp.part = part;
-                            temp.assignments = getAssignments(document);
+                            temp.assignments = getAssignments(
+                                document,
+                                theme,
+                                area,
+                                part
+                            );
                             areaObj.parts.push(temp);
                         } else {
-                            partObj.assignments = getAssignments(document);
+                            partObj.assignments = getAssignments(
+                                document,
+                                theme,
+                                area,
+                                part
+                            );
                         }
                     }
                 }
