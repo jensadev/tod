@@ -3,7 +3,7 @@ echo "TOD - Update Script"
 echo "-------------------"
 
 # check if current directory == tod and if so exit
-if [ -d "tod" ]; then
+if [[ "$PWD" =~ tod ]]; then
     echo "Error: Please dont run this script from the tod directory"
     exit 1
 fi
