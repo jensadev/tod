@@ -53,7 +53,6 @@ const setup = (jsonData, consentState = null) => {
 
     if (config.part) {
         setupAssignments(storage, config.theme, config.area, config.part);
-        return;
     }
     if (!config.theme) {
         for (const theme of jsonData.themes) {
@@ -105,9 +104,9 @@ const setup = (jsonData, consentState = null) => {
             // console.log('------' + theme.theme, themeTotal, themeCompleted);
             createProgressBar(themeHeader, themeTotal, themeCompleted);
         }
-        const testElements = document.querySelectorAll('.test');
-        showHideTests(testElements, storage);
     }
+    const testElements = document.querySelectorAll('.test');
+    showHideTests(testElements, storage);
 };
 
 export { setup };
