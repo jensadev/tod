@@ -6,7 +6,8 @@ const markdownItAnchor = require('markdown-it-anchor');
 const glob = require('fast-glob');
 const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
 const fs = require('fs');
-const Image = require("@11ty/eleventy-img");
+const Image = require('@11ty/eleventy-img');
+const mia = require('markdown-it-attrs');
 
 const parseTransform = require('./src/transforms/parse-transform.js');
 
@@ -57,7 +58,7 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addPassthroughCopy({
         './src/assets/favicon.ico': '/favicon.ico',
     });
-    eleventyConfig.addPassthroughCopy({'./src/assets/icons': 'icons'});
+    eleventyConfig.addPassthroughCopy({ './src/assets/icons': 'icons' });
 
     // Filters
     glob.sync(['src/filters/*.js']).forEach((file) => {
@@ -96,16 +97,17 @@ module.exports = (eleventyConfig) => {
         return [...collection.getFilteredByGlob('./src/**/*.md')];
     });
 
-    /* Markdown Overrides */
-    let markdownLibrary = markdownIt({
+    const markdownLibrary = markdownIt({
         html: true,
+        breaks: true,
+        linkify: true,
+        typographer: true,
     })
         .use(markdownItAnchor, {
-            permalink: true,
-            permalinkClass: 'anchor',
-            permalinkSymbol: '#',
-            permalinkSpace: false,
-            permalinkBefore: false,
+            permalink: markdownItAnchor.permalink.linkInsideHeader({
+                symbol: `<span class="anchor" aria-hidden="true">#</span>`,
+                placement: 'after',
+            }),
             level: [1, 2],
             slugify: (s) =>
                 s
@@ -120,7 +122,11 @@ module.exports = (eleventyConfig) => {
                 target: '_blank',
                 rel: 'noopener',
             },
+        })
+        .use(mia, {
+            allowedAttributes: ['id', 'class'],
         });
+
     eleventyConfig.setLibrary('md', markdownLibrary);
 
     eleventyConfig.setUseGitIgnore(false);
@@ -152,6 +158,5 @@ module.exports = (eleventyConfig) => {
             input: 'src',
             output: 'dist',
         },
-        passthroughFileCopy: true,
     };
 };

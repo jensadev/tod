@@ -1,9 +1,5 @@
-import data from '../json/tod.json';
 import {
     continuePopup,
-    createAreaLink,
-    createGridProgressBar,
-    createInitials,
     createProgressBar,
     createStars,
     setupAssignments,
@@ -12,186 +8,105 @@ import {
 import Storage from './Storage';
 import { strip } from './strip';
 
-const setup = () => {
-    let subject;
-    let theme;
-    let area;
-    let part;
+const setup = (jsonData, consentState = null) => {
+    if (!consentState) return;
+
+    const config = {
+        subject: null,
+        theme: null,
+        area: null,
+        part: null,
+    };
     const nav = document.querySelectorAll('nav .breadcrumb li');
     if (nav.length === 0) {
-        subject = strip(document.title);
-        if (subject.includes('404')) {
+        config.subject = strip(document.title);
+        if (config.subject.includes('404')) {
             // prevent subject from being set to 404
-            subject = subject.split('---')[2];
+            config.subject = config.subject.split('---')[2];
         }
     } else {
-        subject = strip(nav[0].textContent);
-        theme = nav[1] ? strip(nav[1].textContent) : null;
-        area = nav[2] ? strip(nav[2].textContent) : null;
-        part = nav[3] ? strip(nav[3].textContent) : null;
+        config.subject = strip(nav[0].textContent);
+        config.theme = nav[1] ? strip(nav[1].textContent) : null;
+        config.area = nav[2] ? strip(nav[2].textContent) : null;
+        config.part = nav[3] ? strip(nav[3].textContent) : null;
     }
 
-    const view = localStorage.getItem('view');
+    const storage = new Storage(config.subject, jsonData);
 
-    const consent = localStorage.getItem('consent');
-
-    if (!consent) {
-        const flash = document.querySelector('#flash-message');
-        flash.classList.toggle('invisible');
-        const inner = flash.querySelector('.flash__inner');
-        const message = inner.querySelector('.flash__message');
-        const button = document.createElement('button');
-        button.classList.add('button', 'flash__button');
-        button.textContent = `Ok`;
-        const p = document.createElement('p');
-        p.textContent = `Den här webbplatsen sparar information i din webbläsare 
-        om vilka uppgifter du arbetat med och slutfört.`;
-        message.appendChild(p);
-        inner.appendChild(button);
-        button.addEventListener('click', () => {
-            localStorage.setItem('consent', 'true');
-            flash.classList.toggle('invisible');
-            setup();
-        });
-    } else {
-        const storage = new Storage(data, subject);
-
-        const lastCompletedAssignment = storage.lastCompletedAssignment();
-        const continueElement = document.querySelector('.continue');
-        if (lastCompletedAssignment) {
+    const lastCompletedAssignment = storage.lastCompletedAssignment();
+    if (lastCompletedAssignment) {
+        const assignmentData = storage.findAssignmentByID(
+            lastCompletedAssignment.id,
+            true
+        );
+        if (assignmentData) {
+            const continueElement = document.querySelector('.continue');
             continueElement.classList.toggle('invisible');
             let check = localStorage.getItem('continue');
             if (check && Date.now() - 7200000 > check) {
                 localStorage.removeItem('continue');
                 check = false;
             }
-            continuePopup(continueElement, check, lastCompletedAssignment);
+            continuePopup(continueElement, check, assignmentData);
         }
+    }
 
-        if (part) {
-            setupAssignments(
-                document.querySelector('.part__assignments'),
-                storage,
-                [theme, area, part]
-            );
-        } else if (!theme) {
-            const themes = storage.getThemes();
-            themes.map((theme) => {
-                let themeTotal = 0;
-                let themeCompleted = 0;
-                let themeAreaCompleted = 0;
-                theme.areas.map((area) => {
+    if (config.part) {
+        setupAssignments(storage, config.theme, config.area, config.part);
+    }
+    if (!config.theme) {
+        for (const theme of jsonData.themes) {
+            let themeTotal = 0;
+            let themeCompleted = 0;
+            if (theme.areas.length > 0) {
+                for (const area of theme.areas) {
                     let areaTotal = 0;
                     let areaCompleted = 0;
-                    area.parts.map((part) => {
-                        // works needs refactor
-                        const count = storage.countAssignments(part, 'basic');
-                        areaTotal += count.total;
-                        areaCompleted += count.completed;
-                        if (storage.checkCompleted(part, 'basic')) {
-                            const partElement = document.querySelector(
-                                `#part-${part.part}`
-                            );
-                            createStars(partElement);
+                    for (const part of area.parts) {
+                        const count = storage.assignmentsStatus(
+                            theme.theme,
+                            area.area,
+                            part.part
+                        );
+                        if (count) {
+                            areaTotal += count.basic.total;
+                            areaCompleted += count.basic.completed;
+                            if (count.basic.completed === count.basic.total) {
+                                const partElement = document.querySelector(
+                                    `#part-${part.part}`
+                                );
+                                createStars(partElement);
+                            }
+                            if (count.extra.total > 0) {
+                                if (
+                                    count.extra.completed === count.extra.total
+                                ) {
+                                    const partElement = document.querySelector(
+                                        `#part-${part.part}`
+                                    );
+                                    createStars(partElement, 'extra');
+                                }
+                            }
                         }
-                        if (storage.checkCompleted(part, 'extra')) {
-                            const partElement = document.querySelector(
-                                `#part-${part.part}`
-                            );
-                            createStars(partElement, 'extra');
-                        }
-                    });
+                    }
                     const areaElement = document.querySelector(
                         `#heading-${area.area}`
                     );
-                    if (view === 'grid') {
-                        // grid view
-                        areaElement.classList.remove('accordion__item-header');
-                        const areaButton = areaElement.querySelector('button');
-                        areaElement.removeChild(areaButton);
-                        const areaParent = areaElement.parentElement;
-                        areaParent.classList.remove('accordion__item');
-                        areaParent.classList.add('grid__item');
-
-                        createInitials(areaParent, areaButton.textContent);
-                        createAreaLink(
-                            areaElement,
-                            areaButton.textContent.trim(),
-                            areaButton.title,
-                            theme.theme,
-                            area.area
-                        );
-
-                        createGridProgressBar(
-                            areaParent,
-                            areaTotal,
-                            areaCompleted
-                        );
-                    } else {
-                        createProgressBar(
-                            areaElement,
-                            areaTotal,
-                            areaCompleted
-                        );
-                    }
-                    themeTotal += areaTotal;
-                    themeCompleted += areaCompleted;
-                    themeAreaCompleted += areaCompleted === areaTotal ? 1 : 0;
-                });
-                const themeHeader = document.querySelector(
-                    `#heading-${theme.theme}`
-                );
-                if (view === 'grid') {
-                    // grid view
-                    const collapseAreas = document.querySelectorAll(
-                        '.accordion__item-collapse'
-                    );
-                    collapseAreas.forEach((collapseArea) => {
-                        collapseArea.classList.add('invisible');
-                    });
-                    const container = document.querySelector('.accordion');
-                    if (container) {
-                        container.classList.remove('accordion');
-                        container.classList.add('flow');
-                        container.classList.add('grid');
-                        const inner =
-                            container.querySelectorAll('.accordion__inner');
-                        inner.forEach((inner) => {
-                            inner.classList.remove('accordion__inner');
-                            inner.classList.remove('flow');
-                            inner.classList.add('grid__inner');
-                        });
-                    }
-                    if (themeHeader) {
-                        themeHeader.classList.remove('accordion__item-header');
-                        if (themeHeader?.parentElement) {
-                            const parent = themeHeader.parentElement;
-                            parent.classList.remove('accordion__item');
-                            parent.classList.add('grid__item');
-
-                            createProgressBar(
-                                parent,
-                                themeTotal,
-                                themeCompleted,
-                                true
-                            );
-
-                            createGridProgressBar(
-                                parent,
-                                theme.areas.length,
-                                themeCompleted === 0 ? 0 : themeAreaCompleted,
-                                true
-                            );
-                        }
-                    }
-                } else {
-                    createProgressBar(themeHeader, themeTotal, themeCompleted);
+                    // console.log(area.area, areaTotal, areaCompleted);
+                    createProgressBar(areaElement, areaTotal, areaCompleted);
+                    themeTotal += areaTotal > 0 ? areaTotal : 0;
+                    themeCompleted += areaCompleted > 0 ? areaCompleted : 0;
                 }
-            });
+            }
+            const themeHeader = document.querySelector(
+                `#heading-${theme.theme}`
+            );
+            // console.log('------' + theme.theme, themeTotal, themeCompleted);
+            createProgressBar(themeHeader, themeTotal, themeCompleted);
         }
-        const testElements = document.querySelectorAll('.test');
-        showHideTests(testElements, storage);
     }
+    const testElements = document.querySelectorAll('.test');
+    showHideTests(testElements, storage);
 };
 
 export { setup };

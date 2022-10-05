@@ -1,0 +1,51 @@
+@use "reset";
+@use "theme";
+@use "typography";
+@use "components";
+@use "utilities";
+
+body {
+    color: var(--color-gray-900);
+    background-color: var(--color-gray-200);
+}
+
+main {
+    padding-top: var(--step-1);
+    padding-bottom: var(--step-1);
+    &:focus {
+        outline: none;
+    }
+}
+
+.bg-theme {
+    background-color: var(--color-primary);
+    &--top {
+        background-color: var(--color-on-primary);
+    }
+}
+
+.star {
+    fill: var(--color-primary);
+}
+
+.stars {
+    padding-left: var(--step--1);
+    color: var(--color-primary);
+    fill: var(--color-primary);
+}
+
+.invisible {
+    display: none !important;
+}
+
+.hidden {
+    display: none;
+}
+
+li.test{
+    font-weight: 700;
+}
+
+.icon {
+    font-size: var(--step-1);
+}

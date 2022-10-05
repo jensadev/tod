@@ -1,12 +1,12 @@
 .accordion {
-    background-color: $gray-100;
+    background-color: var(--color-gray-100);
     &__item {
-        border-bottom: 1px solid $gray-200;
+        border-bottom: 1px solid var(--color-gray-200);
         &--top {
             --flow-space: 0rem;
-            background-color: $color-primary;
+            background-color: var(--color-primary);
             a {
-                color: $color-on-primary;
+                color: var(--color-on-primary);
                 text-decoration: none;
             }
         }
@@ -17,10 +17,10 @@
             }
         }
         h2 {
-            padding: ms(0);
+            padding: var(--step-0);
         }
         h3 {
-            padding: ms(0);
+            padding: var(--step-0);
             padding-top: 0;
         }
         &-header {
@@ -29,8 +29,8 @@
         }
         &-button {
             padding: 0;
-            padding-left: ms(-4);
-            background-color: $gray-100;
+            padding-left: var(--step--4);
+            background-color: var(--color-gray-100);
             cursor: pointer;
             width: 100%;
             border: none;
@@ -55,9 +55,9 @@
         }
 
         &-body {
-            padding: 0 ms(0);
+            padding: 0 var(--step-0);
             ul {
-                padding: 0 0 ms(0) ms(-1);
+                padding: 0 0 var(--step-0) var(--step--1);
             }
         }
 

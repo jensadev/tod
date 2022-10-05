@@ -7,9 +7,9 @@
         max-width: 100%;
         @media (min-width: 768px) {
             width: 50%;
-            // padding-right: ms(-1);
+            // padding-right: var(--step--1);
             &:nth-child(even) {
-                padding-left: ms(0);
+                padding-left: var(--step-0);
             }
         }
     }

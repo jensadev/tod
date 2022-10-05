@@ -1,0 +1,15 @@
+.header-anchor {
+    text-decoration: none;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+    visibility: hidden;
+}
+:focus > a[href].header-anchor,
+:focus > a[href].header-anchor:visited,
+:hover > a[href].header-anchor,
+:hover > a[href].header-anchor:visited,
+a[href].header-anchor:focus,
+a[href].header-anchor:focus:visited {
+    visibility: visible;
+}

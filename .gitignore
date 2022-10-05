@@ -106,5 +106,6 @@ dist
 public
 dist
 .vscode/
-src/scss/_color-tokens.scss
-src/scss/_color-token-contrast.md
+src/sass/_color-tokens.scss
+
+src/json/tod.json

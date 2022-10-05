@@ -6,25 +6,26 @@
     padding: 0;
     margin: 0;
     list-style: none;
-    color: $color-on-primary;
+    color: var(--color-on-primary);
     @media (min-width: 768px) {
-        font-size: ms(1);
+        font-size: var(--step-1);
     }
     &__item {
         &--active {
-            color: color.scale($color-on-primary, $alpha: -20%);
+            // color: color.scale(var(--color-on-primary), $alpha: -20%);
+            color: var(--color-on-primary);
         }
         + .breadcrumb__item {
-            padding-left: ms(-2);
+            padding-left: var(--step--2);
             letter-spacing: ms(-8);
             &::before {
                 content: '>';
                 float: left;
-                padding-right: ms(-2);
+                padding-right: var(--step--2);
             }
         }
         &-link {
-            color: $color-on-primary;
+            color: var(--color-on-primary);
             text-decoration: none;
         }
     }

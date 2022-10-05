@@ -1,8 +1,8 @@
 .grid {
-    background-color: $gray-100;
-    padding: ms(1);
+    background-color: var(--color-gray-100);
+    padding: var(--step-1);
 
-    --flow-space: #{ms(3)};
+    --flow-space: #{var(--step-1)};
 
     &__inner {
         display: flex;
@@ -10,7 +10,8 @@
         align-items: center;
         position: relative;
         flex-wrap: wrap;
-        gap: ms(1);
+        gap: var(--step-1);
+        padding-bottom: var(--step-1);
         @media (min-width: 768px) {
             flex-wrap: nowrap;
             overflow-x: auto;
@@ -31,46 +32,46 @@
         word-wrap: break-word;
         word-break: break-word;
 
-        background-color: $gray-100;
+        background-color: var(--color-gray-100);
 
         &:first-child {
-            color: $color-on-primary;
-            background-color: $color-primary;
+            color: var(--color-on-primary);
+            background-color: var(--color-primary);
             order: -1;
             @media (max-width: 576px) {
                 flex: 1 0 100%;
             }
             &:hover {
-                color: $color-on-primary;
+                color: var(--color-on-primary);
             }
         }
 
         &:hover {
-            color: $gray-600;
-            box-shadow: inset 0 0 ms(1) rgba(222, 226, 230, 0.5);
+            color: var(--color-gray-600);
+            box-shadow: inset 0 0 var(--step-1) rgba(222, 226, 230, 0.5);
         }
 
         h2 {
             font-weight: 700;
             text-transform: uppercase;
-            font-size: ms(3);
+            font-size: var(--step-3);
             text-align: center;
-            padding-left: ms(-2);
-            padding-right: ms(-2);
+            padding-left: var(--step--2)step--2);
+            padding-right: var(--step--2);
         }
 
         h3 {
-            font-size: ms(0);
+            font-size: var(--step-0);
             font-weight: 400;
-            padding-left: ms(-2);
-            padding-right: ms(-2);
+            padding-left: var(--step--2);
+            padding-right: var(--step--2);
             white-space: nowrap;
             overflow: hidden;
         }
     }
 
     &__initials {
-        font-size: ms(4) !important;
+        font-size: var(--step-4) !important;
     }
 
     &__link {
@@ -78,13 +79,13 @@
     }
 
     &__progress--theme {
-        background-color: $color-primary !important;
+        background-color: var(--color-primary) !important;
     }
 
     &__progress-bar {
-        background-color: $color-primary;
+        background-color: var(--color-primary);
         &--theme {
-            background-color: $color-on-primary;
+            background-color: var(--color-on-primary);
         }
     }
 
@@ -94,7 +95,7 @@
     &__progress--right,
     &__progress--top,
     &__progress--bottom {
-        background-color: $gray-300;
+        background-color: var(--color-gray-100);
         position: absolute;
         overflow: hidden;
         display: flex;
@@ -102,7 +103,7 @@
     &__progress--left {
         top: 0;
         left: 0;
-        width: ms(-4);
+        width: var(--step--4);
         height: 100%;
         &-top {
             display: flex;
@@ -110,7 +111,7 @@
             top: 0;
             z-index: 40;
             height: 50%;
-            width: ms(-4);
+            width: var(--step--4);
             .grid__progress-bar {
                 width: 100%;
                 height: 0%;
@@ -120,7 +121,7 @@
             bottom: 0;
             z-index: 10;
             height: 50%;
-            width: ms(-4);
+            width: var(--step--4);
             align-items: flex-end;
             .grid__progress-bar {
                 width: 100%;
@@ -134,10 +135,10 @@
         // }
     }
     &__progress--right {
-        top: ms(-4);
+        top: var(--step--4);
         right: 0;
-        width: ms(-4);
-        height: calc(100% - ms(-4));
+        width: var(--step--4);
+        height: calc(100% - var(--step--4));
         z-index: 20;
         .grid__progress-bar {
             width: 100%;
@@ -146,16 +147,16 @@
     }
     &__progress--top {
         top: 0;
-        left: ms(-4);
-        width: calc(100% - ms(-4));
-        height: ms(-4);
+        left: var(--step--4);
+        width: calc(100% - var(--step--4));
+        height: var(--step--4);
         z-index: 30;
     }
     &__progress--bottom {
         bottom: 0;
         left: 0;
-        width: calc(100% - ms(-4));
-        height: ms(-4);
+        width: calc(100% - var(--step--4));
+        height: var(--step--4);
         z-index: 20;
         justify-content: flex-end;
     }

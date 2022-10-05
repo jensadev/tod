@@ -12,27 +12,82 @@ För att avsluta området så ska du kombinera det du hittills arbetat med i en 
 
 ## Instruktioner
 
-Skapa ett html-dokument, `index.html`. I dokumentet ska du skapa följande element: `ul`, `input` och `button`.
-Ge dessa element ett `#id` och en `.class`.
+Utför ditt arbete i temat [Test tema](/test-tema). Du ska där testa att använda de olika delarna från det här området, [Tekniken](/tekniken).
 
-Ladda sedan in din din tidigare lösning där användaren fick gissa ett tal. Du ska nu använda dig av javascript för att välja DOM elementen och använda dessa till spelet istället för prompt och alert.
+Börja med att skapa ett område, i test tema. Området ska heta Tekniktest. 
+1. Döp en mapp till ```tekniktest```.
+2. Skapa en fil i mappen som heter ```index.md```. Filen kan du kopiera från Test område. Var noga med att redigera filen så att den innehåller rätt information.
+
+{% raw %}
+```markdown
+---
+title: Tekniktest
+layout: 'layouts/theme-area.njk'
+category: område
+permalink: '{{ page.filePathStem | splice | slugUrl }}/'
+eleventyNavigation:
+    key: tekniktest
+    parent: test tema
+    order: 1
+    excerpt: Slutuppgiften att testa tekniken.
+---
+
+## Området {{ title }} innehåller följande delar
+```
+{% endraw %}
+
+3. Skapa sedan en json data-fil för ditt område. Filen måste heta samma som mappen, ```tekniktest.json```. Som tidigare kan du kopiera materialet från Test område.
+
+```json
+{
+    "tags": "test",
+    "category": "del",
+    "layout": "layouts/part.njk",
+    "permalink": "{{ page.filePathStem | splice | slugUrl }}/{{ title | slug }}/"
+}
+```
+
+4. Du kan nu skapa en md fil för din del. Döp filen till ```tekniktest del ett.md```. Filen ska ligga i mappen ```tekniktest```. Filen ska innehålla följande:
+
+{% raw %}
+```markdown
+---
+title: Tekniktest del ett
+eleventyNavigation:
+    key: tekniktest del ett
+    parent: tekniktest
+    order: 1
+    excerpt: Arbetsfil för slutuppgift tekniken.
+---
+
+{% intro %}
+
+## Introduktion
+
+### Tänk på
+
+{% endintro %}
+
+{% instruktioner %}
+
+## Instruktioner
+
+{% endinstruktioner %}
+
+{% uppgifter %}
+
+## Uppgifter
+
+### {% star %}
+
+#### Uppgift 1
+
+{% enduppgifter %}
+
+{% endraw %}
+
+Den här filen är ett skelett för att skapa en del. Det är nu din uppgift att fylla filen med innehåll. Passa även på att använda de olika delarna som finns i området Tekniken för att presentera din uppgift.
 
 ### Tips
 
-Du väljer element från DOM. För input så kan du komma åt värdet med `inputelement.value`.
-Du kommer att behöva lyssna på när användaren klickar på knappen och då läsa av inputelementets värde.
-
-```js
-button.addEventlistener('click', (e) => {
-    const inputValue = inputElement.value;
-    console.log(inputValue);
-});
-```
-
-För att skriva ut meddelanden till användaren så ska nya li element skapas och läggas till i ul elementet.
-
-```js
-const li = document.createElement('li');
-li.textContent = 'msg';
-ul.appendChild(li);
-```
+Det kan hjälpa att planera materialet först.

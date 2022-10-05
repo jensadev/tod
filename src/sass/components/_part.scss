@@ -1,11 +1,11 @@
 .part {
     display: flex;
     flex-wrap: wrap;
-    background-color: $gray-100;
+    background-color: var(--color-gray-100);
 
-    padding: ms(-1);
+    padding: var(--step--1);
 
-    &>* {
+    & > * {
         flex-shrink: 0;
         width: 100%;
         max-width: 100%;
@@ -19,18 +19,18 @@
         justify-content: space-between;
         align-items: baseline;
 
-        padding: 0 ms(-1);
-        margin-bottom: ms(-2);
+        padding: 0 var(--step--1);
+        margin-bottom: var(--step--2);
 
-        border-bottom: 1px solid $gray-300;
+        border-bottom: var(--border-solid-300);
     }
 
     &__test {
-        padding: ms(-1);
+        padding: var(--step--1);
     }
 
     &__introduction {
-        padding: ms(-1);
+        padding: var(--step--1);
 
         @media (min-width: 768px) {
             flex: 0 0 auto;
@@ -39,26 +39,31 @@
     }
 
     &__instructions {
-        padding: ms(-1);
+        padding: var(--step--1);
 
         @media (min-width: 768px) {
             flex: 0 0 auto;
             width: 50%;
 
-            border-left: 1px solid $gray-300;
-            border-right: 1px solid $gray-300;
+            border-left: var(--border-solid-300);
+            border-right: var(--border-solid-300);
         }
 
-        tbody, td, tfoot, th, thead, tr {
+        tbody,
+        td,
+        tfoot,
+        th,
+        thead,
+        tr {
             border: 0 solid;
             border-color: inherit;
         }
 
         table {
             width: 100%;
-            margin-bottom: 1rem;
+            margin-bottom: var(--step-0);
             vertical-align: top;
-            border-color: $gray-300;
+            border-color: var(--color-gray-300);
             border-collapse: collapse;
             caption-side: bottom;
             border-spacing: 2px;
@@ -69,10 +74,10 @@
                     display: table-row;
                     vertical-align: inherit;
                     th {
-                        padding: ms(-2) ms(-2);
-                        background-color: $gray-300;
+                        padding: var(--step--2) var(--step--2);
+                        background-color: var(--color-gray-300);
                         border-bottom-width: 1px;
-                        box-shadow: inset 0 0 0 9999px $gray-100;
+                        box-shadow: inset 0 0 0 9999px var(--color-gray-100);
                     }
                 }
             }
@@ -83,15 +88,15 @@
                     display: table-row;
                     vertical-align: inherit;
                     td {
-                        padding: ms(-2) ms(-2);
-                        background-color: $gray-300;
+                        padding: var(--step--2) var(--step--2);
+                        background-color: var(--color-gray-300);
                         border-bottom-width: 1px;
-                        box-shadow: inset 0 0 0 9999px $gray-100;
+                        box-shadow: inset 0 0 0 9999px var(--color-gray-100);
                     }
                 }
             }
         }
-    
+
         picture > img {
             width: 100%;
             max-width: 100%;
@@ -100,9 +105,9 @@
     }
 
     &__assignments {
-        padding: ms(-1);
-        h3 {
-            fill: $color-primary;
+        padding: var(--step--1);
+        h3 > svg {
+            fill: var(--color-primary);
         }
         @media (min-width: 768px) {
             flex: 0 0 auto;
@@ -118,9 +123,9 @@
 
     &__solution {
         width: 100%;
-        padding: ms(0) ms(-1);
-        margin-top: ms(-2);
-        border-top: 1px solid $gray-300;
+        padding: var(--step-0) var(--step--1);
+        margin-top: var(--step--2);
+        border-top: var(--border-solid-300);
 
         h2 {
             column-span: all;

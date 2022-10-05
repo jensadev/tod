@@ -11,6 +11,7 @@ export default {
             format: 'iife',
             name: 'main',
             file: 'dist/js/bundle.js',
+            sourcemap: true,
         },
         {
             file: 'dist/js/bundle.min.js',

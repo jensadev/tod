@@ -18,19 +18,19 @@
         display: grid;
     }
     &__header {
-        background-color: $color-primary;
-        color: $color-on-primary;
+        background-color: var(--color-primary);
+        color: var(--color-on-primary);
         width: 100%;
-        padding: ms(0);
+        padding: var(--step-0);
     }
     &__inner {
-        background-color: $gray-100;
+        background-color: var(--color-gray-100);
         min-width: ms(11);
     }
 }
 
 .feedback-form {
-    padding: ms(0);
+    padding: var(--step-0);
     &__section {
         display: flex;
         flex-direction: column;
@@ -43,7 +43,7 @@
         &-footer {
             display: flex;
             justify-content: flex-end;
-            gap: ms(0);
+            gap: var(--step-0);
         }
     }
 }
