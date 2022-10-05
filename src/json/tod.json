@@ -1,0 +1,288 @@
+{
+  "subject": "amnestitel",
+  "themes": [
+    {
+      "theme": "slutuppgifter",
+      "areas": []
+    },
+    {
+      "theme": "hjalp",
+      "areas": []
+    },
+    {
+      "theme": "kom-igang",
+      "areas": [
+        {
+          "area": "min-kurs",
+          "parts": [
+            {
+              "part": "skapa-en-del",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 2270455780,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "skapa-ett-tema",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 753190938,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "skapa-ett-amne",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 2691324224,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "struktur",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 4116419602,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "skapa-ett-omrade",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 1650855031,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "area": "tekniken",
+          "parts": [
+            {
+              "part": "filer",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 3529409307,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "front-matter",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 2766238328,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "assignment": "uppgift-2",
+                  "id": 2766238331,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "bilder",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 2683737051,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "hosta",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 2343593294,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "markdown",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 4027734536,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "assignment": "uppgift-2",
+                  "id": 4027734539,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "shortcodes",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 1586268131,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "assignment": "uppgift-2",
+                  "id": 1586268128,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "assignment": "uppgift-3",
+                  "id": 1586268129,
+                  "type": "extra",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "metadata",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 1689645858,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "assignment": "uppgift-2",
+                  "id": 1689645857,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "installation",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 562848435,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "assignment": "uppgift-2",
+                  "id": 562848432,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "area": "pedagogisk-tanke",
+          "parts": [
+            {
+              "part": "omrade",
+              "assignments": []
+            },
+            {
+              "part": "tema",
+              "assignments": []
+            },
+            {
+              "part": "del",
+              "assignments": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "tack",
+      "areas": []
+    },
+    {
+      "theme": "test-tema",
+      "areas": [
+        {
+          "area": "test-omrade",
+          "parts": [
+            {
+              "part": "test-del-tva",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 3493578661,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "test-del",
+              "assignments": [
+                {
+                  "assignment": "uppgift-1",
+                  "id": 3064834123,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "assignment": "uppgift-2",
+                  "id": 3064834120,
+                  "type": "basic",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
