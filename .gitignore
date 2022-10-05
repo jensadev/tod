@@ -107,5 +107,4 @@ public
 dist
 .vscode/
 src/sass/_color-tokens.scss
-
 src/json/tod.json
