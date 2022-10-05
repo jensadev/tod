@@ -1,0 +1,30 @@
+.navbar {
+    color: var(--color-on-primary);
+    background-color: var(--color-primary);
+    padding: var(--step--2) 0;
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    &__header {
+        white-space: nowrap;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        a {
+            text-decoration: none;
+            color: inherit;
+            &:hover {
+                color: inherit;
+            }
+        }
+    }
+    &__left {
+        display: none;
+        @media (min-width: 768px) {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}

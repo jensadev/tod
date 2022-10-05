@@ -1,0 +1,36 @@
+.footer {
+    padding-top: var(--step-2);
+    padding-bottom: var(--step-4);
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__col {
+        padding-top: var(--step-0);
+        width: 50%;
+        &:first-child {
+            padding-right: var(--step-0);
+        }
+        &:last-child {
+            padding-left: var(--step-0);
+        }
+        @media (max-width: 768px) {
+            &:first-child {
+                padding-right: 0;
+            }
+            &:last-child {
+                padding-left: 0;
+            }
+            width: 100%;
+        }
+    }
+
+    p {
+        color: var(--color-gray-600);
+    }
+    &__license-image {
+        display: inline-block;
+    }
+}

@@ -1,0 +1,51 @@
+@use "sass:color";
+.button {
+    display: grid;
+    place-content: center;
+
+    color: var(--color-on-primary);
+    fill: var(--color-on-primary);
+    background: var(--color-primary);
+
+    padding: var(--step--2) var(--step-0);
+    border: 1px solid var(--color-gray-300);
+
+    font-size: var(--step-0);
+    font-weight: 700;
+    letter-spacing: ms(-8);
+    text-transform: uppercase;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        border-color: var(--color-gray-600);
+        box-shadow: 0 0 0 ms(-5) rgba(222, 226, 230, 0.5);
+    }
+    &__icon {
+        line-height: 1;
+        border: 0;
+        &:hover {
+            box-shadow: none;
+            // color: color.scale(var(--color-on-primary), $alpha: -20%);
+            color: var(--color-on-primary);
+        }
+    }
+    &__close {
+        background: transparent;
+        border: none;
+        padding: var(--step--2);
+        font-size: var(--step-0);
+        position: absolute;
+        right: 0;
+        top: 0;
+        line-height: 1;
+        cursor: pointer;
+        color: var(--color-gray-900);
+        transition: all 0.2s ease-in-out;
+        &:hover {
+            color: var(--color-gray-600);
+        }
+    }
+}

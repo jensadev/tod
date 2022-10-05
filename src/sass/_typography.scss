@@ -1,0 +1,108 @@
+/* Light */
+@font-face {
+    font-family: "Roboto Condensed";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Roboto Condensed Light"), local("RobotoCondensed-Light"),
+        url("/assets/fonts/RobotoCondensed-Light.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: "Roboto Condensed";
+    font-style: italic;
+    font-weight: 300;
+    src: local("Roboto Condensed Light Italic"), local("RobotoCondensed-LightItalic"),
+        url("/assets/fonts/RobotoCondensed-LightItalic.ttf") format("truetype");
+    font-display: swap;
+}
+
+/* Normal */
+@font-face {
+    font-family: "Roboto Condensed";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Roboto Condensed Regular"), local("RobotoCondensed-Regular"),
+        url("/assets/fonts/RobotoCondensed-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: "Roboto Condensed";
+    font-style: italic;
+    font-weight: 400;
+    src: local("Roboto Condensed Italic"), local("RobotoCondensed-Italic"),
+        url("/assets/fonts/RobotoCondensed-Italic.ttf") format("truetype");
+    font-display: swap;
+}
+
+/* Bold */
+@font-face {
+    font-family: "Roboto Condensed";
+    font-style: normal;
+    font-weight: 700;
+    src: local("Roboto Condensed Bold"), local("RobotoCondensed-Bold"),
+        url("/assets/fonts/RobotoCondensed-Bold.ttf") format("truetype");
+    font-display: swap;
+}
+
+$font-family-sans-serif:      'Roboto Condensed', sans-serif;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+/* @link https://utopia.fyi/type/calculator?c=320,21,1.2,1140,24,1.25,5,5,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+
+:root {
+    --step--5: clamp(0.49rem, calc(0.54rem + -0.07vw), 0.53rem);
+    --step--4: clamp(0.61rem, calc(0.64rem + -0.04vw), 0.63rem);
+    --step--3: clamp(0.76rem, calc(0.76rem + 0.02vw), 0.77rem);
+    --step--2: clamp(0.91rem, calc(0.89rem + 0.10vw), 0.96rem);
+    --step--1: clamp(1.09rem, calc(1.05rem + 0.21vw), 1.20rem);
+    --step-0: clamp(1.31rem, calc(1.24rem + 0.37vw), 1.50rem);
+    --step-1: clamp(1.58rem, calc(1.46rem + 0.59vw), 1.88rem);
+    --step-2: clamp(1.89rem, calc(1.71rem + 0.89vw), 2.34rem);
+    --step-3: clamp(2.27rem, calc(2.01rem + 1.29vw), 2.93rem);
+    --step-4: clamp(2.72rem, calc(2.36rem + 1.83vw), 3.66rem);
+    --step-5: clamp(3.27rem, calc(2.75rem + 2.56vw), 4.58rem);
+  }
+
+body {
+    line-height: 1.5;
+    font-family: $font-family-sans-serif;
+    font-size: var(--step-0);
+    font-weight: 400;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: var(--step-3);
+}
+
+h2 {
+    font-size: var(--step-2);
+}
+
+h3 {
+    font-size: var(--step-1);
+}
+
+// p,
+// li {
+//     max-width: 80ch;
+// }
+
+h1 {
+    max-width: 30ch;
+    letter-spacing: -0.01em;
+}
+
+h2,
+h3 {
+    overflow-wrap: break-word;
+    max-width: 30ch;
+}
+
+.lead {
+    font-size: var(--step-1);
+    font-weight: 300;
+}

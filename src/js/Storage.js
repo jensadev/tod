@@ -2,7 +2,7 @@ export default class Storage {
     constructor(subject, data) {
         this.subject = subject;
         this.data = data;
-        this.version = 2.0;
+        this.version = 2;
 
         let storage = JSON.parse(window.localStorage.getItem(this.subject));
 
