@@ -47,20 +47,20 @@
 $font-family-sans-serif:      'Roboto Condensed', sans-serif;
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 
-/* @link https://utopia.fyi/type/calculator?c=320,21,1.2,1140,24,1.25,5,5,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.333,1140,20,1.333,5,5,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
 
 :root {
-    --step--5: clamp(0.49rem, calc(0.54rem + -0.07vw), 0.53rem);
-    --step--4: clamp(0.61rem, calc(0.64rem + -0.04vw), 0.63rem);
-    --step--3: clamp(0.76rem, calc(0.76rem + 0.02vw), 0.77rem);
-    --step--2: clamp(0.91rem, calc(0.89rem + 0.10vw), 0.96rem);
-    --step--1: clamp(1.09rem, calc(1.05rem + 0.21vw), 1.20rem);
-    --step-0: clamp(1.31rem, calc(1.24rem + 0.37vw), 1.50rem);
-    --step-1: clamp(1.58rem, calc(1.46rem + 0.59vw), 1.88rem);
-    --step-2: clamp(1.89rem, calc(1.71rem + 0.89vw), 2.34rem);
-    --step-3: clamp(2.27rem, calc(2.01rem + 1.29vw), 2.93rem);
-    --step-4: clamp(2.72rem, calc(2.36rem + 1.83vw), 3.66rem);
-    --step-5: clamp(3.27rem, calc(2.75rem + 2.56vw), 4.58rem);
+    --step--5: clamp(0.24rem, calc(0.21rem + 0.12vw), 0.30rem);
+    --step--4: clamp(0.32rem, calc(0.29rem + 0.15vw), 0.40rem);
+    --step--3: clamp(0.42rem, calc(0.38rem + 0.20vw), 0.53rem);
+    --step--2: clamp(0.56rem, calc(0.51rem + 0.28vw), 0.70rem);
+    --step--1: clamp(0.75rem, calc(0.68rem + 0.37vw), 0.94rem);
+    --step-0: clamp(1.00rem, calc(0.90rem + 0.49vw), 1.25rem);
+    --step-1: clamp(1.33rem, calc(1.20rem + 0.65vw), 1.67rem);
+    --step-2: clamp(1.78rem, calc(1.60rem + 0.87vw), 2.22rem);
+    --step-3: clamp(2.37rem, calc(2.14rem + 1.15vw), 2.96rem);
+    --step-4: clamp(3.16rem, calc(2.85rem + 1.54vw), 3.95rem);
+    --step-5: clamp(4.21rem, calc(3.80rem + 2.05vw), 5.26rem);
   }
 
 body {

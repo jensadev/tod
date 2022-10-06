@@ -7,7 +7,7 @@
     max-width: 30ch;
     width: 100%;
     padding: var(--step-0);
-    border-bottom: 1px solid var(--color-gray-200);
+    border: var(--border-solid-300);
     @media (max-width: 576px) {
         display: none;
     }
