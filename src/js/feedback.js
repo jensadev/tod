@@ -1,17 +1,17 @@
 const feedback = () => {
-    const fbClose = document.querySelector('#feedback-close');
     const fbOpen = document.querySelector('#feedback-open');
-    const fbOverlay = document.querySelector('#feedback-overlay');
-
-    fbClose.addEventListener('click', (e) => {
-        e.preventDefault();
-        fbOverlay.classList.toggle('feedback-overlay--active');
-    });
+    const body = document.querySelector('body');
+    
     fbOpen.addEventListener('click', (e) => {
-        e.preventDefault();
-        fbOverlay.classList.toggle('feedback-overlay--active');
-        const fbInput = document.querySelector('#message');
-        fbInput.focus();
+        const template = document.querySelector('template#feedback');
+        const clone = template.content.cloneNode(true);
+        clone.querySelector('#message').focus();
+        body.appendChild(clone);
+        const fbClose = document.querySelector('#feedback-close');
+        fbClose.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('#feedback-overlay').remove();
+        });
     });
 };
 

@@ -1,5 +1,4 @@
 import {
-    continuePopup,
     createProgressBar,
     createStars,
     setupAssignments,
@@ -7,6 +6,7 @@ import {
 } from './dom';
 import Storage from './Storage';
 import { strip } from './strip';
+import { continuePopup } from './continue';
 
 const setup = (jsonData, consentState = null) => {
     if (!consentState) return;
@@ -40,14 +40,12 @@ const setup = (jsonData, consentState = null) => {
             true
         );
         if (assignmentData) {
-            const continueElement = document.querySelector('.continue');
-            continueElement.classList.toggle('invisible');
             let check = localStorage.getItem('continue');
             if (check && Date.now() - 7200000 > check) {
                 localStorage.removeItem('continue');
                 check = false;
             }
-            continuePopup(continueElement, check, assignmentData);
+            continuePopup(check, assignmentData);
         }
     }
 
