@@ -1,8 +1,10 @@
 const consent = (msgText, buttonText) => {
-    const flash = document.querySelector('#flash-message');
-    flash.classList.toggle('invisible');
-    const inner = flash.querySelector('.flash__inner');
-    const message = inner.querySelector('.flash__message');
+    const template = document.querySelector('template#flash');
+    const clone = template.content.cloneNode(true);
+    // const flash = document.querySelector('#flash-message');
+    // flash.classList.toggle('invisible');
+    const inner = clone.querySelector('.flash__inner');
+    const message = clone.querySelector('.flash__message');
     const button = document.createElement('button');
     button.classList.add('button', 'flash__button');
     button.textContent = buttonText;
@@ -10,9 +12,10 @@ const consent = (msgText, buttonText) => {
     p.textContent = msgText;
     message.appendChild(p);
     inner.appendChild(button);
+    const body = document.querySelector('body');
+    body.appendChild(clone);
     button.addEventListener('click', () => {
         localStorage.setItem('consent', 'true');
-        flash.classList.toggle('invisible');
         location.reload();
     });
 };
