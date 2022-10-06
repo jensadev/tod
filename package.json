@@ -2,9 +2,6 @@
     "name": "tod",
     "version": "2.0.0",
     "description": "Tema område del",
-    "engines": {
-        "npm": "~8.1.0"
-    },
     "scripts": {
         "clean:tod": "rm -f src/json/*.json",
         "color-tokens": "a11y-color-tokens --no-compatibilityDocs --outputDirPath='src/sass' --colorTokensPath='src/_theme/color-tokens.js'",
