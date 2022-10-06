@@ -5,7 +5,7 @@
 }
 
 .feedback-overlay {
-    display: none;
+    display: grid;
     position: fixed;
     top: 0;
     left: 0;
@@ -14,9 +14,6 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1200;
     place-content: center;
-    &--active {
-        display: grid;
-    }
     &__header {
         background-color: var(--color-primary);
         color: var(--color-on-primary);
@@ -25,7 +22,7 @@
     }
     &__inner {
         background-color: var(--color-gray-100);
-        min-width: ms(11);
+        width: max(320px, 40vw);
     }
 }
 
