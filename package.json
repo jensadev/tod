@@ -11,8 +11,8 @@
         "build:sass": "sass --no-source-map src/sass:dist/css",
         "build:eleventy": "eleventy",
         "build:rollup": "rollup -c",
-        "start": "npm-run-all color-tokens build:eleventy build:sass  --parallel watch:*",
-        "build": "npm-run-all color-tokens --parallel build:*",
+        "start": "npm-run-all clean:tod color-tokens build:eleventy build:sass  --parallel watch:*",
+        "build": "npm-run-all clean:tod color-tokens build:eleventy --parallel build:*",
         "lint": "eslint --fix .",
         "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
     },
