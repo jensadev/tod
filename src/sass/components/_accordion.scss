@@ -1,5 +1,10 @@
 .accordion {
-    background-color: var(--color-gray-100);
+    &__inner {
+        margin-bottom: var(--step-0);
+    }
+    & > * {
+        background-color: var(--color-gray-100);
+    }
     &__item {
         border-bottom: 1px solid var(--color-gray-200);
         &--top {

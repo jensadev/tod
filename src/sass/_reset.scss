@@ -60,10 +60,9 @@ a:not([class]) {
 }
 
 /* Make images easier to work with */
+/* removed SVG */
 img,
-picture,
-/* 🟣 Add svg */
-svg {
+picture {
     display: block;
     max-width: 100%;
 }

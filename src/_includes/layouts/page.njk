@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+---
+<main
+class="container flow page"
+tabindex="-1"
+role="main"
+id="main-content"
+>
+    {{ content | safe }}
+
+    {% set currentPage = page.fileSlug %}
+    {% set navPages = collections.all | eleventyNavigation(currentPage) %}
+    {% include "components/categorylist.njk" %}
+</main>

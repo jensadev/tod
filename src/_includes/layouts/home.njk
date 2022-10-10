@@ -2,57 +2,66 @@
 layout: layouts/base.njk
 ---
 
-{{ content | safe }}
-{% include "components/updates.njk" %}
-<div class="accordion" id="accordion">
-    {% set navPages = collections.all | eleventyNavigation(title.toLowerCase()) %}
-    {% for entry in navPages | filterNavPages %}
-    <div class="accordion__inner flow">
-        <div class="accordion__item accordion__item--top" title="Tema: {{ entry.excerpt }}">
-            <h2
-                class="accordion__item-header"
-                id="heading-{{ entry.title | slug }}">
-                    <a href="{{ entry.url }}">{{ entry.title | capitalize }}</a>
-            </h2>
-        </div>
-        {% if entry.children.length %}
-            {% for child in entry.children %}
-                <div class="accordion__item">
-                    <h3 
-                        class="accordion__item-header"
-                        id="heading-{{ child.title | slug }}">
-                        <button
-                            class="accordion__item-button"
-                            type="button"
-                            title="Område: {{ child.excerpt }}"
-                            aria-controls="{{ child.title | slug }}">
-                            {{ child.title | capitalize }}
-                        </button>
-                    </h3>
-                    <div 
-                        id="{{ child.title | slug }}"
-                        class="accordion__item-collapse"
-                        aria-labelledby="heading-{{ child.title | slug }}">
-                        <div class="accordion__item-body">
-                            {% if child.children.length %}
-                                <ul class="accordion__item-list">
-                                {% for child in child.children %}
-                                    <li id="part-{{ child.title | slug }}" {{ 'class=test' if child.test }}>
-                                        <a 
-                                            title="Del: {{ child.excerpt }}"
-                                            class="accordion__item-link"
-                                            href="{{ child.url | url }}">
-                                            {{ child.title | capitalize }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                                </ul>
-                            {% endif %}
+<main
+class="container flow"
+tabindex="-1"
+role="main"
+id="main-content"
+>
+    <header class="hero flow">
+        {{ content | safe }}
+        {% include "components/updates.njk" %}
+    </header>
+    <div class="accordion" id="accordion">
+        {% set navPages = collections.all | eleventyNavigation(title.toLowerCase()) %}
+        {% for entry in navPages | filterNavPages %}
+        <div class="accordion__inner flow">
+            <div class="accordion__item accordion__item--top" title="Tema: {{ entry.excerpt }}">
+                <h2
+                    class="accordion__item-header"
+                    id="heading-{{ entry.title | slug }}">
+                        <a href="{{ entry.url }}">{{ entry.title | capitalize }}</a>
+                </h2>
+            </div>
+            {% if entry.children.length %}
+                {% for child in entry.children %}
+                    <div class="accordion__item">
+                        <h3 
+                            class="accordion__item-header"
+                            id="heading-{{ child.title | slug }}">
+                            <button
+                                class="accordion__item-button"
+                                type="button"
+                                title="Område: {{ child.excerpt }}"
+                                aria-controls="{{ child.title | slug }}">
+                                {{ child.title | capitalize }}
+                            </button>
+                        </h3>
+                        <div 
+                            id="{{ child.title | slug }}"
+                            class="accordion__item-collapse"
+                            aria-labelledby="heading-{{ child.title | slug }}">
+                            <div class="accordion__item-body">
+                                {% if child.children.length %}
+                                    <ul class="accordion__item-list">
+                                    {% for child in child.children %}
+                                        <li id="part-{{ child.title | slug }}" {{ 'class=test' if child.test }}>
+                                            <a 
+                                                title="Del: {{ child.excerpt }}"
+                                                class="accordion__item-link"
+                                                href="{{ child.url | url }}">
+                                                {{ child.title | capitalize }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
-        {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
+</main>

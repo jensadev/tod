@@ -8,10 +8,8 @@ eleventyNavigation:
 ---
 
 {% lead %}
-Detta är ämnets indexsida som kommer att visas innan ämnets olika teman och områden.
-Just den här delen skrivs med en shortcode för en stilad ingress.
+Det här är en startsida och en guide för hur du kan skapa en kurswebb uppdelat på Tema, område, del. Sidan visar hur du går tillväga och visar det med systemet som sidan är skapad med.
 {% endlead %}
 
-Innehåll kan självklart skrivas som en vanlig paragraf och formatteras med [Markdown](https://www.markdownguide.org/).
-
-Den här sidan är uppbyggd med samma system som du kommer att skapa.
+Detta är ämnets indexsida som kommer att visas innan ämnets olika teman och områden.
+Innehållet på kursens sidor skrivs med [Markdown](https://www.markdownguide.org/).

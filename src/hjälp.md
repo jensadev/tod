@@ -1,6 +1,6 @@
 ---
 title: Hjälp
-layout: layouts/theme-area.njk
+layout: layouts/page.njk
 permalink: /help/index.html
 excludeFromCollections: true
 eleventyNavigation:

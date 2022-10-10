@@ -2,9 +2,15 @@
 layout: layouts/base.njk
 templateEngineOverride: njk
 ---
-
+<main
+class="container flow"
+tabindex="-1"
+role="main"
+id="main-content"
+>
 {{ content | safe }}
 
 {% set navPages = collections.slutuppgifter | fixTestsPages(navPages) %}
 
 {% include "components/categorylist.njk" %}
+</main>

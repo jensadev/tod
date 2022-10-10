@@ -20,14 +20,9 @@
         }}{% else %}home{% endif %}"
     >
         {% include "components/navigation.njk" %}
-        <main
-            class="container flow"
-            tabindex="-1"
-            role="main"
-            id="main-content"
-        >
+        {% block main %}
             {{ content | safe }}
-        </main>
+        {% endblock %}
         {% include "components/footer.njk" %}
         {% include "components/templates/feedback.njk" %}
         {% include "components/templates/continue.njk" %}
