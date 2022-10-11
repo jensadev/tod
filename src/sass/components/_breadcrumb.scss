@@ -7,7 +7,7 @@
     margin: 0;
     list-style: none;
     color: var(--color-on-primary);
-    @media (min-width: 768px) {
+    @media (min-width: 820px) {
         font-size: var(--step-1);
     }
     &__item {
@@ -17,7 +17,7 @@
         }
         + .breadcrumb__item {
             padding-left: var(--step--2);
-            letter-spacing: ms(-8);
+            letter-spacing: var(--ls-neg);
             &::before {
                 content: '>';
                 float: left;

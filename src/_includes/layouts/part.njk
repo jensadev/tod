@@ -22,12 +22,12 @@ id="main-content"
             <span class="text-muted">{{ content | emojiReadTime }}</span>
         </header>
     {% if test %}
-        <section class="part__test flow">
+        <section class="part__test">
             {{ content | safe }}
         </section>
     </div>
     {% else %}
-            {{ content | safe }}
+        {{ content | safe }}
     </div>
     {% include "components/nav-bottom.njk" %}
     {% endif %}

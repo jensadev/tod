@@ -1,14 +1,13 @@
 .accordion {
     &__inner {
-        margin-bottom: var(--step-0);
+        margin-bottom: var(--step--1);
     }
     & > * {
         background-color: var(--color-gray-100);
     }
     &__item {
-        border-bottom: 1px solid var(--color-gray-200);
         &--top {
-            --flow-space: 0rem;
+            --flow-space: 0;
             background-color: var(--color-primary);
             a {
                 color: var(--color-on-primary);
@@ -21,11 +20,10 @@
                 place-items: center;
             }
         }
-        h2 {
-            padding: var(--step-0);
+        h2, h3 {
+            padding: var(--step--1) var(--step-0);
         }
         h3 {
-            padding: var(--step-0);
             padding-top: 0;
         }
         &-header {
@@ -43,13 +41,13 @@
             align-items: center;
             &:after {
                 flex-shrink: 0;
-                width: 1.333rem;
-                height: 1.333rem;
+                width: var(--step-0);
+                height: var(--step-0);
                 margin-left: auto;
                 content: "";
                 background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"%3E%3Cpath fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"%3E%3C/path%3E%3C/svg%3E');
                 background-repeat: no-repeat;
-                background-size: 1.333rem;
+                background-size: var(--step-0);
                 transition: transform 0.2s ease-in-out;
             }
         }

@@ -7,8 +7,9 @@
         background-color: var(--color-white);
         background-clip: padding-box;
         padding: var(--step--2);
-        min-width: 14rem;
+        min-width: var(--view-min);
         right: 0;
+        top: var(--step-1);
         &-item {
             display: block;
             width: 100%;

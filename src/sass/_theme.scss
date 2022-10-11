@@ -23,4 +23,8 @@ $black: #000;
     --color-black: #{$black};
 
     --border-solid-300: 1px solid var(--color-gray-300);
+
+    --view-min: 320px;
+    --view-mid: 820px;
+    --view-max: 1140px;
 }

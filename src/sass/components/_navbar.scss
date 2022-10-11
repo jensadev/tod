@@ -22,9 +22,11 @@
     }
     &__left {
         display: none;
-        @media (min-width: 768px) {
+        @media (min-width: 820px) {
             display: flex;
             justify-content: flex-end;
+            align-items: center;
+            // gap: var(--step-0);
         }
     }
 }

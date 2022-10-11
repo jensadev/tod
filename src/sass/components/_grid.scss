@@ -12,7 +12,7 @@
         flex-wrap: wrap;
         gap: var(--step-1);
         padding-bottom: var(--step-1);
-        @media (min-width: 768px) {
+        @media (min-width: 820px) {
             flex-wrap: nowrap;
             overflow-x: auto;
         }
