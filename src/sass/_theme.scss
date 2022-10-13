@@ -34,6 +34,7 @@ $black: hsl(0, 0%, 0%);
     --view-min: 320px;
     --view-mid: 820px;
     --view-max: 1140px;
+    --container-width: var(--view-max);
 
     --shadow-color: 0deg 0% 62%;
     --shadow-elevation-low: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
