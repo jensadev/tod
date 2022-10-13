@@ -1,7 +1,6 @@
 .part {
     display: flex;
     flex-wrap: wrap;
-    // gap: var(--step-0);
     background-color: var(--color-gray-100);
 
     padding: var(--step--1);
@@ -20,6 +19,7 @@
         justify-content: space-between;
         align-items: baseline;
 
+        padding: 0 var(--step--1);
         margin-bottom: var(--step--2);
 
         border-bottom: var(--border-solid-300);
@@ -30,34 +30,25 @@
     }
 
     &__introduction {
-        flex-basis: calc(var(--step-5) * 5);
-        flex-grow: 1;
+        padding: var(--step--1);
+        padding-top: 0;
 
-        padding-right: var(--step-0);
-        // padding: var(--step--1);
-        // padding-top: 0;
-
-        // @media (min-width: 820px) {
-        //     flex: 0 0 auto;
-        //     width: 25%;
-        // }
+        @media (min-width: 820px) {
+            flex: 0 0 auto;
+            width: 25%;
+        }
     }
 
     &__instructions {
-        /* ↓ Grow from nothing */
-        flex-basis: 0;
-        flex-grow: 999;
-        /* ↓ Wrap when the elements are of equal width */
-        min-inline-size: 60%;
-        // padding: var(--step--1);
-        // padding-top: 0;
+        padding: var(--step--1);
+        padding-top: 0;
 
         @media (min-width: 820px) {
-            // flex: 0 0 auto;
-            // width: 50%;
-            padding-left: var(--step-0);
+            flex: 0 0 auto;
+            width: 50%;
+
             border-left: var(--border-solid-300);
-            // border-right: var(--border-solid-300);
+            border-right: var(--border-solid-300);
         }
 
         tbody,
@@ -116,23 +107,15 @@
     }
 
     &__assignments {
-        margin-top: var(--step--2);
-        padding-top: var(--step-1);
-        border-top: var(--border-solid-300);
-
-        @media (min-width: 820px) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--step-0);
-            --flow-space: 0;
-        }
+        padding: var(--step--1);
+        padding-top: 0;
 
         h3 > svg {
             fill: var(--color-primary);
         }
-
-        header {
-            grid-column: span 2;
+        @media (min-width: 820px) {
+            flex: 0 0 auto;
+            width: 25%;
         }
 
         &-header {
@@ -140,15 +123,12 @@
             justify-content: space-between;
             align-items: center;
         }
-
-        &-extra > *:not(h3) {
-            display: none;
-        }
     }
 
     &__solution {
+        width: 100%;
+        padding: var(--step-0) var(--step--1);
         margin-top: var(--step--2);
-        padding-top: var(--step-1);
         border-top: var(--border-solid-300);
 
         h2 {

@@ -38,28 +38,25 @@ content
 
 {% endinstruktioner %}
 
-{% uppgifter %}
+{%- uppgifter "headinglead" -%}
 
-## Uppgifter
-
-### {% star %}
+{%- basic %}
 
 #### Uppgift 1
-
+Skapa en del och använd en shortcode.
 #### Uppgift 2
+Skapa en del och använd en paired shortcode.
+{%- endbasic -%}
 
-### {% star %}{% star %}
-
-{% extra %}
-
+{%- extra %}
 #### Uppgift 3
+En otroligt svår uppgift eftersom den saknar instruktioner.
+{%- endextra -%}
 
-{% endextra %}
+{%- enduppgifter -%}
 
-{% enduppgifter %}
+{% facit "Hjälp" %}
 
-{% facit %}
-
-Det här är text för hjälpsektionen.
+Det här är innehåll för hjälpsektionen.
 
 {% endfacit %}

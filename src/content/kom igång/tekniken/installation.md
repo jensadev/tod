@@ -11,11 +11,7 @@ eleventyNavigation:
 
 ## Introduktion
 
-Att skapa en kurs kräver att du har ett [GitHub](https://github.com/) konto och att du har viss
-programvara installerad. Motorn finns som ett [templat repo](https://github.com/jensnti/tod)
-på [GitHub](https://github.com/) som du klonar för att använda. Hittar du något fel,
-eller vill föreslå en förbättring så kan du skicka ett [ärende](https://github.com/jensnti/tod/issues)
-eller öppna en tråd i [forumet](https://github.com/jensnti/tod/discussions).
+Att skapa en kurs kräver att du har ett [GitHub](https://github.com/) konto och att du har viss programvara installerad. Motorn finns som ett [templat repo](https://github.com/jensnti/tod) på [GitHub](https://github.com/) som du klonar för att använda. Hittar du något fel, eller vill föreslå en förbättring så kan du skicka ett [ärende](https://github.com/jensnti/tod/issues) eller öppna en tråd i [forumet](https://github.com/jensnti/tod/discussions).
 Väl mött!
 
 ### Sidan använder

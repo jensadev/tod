@@ -1,5 +1,4 @@
 .container {
-    --container-width: var(--view-max);
     max-width: min(var(--container-width), 100vw - var(--step-2));
     margin-inline: auto;
 }

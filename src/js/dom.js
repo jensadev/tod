@@ -12,7 +12,8 @@ const setupAssignments = (storage, theme, area, part) => {
     showHideElements(storage.assignmentsStatus(theme, area, part));
 
     if (assignments) {
-        const assignmentElements = element.querySelectorAll('h4');
+        const assignmentElements = element.querySelectorAll('.part__assignments h4');
+        // const assignmentElements = basic.querySelectorAll('h4');
         for (const assignment of assignments) {
             const title = restore(assignment.assignment);
             let el = [...assignmentElements].find((el) => {
@@ -50,13 +51,14 @@ const showHideElements = (status) => {
     const solution = document.querySelector('.part__solution');
     const extra = document.querySelector('.part__assignments-extra');
     if (status.basic.total === status.basic.completed && extra) {
-        showElement(extra);
+        // showElement(extra);
+        extra.classList.add('visible');
         if (solution) {
             showElement(solution);
         }
     } else {
         if (extra) {
-            hideElement(extra);
+            extra.classList.remove('visible');
         }
         if (solution) {
             hideElement(solution);

@@ -21,12 +21,13 @@ eleventyNavigation:
 
 {% endinstruktioner %}
 
-{% uppgifter %}
+{%- uppgifter -%}
 
-## Uppgifter
-
-### {% star %}
+{%- basic %}
 
 #### Uppgift 1
+Skapa en del och använd en shortcode.
 
-{% enduppgifter %}
+{%- endbasic -%}
+
+{%- enduppgifter -%}

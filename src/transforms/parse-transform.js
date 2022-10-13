@@ -18,7 +18,7 @@ function djb2_xor(str) {
 
 function getAssignments(document, theme, area, part) {
     const basicAssignments = [
-        ...document.querySelectorAll('.part__assignments > h4'),
+        ...document.querySelectorAll('.part__assignments-basic > h4'),
     ];
     const assignments = [];
     if (basicAssignments.length > 0) {
