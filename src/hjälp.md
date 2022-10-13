@@ -9,7 +9,7 @@ eleventyNavigation:
     excerpt: Hjälpsida.
 ---
 
-## Hjälpsidan
+# {{ title }}
 
 Här hittar du hjälp kring hur den här webbplatsen fungerar.
 

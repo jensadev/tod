@@ -21,15 +21,18 @@
     transition: all 0.2s ease-in-out;
     &:hover {
         border-color: var(--color-gray-600);
-        box-shadow: 0 0 0 var(--step--4) rgba(222, 226, 230, 0.5);
+        box-shadow: var(--shadow-elevation-low);
     }
     &__icon {
         line-height: 1;
         border: 0;
         &:hover {
             box-shadow: none;
-            // color: color.scale(var(--color-on-primary), $alpha: -20%);
             color: var(--color-on-primary);
+            > svg {
+                transition: all 0.2s ease-in-out;
+                transform: scale(1.1);
+            }
         }
     }
     &__close {
@@ -42,10 +45,10 @@
         top: 0;
         line-height: 1;
         cursor: pointer;
-        color: var(--color-gray-900);
+        color: var(--color-gray-600);
         transition: all 0.2s ease-in-out;
         &:hover {
-            color: var(--color-gray-600);
+            color: var(--color-gray-900);
         }
     }
 }
