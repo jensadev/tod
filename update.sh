@@ -27,6 +27,7 @@ rm -rf src/utils
 rm -f src/json/*.json
 
 # copy files from tod-latest
+cp tod-latest/update.sh .
 cp tod-latest/.gitignore .
 cp tod-latest/.eleventy.js .
 cp tod-latest/rollup.config.js .
