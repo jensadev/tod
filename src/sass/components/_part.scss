@@ -1,30 +1,34 @@
 .part {
     display: flex;
     flex-wrap: wrap;
-    background-color: var(--color-gray-100);
 
     padding: var(--step--1);
+
+    background-color: var(--color-gray-100);
 
     @media (min-width: 820px) {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-gap: 16px;
     }
 
     &__header {
-        flex-shrink: 0;
-        width: 100%;
-
         display: flex;
         justify-content: space-between;
         align-items: baseline;
 
+        width: 100%;
         padding: 0 var(--step--1);
         margin-bottom: var(--step--2);
 
         border-bottom: var(--border-solid-300);
+
         @media (min-width: 820px) {
             grid-column: span 4 / auto;
+        }
+        @media (max-width: 480px) {
+            span {
+                display: none;
+            }
         }
     }
 
@@ -37,8 +41,6 @@
         padding-top: 0;
 
         @media (min-width: 820px) {
-            // flex: 0 0 auto;
-            // width: 25%;
             grid-column: span 3 / auto;
         }
     }
@@ -49,11 +51,6 @@
 
         @media (min-width: 820px) {
             grid-column: span 3 / auto;
-            // flex: 0 0 auto;
-            // width: 50%;
-
-            // border-left: var(--border-solid-300);
-            // border-right: var(--border-solid-300);
         }
 
         tbody,
@@ -67,13 +64,17 @@
         }
 
         table {
+            vertical-align: top;
+
+            caption-side: bottom;
+
             width: 100%;
             margin-bottom: var(--step-0);
-            vertical-align: top;
-            border-color: var(--color-gray-300);
-            border-collapse: collapse;
-            caption-side: bottom;
+
             border-spacing: 2px;
+            border-collapse: collapse;
+            border-color: var(--color-gray-300);
+
             thead {
                 vertical-align: bottom;
                 text-align: left;
@@ -82,9 +83,10 @@
                     vertical-align: inherit;
                     th {
                         padding: var(--step--2) var(--step--2);
-                        background-color: var(--color-gray-300);
+
                         border-bottom-width: 1px;
                         box-shadow: inset 0 0 0 9999px var(--color-gray-100);
+                        background-color: var(--color-gray-300);
                     }
                 }
             }
@@ -96,17 +98,18 @@
                     vertical-align: inherit;
                     td {
                         padding: var(--step--2) var(--step--2);
-                        background-color: var(--color-gray-300);
+
                         border-bottom-width: 1px;
                         box-shadow: inset 0 0 0 9999px var(--color-gray-100);
+                        background-color: var(--color-gray-300);
                     }
                 }
             }
         }
 
         picture > img {
-            width: 100%;
             max-width: 100%;
+            width: 100%;
             height: auto;
         }
     }
@@ -115,17 +118,19 @@
         padding: var(--step--1);
         padding-top: 0;
 
+        p {
+            --flow-space: 0;
+        }
+
         h3 > svg {
             fill: var(--color-primary);
         }
 
         @media (min-width: 820px) {
-            // flex: 0 0 auto;
-            // width: 25%;
-            // flex-basis: 20rem;
-            // flex-grow: 1;
             grid-row: 2 / 4;
             grid-column: 4;
+
+            border-left: var(--border-solid-300);
         }
 
         &-header {
@@ -139,6 +144,7 @@
         width: 100%;
         padding: var(--step-0) var(--step--1);
         margin-top: var(--step--2);
+
         border-top: var(--border-solid-300);
 
         h2 {
@@ -147,6 +153,7 @@
 
         @media (min-width: 820px) {
             column-count: 2;
+            grid-column: span 4;
         }
     }
 }
