@@ -33,7 +33,11 @@
     }
 
     &__test {
+        width: 100%;
         padding: var(--step--1);
+        @media (min-width: 820px) {
+            grid-column: span 4 / auto;
+        }
     }
 
     &__introduction {

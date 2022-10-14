@@ -48,7 +48,7 @@ const hideElement = (element) => {
 const showHideElements = (status) => {
     if (!status) return;
     const solution = document.querySelector('.part__solution');
-    const extra = document.querySelector('.part__assignments-extra');
+    const extra = document.querySelector('.part__assignments-extra > div');
     if (status.basic.total === status.basic.completed && extra) {
         showElement(extra);
         if (solution) {
