@@ -34,7 +34,14 @@ const setupAssignments = (storage, theme, area, part) => {
                 showHideElements(storage.assignmentsStatus(theme, area, part));
             });
         }
+        createNotes(element);
     }
+};
+
+const createNotes = (sibling) => {
+    const template = document.querySelector('template#notes');
+    const clone = template.content.cloneNode(true);
+    sibling.parentNode.insertBefore(clone, sibling.nextSibling);
 };
 
 const showElement = (element) => {
@@ -138,9 +145,4 @@ const createLabel = (text) => {
     return label;
 };
 
-export {
-    createProgressBar,
-    createStars,
-    setupAssignments,
-    showHideTests,
-};
+export { createProgressBar, createStars, setupAssignments, showHideTests };

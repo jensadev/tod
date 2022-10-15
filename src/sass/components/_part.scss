@@ -144,6 +144,19 @@
         }
     }
 
+    &__notes {
+        padding: var(--step--1);
+        @media (min-width: 820px) {
+            grid-row: 3 / 4;
+            grid-column: 4;
+
+            border-left: var(--border-solid-300);
+        }
+        textarea {
+            width: 100%;
+        }
+    }
+
     &__solution {
         width: 100%;
         padding: var(--step-0) var(--step--1);
