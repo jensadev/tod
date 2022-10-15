@@ -1,6 +1,7 @@
 .nav-bottom {
-    padding: var(--step--1) 0;
-
+    @media (max-width: 320px) {
+        display: none;
+    }
     &__list {
         display: flex;
         flex-wrap: wrap;

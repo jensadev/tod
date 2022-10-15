@@ -9,8 +9,6 @@ eleventyNavigation:
 
 {% intro %}
 
-## Introduktion
-
 En kurswebb består av ämne, teman, områden och delar. Detta är nära sammankopplat och
 behöver följa en viss struktur och regler för att det ska fungera.
 
@@ -24,8 +22,6 @@ behöver följa en viss struktur och regler för att det ska fungera.
 {% endintro %}
 
 {% instruktioner %}
-
-## Instruktioner
 
 Studera strukturen för den här guiden.
 
@@ -43,12 +39,10 @@ Studera strukturen för den här guiden.
 
 {% uppgifter %}
 
-## Uppgifter
-
-### {% star %}
+{% bas %}
 
 #### Uppgift 1
 
 Studera strukturen för den här guiden, temat kom igång
-
+{% endbas %}
 {% enduppgifter %}

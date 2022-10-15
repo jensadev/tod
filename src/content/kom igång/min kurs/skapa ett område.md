@@ -9,24 +9,14 @@ eleventyNavigation:
 
 {% intro %}
 
-## Introduktion
-
 ### Sidan använder
 
 {% endintro %}
 
 {% instruktioner %}
 
-## Instruktioner
-
 {% endinstruktioner %}
 
 {% uppgifter %}
-
-## Uppgifter
-
-### {% star %}
-
-#### Uppgift 1
 
 {% enduppgifter %}

@@ -9,8 +9,6 @@ eleventyNavigation:
 
 {% intro %}
 
-## Introduktion
-
 Markdown är fantastiskt!
 
 ### Sidan använder
@@ -18,8 +16,6 @@ Markdown är fantastiskt!
 {% endintro %}
 
 {% instruktioner %}
-
-## Instruktioner
 
 Läs mer om [Markdown](https://www.markdownguide.org/).
 
@@ -29,9 +25,7 @@ Fråga Jens efter den lilla gröna boken, [GitHub flavored markdown](https://gui
 
 {% uppgifter %}
 
-## Uppgifter
-
-### {% star %}
+{% bas %}
 
 #### Uppgift 1
 
@@ -40,5 +34,7 @@ Läs Markdown
 #### Uppgift 2
 
 Skriv Markdown
+
+{% endbas %}
 
 {% enduppgifter %}

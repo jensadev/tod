@@ -62,28 +62,32 @@ eleventyNavigation:
 
 {% intro %}
 
-## Introduktion
+Text för introduktion.
 
 ### Tänk på
+
+- Punktlista
 
 {% endintro %}
 
 {% instruktioner %}
 
-## Instruktioner
+Text för instruktioner.
 
 {% endinstruktioner %}
 
 {% uppgifter %}
 
-## Uppgifter
-
-### {% star %}
+{% bas %}
 
 #### Uppgift 1
 
-{% enduppgifter %}
+Instruktion för uppgift.
 
+{% endbas %}
+
+{% enduppgifter %}
+```
 {% endraw %}
 
 Den här filen är ett skelett för att skapa en del. Det är nu din uppgift att fylla filen med innehåll. Passa även på att använda de olika delarna som finns i området Tekniken för att presentera din uppgift.

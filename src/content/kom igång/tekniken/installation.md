@@ -9,8 +9,6 @@ eleventyNavigation:
 
 {% intro %}
 
-## Introduktion
-
 Att skapa en kurs kräver att du har ett [GitHub](https://github.com/) konto och att du har viss
 programvara installerad. Motorn finns som ett [templat repo](https://github.com/jensnti/tod)
 på [GitHub](https://github.com/) som du klonar för att använda. Hittar du något fel,
@@ -28,8 +26,6 @@ Väl mött!
 {% endintro %}
 
 {% instruktioner %}
-
-## Instruktioner
 
 För att kunna följa instruktionerna så kommer du att behöva kunna använda
 [GitHub](https://github.com/), köra [Node.js](https://nodejs.org/) och använda [npm](https://www.npmjs.com/).
@@ -62,9 +58,7 @@ kopia av den här webbplatsen.
 
 {% uppgifter %}
 
-## Uppgifter
-
-### {% star %}
+{% bas %}
 
 #### Uppgift 1
 
@@ -73,5 +67,7 @@ Klona templaten.
 #### Uppgift 2
 
 Installera och kör npm script.
+
+{% endbas %}
 
 {% enduppgifter %}

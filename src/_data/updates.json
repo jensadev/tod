@@ -1,6 +1,10 @@
 {
     "items": [
         {
+            "text": "🚸 Ny struktur på delar, bättre anpassad för webben.",
+            "date": "2022-10-15"
+        },
+        {
             "text": "🔖 2.0. Uppdatering av hur uppgifter sparas (ursäkta). Gränssnitt och stil.",
             "date": "2022-10-05"
         },

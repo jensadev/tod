@@ -11,9 +11,7 @@ fi
 # fetch a copy of the tod repo
 git clone https://github.com/jensnti/tod tod-latest
 
-# remove files that are to be replaced
-rm .eleventy.js
-rm rollup.config.js
+# remove files/folders that are to be replaced
 rm -rf src/_includes
 rm -rf src/_theme
 rm -rf src/assets
@@ -30,6 +28,11 @@ rm -f src/json/*.json
 cp tod-latest/update.sh .
 cp tod-latest/.gitignore .
 cp tod-latest/.eleventy.js .
+cp tod-latest/src/404.njk src/
+cp tod-latest/src/hjälp.md src/
+cp tod-latest/src/search-index.json.njk src/
+cp tod-latest/src/sitemap.xml.njk src/
+cp tod-latest/src/tack.md src/
 cp tod-latest/rollup.config.js .
 cp -r tod-latest/src/_includes src/
 cp -r tod-latest/src/_theme src/

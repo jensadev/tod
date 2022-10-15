@@ -1,10 +1,10 @@
 ---
-title: Front matter
+title: Test order
 eleventyNavigation:
-    key: front matter
-    parent: tekniken
-    order: 4
-    excerpt: Beskriver extra information om kurswebbens sidor
+    key: test order
+    parent: test område
+    order: 1
+    excerpt: Delen är delen
 ---
 
 {% intro %}
@@ -64,7 +64,7 @@ Redigera sedan värdet för `tags`. Är det flera taggar så används en array, 
 
 {% endinstruktioner %}
 
-{% uppgifter %}
+{% uppgifter "intro text if needed" %}
 
 {% bas %}
 
@@ -78,4 +78,18 @@ Kolla igenom front matter för tema, område
 
 {% endbas %}
 
+{% extra %}
+
+#### Uppgift 3
+
+Gör saker med tekniken!
+
+{% endextra %}
+
 {% enduppgifter %}
+
+{% facit "headertext" %}
+
+Text för hjälp facit delen.
+
+{% endfacit %}
