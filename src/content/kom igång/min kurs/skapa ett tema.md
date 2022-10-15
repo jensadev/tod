@@ -9,8 +9,6 @@ eleventyNavigation:
 
 {% intro %}
 
-## Introduktion
-
 I detta repo kan du skapa ditt första tema.
 
 ### Sidan använder
@@ -19,16 +17,9 @@ I detta repo kan du skapa ditt första tema.
 
 {% instruktioner %}
 
-## Instruktioner
-
 {% endinstruktioner %}
 
 {% uppgifter %}
 
-## Uppgifter
-
-### {% star %}
-
-#### Uppgift 1
 
 {% enduppgifter %}

@@ -9,8 +9,6 @@ eleventyNavigation:
 
 {% intro %}
 
-## Introduktion
-
 Delarna är små delar i området med tillhörande uppgifter. Det är förmågor eller kunskap
 som behöver inhämtas för att förstå helheten som gör området.
 
@@ -23,15 +21,9 @@ som behöver inhämtas för att förstå helheten som gör området.
 
 {% instruktioner %}
 
-## Instruktioner
-
 Uppgifterna delas upp i {% star %} och {% star %}{% star %}. De tvåstjärniga uppgifterna är fördjupning
 som kan göras efter grunden, men de är inte obligatoriska.
 
 {% endinstruktioner %}
 
-{% uppgifter %}
 
-## Uppgifter
-
-{% enduppgifter %}

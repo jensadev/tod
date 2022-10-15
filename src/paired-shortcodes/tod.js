@@ -24,7 +24,9 @@ module.exports = {
     },
     facit: (content, title) => {
         return `<section class="part__solution">
-        <h2 id="facit" tabindex="-1">${ title } <a class="header-anchor" href="#facit"><span class="anchor" aria-hidden="true">#</span></a></h2>
+        <h2 id="facit" tabindex="-1">${
+            title ? title : 'Hjälp'
+        } <a class="header-anchor" href="#facit"><span class="anchor" aria-hidden="true">#</span></a></h2>
         ${content}</section>`;
     },
     lead: (content) => {

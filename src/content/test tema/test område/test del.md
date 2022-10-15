@@ -7,7 +7,6 @@ eleventyNavigation:
     excerpt: Delen är delen
 ---
 
-
 {% intro %}
 
 Introduktionstext.
@@ -23,7 +22,7 @@ Instruktionsmaterial
 
 {% endinstruktioner %}
 
-{% uppgifter "intro text if needed" %}
+{% uppgifter %}
 
 {% bas %}
 
@@ -47,13 +46,8 @@ Utöka.
 
 {% enduppgifter %}
 
-{% facit "headertext" %}
+{% facit %}
 
-Om önskat, extramterial.
+Text för hjälp facit delen.
 
 {% endfacit %}
-
-
-
-
-{% enduppgifter %}

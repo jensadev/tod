@@ -9,8 +9,6 @@ eleventyNavigation:
 
 {% intro %}
 
-## Introduktion
-
 Varje sida i din kurs struktur är baserad på Markdown filer. Dessa filer innehåller
 något som kallas front matter.
 Det är information till templat-motorn som bygger sidan.
@@ -25,8 +23,6 @@ Front matter skapar strukturen, navigationen och placerar filen på rätt ställ
 {% endintro %}
 
 {% instruktioner %}
-
-## Instruktioner
 
 Den här sidans front matter ser ut som följer.
 **Det är front matter för en del.**
@@ -70,9 +66,7 @@ Redigera sedan värdet för `tags`. Är det flera taggar så används en array, 
 
 {% uppgifter %}
 
-## Uppgifter
-
-### {% star %}
+{% bas %}
 
 #### Uppgift 1
 
@@ -81,5 +75,7 @@ Kolla igenom front matter för en eller flera delar
 #### Uppgift 2
 
 Kolla igenom front matter för tema, område
+
+{% endbas %}
 
 {% enduppgifter %}

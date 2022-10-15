@@ -9,8 +9,6 @@ eleventyNavigation:
 
 {% intro %}
 
-## Introduktion
-
 För att ändra ämne och innehåll på en kurssida så behöver du redigera sidans
 metadata och ämnesindex.
 
@@ -22,8 +20,6 @@ metadata och ämnesindex.
 {% endintro %}
 
 {% instruktioner %}
-
-## Instruktioner
 
 [Redigera metadata](../tekniken/metadata.html)
 
@@ -45,10 +41,8 @@ Din sidas text-innehåll
 
 {% uppgifter %}
 
-## Uppgifter
+{% bas %}
 
-### {% star %}
-
-#### Uppgift 1
+{% endbas %}
 
 {% enduppgifter %}

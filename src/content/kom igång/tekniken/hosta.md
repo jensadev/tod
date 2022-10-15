@@ -9,18 +9,12 @@ eleventyNavigation:
 
 {% intro %}
 
-## Introduktion
+För att hosta sidan, så att andra kan använda den så använder den här guiden [Netlify](https://www.netlify.com/).
 
-För att hosta sidan, så att andra kan använda den så använder den här guiden
-[Netlify](https://www.netlify.com/).
-
-### Sidan använder
 
 {% endintro %}
 
 {% instruktioner %}
-
-## Instruktioner
 
 🛑 Kom tillbaka till den här delen när du är klar med resten av guiden.
 
@@ -40,12 +34,12 @@ Klicka här för att [skapa en sida från ett GitHub repo](https://app.netlify.c
 
 {% uppgifter %}
 
-## Uppgifter
-
-### {% star %}
+{% bas %}
 
 #### Uppgift 1
 
 Hosta din första kurssida
+
+{% endbas %}
 
 {% enduppgifter %}

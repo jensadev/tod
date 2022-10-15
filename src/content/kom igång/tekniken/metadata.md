@@ -9,8 +9,6 @@ eleventyNavigation:
 
 {% intro %}
 
-## Introduktion
-
 Sidans metadata sparas i en speciell javascript-fil. Denna behöver redigeras för
 att sidans funktioner ska fungera.
 
@@ -24,8 +22,6 @@ att sidans funktioner ska fungera.
 {% endintro %}
 
 {% instruktioner %}
-
-## Instruktioner
 
 🛑 När du redigerar metadata(`siteName:` egenskapen) så kommer guiden att sluta fungera.
 Detta på grund av att temat [Kom igång](/kom-igang/) är kopplat till `siteName: 'Ämnestitel'`.
@@ -79,9 +75,7 @@ eleventyNavigation:
 
 {% uppgifter %}
 
-## Uppgifter
-
-### {% star %}
+{% bas %}
 
 #### Uppgift 1
 
@@ -90,6 +84,8 @@ Redigera och spara `meta.js`.
 #### Uppgift 2
 
 Redigera titel i `index.md`.
+
+{% endbas %}
 
 {% enduppgifter %}
 
