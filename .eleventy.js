@@ -94,7 +94,7 @@ module.exports = (eleventyConfig) => {
 
     // Collections
     eleventyConfig.addCollection('tod', (collection) => {
-        return [...collection.getFilteredByGlob('./src/**/*.md')];
+        return [...collection.getFilteredByGlob('./src/content/**/*.md')];
     });
 
     const markdownLibrary = markdownIt({

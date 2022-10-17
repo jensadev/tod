@@ -2,9 +2,6 @@
 title: Ämnestitel
 layout: 'layouts/home.njk'
 category: ämne
-eleventyNavigation:
-    key: ämnestitel
-    excerpt: Kursens startsida
 ---
 
 {% lead %}

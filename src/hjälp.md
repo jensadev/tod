@@ -3,10 +3,6 @@ title: Hjälp
 layout: layouts/page.njk
 permalink: /help/index.html
 excludeFromCollections: true
-eleventyNavigation:
-    key: hjälp
-    parent: ämnestitel
-    excerpt: Hjälpsida.
 ---
 
 # {{ title }}
