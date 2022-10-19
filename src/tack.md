@@ -3,10 +3,6 @@ title: Tack
 layout: layouts/theme-area.njk
 permalink: /success/index.html
 excludeFromCollections: true
-eleventyNavigation:
-    key: tack
-    parent: ämnestitel
-    excerpt: Tack.
 ---
 
 ## Tack för din feedback
