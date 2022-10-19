@@ -23,7 +23,7 @@ module.exports = {
         return `<div class="part__assignments-extra"><h3>${stars()}</h3><div class="flow">${content}</div></div>`;
     },
     facit: (content, title) => {
-        return `<section class="part__solution">
+        return `<section class="part__solution flow">
         <h2 id="facit" tabindex="-1">${
             title ? title : 'Hjälp'
         } <a class="header-anchor" href="#facit"><span class="anchor" aria-hidden="true">#</span></a></h2>
@@ -31,5 +31,8 @@ module.exports = {
     },
     lead: (content) => {
         return `<p class="lead">${content}</p>`;
+    },
+    hint: (content, type) => {
+        return `<aside class="hint ${type ? type : ''}">${content}</aside>`;
     },
 };
