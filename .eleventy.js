@@ -20,7 +20,7 @@ async function imageShortcode(
     sizes = '(min-width: 30em) 50vw, 100vw'
 ) {
     const metadata = await Image(`./src/images/${src}`, {
-        widths: [300, 600, null],
+        widths: [500, 1000, null],
         outputDir: './dist/img/',
     });
 
