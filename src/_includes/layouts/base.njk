@@ -5,16 +5,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="{{ meta.siteDescription }}" />
-        <meta name="theme-color" content="{{ meta.themeColor }}" />
+        <meta name="theme-color" content="{{ meta.primaryColor }}" />
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="{{ meta.themeColor }}">
+        <meta name="apple-mobile-web-app-status-bar-style" content="{{ meta.primaryColor }}">
         <meta name="apple-mobile-web-app-title" content="{{ meta.siteName }}">
         <meta name="msapplication-TileImage" content="/assets/icons/144.png">
-        <meta name="msapplication-TileColor" content="{{ meta.themeColor }}">
+        <meta name="msapplication-TileColor" content="{{ meta.primaryColor }}">
         <link rel="apple-touch-icon" href="/assets/icons/152.png">
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="{{ '/css/style.css' }}" />
+        <!-- <link rel="stylesheet" href="{{ '/css/style.css' }}" /> -->
         <link rel="manifest" href="/manifest.json">
+        <style>{% include "assets/css/style.css" %}</style>
         <title>
             {% if page.fileSlug %}
             {{ title }} - {% endif %}

@@ -23,6 +23,6 @@ window.addEventListener('load', () => {
     // }
     accordion();
     feedback();
-    installSW();
+    // installSW();
     setup(data, consent);
 });
