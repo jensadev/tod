@@ -8,6 +8,7 @@ const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
 const fs = require('fs');
 const Image = require('@11ty/eleventy-img');
 const mia = require('markdown-it-attrs');
+const htmlmin = require('html-minifier');
 
 const parseTransform = require('./src/transforms/parse-transform.js');
 
@@ -153,6 +154,20 @@ module.exports = (eleventyConfig) => {
 
     // Transforms
     eleventyConfig.addTransform('parse', parseTransform);
+
+    // Minify
+    eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
+        if (outputPath.indexOf('.html') > -1) {
+            let minified = htmlmin.minify(content, {
+                useShortDoctype: true,
+                removeComments: true,
+                collapseWhitespace: true,
+                minifyCSS: true,
+            });
+            return minified;
+        }
+        return content;
+    });
 
     return {
         markdownTemplateEngine: 'njk',
