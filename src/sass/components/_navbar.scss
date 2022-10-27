@@ -22,6 +22,7 @@
     }
     &__left {
         display: none;
+        gap: var(--step-0);
         @media (min-width: 820px) {
             display: flex;
             justify-content: flex-end;
