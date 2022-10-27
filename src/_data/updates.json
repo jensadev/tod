@@ -1,6 +1,10 @@
 {
     "items": [
         {
+            "text": "🔽 PWA stöd. Du kan nu installera TOD som en app.",
+            "date": "2022-10-27"
+        },
+        {
             "text": "🚸 Ny struktur på delar, bättre anpassad för webben.",
             "date": "2022-10-15"
         },
