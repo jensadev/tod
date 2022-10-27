@@ -38,7 +38,7 @@ async function imageShortcode(
 }
 
 module.exports = (eleventyConfig) => {
-    eleventyConfig.setDataDeepMerge(true);
+    // eleventyConfig.setDataDeepMerge(true);
     eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
     eleventyConfig.addPlugin(emojiReadTime, {
@@ -58,7 +58,9 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addPassthroughCopy({
         './src/assets/favicon.ico': '/favicon.ico',
     });
-    eleventyConfig.addPassthroughCopy({ './src/assets/icons': 'icons' });
+    eleventyConfig.addPassthroughCopy('./src/assets/icons');
+    eleventyConfig.addPassthroughCopy('./src/manifest.json');
+    eleventyConfig.addPassthroughCopy('./src/service-worker.js');
 
     // Filters
     glob.sync(['src/filters/*.js']).forEach((file) => {

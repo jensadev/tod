@@ -2,7 +2,7 @@
 <nav class="navbar" role="navigation" aria-label="Primary">
     <div class="container navbar__inner">
         {% set currentPage = page.fileSlug %}
-        {% if currentPage == '' or currentPage.includes('404') or currentPage.includes('tack') or currentPage.includes('hjälp') %}
+        {% if currentPage == '' or currentPage.includes('404') or currentPage.includes('tack') or currentPage.includes('hjälp') or currentPage.includes('offline') %}
         <h1 class="navbar__header">
             <a href="/" title="Tillbaka till startsidan">
                 {{ meta.siteName }}
@@ -45,6 +45,10 @@
                 <span class="visually-hidden">Hjälp</span>
                 {% svg "help_FILL0_wght400_GRAD0_opsz24.svg", "icon" %}
             </a>
+            <button id="install-worker" type="button" class="button button__icon hidden">
+                <span class="visually-hidden">Installera</span>
+                {% svg "install_mobile_FILL0_wght400_GRAD0_opsz24.svg", "icon" %}
+            </button>
         </div>
     </div>
 </nav>
