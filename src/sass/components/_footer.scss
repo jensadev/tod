@@ -4,13 +4,17 @@
 
     padding-top: var(--step-2);
     padding-bottom: var(--step-4);
+    margin-top: auto;
 
     background-color: var(--color-primary);
 
     &__inner {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(var(--view-min), 1fr));
+        // grid-template-columns: repeat(auto-fit, minmax(var(--view-min), 1fr));
         gap: var(--step-0);
+        @media (min-width: 320px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     &__col {

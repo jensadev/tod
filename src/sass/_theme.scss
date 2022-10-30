@@ -1,18 +1,6 @@
 @use "sass:color" as color;
+@use "vars";
 @import 'color-tokens';
-
-// from https://material.io/design/color/the-color-system.html#tools-for-picking-colors
-$white: hsl(0, 0%, 98%);
-$gray-100: hsl(0, 0%, 96%);
-$gray-200: hsl(0, 0%, 93%);
-$gray-300: hsl(0, 0%, 88%);
-$gray-400: hsl(0, 0%, 74%);
-$gray-500: hsl(0, 0%, 62%);
-$gray-600: hsl(0, 0%, 46%);
-$gray-700: hsl(0, 0%, 38%);
-$gray-800: hsl(0, 0%, 26%);
-$gray-900: hsl(0, 0%, 13%);
-$black: hsl(0, 0%, 0%);
 
 :root {
     --color-primary: #{$color-primary};
@@ -22,23 +10,23 @@ $black: hsl(0, 0%, 0%);
     --color-on-primary--light: #{color.adjust($color-on-primary, $lightness: 10%)};
     --color-on-primary--dark: #{color.adjust($color-on-primary, $lightness: -10%)};
 
-    --color-white: #{$white};
-    --color-gray-100: #{$gray-100};
-    --color-gray-200: #{$gray-200};
-    --color-gray-300: #{$gray-300};
-    --color-gray-400: #{$gray-400};
-    --color-gray-500: #{$gray-500};
-    --color-gray-600: #{$gray-600};
-    --color-gray-700: #{$gray-700};
-    --color-gray-800: #{$gray-800};
-    --color-gray-900: #{$gray-900};
-    --color-black: #{$black};
+    --color-white: #{vars.$white};
+    --color-gray-100: #{vars.$gray-100};
+    --color-gray-200: #{vars.$gray-200};
+    --color-gray-300: #{vars.$gray-300};
+    --color-gray-400: #{vars.$gray-400};
+    --color-gray-500: #{vars.$gray-500};
+    --color-gray-600: #{vars.$gray-600};
+    --color-gray-700: #{vars.$gray-700};
+    --color-gray-800: #{vars.$gray-800};
+    --color-gray-900: #{vars.$gray-900};
+    --color-black: #{vars.$black};
 
     --border-solid-300: 1px solid var(--color-gray-300);
 
-    --view-min: 320px;
-    --view-mid: 820px;
-    --view-max: 1140px;
+    --view-min: #{vars.$width-min};
+    --view-mid: #{vars.$width-mid};
+    --view-max: #{vars.$width-max};
     --container-width: var(--view-max);
 
     --shadow-color: 0deg 0% 62%;

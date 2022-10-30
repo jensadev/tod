@@ -3,16 +3,18 @@
 .breadcrumb {
     display: flex;
     flex-wrap: wrap;
-    padding: 0;
+
+    padding: var(--step--2) 0;
     margin: 0;
+
     list-style: none;
     color: var(--color-on-primary);
+
     @media (min-width: 820px) {
         font-size: var(--step-1);
     }
     &__item {
         &--active {
-            // color: color.scale(var(--color-on-primary), $alpha: -20%);
             color: var(--color-on-primary);
         }
         + .breadcrumb__item {
