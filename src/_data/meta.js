@@ -1,37 +1,37 @@
 /* Låt bli */
-const colors = require('nice-color-palettes');
+// const colors = require('nice-color-palettes');
 
-const getRandomIntInclusive = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-};
+// const getRandomIntInclusive = (min, max) => {
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+// };
 
-const getColorPick = () => {
-    try {
-        const color = colors[getRandomIntInclusive(0, colors.length - 1)];
-        const primary = color.splice(
-            getRandomIntInclusive(0, color.length - 1),
-            1
-        ); // color[getRandomIntInclusive(0, color.length - 1)];
-        const secondary = color.splice(
-            getRandomIntInclusive(0, color.length - 1),
-            1
-        );
-        return {
-            primary: primary[0],
-            secondary: secondary[0],
-        };
-    } catch (e) {
-        console.log(e);
-        return {
-            primary: '#333',
-            secondary: '#333',
-        };
-    }
-};
+// const getColorPick = () => {
+//     try {
+//         const color = colors[getRandomIntInclusive(0, colors.length - 1)];
+//         const primary = color.splice(
+//             getRandomIntInclusive(0, color.length - 1),
+//             1
+//         ); // color[getRandomIntInclusive(0, color.length - 1)];
+//         const secondary = color.splice(
+//             getRandomIntInclusive(0, color.length - 1),
+//             1
+//         );
+//         return {
+//             primary: primary[0],
+//             secondary: secondary[0],
+//         };
+//     } catch (e) {
+//         console.log(e);
+//         return {
+//             primary: '#333',
+//             secondary: '#333',
+//         };
+//     }
+// };
 
-const colorPicks = getColorPick();
+// const colorPicks = getColorPick();
 
 const curated = [
     { p: '#484172', s: '#c4c4d5' },
