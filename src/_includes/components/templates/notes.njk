@@ -1,0 +1,19 @@
+<div class="notes">
+    <button id="notes-open" class="button button__icon button__notes" aria-label="Anteckningar">
+        {% svg "note_add_FILL0_wght400_GRAD0_opsz24.svg", "icon" %}
+    </button>
+</div>
+
+<template id="notes">
+    <div id="notes-overlay" class="overlay">
+        <div class="overlay__inner">
+            <header class="overlay__header">
+                <h2>Anteckningar</h2>
+            </header>
+            <section class="notes__form">
+                <label for="notes">Mina anteckningar</label>
+                <textarea id="notes" name="notes" rows="4"></textarea>
+            </section>
+        </div>
+    </div>
+</template>
