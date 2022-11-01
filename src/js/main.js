@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
     if (!consent && consent !== 'false') {
         consentPopup(
             `Den här webbplatsen sparar information i din webbläsare 
-            om vilka uppgifter du arbetat med och slutfört.`,
+            om dina uppgifter och anteckningar.`,
             `Ok`
         );
     }
