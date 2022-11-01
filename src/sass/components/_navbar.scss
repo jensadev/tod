@@ -23,7 +23,7 @@
     &__left {
         display: none;
         gap: var(--step-0);
-        @media (min-width: 820px) {
+        @media (min-width: 320px) {
             display: flex;
             justify-content: flex-end;
             align-items: center;

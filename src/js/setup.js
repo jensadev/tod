@@ -1,3 +1,5 @@
+import { continuePopup } from './continue';
+import { djb2_xor } from './djb2_xor';
 import {
     createProgressBar,
     createStars,
@@ -6,7 +8,6 @@ import {
 } from './dom';
 import Storage from './Storage';
 import { strip } from './strip';
-import { continuePopup } from './continue';
 
 const setup = (jsonData, consentState = null) => {
     if (!consentState) return;
@@ -50,6 +51,9 @@ const setup = (jsonData, consentState = null) => {
     }
 
     if (config.part) {
+        document.querySelector('body').id = `tod-${djb2_xor(
+            config.theme + config.area + config.part
+        )}`;
         setupAssignments(storage, config.theme, config.area, config.part);
     }
     if (!config.theme) {

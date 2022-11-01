@@ -3,6 +3,7 @@ import { accordion } from './accordion';
 import { consent as consentPopup } from './consent';
 import { feedback } from './feedback';
 import { installSW } from './install';
+import { notes } from './notes';
 import { siteSearch } from './search';
 import { setup } from './setup';
 
@@ -12,7 +13,7 @@ window.addEventListener('load', () => {
     if (!consent && consent !== 'false') {
         consentPopup(
             `Den här webbplatsen sparar information i din webbläsare 
-            om vilka uppgifter du arbetat med och slutfört.`,
+            om dina uppgifter och anteckningar.`,
             `Ok`
         );
     }
@@ -23,6 +24,7 @@ window.addEventListener('load', () => {
     // }
     accordion();
     feedback();
+    notes();
     installSW();
     setup(data, consent);
 });

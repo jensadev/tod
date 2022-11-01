@@ -15,6 +15,10 @@ Informationen kring vilka uppgifter du har klarat sparas i din webbläsare.
 
 Om din progression / stjärnor på sidan ser fel ut eller inte fungerar, testa att rensa din cache och cookies (din progressions-data finns sparad i localstorage).
 
+### Anteckningar
+
+De anteckningar du kan göra på delarna (uppgiftssidorna) sparas i din localstorage. Det är viktigt att komma ihåg att om du rensar din cache försvinner även dina anteckningar.
+
 ## Tema
 
 Ett tema är en större del av kursen som samlar ett antal områden. Ett tema kan  till exempel utgå från ett centralt innehåll från kursplanen.
