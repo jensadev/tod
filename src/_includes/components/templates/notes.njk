@@ -5,15 +5,11 @@
 </div>
 
 <template id="notes">
-    <div id="notes-overlay" class="overlay">
-        <div class="overlay__inner">
-            <header class="overlay__header">
-                <h2>Anteckningar</h2>
-            </header>
-            <section class="notes__form">
-                <label for="notes">Mina anteckningar</label>
-                <textarea id="notes" name="notes" rows="4"></textarea>
-            </section>
-        </div>
-    </div>
+    <aside class="notes__overlay" id="notes-overlay">
+        <button id="notes-close" class="button__close" aria-label="close" tabindex="0">✕</button>
+        <section class="notes__form">
+            <label for="notes" class="">Mina anteckningar</label>
+            <textarea id="notes-area" name="notes-area" rows="4"></textarea>
+        </section>
+    </aside>
 </template>

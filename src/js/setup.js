@@ -1,3 +1,4 @@
+import { continuePopup } from './continue';
 import {
     createProgressBar,
     createStars,
@@ -6,7 +7,6 @@ import {
 } from './dom';
 import Storage from './Storage';
 import { strip } from './strip';
-import { continuePopup } from './continue';
 
 const setup = (jsonData, consentState = null) => {
     if (!consentState) return;

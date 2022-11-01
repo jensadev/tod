@@ -4,6 +4,20 @@
     bottom: 2vmin;
 }
 
+.notes__overlay {
+    position: fixed;
+    bottom: 2vmin;
+    width: 80vw;
+    height: 20vh;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: var(--color-gray-100);
+
+    padding: var(--step-0);
+    border: var(--border-solid-300);
+}
+
 .button__notes {
     padding: var(--step--2) var(--step-0);
 }
