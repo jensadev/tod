@@ -686,7 +686,7 @@ a[href].header-anchor:focus:visited {
   display: none;
   gap: var(--step-0);
 }
-@media (min-width: 820px) {
+@media (min-width: 320px) {
   .navbar__left {
     display: flex;
     justify-content: flex-end;
@@ -702,9 +702,11 @@ a[href].header-anchor:focus:visited {
 
 .notes__overlay {
   position: fixed;
-  bottom: 2vmin;
-  width: 80vw;
+  bottom: 4vmin;
+  width: 100%;
+  max-width: min(var(--container-width) - 100px, 100vw - var(--step-4));
   height: 20vh;
+  min-height: 200px;
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--color-gray-100);
@@ -949,8 +951,14 @@ a[href].header-anchor:focus:visited {
 }
 
 .search-form {
+  display: none;
   transition: all 0.5s ease;
   width: 100%;
+}
+@media (min-width: 820px) {
+  .search-form {
+    display: block;
+  }
 }
 .search-form__control {
   width: 100%;

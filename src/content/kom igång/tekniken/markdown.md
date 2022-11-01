@@ -13,6 +13,8 @@ Markdown är fantastiskt!
 
 ### Sidan använder
 
+- Markdown för allt innehåll
+
 {% endintro %}
 
 {% instruktioner %}

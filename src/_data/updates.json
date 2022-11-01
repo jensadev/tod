@@ -1,6 +1,10 @@
 {
     "items": [
         {
+            "text": "📝 Anteckningsfunktion för delar.",
+            "date": "2022-11-01"
+        },
+        {
             "text": "🔽 PWA stöd. Du kan nu installera TOD som en app.",
             "date": "2022-10-27"
         },

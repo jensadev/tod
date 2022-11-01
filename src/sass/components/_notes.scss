@@ -6,9 +6,12 @@
 
 .notes__overlay {
     position: fixed;
-    bottom: 2vmin;
-    width: 80vw;
+    bottom: 4vmin;
+    width: 100%;
+    max-width: min(var(--container-width) - 100px, 100vw - var(--step-4));
+
     height: 20vh;
+    min-height: 200px;
     left: 50%;
     transform: translateX(-50%);
 
