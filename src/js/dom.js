@@ -105,8 +105,8 @@ const createCheckbox = (element, id, checked) => {
     const input = document.createElement('input');
     input.classList.add('checkbox');
     input.type = 'checkbox';
-    input.name = id;
-    input.id = id;
+    input.name = strip(id);
+    input.id = strip(id);
     input.checked = checked || false;
     const label = createLabel(id);
     element.classList.add('part__assignments-header');
@@ -133,9 +133,10 @@ const createProgressBar = (element, total = 0, completed = 0) => {
 };
 
 const createLabel = (text) => {
+    console.log(text);
     const label = document.createElement('label');
     label.classList.add('visually-hidden');
-    label.setAttribute('for', text);
+    label.setAttribute('for', strip(text));
     label.textContent = `Jag är klar med ${text.replace(/-/g, ' ')}`;
     return label;
 };

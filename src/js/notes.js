@@ -24,7 +24,7 @@ const notes = () => {
         const notesClose = document.querySelector('#notes-close');
         notesClose.addEventListener('click', (event) => {
             event.preventDefault();
-            document.querySelector('#notes-overlay').remove();
+            document.querySelector('#notes-container').remove();
             notesOpen.classList.toggle('disabled');
             notesOpen.disabled = false;
         });
