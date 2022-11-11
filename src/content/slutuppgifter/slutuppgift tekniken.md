@@ -32,7 +32,7 @@ eleventyNavigation:
     excerpt: Slutuppgiften att testa tekniken.
 ---
 
-## Området {{ title }} innehåller följande delar
+
 ```
 {% endraw %}
 

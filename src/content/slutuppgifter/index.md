@@ -6,4 +6,4 @@ permalink: '{{ page.filePathStem | splice | slugUrl }}/'
 eleventyExcludeFromCollections: true
 ---
 
-## {{ title }} för kursen {{ meta.siteName }}
+# {{ title }} för kursen {{ meta.siteName }}

@@ -9,5 +9,3 @@ eleventyNavigation:
     order: 1
     excerpt: Ett test för att visa flera teman
 ---
-
-## Temat {{ title }} innehåller följande områden
