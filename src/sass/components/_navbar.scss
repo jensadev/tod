@@ -7,6 +7,8 @@
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
+
+        min-height: var(--step-6);
     }
     &__header {
         white-space: nowrap;

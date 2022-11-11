@@ -10,4 +10,4 @@ eleventyNavigation:
     excerpt: En steg för steg guide till att skapa en kurs
 ---
 
-## Området {{ title }} innehåller följande delar
+

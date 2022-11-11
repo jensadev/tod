@@ -10,4 +10,3 @@ eleventyNavigation:
     excerpt: Pedagogisk tanke, teknik och vad du behöver veta för att skapa din egen kurs
 ---
 
-## Temat {{ title }} innehåller följande områden

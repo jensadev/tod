@@ -5,11 +5,16 @@
 </div>
 
 <template id="notes">
-    <div class="notes__overlay" id="notes-overlay">
+    <div class="notes__container" id="notes-container">
         <button id="notes-close" class="button__close" aria-label="close" tabindex="0">✕</button>
         <div class="notes__form">
-            <label for="notes" class="">Mina anteckningar</label>
-            <textarea id="notes-area" name="notes-area" rows="4"></textarea>
+            <label for="notes-area" class="">Mina anteckningar</label>
+            <textarea
+                id="notes-area"
+                name="notes-area"
+                rows="4"
+                placeholder="Skriv dina egna anteckningar här."
+                autofocus></textarea>
         </div>
     </div>
 </template>

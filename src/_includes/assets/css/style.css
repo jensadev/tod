@@ -105,8 +105,8 @@ select {
     scroll-behavior: auto;
   }
   *,
-*::before,
-*::after {
+  *::before,
+  *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
@@ -196,7 +196,7 @@ select {
   src: local("Roboto Condensed Bold"), local("RobotoCondensed-Bold"), url("/assets/fonts/RobotoCondensed-Bold.ttf") format("truetype");
   font-display: swap;
 }
-/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1140,22,1.25,5,5,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1140,22,1.25,6,5,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
 :root {
   --step--5: clamp(0.45rem, calc(0.45rem + 0.00vw), 0.45rem);
   --step--4: clamp(0.54rem, calc(0.53rem + 0.04vw), 0.56rem);
@@ -209,6 +209,7 @@ select {
   --step-3: clamp(1.94rem, calc(1.65rem + 1.45vw), 2.69rem);
   --step-4: clamp(2.33rem, calc(1.93rem + 2.00vw), 3.36rem);
   --step-5: clamp(2.80rem, calc(2.25rem + 2.73vw), 4.20rem);
+  --step-6: clamp(3.36rem, calc(2.62rem + 3.68vw), 5.25rem);
   --ls-neg: -0.02em;
 }
 
@@ -361,9 +362,14 @@ a[href].header-anchor:focus:visited {
   list-style: none;
   color: var(--color-on-primary);
 }
-@media (min-width: 820px) {
+@media (min-width: 640px) {
   .breadcrumb {
     font-size: var(--step-1);
+  }
+}
+@media (max-width: 640px) {
+  .breadcrumb__item:nth-child(-n+2) {
+    display: none;
   }
 }
 .breadcrumb__item--active {
@@ -669,6 +675,7 @@ a[href].header-anchor:focus:visited {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  min-height: var(--step-6);
 }
 .navbar__header {
   white-space: nowrap;
@@ -700,42 +707,54 @@ a[href].header-anchor:focus:visited {
   bottom: 2vmin;
 }
 
-.notes__overlay {
+.notes__container {
   position: fixed;
   bottom: 4vmin;
   width: 100%;
   max-width: min(var(--container-width) - 100px, 100vw - var(--step-4));
   height: 20vh;
-  min-height: 200px;
+  min-height: 240px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: var(--color-gray-100);
-  padding: var(--step-0);
+  background-color: var(--color-white);
   border: var(--border-solid-300);
+}
+.notes__container > button {
+  color: var(--color-on-primary);
+}
+.notes__container > button:hover {
+  color: var(--color-on-primary--dark);
 }
 
 .notes__form {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 .notes__form > label {
   display: block;
-  margin-bottom: var(--step--3);
+  width: 100%;
+  padding: var(--step--1) var(--step-0);
+  margin: 0;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: var(--step-1);
+  font-weight: 700;
 }
 .notes__form > textarea {
-  width: 100%;
+  width: calc(100% - var(--step-0) * 2);
   height: 100%;
-  resize: none;
   padding: 4px var(--step--4);
+  margin: var(--step-0);
   font-size: var(--step--1);
   border: 1px solid var(--color-gray-300);
   line-height: 1.5;
+  resize: none;
 }
 .notes__form > textarea:focus {
-  border-radius: 0;
   outline: 0;
+  border-radius: 0;
   border-color: var(--color-gray-600);
   box-shadow: 0 0 0 2px rgba(222, 226, 230, 0.5);
 }
@@ -791,6 +810,7 @@ a[href].header-anchor:focus:visited {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  flex-wrap: wrap;
   width: 100%;
   padding: 0 var(--step--1);
   margin-bottom: var(--step--2);
@@ -801,10 +821,8 @@ a[href].header-anchor:focus:visited {
     grid-column: span 4/auto;
   }
 }
-@media (max-width: 320px) {
-  .part__header span {
-    display: none;
-  }
+.part__header > span {
+  padding-bottom: var(--step--4);
 }
 .part__test {
   width: 100%;

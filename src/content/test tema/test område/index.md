@@ -10,4 +10,4 @@ eleventyNavigation:
     excerpt: Testa av ett område
 ---
 
-## Området {{ title }} innehåller följande delar
+
