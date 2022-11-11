@@ -56,7 +56,11 @@ const setup = (jsonData, consentState = null) => {
         )}`;
         setupAssignments(storage, config.theme, config.area, config.part);
     }
-    if (!config.theme) {
+    // else if (config.area || config.theme) {
+    //     console.log({config.area, config.theme});
+        
+    // }
+    else if (!config.theme) {
         for (const theme of jsonData.themes) {
             let themeTotal = 0;
             let themeCompleted = 0;

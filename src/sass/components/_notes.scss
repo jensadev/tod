@@ -15,8 +15,15 @@
     left: 50%;
     transform: translateX(-50%);
 
-    background-color: var(--color-gray-100);
+    background-color: var(--color-white);
     border: var(--border-solid-300);
+
+    > button {
+        color: var(--color-on-primary);
+        &:hover {
+            color: var(--color-on-primary--dark);
+        }
+    }
 }
 
 .notes__form {
