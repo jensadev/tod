@@ -28,12 +28,17 @@ rm -f src/json/*.json
 cp tod-latest/update.sh .
 cp tod-latest/.gitignore .
 cp tod-latest/.eleventy.js .
+cp tod-latest/rollup.config.js .
+
 cp tod-latest/src/404.njk src/
 cp tod-latest/src/hjälp.md src/
+cp tod-latest/src/manifest.json.njk src/
+cp tod-latest/src/offline.njk src/
 cp tod-latest/src/search-index.json.njk src/
+cp tod-latest/src/service-worker.js src/
 cp tod-latest/src/sitemap.xml.njk src/
 cp tod-latest/src/tack.md src/
-cp tod-latest/rollup.config.js .
+
 cp -r tod-latest/src/_includes src/
 cp -r tod-latest/src/_theme src/
 cp -r tod-latest/src/assets src/
@@ -48,4 +53,4 @@ cp -r tod-latest/src/utils src/
 # clean up
 rm -rf tod-latest
 
-echo "To finish the update you must manually update package.json and run npm install"
+echo "To finish the update you must manually update package.json (check scripts!) and run npm install"
