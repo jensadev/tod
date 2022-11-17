@@ -5,7 +5,7 @@
 </div>
 
 <template id="feedback">
-    <div id="feedback-overlay" class="overlay">
+    <div id="feedback-overlay" class="overlay" role="dialog">
         <div class="overlay__inner">
         <header class="overlay__header">
             <h2>Feedback</h2>
@@ -41,7 +41,12 @@
                 <input class="feedback-form__input" name="email" type="email" id="yourEmail">
             </div>
             <div class="feedback-form__section-footer">
-                <button id="feedback-close" class="button__feedback button button-cancel" type="button">Ångra</button>
+                <button
+                    id="feedback-close"
+                    class="button__feedback button button-cancel"
+                    type="button"
+                    aria-label="stäng"
+                >Ångra</button>
                 <button class="button__feedback button" type="submit">Skicka</button>
             </div>
         </form>
