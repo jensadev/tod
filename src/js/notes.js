@@ -19,7 +19,6 @@ const notes = () => {
             notes[body.id] = textArea.value;
             localStorage.setItem('notes', JSON.stringify(notes));
         });
-        textArea.focus();
         body.appendChild(clone);
         const notesClose = document.querySelector('#notes-close');
         notesClose.addEventListener('click', (event) => {

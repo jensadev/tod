@@ -1,6 +1,6 @@
 {% set currentPage %}{{ page.fileSlug }}{% endset %}
 {% set navPages = collections.all | eleventyNavigation(eleventyNavigation.parent) %}
-<nav class="nav-bottom" role="navigation">
+<nav class="nav-bottom" role="navigation" aria-label="secondary">
     <ul class="nav-bottom__list">
         {%- set previousPost = navPages | prev(page.url) %}
         <li class="nav-bottom__list-item">

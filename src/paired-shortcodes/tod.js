@@ -2,17 +2,17 @@ const { star, stars } = require('../shortcodes/svg.js');
 
 module.exports = {
     intro: (content) => {
-        return `<section class="part__introduction flow" role="inledning">
+        return `<section class="part__introduction flow">
         <h2 id="introduktion" tabindex="-1">Introduktion <a class="header-anchor" href="#introduktion"><span class="anchor" aria-hidden="true">#</span></a></h2>
         ${content}</section>`;
     },
     instruktioner: (content) => {
-        return `<section class="part__instructions flow" role="instruktioner">
+        return `<section class="part__instructions flow">
         <h2 id="instruktioner" tabindex="-1">Instruktioner <a class="header-anchor" href="#instruktioner"><span class="anchor" aria-hidden="true">#</span></a></h2>
         ${content}</section>`;
     },
     uppgifter: (content, lead) => {
-        return `<section class="part__assignments flow" role="uppgifter"><header>
+        return `<section class="part__assignments flow"><header>
         <h2 id="uppgifter" tabindex="-1">Uppgifter <a class="header-anchor" href="#uppgifter"><span class="anchor" aria-hidden="true">#</span></a></h2>
         ${lead ? lead : ''}</header>${content}</section>`;
     },

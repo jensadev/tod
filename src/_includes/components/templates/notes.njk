@@ -5,8 +5,8 @@
 </div>
 
 <template id="notes">
-    <div class="notes__container" id="notes-container">
-        <button id="notes-close" class="button__close" aria-label="close" tabindex="0">✕</button>
+    <div class="notes__container" id="notes-container" role="dialog">
+        <button id="notes-close" class="button__close" aria-label="stäng" tabindex="0">✕</button>
         <div class="notes__form">
             <label for="notes-area" class="">Mina anteckningar</label>
             <textarea
@@ -14,7 +14,8 @@
                 name="notes-area"
                 rows="4"
                 placeholder="Skriv dina egna anteckningar här."
-                autofocus></textarea>
+                autofocus
+            ></textarea>
         </div>
     </div>
 </template>
