@@ -1,7 +1,12 @@
+---
+permalink: /manifest.json
+eleventyExcludeFromCollections: true
+---
+
 {
-    "name": "Tema, område, del",
-    "short_name": "TOD",
-    "description": "App för kurswebbar med Tema, område, del",
+    "name": "{{ meta.pwaName }}",
+    "short_name": "{{ meta.siteName }}",
+    "description": "{{ meta.siteDescription }}",
     "icons": [
         {
             "src": "/assets/icons/48.png",
@@ -34,10 +39,10 @@
             "type": "image/png"
         }
     ],
-    "lang": "sv",
+    "lang": "{{ meta.language }}",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#e0e0e0",
-    "theme_color": "#484172",
+    "theme_color": "{{ meta.primaryColor }}",
     "scope": "/"
 }
