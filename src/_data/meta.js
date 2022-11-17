@@ -42,6 +42,7 @@ module.exports = {
     language: 'sv',
     // Sidans namn, måste överrensstämma med src/index.md title front matter
     siteName: 'Ämnestitel',
+    pwaName: 'Exempelsida för Tema, Område, Del',
     primaryColor: curated[0].p, // curated[0-31] pick or color string '#ff4e50'
     secondaryColor: curated[0].s, // pick or color string '#ff4e50'
     siteDescription:
