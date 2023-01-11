@@ -16,8 +16,8 @@ layout: layouts/base.njk
             </h2>
             {% if entry.children.length %}
             {% for child in entry.children %}
-            <accordion-section open="false">
-                <h3 class="accordion__section-heading" id="area-{{ child.title | slug }}">
+            <accordion-section open="false"  id="area-{{ child.title | slug }}">
+                <h3 class="accordion__section-heading"  id="{{ child.title | slug }}">
                     {{ child.title | capitalize }}
                 </h3>
                 <div id="{{ child.title | slug }}" class="accordion__item">

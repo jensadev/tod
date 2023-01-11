@@ -280,8 +280,7 @@ h3 {
   margin: 0;
 }
 .accordion__item-list {
-  margin: 0;
-  padding: 0 var(--step--1);
+  padding: var(--step--1) var(--step--3);
 }
 .accordion__item-list li {
   display: flex;
@@ -303,7 +302,7 @@ h3 {
 
 accordion-section {
   display: block;
-  padding: var(--step--2) var(--step-0);
+  padding: var(--step--1) var(--step-0);
 }
 accordion-section h3 {
   text-transform: uppercase;
@@ -758,7 +757,7 @@ a[href].header-anchor:focus:visited {
 }
 .overlay__inner {
   background-color: var(--color-gray-100);
-  width: max(320px, 40vw);
+  width: min(var(--view-mid), 100vw - var(--step-4));
 }
 
 .page {

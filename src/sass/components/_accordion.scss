@@ -21,8 +21,7 @@
     }
     &__item {
         &-list {
-            margin: 0;
-            padding: 0 var(--step--1);
+            padding: var(--step--1) var(--step--3);
             li {
                 display: flex;
                 place-items: center;
@@ -51,7 +50,7 @@
 
 accordion-section {
     display: block;
-    padding: var(--step--2) var(--step-0);
+    padding: var(--step--1) var(--step-0);
 
     h3 {
         text-transform: uppercase;

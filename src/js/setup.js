@@ -58,7 +58,7 @@ const setup = (jsonData, consentState = null) => {
     }
     // else if (config.area || config.theme) {
     //     console.log({config.area, config.theme});
-        
+
     // }
     else if (!config.theme) {
         for (const theme of jsonData.themes) {
@@ -96,7 +96,7 @@ const setup = (jsonData, consentState = null) => {
                         }
                     }
                     const areaElement = document.querySelector(
-                        `#heading-${area.area}`
+                        `#area-${area.area}`
                     );
                     // console.log(area.area, areaTotal, areaCompleted);
                     createProgressBar(areaElement, areaTotal, areaCompleted);
@@ -104,9 +104,7 @@ const setup = (jsonData, consentState = null) => {
                     themeCompleted += areaCompleted > 0 ? areaCompleted : 0;
                 }
             }
-            const themeHeader = document.querySelector(
-                `#heading-${theme.theme}`
-            );
+            const themeHeader = document.querySelector(`#theme-${theme.theme}`);
             // console.log('------' + theme.theme, themeTotal, themeCompleted);
             createProgressBar(themeHeader, themeTotal, themeCompleted);
         }

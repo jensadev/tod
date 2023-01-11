@@ -16,6 +16,6 @@
     }
     &__inner {
         background-color: var(--color-gray-100);
-        width: max(320px, 40vw);
+        width: min(var(--view-mid), 100vw - var(--step-4));
     }
 }
