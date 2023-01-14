@@ -38,6 +38,12 @@
             }
         }
     }
+
+    &__controls {
+        display: flex;
+        justify-content: flex-end;
+        gap: var(--step-0);
+    }
 }
 
 // .active:after {

@@ -196,8 +196,10 @@ select {
   src: local("Roboto Condensed Bold"), local("RobotoCondensed-Bold"), url("/assets/fonts/RobotoCondensed-Bold.ttf") format("truetype");
   font-display: swap;
 }
-/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1140,22,1.25,6,5,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1140,22,1.25,6,7,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 :root {
+  --step--7: clamp(0.29rem, calc(0.32rem + -0.05vw), 0.31rem);
+  --step--6: clamp(0.36rem, calc(0.38rem + -0.03vw), 0.38rem);
   --step--5: clamp(0.45rem, calc(0.45rem + 0.00vw), 0.45rem);
   --step--4: clamp(0.54rem, calc(0.53rem + 0.04vw), 0.56rem);
   --step--3: clamp(0.65rem, calc(0.63rem + 0.10vw), 0.70rem);
@@ -295,6 +297,11 @@ h3 {
 .accordion__item-list li span {
   line-height: 1;
 }
+.accordion__controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--step-0);
+}
 
 .mh-0 {
   max-height: 0;
@@ -365,48 +372,50 @@ a[href].header-anchor:focus:visited {
 }
 
 .button {
-  display: grid;
   place-content: center;
-  color: var(--color-on-primary);
-  fill: var(--color-on-primary);
-  background: var(--color-primary);
+  display: grid;
+  transition: all 0.2s ease-in-out;
   border: var(--border-solid-300);
+  padding: var(--step--5) var(--step--3);
+  background-color: var(--color-primary);
+  cursor: pointer;
   font-size: var(--step-0);
   font-weight: 700;
   letter-spacing: var(--ls-neg);
   text-transform: uppercase;
   text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  color: var(--color-on-primary);
+  fill: var(--color-on-primary);
 }
 .button:hover {
-  border-color: var(--color-gray-600);
   box-shadow: var(--shadow-elevation-low);
+  border-color: var(--color-gray-600);
+  color: var(--color-on-primary--light);
+  fill: var(--color-on-primary--light);
 }
 .button__icon {
+  border: none;
+  background-color: var(--color-primary);
   line-height: 1;
-  border: 0;
 }
 .button__icon:hover {
   box-shadow: none;
-  color: var(--color-on-primary);
 }
 .button__icon:hover > svg {
-  transition: all 0.2s ease-in-out;
-  transform: scale(1.1);
+  transform: scale(1.2);
+  transition: transform 0.1s ease-in-out;
 }
 .button__close {
-  background: transparent;
-  border: none;
-  padding: var(--step--2);
-  font-size: var(--step-0);
   position: absolute;
-  right: 0;
   top: 0;
-  line-height: 1;
-  cursor: pointer;
-  color: var(--color-gray-600);
+  right: 0;
   transition: all 0.2s ease-in-out;
+  padding: var(--step--5) var(--step--3);
+  background-color: transparent;
+  cursor: pointer;
+  font-size: var(--step-0);
+  line-height: 1;
+  color: var(--color-gray-600);
 }
 .button__close:hover {
   color: var(--color-gray-900);

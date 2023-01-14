@@ -1,3 +1,4 @@
+/* https://inclusive-components.design/collapsible-sections/ */
 const accordion = () => {
     if ('content' in document.createElement('template')) {
         const tmpl = document.createElement('template');
@@ -20,11 +21,11 @@ const accordion = () => {
           }
           h3 button {
             all: inherit;
-            cursor: pointer;
-            box-sizing: border-box;
-            display: flex;
             justify-content: space-between;
+            display: flex;
+            box-sizing: border-box;
             width: 100%;
+            cursor: pointer;
             text-transform: uppercase;
             line-height: 1;
           }
@@ -152,33 +153,33 @@ const accordion = () => {
             window.customElements.define('accordion-section', AccordionSection);
 
             // Define the expand/collapse all template
-            //     const buttons = document.createElement('div');
-            //     buttons.innerHTML = `
-            //   <ul class="controls" aria-label="section controls">
-            //     <li><button id="expand">expand all</button></li>
-            //     <li><button id="collapse">collapse all</button></li>
-            //   </ul>
-            //   `;
+            const buttons = document.createElement('div');
+            buttons.innerHTML = `
+              <ul class="accordion__controls" aria-label="section controls">
+                <li><button id="expand" class="button">visa alla</button></li>
+                <li><button id="collapse" class="button">dölj alla</button></li>
+              </ul>
+              `;
 
-            //     // Get the first `toggle-section` on the page
-            //     // and all toggle sections as a node list
-            //     const first = document.querySelector('accordion-section');
-            //     const all = document.querySelectorAll('accordion-section');
+            // Get the first `toggle-section` on the page
+            // and all toggle sections as a node list
+            const first = document.querySelector('#accordion');
+            const all = document.querySelectorAll('accordion-section');
 
-            //     // Insert the button controls before the first <toggle-section>
-            //     first.parentNode.insertBefore(buttons, first);
+            // Insert the button controls before the first <toggle-section>
+            first.parentNode.insertBefore(buttons, first);
 
-            //     // Place the click on the parent <ul>...
-            //     buttons.addEventListener('click', (e) => {
-            //         // ...then determine which button was the target
-            //         let expand = e.target.id === 'expand' ? true : false;
+            // Place the click on the parent <ul>...
+            buttons.addEventListener('click', (e) => {
+                // ...then determine which button was the target
+                let expand = e.target.id === 'expand' ? true : false;
 
-            //         // Iterate over the toggle sections to switch
-            //         // each one's state uniformly
-            //         Array.prototype.forEach.call(all, (t) => {
-            //             t.setAttribute('open', expand);
-            //         });
-            //     });
+                // Iterate over the toggle sections to switch
+                // each one's state uniformly
+                Array.prototype.forEach.call(all, (t) => {
+                    t.setAttribute('open', expand);
+                });
+            });
         }
     }
 };

@@ -47,9 +47,11 @@
 $font-family-sans-serif:      'Roboto Condensed', sans-serif;
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 
-/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1140,22,1.25,6,5,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1140,22,1.25,6,7,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
+    --step--7: clamp(0.29rem, calc(0.32rem + -0.05vw), 0.31rem);
+    --step--6: clamp(0.36rem, calc(0.38rem + -0.03vw), 0.38rem);
     --step--5: clamp(0.45rem, calc(0.45rem + 0.00vw), 0.45rem);
     --step--4: clamp(0.54rem, calc(0.53rem + 0.04vw), 0.56rem);
     --step--3: clamp(0.65rem, calc(0.63rem + 0.10vw), 0.70rem);

@@ -1,3 +1,4 @@
+import { accordion } from './accordion';
 import { continuePopup } from './continue';
 import { djb2_xor } from './djb2_xor';
 import {
@@ -6,6 +7,7 @@ import {
     setupAssignments,
     showHideTests,
 } from './dom';
+import { notes } from './notes';
 import Storage from './Storage';
 import { strip } from './strip';
 
@@ -51,16 +53,13 @@ const setup = (jsonData, consentState = null) => {
     }
 
     if (config.part) {
+        notes();
         document.querySelector('body').id = `tod-${djb2_xor(
             config.theme + config.area + config.part
         )}`;
         setupAssignments(storage, config.theme, config.area, config.part);
-    }
-    // else if (config.area || config.theme) {
-    //     console.log({config.area, config.theme});
-
-    // }
-    else if (!config.theme) {
+    } else if (!config.theme) {
+        accordion();
         for (const theme of jsonData.themes) {
             let themeTotal = 0;
             let themeCompleted = 0;
