@@ -1,84 +1,73 @@
 .accordion {
-    &__inner {
-        margin-bottom: var(--step--1);
-    }
     & > * {
         background-color: var(--color-gray-100);
     }
-    &__item {
+    &__section {
+        margin-bottom: var(--step--1);
         --flow-space: var(--step--2);
-        &--top {
-            --flow-space: 0;
+        h2 {
+            padding: var(--step--2) var(--step--1);
+            width: 100%;
+            text-transform: uppercase;
             background-color: var(--color-primary);
             a {
                 color: var(--color-on-primary);
                 text-decoration: none;
             }
         }
+        &-heading {
+            margin: 0;
+        }
+    }
+    &__item {
         &-list {
+            padding: var(--step--1) var(--step--3);
             li {
                 display: flex;
                 place-items: center;
-            }
-        }
-        h2, h3 {
-            padding: var(--step--2) var(--step--1);
-        }
-        h3 {
-            padding-top: 0;
-        }
-        &-header {
-            text-transform: uppercase;
-            width: 100%;
-            max-width: none;
-        }
-        &-button {
-            padding: 0;
-            padding-left: var(--step--4);
-            background-color: var(--color-gray-100);
-            cursor: pointer;
-            width: 100%;
-            border: none;
-            display: flex;
-            align-items: center;
-            &:after {
-                flex-shrink: 0;
-                width: var(--step-0);
-                height: var(--step-0);
-                margin-left: auto;
-                content: "";
-                background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"%3E%3Cpath fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"%3E%3C/path%3E%3C/svg%3E');
-                background-repeat: no-repeat;
-                background-size: var(--step-0);
-                transition: transform 0.2s ease-in-out;
-            }
-        }
 
-        &-collapse {
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-        }
-
-        &-body {
-            padding: 0 var(--step-0);
-            ul {
-                padding: 0 0 var(--step-0) var(--step--1);
-            }
-        }
-
-        &-link {
-            text-decoration: none;
-            &:hover {
-                text-decoration: underline;
+                a {
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+                span {
+                    line-height: 1;
+                }
             }
         }
     }
+
+    &__controls {
+        display: flex;
+        justify-content: flex-end;
+        gap: var(--step-0);
+    }
 }
 
-.active:after {
-    transform: rotate(-180deg);
-}
+// .active:after {
+//     transform: rotate(-180deg);
+// }
 
 .mh-0 {
     max-height: 0;
+}
+
+accordion-section {
+    display: block;
+    padding: var(--step--1) var(--step-0);
+
+    h3 {
+        text-transform: uppercase;
+    }
+
+    // &[role='region'] {
+    //     border-width: 2px 0;
+    //     border-style: solid;
+    // }
+
+    // &[role='region'] + accordion-section {
+    //     border-top: 0;
+    // }
 }

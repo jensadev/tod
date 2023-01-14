@@ -129,7 +129,9 @@ const createProgressBar = (element, total = 0, completed = 0) => {
         bar.classList.add('bg-theme--top');
     }
     progress.appendChild(bar);
-    element.parentElement.insertAdjacentElement('beforeend', progress);
+    // console.log(element.parentElement);
+    // element.parentElement.insertAdjacentElement('beforeend', progress);
+    element.after(progress);
 };
 
 const createLabel = (text) => {
@@ -141,9 +143,4 @@ const createLabel = (text) => {
     return label;
 };
 
-export {
-    createProgressBar,
-    createStars,
-    setupAssignments,
-    showHideTests,
-};
+export { createProgressBar, createStars, setupAssignments, showHideTests };

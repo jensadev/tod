@@ -25,3 +25,14 @@ För att skapa din egen kurswebb så kan du utgå från denna template. Den komm
 Download/clone repo to local
 
 `cd reponame`
+
+
+## Tack
+
+Den här sidan hade inte varit möjlig utan följande verktyg:
+
+- [Eleventy](https://www.11ty.dev/)
+- [Utopia](https://utopia.fyi)
+- [Inclusive Components](https://inclusive-components.design/)
+- [Netlify](https://www.netlify.com/)
+- [Learn Eleventy from Scratch](https://learneleventyfromscratch.com/)
