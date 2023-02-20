@@ -6,9 +6,11 @@ module.exports = {
         <h2 id="introduktion" tabindex="-1">Introduktion <a class="header-anchor" href="#introduktion"><span class="anchor" aria-hidden="true">#</span></a></h2>
         ${content}</section>`;
     },
-    instruktioner: (content) => {
+    instruktioner: (content, title) => {
         return `<section class="part__instructions flow">
-        <h2 id="instruktioner" tabindex="-1">Instruktioner <a class="header-anchor" href="#instruktioner"><span class="anchor" aria-hidden="true">#</span></a></h2>
+        <h2 id="instruktioner" tabindex="-1">${
+            title || 'Instruktioner'
+        }<a class="header-anchor" href="#instruktioner"><span class="anchor" aria-hidden="true">#</span></a></h2>
         ${content}</section>`;
     },
     uppgifter: (content, lead) => {
@@ -25,7 +27,7 @@ module.exports = {
     facit: (content, title) => {
         return `<section class="part__solution flow">
         <h2 id="facit" tabindex="-1">${
-            title ? title : 'Hjälp'
+            title || 'Hjälp'
         } <a class="header-anchor" href="#facit"><span class="anchor" aria-hidden="true">#</span></a></h2>
         ${content}</section>`;
     },
