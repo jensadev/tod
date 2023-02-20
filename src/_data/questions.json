@@ -1,0 +1,137 @@
+[
+  {
+    "theme": "kom-igang",
+    "areas": [
+      {
+        "area": "min-kurs",
+        "parts": [
+          {
+            "part": "skapa-en-del",
+            "assignments": []
+          },
+          {
+            "part": "skapa-ett-omrade",
+            "assignments": []
+          },
+          {
+            "part": "skapa-ett-tema",
+            "assignments": []
+          },
+          {
+            "part": "skapa-ett-amne",
+            "assignments": []
+          },
+          {
+            "part": "struktur",
+            "assignments": [
+              "Studera strukturen för den här guiden, temat kom igång"
+            ]
+          }
+        ]
+      },
+      {
+        "area": "pedagogisk-tanke",
+        "parts": [
+          {
+            "part": "del",
+            "assignments": []
+          },
+          {
+            "part": "omrade",
+            "assignments": []
+          },
+          {
+            "part": "tema",
+            "assignments": []
+          }
+        ]
+      },
+      {
+        "area": "tekniken",
+        "parts": [
+          {
+            "part": "bilder",
+            "assignments": [
+              "Testa att använda en bild i en av dina delar"
+            ]
+          },
+          {
+            "part": "filer",
+            "assignments": [
+              "Kolla igenom projektets filer."
+            ]
+          },
+          {
+            "part": "front-matter",
+            "assignments": [
+              "Kolla igenom front matter för en eller flera delar",
+              "Kolla igenom front matter för tema, område"
+            ]
+          },
+          {
+            "part": "installation",
+            "assignments": [
+              "Klona templaten.",
+              "Installera och kör npm script."
+            ]
+          },
+          {
+            "part": "hosta",
+            "assignments": [
+              "Hosta din första kurssida"
+            ]
+          },
+          {
+            "part": "markdown",
+            "assignments": [
+              "Läs Markdown",
+              "Skriv Markdown"
+            ]
+          },
+          {
+            "part": "shortcodes",
+            "assignments": []
+          },
+          {
+            "part": "metadata",
+            "assignments": [
+              "Redigera och spara meta.js.",
+              "Redigera titel i index.md."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "theme": "test-tema",
+    "areas": [
+      {
+        "area": "test-omrade",
+        "parts": [
+          {
+            "part": "test-del-tva",
+            "assignments": [
+              "Första uppgiften. Reproducera från instruktioner.",
+              "Andra uppgiften. Ändra i det reproducerade."
+            ]
+          },
+          {
+            "part": "test-del",
+            "assignments": [
+              "Första uppgiften. Reproducera från instruktioner.",
+              "Andra uppgiften. Ändra i det reproducerade."
+            ]
+          },
+          {
+            "part": "test-order",
+            "assignments": [
+              "Kolla igenom front matter för en eller flera delar",
+              "Kolla igenom front matter för tema, område"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

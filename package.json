@@ -14,7 +14,8 @@
         "start": "npm-run-all clean:tod color-tokens build:sass build:eleventy --parallel watch:*",
         "build": "npm-run-all clean:tod color-tokens build:sass build:eleventy --parallel build:*",
         "lint": "eslint --fix .",
-        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+        "build:qs": "node generateQuestions.js"
     },
     "repository": {
         "type": "git",

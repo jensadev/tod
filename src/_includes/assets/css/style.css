@@ -105,8 +105,8 @@ select {
     scroll-behavior: auto;
   }
   *,
-*::before,
-*::after {
+  *::before,
+  *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
@@ -391,7 +391,6 @@ a[href].header-anchor:focus:visited {
   box-shadow: var(--shadow-elevation-low);
   border-color: var(--color-gray-600);
   color: var(--color-on-primary--light);
-  fill: var(--color-on-primary--light);
 }
 .button__icon {
   border: none;
@@ -419,6 +418,11 @@ a[href].header-anchor:focus:visited {
 }
 .button__close:hover {
   color: var(--color-gray-900);
+}
+
+.button.active > svg {
+  transform: scale(1.2);
+  transition: transform 0.1s ease-in-out;
 }
 
 .card {
@@ -673,12 +677,12 @@ a[href].header-anchor:focus:visited {
 .navbar__header a:hover {
   color: inherit;
 }
-.navbar__left {
+.navbar__right {
   display: none;
   gap: var(--step-0);
 }
 @media (min-width: 320px) {
-  .navbar__left {
+  .navbar__right {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -1124,4 +1128,12 @@ li.test {
 
 .icon {
   font-size: var(--step-1);
+}
+
+.float-right {
+  float: right;
+}
+
+.w-50 {
+  width: 50%;
 }

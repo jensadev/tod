@@ -71,10 +71,24 @@ module.exports = (eleventyConfig) => {
         );
     });
 
+    const filtered = [
+        '',
+        'hjälp',
+        'tack',
+        '404',
+        'frågor',
+        'offline',
+        'questions',
+        'översikt',
+        'hjalp',
+    ];
     // filter filtered [pages] from navPages
     eleventyConfig.addFilter('filterNavPages', (value) => {
-        const filtered = ['hjälp', 'tack'];
         return value.filter((item) => !filtered.includes(item.key));
+    });
+
+    eleventyConfig.addFilter('filterPages', (value) => {
+        return filtered.includes(value);
     });
 
     // Shortcodes

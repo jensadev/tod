@@ -1,4 +1,4 @@
-@use "sass:color";
+@use 'sass:color';
 .button {
     place-content: center;
 
@@ -25,7 +25,6 @@
         border-color: var(--color-gray-600);
 
         color: var(--color-on-primary--light);
-        fill: var(--color-on-primary--light);
     }
 
     &__icon {
@@ -65,5 +64,13 @@
         &:hover {
             color: var(--color-gray-900);
         }
+    }
+}
+
+.button.active {
+    > svg {
+        transform: scale(1.2);
+
+        transition: transform 0.1s ease-in-out;
     }
 }

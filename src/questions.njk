@@ -1,0 +1,37 @@
+---
+title: Översikt
+layout: layouts/page.njk
+permalink: /oversikt/
+eleventyExcludeFromCollections: true
+---
+
+<header class="hero flow">
+    <p class="lead">På den här sidan visas en översikt med alla
+        Teman, områden och tillhörande frågor för {{ meta.siteName }}.
+    </p>
+    <p>För dig som elev så är det en möjlighet att se vad du behöver
+        kunna och förstå efter att du har slutfört varje område. Frågorna är utformade
+        för att hjälpa dig att minnas.</p>
+    <p>För dig som lärare så ger det dig en överblick över materialet så att du
+        kan använda frågorna i dialog med eleverna eller för examination.
+    </p>
+</header>
+<div>
+    <ul>
+        {% for theme in questions %}
+        <li>Tema: {{ theme.theme }}</li>
+        <ul>
+            {% for area in theme.areas %}
+            <li>Område: {{ area.area }}</li>
+            <ul>
+                {% for part in area.parts %}
+                {% for assignment in part.assignments %}
+                <li>{{ assignment }}</li>
+                {% endfor %}
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </ul>
+</div>

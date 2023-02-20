@@ -23,9 +23,11 @@ function getAssignments(document, theme, area, part) {
     const assignments = [];
     if (basicAssignments.length > 0) {
         basicAssignments.forEach((assignment) => {
+            // console.log(assignment.nextSibling.nextSibling.textContent);
             const title = strip(assignment.textContent);
             assignments.push({
                 assignment: title,
+                text: assignment.nextSibling.nextSibling.textContent,
                 id: djb2_xor(theme + area + part + title),
                 type: 'basic',
                 completed: false,
