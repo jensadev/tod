@@ -3,12 +3,17 @@
     background-color: var(--color-primary);
 
     &__inner {
+        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
+        // flex-wrap: wrap;
 
         min-height: var(--step-6);
+
+        &--search {
+            min-height: var(--step-5);
+        }
     }
     &__header {
         white-space: nowrap;
@@ -24,12 +29,61 @@
     }
     &__right {
         display: none;
-        gap: var(--step-0);
-        @media (min-width: 320px) {
+        &:focus {
+            border: 2px solid black;
+        }
+        &--show {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            background-color: var(--color-white);
+            padding: 4px;
+            right: 0;
+            top: var(--step-1);
+            z-index: 200;
+            .button {
+                color: var(--color-primary);
+                background-color: transparent;
+            }
+            > button.button,
+            a.button {
+                flex-direction: row-reverse;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                column-gap: 0.2em;
+                width: 100%;
+                &:hover {
+                    color: var(--color-gray-800);
+                }
+            }
+        }
+        @media (min-width: 800px) {
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            // gap: var(--step-0);
+        }
+    }
+
+    &__toggle {
+        display: none;
+        gap: var(--step-0);
+        @media (max-width: 800px) {
+            display: block;
+        }
+    }
+
+    &__button {
+        border: none;
+        line-height: 1;
+        font-size: var(--step--1);
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 0.2em;
+        &:hover {
+            color: var(--color-gray-300);
+            box-shadow-color: var(--color-gray-300);
         }
     }
 }
