@@ -2,6 +2,7 @@ import data from '../json/tod.json';
 import { consent as consentPopup } from './consent';
 import { feedback } from './feedback';
 import { installSW } from './install';
+import { menu } from './menu';
 import { siteSearch } from './search';
 import { setup } from './setup';
 
@@ -17,5 +18,6 @@ window.addEventListener('load', () => {
     }
     feedback();
     installSW();
+    menu();
     setup(data, consent);
 });

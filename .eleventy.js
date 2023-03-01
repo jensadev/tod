@@ -52,9 +52,6 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addWatchTarget('./src/sass/');
     eleventyConfig.addWatchTarget('./src/js/');
 
-    eleventyConfig.addPassthroughCopy({
-        'src/assets/robots.txt': 'robots.txt',
-    });
     eleventyConfig.addPassthroughCopy('./src/assets/fonts');
     eleventyConfig.addPassthroughCopy({
         './src/assets/favicon.ico': '/favicon.ico',

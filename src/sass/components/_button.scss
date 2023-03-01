@@ -18,7 +18,9 @@
     text-transform: uppercase;
     text-decoration: none;
     color: var(--color-on-primary);
-    fill: var(--color-on-primary);
+    fill: currentColor;
+
+    width: fit-content;
 
     &:hover {
         box-shadow: var(--shadow-elevation-low);
@@ -29,8 +31,6 @@
 
     &__icon {
         border: none;
-
-        background-color: var(--color-primary);
 
         line-height: 1;
 
