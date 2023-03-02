@@ -30,7 +30,7 @@ cp tod-latest/update.sh .
 cp tod-latest/.gitignore .
 cp tod-latest/.eleventy.js .
 cp tod-latest/rollup.config.js .
-cp tod-latest/genereateQuestions.js .
+cp tod-latest/generateQuestions.js .
 
 cp tod-latest/src/404.njk src/
 cp tod-latest/src/hjälp.md src/
@@ -41,7 +41,7 @@ cp tod-latest/src/service-worker.js src/
 cp tod-latest/src/sitemap.xml.njk src/
 cp tod-latest/src/tack.md src/
 cp tod-latest/src/questions.njk src/
-cp tod-lastest/src/robots.txt.njk src/
+cp tod-latest/src/robots.txt.njk src/
 
 cp -r tod-latest/src/_includes src/
 cp -r tod-latest/src/_theme src/
