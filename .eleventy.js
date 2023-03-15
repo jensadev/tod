@@ -9,6 +9,7 @@ const fs = require('fs');
 const Image = require('@11ty/eleventy-img');
 const mia = require('markdown-it-attrs');
 const htmlmin = require('html-minifier');
+const markdownitAbbr = require('markdown-it-abbr');
 
 const parseTransform = require('./src/transforms/parse-transform.js');
 
@@ -139,7 +140,8 @@ module.exports = (eleventyConfig) => {
         })
         .use(mia, {
             allowedAttributes: ['id', 'class'],
-        });
+        })
+        .use(markdownitAbbr);
 
     eleventyConfig.setLibrary('md', markdownLibrary);
 
