@@ -336,7 +336,7 @@ a[href].header-anchor:focus:visited {
 
 .breadcrumb {
   display: flex;
-  padding: var(--step--2) 0;
+  padding: var(--step--4) 0;
   margin: 0;
   list-style: none;
   color: var(--color-on-primary);
@@ -345,6 +345,11 @@ a[href].header-anchor:focus:visited {
   .breadcrumb {
     font-size: var(--step-1);
   }
+}
+.breadcrumb__item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media (max-width: 640px) {
   .breadcrumb__item:nth-child(2) {
@@ -738,10 +743,6 @@ a[href].header-anchor:focus:visited {
   flex-direction: column;
   align-items: center;
   row-gap: 0.2em;
-}
-.navbar__button:hover {
-  color: var(--color-gray-300);
-  box-shadow-color: var(--color-gray-300);
 }
 
 .notes {
@@ -1185,4 +1186,23 @@ li.test {
 
 .w-50 {
   width: 50%;
+}
+
+code:not([class]) {
+  background-color: var(--color-gray-300);
+  padding-inline: 0.2em;
+}
+
+.hint {
+  background-color: var(--color-gray-300);
+  padding: var(--step--3);
+  border-left: 6px solid var(--color-primary);
+}
+
+.warning {
+  border-color: orange;
+}
+
+.danger {
+  border-color: red;
 }
