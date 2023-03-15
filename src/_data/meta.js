@@ -52,4 +52,5 @@ module.exports = {
         email: 'jensandreasson77@gmail.com',
         url: 'https://jensa.dev',
     },
+    gtag: false, // Google Analytics
 };
