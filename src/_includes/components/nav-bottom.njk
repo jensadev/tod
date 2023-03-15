@@ -5,19 +5,25 @@
         {%- set previousPost = navPages | prev(page.url) %}
         <li class="nav-bottom__list-item">
             {%- if previousPost %}
-                <a class="nav-bottom__list-item-link" href="{{ previousPost.url | url }}">
-                    {% svg "chevron_left_FILL0_wght400_GRAD0_opsz24.svg" %}
-                    <span class="nav-bottom__list-text--left">{{ previousPost.title | capitalize }}</span>
-                </a>
+            <a class="nav-bottom__list-item-link" href="{{ previousPost.url | url }}">
+                {% svg "chevron_left_FILL0_wght400_GRAD0_opsz24.svg" %}
+                <span class="nav-bottom__list-text--left">{{ previousPost.title | capitalize }}</span>
+            </a>
             {% endif %}
         </li>
         {%- set nextPost = navPages | next(page.url) %}
         <li class="nav-bottom__list-item {{ 'test' if nextPost.test }}">
             {%- if nextPost %}
-                <a class="nav-bottom__list-item-link" href="{{ nextPost.url | url }}">
-                    <span class="nav-bottom__list-text--right">{{ nextPost.title | capitalize }}</span>
-                    {% svg "chevron_right_FILL0_wght400_GRAD0_opsz24.svg" %}
-                </a>
+            <a class="nav-bottom__list-item-link" href="{{ nextPost.url | url }}">
+                <span class="nav-bottom__list-text--right">{{ nextPost.title | capitalize }}</span>
+                {% svg "chevron_right_FILL0_wght400_GRAD0_opsz24.svg" %}
+            </a>
+            {% else %}
+            {% set test = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.parent) %}
+            <a class="nav-bottom__list-item-link" href="{{ test[1].url | url }}">
+                <span class="nav-bottom__list-text--right">Tema: {{ test[1].title | capitalize }}</span>
+                {% svg "chevron_right_FILL0_wght400_GRAD0_opsz24.svg" %}
+            </a>
             {% endif %}
         </li>
     </ul>
