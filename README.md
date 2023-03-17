@@ -15,6 +15,7 @@ Templaten används på följande sidor:
 
 -   [webbutveckling](https://github.com/jensnti/tod-webbutveckling)
 -   [programmering](https://github.com/jensnti/tod-programmering)
+-   [git och github](https://github.com/jensnti/tod-github)
 
 För att skapa din egen kurswebb så kan du utgå från denna template. Den kommer med instruktioner för att komma igång, men de är inte 100% uppdaterade.
 
