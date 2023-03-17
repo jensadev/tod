@@ -9,6 +9,7 @@ layout: layouts/base.njk
         {% if category === "område" %}
         <h1>Område {{ title }}</h1>
         {% endif %}
+        {{ content | safe }}
     </header>
 
     {% set currentPage = page.fileSlug %}

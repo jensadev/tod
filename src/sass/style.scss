@@ -50,7 +50,7 @@ main {
     cursor: not-allowed;
 }
 
-li.test{
+li.test {
     font-weight: 700;
 }
 
@@ -64,4 +64,24 @@ li.test{
 
 .w-50 {
   width: 50%;
+}
+
+code:not([class]) {
+    background-color: var(--color-gray-300);
+    padding-inline: 0.2em;
+}
+
+.hint {
+    background-color: var(--color-gray-300);
+    padding: var(--step--3);
+
+    border-left: 6px solid var(--color-primary);
+}
+
+.warning {
+    border-color: orange;
+}
+
+.danger {
+    border-color: red;
 }

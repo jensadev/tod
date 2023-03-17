@@ -1,6 +1,6 @@
 {
     "name": "tod",
-    "version": "2.3.5",
+    "version": "2.5.0",
     "description": "Tema område del",
     "scripts": {
         "clean:tod": "rm -f src/json/*.json",
@@ -31,10 +31,10 @@
     },
     "homepage": "https://tod.jensa.dev",
     "dependencies": {
-        "@11ty/eleventy": "^2.0.0-canary.16",
+        "@11ty/eleventy": "^2.0.0",
         "@11ty/eleventy-img": "^2.0.1",
         "@11ty/eleventy-navigation": "^0.3.5",
-        "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
+        "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
         "@11tyrocks/eleventy-plugin-emoji-readtime": "^1.0.1",
         "@rollup/plugin-commonjs": "^22.0.2",
         "@rollup/plugin-json": "^4.1.0",
@@ -47,6 +47,7 @@
         "html-minifier": "^4.0.0",
         "jsdom": "^20.0.1",
         "markdown-it": "^13.0.1",
+        "markdown-it-abbr": "^1.0.4",
         "markdown-it-anchor": "^8.6.5",
         "markdown-it-attrs": "^4.1.4",
         "markdown-it-link-attributes": "^4.0.1",

@@ -14,7 +14,9 @@
         <meta name="msapplication-TileColor" content="{{ meta.primaryColor }}">
         <link rel="apple-touch-icon" href="/assets/icons/152.png">
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <!-- <link rel="stylesheet" href="{{ '/css/style.css' }}" /> -->
+        {% if meta.gtag %}
+        {%- include "components/analytics.njk" -%}
+        {% endif %}
         <link rel="manifest" href="/manifest.json">
         <style>{% include "assets/css/style.css" %}</style>
         <title>
