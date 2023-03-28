@@ -1,5 +1,5 @@
-@use "sass:color" as color;
-@use "vars";
+@use 'sass:color' as color;
+@use 'vars';
 @import 'color-tokens';
 
 :root {
@@ -7,8 +7,14 @@
     --color-on-primary: #{$color-on-primary};
     --color-primary--light: #{color.adjust($color-primary, $lightness: 10%)};
     --color-primary--dark: #{color.adjust($color-primary, $lightness: -10%)};
-    --color-on-primary--light: #{color.adjust($color-on-primary, $lightness: 10%)};
-    --color-on-primary--dark: #{color.adjust($color-on-primary, $lightness: -10%)};
+    --color-on-primary--light: #{color.adjust(
+            $color-on-primary,
+            $lightness: 10%
+        )};
+    --color-on-primary--dark: #{color.adjust(
+            $color-on-primary,
+            $lightness: -10%
+        )};
 
     --color-white: #{vars.$white};
     --color-gray-100: #{vars.$gray-100};
