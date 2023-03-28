@@ -1,7 +1,3 @@
-const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-
-const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
 const fs = require('fs');
 
 const htmlmin = require('html-minifier');
@@ -9,6 +5,9 @@ const htmlmin = require('html-minifier');
 const parseTransform = require('./src/transforms/parse-transform.js');
 
 const markdownLibrary = require('./config/plugins/markdown');
+const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
+const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 const {
     filterNavPages,
@@ -70,7 +69,6 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addFilter('readableDate', readableDate);
     eleventyConfig.addFilter('htmlDateString', htmlDateString);
     eleventyConfig.addFilter('slugUrl', slugUrl);
-    // eleventyConfig.addFilter('capitalize', capitalize);
     eleventyConfig.addFilter('fixTestsPages', fixTestsPages);
     eleventyConfig.addFilter('next', next);
     eleventyConfig.addFilter('prev', prev);
@@ -147,10 +145,12 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.setUseGitIgnore(false);
 
     return {
+        templateForms: ['njk', 'md'],
         markdownTemplateEngine: 'njk',
         dir: {
             input: 'src',
             output: 'dist',
         },
+        passthroughFileCopy: true,
     };
 };

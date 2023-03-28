@@ -92,7 +92,6 @@ module.exports = {
     readableDate,
     htmlDateString,
     slugUrl,
-    capitalize,
     fixTestsPages,
     next,
     prev,
