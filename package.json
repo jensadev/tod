@@ -1,6 +1,6 @@
 {
     "name": "tod",
-    "version": "2.5.0",
+    "version": "3.0.0",
     "description": "Tema område del",
     "scripts": {
         "clean:tod": "rm -f src/json/*.json",
