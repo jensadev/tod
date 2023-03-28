@@ -1,0 +1,50 @@
+body {
+    color: var(--color-black);
+    background-color: var(--color-white);
+    font-family: var(--font-base);
+    font-size: var(--step-1);
+    line-height: 1.4;
+    letter-spacing: var(--tracking);
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    letter-spacing: var(--tracking-s);
+}
+
+h1 {
+    font-size: var(--step-5);
+}
+
+h2 {
+    font-size: var(--step-4);
+}
+
+h3 {
+    font-size: var(--step-3);
+}
+
+p,
+li,
+blockquote:not([class]) {
+    max-width: 50ch;
+}
+
+h1,
+h2,
+h3 {
+    max-width: 20ch;
+}
+
+svg {
+    height: 2ex;
+    width: auto;
+    flex: none;
+}
+
+img {
+    height: auto;
+    width: 100%;
+}

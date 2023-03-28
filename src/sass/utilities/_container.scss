@@ -1,5 +1,4 @@
 .container {
+    max-width: min(40rem, 100vw - var(--space-s-m));
     margin-inline: auto;
-    max-width: min(var(--container-width), 100vw - var(--step-4));
-    width: 100%;
 }
