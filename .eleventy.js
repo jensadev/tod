@@ -1,17 +1,14 @@
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const markdownIt = require('markdown-it');
-const mila = require('markdown-it-link-attributes');
-const markdownItAnchor = require('markdown-it-anchor');
-const glob = require('fast-glob');
+
 const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
 const fs = require('fs');
-const Image = require('@11ty/eleventy-img');
-const mia = require('markdown-it-attrs');
+
 const htmlmin = require('html-minifier');
-const markdownitAbbr = require('markdown-it-abbr');
 
 const parseTransform = require('./src/transforms/parse-transform.js');
+
+const markdownLibrary = require('./config/plugins/markdown');
 
 const {
     filterNavPages,
@@ -26,6 +23,26 @@ const {
     splice,
 } = require('./config/filters/index.js');
 
+const {
+    image,
+    youtube,
+    svg,
+    year,
+    star,
+    stars,
+} = require('./config/shortcodes/index.js');
+
+const {
+    intro,
+    instruktioner,
+    uppgifter,
+    bas,
+    extra,
+    facit,
+    lead,
+    hint,
+} = require('./config/shortcodes/tod.js');
+
 const { content } = require('./config/collections/index.js');
 
 const { searchFilter } = require('./config/filters/search-filter.js');
@@ -33,31 +50,11 @@ const { searchFilter } = require('./config/filters/search-filter.js');
 // Create a helpful production flag
 const isProduction = process.env.NODE_ENV === 'production';
 
-async function imageShortcode(
-    src,
-    alt,
-    sizes = '(min-width: 30em) 50vw, 100vw'
-) {
-    const metadata = await Image(`./src/images/${src}`, {
-        widths: [500, 1000, null],
-        outputDir: './dist/img/',
-    });
-
-    const imageAttributes = {
-        alt,
-        sizes,
-        loading: 'lazy',
-        decoding: 'async',
-    };
-
-    // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
-    return Image.generateHTML(metadata, imageAttributes, {
-        whitespaceMode: 'inline',
-    });
-}
-
 module.exports = (eleventyConfig) => {
-    // eleventyConfig.setDataDeepMerge(true);
+    eleventyConfig.addWatchTarget('./src/sass/');
+    eleventyConfig.addWatchTarget('./src/js/');
+
+    // plugins
     eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
     eleventyConfig.addPlugin(emojiReadTime, {
@@ -66,16 +63,6 @@ module.exports = (eleventyConfig) => {
         wpm: 160,
         bucketSize: 3,
     });
-
-    eleventyConfig.addWatchTarget('./src/sass/');
-    eleventyConfig.addWatchTarget('./src/js/');
-
-    eleventyConfig.addPassthroughCopy('./src/assets/fonts');
-    eleventyConfig.addPassthroughCopy({
-        './src/assets/favicon.ico': '/favicon.ico',
-    });
-    eleventyConfig.addPassthroughCopy('./src/assets/icons');
-    eleventyConfig.addPassthroughCopy('./src/service-worker.js');
 
     // Filters
     eleventyConfig.addFilter('filterNavPages', filterNavPages);
@@ -91,59 +78,53 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addFilter('searchFilter', searchFilter);
 
     // Shortcodes
-    glob.sync(['src/shortcodes/*.js']).forEach((file) => {
-        let shortcodes = require('./' + file);
-        Object.keys(shortcodes).forEach((name) => {
-            eleventyConfig.addShortcode(name, shortcodes[name]);
-        });
-    });
+    eleventyConfig.addShortcode('youtube', youtube);
+    eleventyConfig.addShortcode('svg', svg);
+    eleventyConfig.addShortcode('year', year);
+    eleventyConfig.addShortcode('star', star);
+    eleventyConfig.addShortcode('stars', stars);
 
-    eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
+    eleventyConfig.addNunjucksAsyncShortcode('image', image);
 
-    // PairedShortcodes
-    glob.sync(['src/paired-shortcodes/*.js']).forEach((file) => {
-        let pairedShortcodes = require('./' + file);
-        Object.keys(pairedShortcodes).forEach((name) =>
-            eleventyConfig.addPairedShortcode(name, pairedShortcodes[name])
-        );
-    });
+    eleventyConfig.addPairedShortcode('intro', intro);
+    eleventyConfig.addPairedShortcode('instruktioner', instruktioner);
+    eleventyConfig.addPairedShortcode('uppgifter', uppgifter);
+    eleventyConfig.addPairedShortcode('bas', bas);
+    eleventyConfig.addPairedShortcode('extra', extra);
+    eleventyConfig.addPairedShortcode('facit', facit);
+    eleventyConfig.addPairedShortcode('lead', lead);
+    eleventyConfig.addPairedShortcode('hint', hint);
 
+    // Collections
     eleventyConfig.addCollection('tod', content);
 
-    const markdownLibrary = markdownIt({
-        html: true,
-        breaks: true,
-        linkify: true,
-        typographer: true,
-    })
-        .use(markdownItAnchor, {
-            permalink: markdownItAnchor.permalink.linkInsideHeader({
-                symbol: `<span class="anchor" aria-hidden="true">#</span>`,
-                placement: 'after',
-            }),
-            level: [1, 2],
-            slugify: (s) =>
-                s
-                    .trim()
-                    .toLowerCase()
-                    .replace(/[\s+~\/]/g, '-')
-                    .replace(/[().`,%·'"!?¿:@*]/g, ''),
-        })
-        .use(mila, {
-            pattern: /^https:/,
-            attrs: {
-                target: '_blank',
-                rel: 'noopener',
-            },
-        })
-        .use(mia, {
-            allowedAttributes: ['id', 'class'],
-        })
-        .use(markdownitAbbr);
-
+    // Markdown
     eleventyConfig.setLibrary('md', markdownLibrary);
 
-    eleventyConfig.setUseGitIgnore(false);
+    // Transforms
+    eleventyConfig.addTransform('parse', parseTransform);
+
+    // Minify
+    eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
+        if (outputPath.indexOf('.html') > -1) {
+            let minified = htmlmin.minify(content, {
+                useShortDoctype: true,
+                removeComments: true,
+                collapseWhitespace: true,
+                minifyCSS: true,
+            });
+            return minified;
+        }
+        return content;
+    });
+
+    // Copy assets to dist
+    eleventyConfig.addPassthroughCopy('./src/assets/fonts');
+    eleventyConfig.addPassthroughCopy({
+        './src/assets/favicon.ico': '/favicon.ico',
+    });
+    eleventyConfig.addPassthroughCopy('./src/assets/icons');
+    eleventyConfig.addPassthroughCopy('./src/service-worker.js');
 
     // 404
     eleventyConfig.setBrowserSyncConfig({
@@ -163,22 +144,7 @@ module.exports = (eleventyConfig) => {
         },
     });
 
-    // Transforms
-    eleventyConfig.addTransform('parse', parseTransform);
-
-    // Minify
-    eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
-        if (outputPath.indexOf('.html') > -1) {
-            let minified = htmlmin.minify(content, {
-                useShortDoctype: true,
-                removeComments: true,
-                collapseWhitespace: true,
-                minifyCSS: true,
-            });
-            return minified;
-        }
-        return content;
-    });
+    eleventyConfig.setUseGitIgnore(false);
 
     return {
         markdownTemplateEngine: 'njk',
