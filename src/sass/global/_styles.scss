@@ -48,3 +48,31 @@ img {
     height: auto;
     width: 100%;
 }
+
+[role='list'] {
+    padding: 0;
+}
+
+a {
+    color: currentColor;
+}
+
+:focus {
+    outline: 2px solid;
+    outline-offset: 0.3ch;
+}
+
+:target {
+    scroll-margin-top: 2ex;
+}
+
+main:focus {
+    outline: none;
+}
+
+.bg-theme {
+    background-color: var(--color-primary--light);
+    &--top {
+        background-color: var(--color-primary--dark);
+    }
+}
