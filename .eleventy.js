@@ -26,6 +26,8 @@ const {
     splice,
 } = require('./config/filters/index.js');
 
+const { content } = require('./config/collections/index.js');
+
 const { searchFilter } = require('./config/filters/search-filter.js');
 
 // Create a helpful production flag
@@ -106,10 +108,7 @@ module.exports = (eleventyConfig) => {
         );
     });
 
-    // Collections
-    eleventyConfig.addCollection('tod', (collection) => {
-        return [...collection.getFilteredByGlob('./src/content/**/*.md')];
-    });
+    eleventyConfig.addCollection('tod', content);
 
     const markdownLibrary = markdownIt({
         html: true,
