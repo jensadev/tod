@@ -1,4 +1,50 @@
-// https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
+const { format, parseISO } = require('date-fns');
+const { sv } = require('date-fns/locale');
+const slugify = require('slugify');
+
+const filtered = [
+    '',
+    'hjälp',
+    'tack',
+    '404',
+    'frågor',
+    'offline',
+    'questions',
+    'översikt',
+    'hjalp',
+];
+
+const readableDate = (dateObj) => {
+    if (typeof dateObj === 'string') {
+        dateObj = parseISO(dateObj);
+    }
+    return format(dateObj, 'PP', { locale: sv });
+};
+
+// https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+const htmlDateString = (dateObj) => {
+    if (typeof dateObj === 'string') {
+        dateObj = parseISO(dateObj);
+    }
+    return format(dateObj, 'yyyy-MM-dd');
+};
+
+const filterNavPages = (value) => {
+    return value.filter((item) => !filtered.includes(item.key));
+};
+
+const filterPages = (value) => {
+    return filtered.includes(value);
+};
+
+const slugUrl = (str) => {
+    return slugify(str, {
+        lower: true,
+        strict: false,
+        remove: /["]/g,
+    });
+};
+
 const sortArray = (array, property, direction = 1) => {
     array.sort(function compare(a, b) {
         let comparison = 0;
@@ -11,22 +57,6 @@ const sortArray = (array, property, direction = 1) => {
     });
     return array; // Chainable
 };
-
-// const fixTestsPages = (object) => {
-//     let result = [];
-//     // key,  removed
-
-//     for (const value of Object.entries(object)) {
-//         console.log(value);
-//         const temp = {};
-//         temp.title = value.data.title;
-//         temp.excerpt = value.data.eleventyNavigation.excerpt;
-//         temp.url = value.url;
-//         result.push(temp);
-//     }
-//     result = sortArray(result, 'order');
-//     return result;
-// };
 
 const fixTestsPages = (pages) => {
     let result = pages.map((page) => {
@@ -56,4 +86,15 @@ const splice = (path) => {
     return path.replace('/content/', '/').split('/').slice(0, -1).join('/');
 };
 
-module.exports = { capitalize, fixTestsPages, next, prev, splice };
+module.exports = {
+    filterNavPages,
+    filterPages,
+    readableDate,
+    htmlDateString,
+    slugUrl,
+    capitalize,
+    fixTestsPages,
+    next,
+    prev,
+    splice,
+};

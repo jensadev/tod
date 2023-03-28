@@ -13,6 +13,21 @@ const markdownitAbbr = require('markdown-it-abbr');
 
 const parseTransform = require('./src/transforms/parse-transform.js');
 
+const {
+    filterNavPages,
+    filterPages,
+    readableDate,
+    htmlDateString,
+    slugUrl,
+    capitalize,
+    fixTestsPages,
+    next,
+    prev,
+    splice,
+} = require('./config/filters/index.js');
+
+const { searchFilter } = require('./config/filters/search-filter.js');
+
 // Create a helpful production flag
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -61,32 +76,17 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addPassthroughCopy('./src/service-worker.js');
 
     // Filters
-    glob.sync(['src/filters/*.js']).forEach((file) => {
-        let filters = require('./' + file);
-        Object.keys(filters).forEach((name) =>
-            eleventyConfig.addFilter(name, filters[name])
-        );
-    });
-
-    const filtered = [
-        '',
-        'hjälp',
-        'tack',
-        '404',
-        'frågor',
-        'offline',
-        'questions',
-        'översikt',
-        'hjalp',
-    ];
-    // filter filtered [pages] from navPages
-    eleventyConfig.addFilter('filterNavPages', (value) => {
-        return value.filter((item) => !filtered.includes(item.key));
-    });
-
-    eleventyConfig.addFilter('filterPages', (value) => {
-        return filtered.includes(value);
-    });
+    eleventyConfig.addFilter('filterNavPages', filterNavPages);
+    eleventyConfig.addFilter('filterPages', filterPages);
+    eleventyConfig.addFilter('readableDate', readableDate);
+    eleventyConfig.addFilter('htmlDateString', htmlDateString);
+    eleventyConfig.addFilter('slugUrl', slugUrl);
+    // eleventyConfig.addFilter('capitalize', capitalize);
+    eleventyConfig.addFilter('fixTestsPages', fixTestsPages);
+    eleventyConfig.addFilter('next', next);
+    eleventyConfig.addFilter('prev', prev);
+    eleventyConfig.addFilter('splice', splice);
+    eleventyConfig.addFilter('searchFilter', searchFilter);
 
     // Shortcodes
     glob.sync(['src/shortcodes/*.js']).forEach((file) => {
