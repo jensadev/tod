@@ -1,16 +1,23 @@
 .button {
+    align-items: center;
+    display: flex;
+
     border: none;
-    display: inline-block;
-    padding: var(--padding-2xs-xs);
-    vertical-align: middle;
-    overflow: hidden;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    white-space: nowrap;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-on-primary);
-    background-color: var(--color-primary);
     border-radius: var(--border-radius);
+    padding: var(--padding-2xs-xs);
+
+    background-color: var(--color-primary);
+    cursor: pointer;
+
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-on-primary);
+    white-space: nowrap;
+    overflow: hidden;
+
+    &__icon {
+        line-height: 1;
+    }
 }
