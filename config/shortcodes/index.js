@@ -63,12 +63,12 @@ module.exports = {
     year,
     svg: getSvgContent,
     star: () => {
-        return `<span class="visually-hidden">Grundläggande uppgifter</span>${getSvgContent(
+        return `<span class="sr-only">Grundläggande uppgifter</span>${getSvgContent(
             'grade_FILL1_wght400_GRAD0_opsz24.svg'
         )}`;
     },
     stars: () => {
-        return `<span class="visually-hidden">Extra uppgifter</span>${getSvgContent(
+        return `<span class="sr-only">Extra uppgifter</span>${getSvgContent(
             'grade_FILL1_wght400_GRAD0_opsz24.svg'
         )}${getSvgContent('grade_FILL1_wght400_GRAD0_opsz24.svg')}`;
     },

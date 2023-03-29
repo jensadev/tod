@@ -137,7 +137,7 @@ const createProgressBar = (element, total = 0, completed = 0) => {
 const createLabel = (text) => {
     console.log(text);
     const label = document.createElement('label');
-    label.classList.add('visually-hidden');
+    label.classList.add('sr-only');
     label.setAttribute('for', strip(text));
     label.textContent = `Jag är klar med ${text.replace(/-/g, ' ')}`;
     return label;

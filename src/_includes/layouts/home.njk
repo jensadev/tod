@@ -3,11 +3,11 @@ layout: layouts/base.njk
 ---
 
 <main class="container" tabindex="-1" role="main" id="main-content">
-    <header class="hero flow">
+    <header class="hero region flow">
         {{ content | safe }}
         {% include "components/updates.njk" %}
     </header>
-    <div class="accordion" id="accordion">
+    <div class="accordion region" id="accordion">
         {% set navPages = collections.all | eleventyNavigation(title.toLowerCase()) %}
         {% for entry in navPages | filterNavPages %}
         <div class="accordion__section">
@@ -16,8 +16,8 @@ layout: layouts/base.njk
             </h2>
             {% if entry.children.length %}
             {% for child in entry.children %}
-            <accordion-section open="false"  id="area-{{ child.title | slug }}">
-                <h3 class="accordion__section-heading"  id="{{ child.title | slug }}">
+            <accordion-section open="false" id="area-{{ child.title | slug }}">
+                <h3 class="accordion__section-heading" id="{{ child.title | slug }}">
                     {{ child.title | capitalize }}
                 </h3>
                 <div id="{{ child.title | slug }}" class="accordion__item">
@@ -25,8 +25,7 @@ layout: layouts/base.njk
                     <ul class="accordion__item-list">
                         {% for child in child.children %}
                         <li id="part-{{ child.title | slug }}" {{ 'class=test' if child.test }}>
-                            <a title="Del: {{ child.excerpt }}"
-                                href="{{ child.url | url }}">
+                            <a title="Del: {{ child.excerpt }}" href="{{ child.url | url }}">
                                 {{ child.title | capitalize }}
                             </a>
                         </li>
