@@ -1,13 +1,34 @@
 <a class="skip-link" href="#main-content">Hoppa till sidans innehåll</a>
 <nav class="navbar" role="navigation" aria-label="Primary">
     <div class="container navbar__inner">
-        {% set currentPage = page.fileSlug %}
-        {% if currentPage | filterPages %}
         <h1 class="navbar__header">
             <a href="/" title="Tillbaka till startsidan">
                 {{ meta.siteName }}
             </a>
         </h1>
+        <button class="navbar__toggle button button__icon" aria-label="Show more" aria-haspopup="true"
+            aria-expanded="false">
+            <span class="sr-only">Visa mer</span>
+            {% svg "more_vert_FILL0_wght400_GRAD0_opsz24.svg", "icon" %}
+        </button>
+        <div class="navbar__right">
+            <a class="navbar__button button {% if 'fragor' in page.url %}active{% endif %}" href="/fragor">
+                {% svg "quiz_FILL0_wght400_GRAD0_opsz24.svg", "icon" %}
+                Frågor
+            </a>
+            <a class="navbar__button button {% if 'hjalp' in page.url %}active{% endif %}" href="/hjalp">
+                {% svg "help_FILL0_wght400_GRAD0_opsz24.svg", "icon" %}
+                Hjälp
+            </a>
+            <button class="navbar__button button hidden" id="install-worker" type="button">
+                {% svg "install_mobile_FILL0_wght400_GRAD0_opsz24.svg", "icon" %}
+                Installera
+            </button>
+        </div>
+    </div>
+    <div class="container navbar__inner">
+        {% set currentPage = page.fileSlug %}
+        {% if currentPage | filterPages %}
         {% elif currentPage.includes('slutuppgift') %}
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -22,25 +43,6 @@
         {% else %}
         {% include "components/breadcrumb.njk" %}
         {% endif %}
-        <button class="navbar__toggle button button__icon" aria-label="Show more" aria-haspopup="true"
-            aria-expanded="false">
-            <span class="sr-only">Visa mer</span>
-            {% svg "more_vert_FILL0_wght400_GRAD0_opsz24.svg", "icon" %}
-        </button>
-        <div class="navbar__right">
-            <a class="button navbar__button {% if 'fragor' in page.url %}active{% endif %}" href="/fragor">
-                {% svg "quiz_FILL0_wght400_GRAD0_opsz24.svg", "icon" %}
-                Frågor
-            </a>
-            <a class="button navbar__button {% if 'hjalp' in page.url %}active{% endif %}" href="/hjalp">
-                {% svg "help_FILL0_wght400_GRAD0_opsz24.svg", "icon" %}
-                Hjälp
-            </a>
-            <button class="button navbar__button hidden" id="install-worker" type="button">
-                {% svg "install_mobile_FILL0_wght400_GRAD0_opsz24.svg", "icon" %}
-                Installera
-            </button>
-        </div>
     </div>
 </nav>
 <aside class="container navbar__inner navbar__search">

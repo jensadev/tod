@@ -1,0 +1,17 @@
+.flash {
+    position: fixed;
+    z-index: 400;
+    left: 2vmin;
+    bottom: 2vmin;
+
+    width: 100%;
+    padding: var(--space-xs-s);
+    border: var(--border);
+    max-width: 40rem;
+    background-color: var(--color-gray-100);
+
+    &__inner {
+        display: grid;
+        justify-items: end;
+    }
+}

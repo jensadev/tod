@@ -94,4 +94,9 @@ $black: hsl(0, 0%, 6%);
     --padding-xs-s: var(--space-xs) var(--space-s);
     --padding-2xs-xs: var(--space-2xs) var(--space-xs);
     --gutter: var(--space-m);
+
+    /* border */
+    --border-width: 1px;
+    --border-color: var(--color-gray-300);
+    --border: var(--border-width) solid var(--border-color);
 }

@@ -4,7 +4,7 @@
 
     border: none;
     border-radius: var(--border-radius);
-    padding: var(--padding-2xs-xs);
+    padding: var(--space-2xs) var(--space-xs);
 
     background-color: var(--color-primary);
     cursor: pointer;
@@ -19,5 +19,9 @@
 
     &__icon {
         line-height: 1;
+    }
+
+    &:hover {
+        color: var(--color-on-primary--light);
     }
 }
