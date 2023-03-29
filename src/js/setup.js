@@ -53,6 +53,7 @@ const setup = (jsonData, consentState = null) => {
     }
 
     if (config.part) {
+        console.log('kör notes');
         notes();
         document.querySelector('body').id = `tod-${djb2_xor(
             config.theme + config.area + config.part
