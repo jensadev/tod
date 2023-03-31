@@ -28,10 +28,14 @@ const setup = (jsonData, consentState = null) => {
             config.subject = config.subject.split('---')[2];
         }
     } else {
-        config.subject = strip(nav[0].textContent);
-        config.theme = nav[1] ? strip(nav[1].textContent) : null;
-        config.area = nav[2] ? strip(nav[2].textContent) : null;
-        config.part = nav[3] ? strip(nav[3].textContent) : null;
+        config.subject = strip(
+            document.querySelector('.navbar__header > a').textContent
+        );
+        config.theme = nav[0] ? strip(nav[0].textContent) : null;
+        config.area = nav[1] ? strip(nav[1].textContent) : null;
+        config.part = nav[2] ? strip(nav[2].textContent) : null;
+
+        console.log(config);
     }
 
     const storage = new Storage(config.subject, jsonData);
@@ -53,7 +57,6 @@ const setup = (jsonData, consentState = null) => {
     }
 
     if (config.part) {
-        console.log('kör notes');
         notes();
         document.querySelector('body').id = `tod-${djb2_xor(
             config.theme + config.area + config.part

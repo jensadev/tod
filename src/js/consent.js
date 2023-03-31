@@ -6,7 +6,7 @@ const consent = (msgText, buttonText) => {
     const inner = clone.querySelector('.flash__inner');
     const message = clone.querySelector('.flash__message');
     const button = document.createElement('button');
-    button.classList.add('button', 'flash__button');
+    button.classList.add('button', 'button--primary', 'flash__button');
     button.textContent = buttonText;
     const p = document.createElement('p');
     p.textContent = msgText;

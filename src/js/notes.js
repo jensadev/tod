@@ -7,7 +7,6 @@ const notes = () => {
     notes = JSON.parse(notes);
 
     notesOpen.addEventListener('click', () => {
-        console.log('notesOpen clicked');
         notesOpen.classList.toggle('disabled');
         notesOpen.disabled = true;
         const template = document.querySelector('template#notes');

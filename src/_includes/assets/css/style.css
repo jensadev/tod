@@ -237,7 +237,7 @@ a {
 
 :focus {
   outline: 2px solid;
-  outline-offset: 0.3ch;
+  outline-offset: 0.2ch;
 }
 
 :target {
@@ -261,21 +261,41 @@ main:focus {
   border: none;
   border-radius: var(--border-radius);
   padding: var(--space-2xs) var(--space-xs);
-  background-color: var(--color-primary);
+  background-color: transparent;
   cursor: pointer;
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--color-on-primary);
+  color: inherit;
   white-space: nowrap;
   overflow: hidden;
 }
+.button--primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+.button--primary:hover {
+  color: var(--color-on-primary--light);
+}
 .button__icon {
   line-height: 1;
+  fill: currentColor;
 }
-.button:hover {
-  color: var(--color-on-primary--light);
+.button__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: all 0.2s ease-in-out;
+  padding: var(--space-2xs) var(--space-xs);
+  background-color: transparent;
+  cursor: pointer;
+  font-size: var(--step-0);
+  line-height: 1;
+  color: var(--color-gray-600);
+}
+.button__close:hover {
+  color: var(--color-gray-900);
 }
 
 .progress {
@@ -358,6 +378,9 @@ main:focus {
   width: 100%;
 }
 
+.accordion {
+  --region-space-top: 0;
+}
 .accordion > * {
   background-color: var(--color-gray-100);
 }
@@ -396,10 +419,11 @@ main:focus {
   line-height: 1;
 }
 .accordion__controls {
-  display: flex;
   justify-content: flex-end;
   gap: var(--gutter);
+  display: flex;
   margin-bottom: 0.2em;
+  list-style: none;
 }
 
 .mh-0 {
@@ -422,10 +446,6 @@ accordion-section h3 {
 }
 .navbar a {
   text-decoration: none;
-  color: inherit;
-}
-.navbar a:hover {
-  color: inherit;
 }
 .navbar__inner {
   position: relative;
@@ -465,17 +485,21 @@ accordion-section h3 {
   right: 0;
   flex-direction: column;
   display: flex;
-  padding: 0.2em;
+  padding: var(--space-3xs) 0;
   background-color: var(--color-white);
 }
 .navbar__right--show > .button {
   flex-direction: row-reverse;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  column-gap: 0.2em;
+  padding: var(--space-2xs) var(--space-xs);
   width: 100%;
   color: var(--color-primary);
   background-color: transparent;
+}
+.navbar__right--show > .button:hover {
+  color: var(--color-primary);
+  background-color: var(--color-gray-300);
 }
 .navbar__toggle {
   display: none;
@@ -488,11 +512,14 @@ accordion-section h3 {
 }
 .navbar__button {
   align-items: center;
-  gap: var(--space-3xs);
+  gap: var(--space-2xs);
   border: none;
   padding: 0;
   font-size: var(--step-0);
   line-height: 1;
+}
+.navbar__button:hover {
+  color: var(--color-on-primary--light);
 }
 .navbar svg {
   fill: currentColor;
@@ -579,9 +606,8 @@ input[type=search]::-webkit-search-cancel-button {
   float: left;
   padding-right: var(--space-3xs);
 }
-.breadcrumb__item-link {
-  color: var(--color-on-primary);
-  text-decoration: none;
+.breadcrumb__item-link:hover {
+  color: var(--color-on-primary--light);
 }
 
 .footer {
@@ -594,7 +620,7 @@ input[type=search]::-webkit-search-cancel-button {
   position: fixed;
   bottom: 4vmin;
   width: 100%;
-  max-width: min(32rem, 100vw - var(--space-m-l));
+  max-width: min(42rem, 100vw - var(--space-m-l));
   height: 20vh;
   min-height: 16rem;
   left: 50%;
@@ -607,7 +633,6 @@ input[type=search]::-webkit-search-cancel-button {
   position: fixed;
   right: 2vmin;
   bottom: 2vmin;
-  border: var(--border);
   padding: var(--space-2xs);
 }
 
@@ -621,7 +646,6 @@ input[type=search]::-webkit-search-cancel-button {
   position: fixed;
   left: 2vmin;
   bottom: 2vmin;
-  border: var(--border);
   padding: var(--space-2xs);
 }
 
@@ -645,6 +669,22 @@ input[type=search]::-webkit-search-cancel-button {
 .overlay__inner {
   background-color: var(--color-gray-100);
   width: min(36rem, 100vw - var(--space-m));
+}
+
+.card {
+  position: relative;
+  margin-bottom: var(--space-s);
+  display: flex;
+  flex-direction: column;
+}
+.card__header {
+  padding: var(--space-s);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+.card__body {
+  padding: var(--space-s);
+  background-color: var(--color-gray-100);
 }
 
 .flow > * + * {
