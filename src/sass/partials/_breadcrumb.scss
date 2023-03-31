@@ -24,9 +24,12 @@
                 padding-right: var(--space-3xs);
             }
         }
-        &-link {
-            color: var(--color-on-primary);
-            text-decoration: none;
+        // &-link {
+        //     color: var(--color-on-primary);
+        //     text-decoration: none;
+        // }
+        &-link:hover {
+            color: var(--color-on-primary--light);
         }
     }
 }

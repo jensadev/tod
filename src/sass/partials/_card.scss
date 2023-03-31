@@ -1,0 +1,20 @@
+.card {
+    position: relative;
+
+    margin-bottom: var(--space-s);
+
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        padding: var(--space-s);
+        background-color: var(--color-primary);
+        color: var(--color-on-primary);
+    }
+
+    &__body {
+        padding: var(--space-s);
+
+        background-color: var(--color-gray-100);
+    }
+}
