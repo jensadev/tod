@@ -2,23 +2,23 @@ const { star, stars } = require('./index');
 
 module.exports = {
     intro: (content) => {
-        return `<section class="part__introduction flow">
+        return `<div class="part__introduction flow">
         <h2 id="introduktion" tabindex="-1">Introduktion <a class="header-anchor" href="#introduktion">
         <span class="anchor" aria-hidden="true">#</span></a></h2>
-        ${content}</section>`;
+        ${content}</div>`;
     },
     instruktioner: (content, title) => {
-        return `<section class="part__instructions flow">
+        return `<div class="part__instructions flow">
         <h2 id="instruktioner" tabindex="-1">${title || 'Instruktioner'}
         <a class="header-anchor" href="#instruktioner"><span class="anchor" aria-hidden="true">#</span></a>
         </h2>
-        ${content}</section>`;
+        ${content}</div>`;
     },
     uppgifter: (content, lead) => {
-        return `<section class="part__assignments flow"><header>
+        return `<div class="part__assignments flow"><header>
         <h2 id="uppgifter" tabindex="-1">Uppgifter <a class="header-anchor" href="#uppgifter">
         <span class="anchor" aria-hidden="true">#</span></a></h2>
-        ${lead ? lead : ''}</header>${content}</section>`;
+        ${lead ? lead : ''}</header>${content}</div>`;
     },
     bas: (content) => {
         return `<div class="part__assignments-basic"><h3>${star()}</h3><div class="flow">${content}</div></div>`;
@@ -27,18 +27,16 @@ module.exports = {
         return `<div class="part__assignments-extra"><h3>${stars()}</h3><div class="flow">${content}</div></div>`;
     },
     facit: (content, title) => {
-        return `<section class="part__solution flow">
+        return `<div class="part__solution flow">
         <h2 id="facit" tabindex="-1">${
             title || 'Hjälp'
         } <a class="header-anchor" href="#facit"><span class="anchor" aria-hidden="true">#</span></a></h2>
-        ${content}</section>`;
+        ${content}</div>`;
     },
     lead: (content) => {
         return `<p class="lead">${content}</p>`;
     },
     hint: (content, type) => {
-        return `<aside class="hint flow ${
-            type ? type : ''
-        }">${content}</aside>`;
+        return `<div class="hint flow ${type ? type : ''}">${content}</div>`;
     },
 };
