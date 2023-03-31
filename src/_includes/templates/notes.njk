@@ -1,0 +1,16 @@
+<button id="notes-open" class="button button__icon button--primary button__notes" aria-label="Anteckningar">
+    {% svg "note_add_FILL0_wght400_GRAD0_opsz24.svg", "icon" %}
+</button>
+
+<template id="notes">
+    <div class="notes" id="notes-container" role="dialog">
+        <button id="notes-close" class="button button__icon button__close" aria-label="stäng" tabindex="0">✕</button>
+        <div class="form">
+            <div class="form__section flow">
+                <label for="notes-area">Mina anteckningar</label>
+                <textarea id="notes-area" name="notes-area" rows="5" placeholder="Skriv dina egna anteckningar här."
+                    autofocus></textarea>
+            </div>
+        </div>
+    </div>
+</template>
