@@ -23,7 +23,7 @@ const continuePopup = (check, last) => {
     popupItem(list[0], last.theme, `/${last.theme}`);
     popupItem(list[1], last.area, `/${last.theme}/${last.area}/`);
     popupItem(list[2], last.part, `/${last.theme}/${last.area}/${last.part}/`);
-    const continueButton = clone.querySelector('.continue__button');
+    const continueButton = clone.querySelector('.continue__inner > a.button');
     if (continueButton) {
         continueButton.href = `/${last.theme}/${last.area}/${last.part}/`;
         continueButton.addEventListener('click', () => {

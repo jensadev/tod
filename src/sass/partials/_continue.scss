@@ -1,0 +1,40 @@
+.continue {
+    z-index: 700;
+    position: fixed;
+    background-color: var(--color-gray-100);
+    right: 2vmin;
+    bottom: 2vmin;
+    max-width: 22rem;
+    width: 100%;
+    padding: var(--space-s);
+    border: var(--border);
+    @media (max-width: 40rem) {
+        display: none;
+    }
+    &__inner {
+        display: grid;
+        justify-items: center;
+        grid-gap: var(--gutter);
+    }
+    &__header {
+        padding-top: var(--space-s);
+        text-align: center;
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            display: flex;
+            span:first-child {
+                min-width: 8ch;
+            }
+            a {
+                min-width: 8ch;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
