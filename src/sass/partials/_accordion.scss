@@ -4,8 +4,8 @@
         background-color: var(--color-gray-100);
     }
     &__section {
-        --flow-space: var(--space-0);
-        margin-bottom: var(--space-0);
+        --flow-space: var(--space-s);
+        margin-bottom: var(--space-s);
         h2 {
             padding: var(--padding-xs-s);
             width: 100%;
@@ -62,7 +62,7 @@
 
 accordion-section {
     display: block;
-    padding: var(--step--1) var(--step-0);
+    padding: var(--space-xs) var(--space-s);
 
     h3 {
         text-transform: uppercase;

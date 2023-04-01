@@ -1,13 +1,12 @@
 .hero {
     background-color: var(--color-gray-100);
-    padding-inline: var(--space-m-l);
-
-    h2 {
-        font-size: var(--step-2);
-    }
+    padding-inline: var(--space-xs-s);
 
     ul {
         font-size: var(--step-0);
         color: var(--color-gray-700);
+    }
+    aside > h2 {
+        font-size: var(--step-2);
     }
 }

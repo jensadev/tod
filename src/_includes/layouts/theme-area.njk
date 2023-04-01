@@ -2,17 +2,17 @@
 layout: layouts/base.njk
 ---
 <main class="container flow" tabindex="-1" role="main" id="main-content">
-    <header class="hero">
+    <header class="hero region flow">
         {% if category === "tema" %}
-        <h1>Tema {{ title }}</h1>
+        <h2>Tema {{ title }}</h2>
         {% endif %}
         {% if category === "område" %}
-        <h1>Område {{ title }}</h1>
+        <h2>Område {{ title }}</h2>
         {% endif %}
         {{ content | safe }}
     </header>
 
     {% set currentPage = page.fileSlug %}
     {% set navPages = collections.all | eleventyNavigation(currentPage) %}
-    {% include "components/categorylist.njk" %}
+    {% include "partials/categorylist.njk" %}
 </main>

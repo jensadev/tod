@@ -385,8 +385,8 @@ main:focus {
   background-color: var(--color-gray-100);
 }
 .accordion__section {
-  --flow-space: var(--space-0);
-  margin-bottom: var(--space-0);
+  --flow-space: var(--space-s);
+  margin-bottom: var(--space-s);
 }
 .accordion__section h2 {
   padding: var(--padding-xs-s);
@@ -432,7 +432,7 @@ main:focus {
 
 accordion-section {
   display: block;
-  padding: var(--step--1) var(--step-0);
+  padding: var(--space-xs) var(--space-s);
 }
 accordion-section h3 {
   text-transform: uppercase;
@@ -474,7 +474,7 @@ accordion-section h3 {
   .navbar__right {
     justify-content: flex-end;
     align-items: center;
-    gap: var(--gutter);
+    gap: var(--space-xs-s);
     display: flex;
   }
 }
@@ -512,7 +512,7 @@ accordion-section h3 {
 }
 .navbar__button {
   align-items: center;
-  gap: var(--space-2xs);
+  gap: var(--space-3xs);
   border: none;
   padding: 0;
   font-size: var(--step-0);
@@ -556,14 +556,14 @@ input[type=search]::-webkit-search-cancel-button {
 
 .hero {
   background-color: var(--color-gray-100);
-  padding-inline: var(--space-m-l);
-}
-.hero h2 {
-  font-size: var(--step-2);
+  padding-inline: var(--space-xs-s);
 }
 .hero ul {
   font-size: var(--step-0);
   color: var(--color-gray-700);
+}
+.hero aside > h2 {
+  font-size: var(--step-2);
 }
 
 .flash {
@@ -784,4 +784,44 @@ input[type=search]::-webkit-search-cancel-button {
   left: 0;
   z-index: 1;
   content: "";
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-placement, auto-fill), minmax(var(--grid-min-item-size, 16rem), 1fr));
+  gap: var(--gutter, var(--space-s-l));
+}
+
+.grid[data-rows=masonry] {
+  grid-template-rows: masonry;
+  align-items: start;
+}
+
+.grid[data-layout="50-50"] {
+  --grid-placement: auto-fit;
+  --grid-min-item-size: clamp(16rem, 50vw, 26rem);
+}
+
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter, var(--space-s-l));
+}
+
+.sidebar > :first-child {
+  flex-basis: var(--sidebar-target-width, 20rem);
+  flex-grow: 1;
+}
+
+.sidebar > :last-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: var(--sidebar-content-min-width, 50%);
+}
+
+/* 
+  A flipped version where the sidebar is on the right
+  */
+.sidebar[data-direction=rtl] {
+  flex-direction: row-reverse;
 }
