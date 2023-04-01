@@ -687,6 +687,49 @@ input[type=search]::-webkit-search-cancel-button {
   background-color: var(--color-gray-100);
 }
 
+.continue {
+  z-index: 700;
+  position: fixed;
+  background-color: var(--color-gray-100);
+  right: 2vmin;
+  bottom: 2vmin;
+  max-width: 22rem;
+  width: 100%;
+  padding: var(--space-s);
+  border: var(--border);
+}
+@media (max-width: 40rem) {
+  .continue {
+    display: none;
+  }
+}
+.continue__inner {
+  display: grid;
+  justify-items: center;
+  grid-gap: var(--gutter);
+}
+.continue__header {
+  padding-top: var(--space-s);
+  text-align: center;
+}
+.continue__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.continue__list li {
+  display: flex;
+}
+.continue__list li span:first-child {
+  min-width: 8ch;
+}
+.continue__list li a {
+  min-width: 8ch;
+  text-decoration: none;
+}
+.continue__list li a:hover {
+  text-decoration: underline;
+}
+
 .flow > * + * {
   margin-top: var(--flow-space, 1em);
 }

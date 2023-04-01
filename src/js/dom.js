@@ -7,6 +7,8 @@ const setupAssignments = (storage, theme, area, part) => {
     const element = document.querySelector('.part__assignments');
     if (!element) return;
 
+    console.log('setupAssignments', theme, area, part);
+
     const assignments = storage.getAssignments(theme, area, part);
 
     showHideElements(storage.assignmentsStatus(theme, area, part));

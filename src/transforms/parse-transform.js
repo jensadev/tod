@@ -94,8 +94,11 @@ module.exports = function (value, outputPath) {
                 json = JSON.parse('{}');
             }
 
-            if (structure[0] !== undefined) {
-                name = strip(structure[0].textContent);
+            const el = document.querySelector('.navbar__header > a');
+
+            if (el !== undefined) {
+                name = strip(el.textContent);
+
                 if (json.subject === undefined) {
                     json.subject = name;
                 }
@@ -104,8 +107,18 @@ module.exports = function (value, outputPath) {
                 }
             }
 
-            if (structure[1] !== undefined) {
-                theme = strip(structure[1].textContent);
+            // if (structure[0] !== undefined) {
+            //     name = strip(structure[0].textContent);
+            //     if (json.subject === undefined) {
+            //         json.subject = name;
+            //     }
+            //     if (json.themes === undefined) {
+            //         json.themes = [];
+            //     }
+            // }
+
+            if (structure[0] !== undefined) {
+                theme = strip(structure[0].textContent);
 
                 const themeObj = json.themes.find((o) => o.theme === theme);
 
@@ -117,8 +130,8 @@ module.exports = function (value, outputPath) {
                 }
             }
 
-            if (structure[2] !== undefined) {
-                area = strip(structure[2].textContent);
+            if (structure[1] !== undefined) {
+                area = strip(structure[1].textContent);
                 const themeObj = json.themes.find((o) => o.theme === theme);
 
                 if (themeObj !== undefined) {
@@ -133,8 +146,8 @@ module.exports = function (value, outputPath) {
                 }
             }
 
-            if (structure[3] !== undefined) {
-                part = strip(structure[3].textContent);
+            if (structure[2] !== undefined) {
+                part = strip(structure[2].textContent);
                 const themeObj = json.themes.find((o) => o.theme === theme);
                 if (themeObj !== undefined) {
                     const areaObj = themeObj.areas.find((o) => o.area === area);
