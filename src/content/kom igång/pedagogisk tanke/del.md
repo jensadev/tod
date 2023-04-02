@@ -7,7 +7,7 @@ eleventyNavigation:
     excerpt: Den minsta delen i system och här finns det pedagogiska materialet med uppgifter att göra
 ---
 
-{% intro %}
+{% instruktioner %}
 
 Delarna är små delar i området med tillhörande uppgifter. Det är förmågor eller kunskap
 som behöver inhämtas för att förstå helheten som gör området.
@@ -17,9 +17,6 @@ som behöver inhämtas för att förstå helheten som gör området.
 -   Delen ska rymmas på en sida, försök vara kort och tydlig
 -   Förenkla och förtydliga
 
-{% endintro %}
-
-{% instruktioner %}
 
 Uppgifterna delas upp i {% star %} och {% star %}{% star %}. De tvåstjärniga uppgifterna är fördjupning
 som kan göras efter grunden, men de är inte obligatoriska.

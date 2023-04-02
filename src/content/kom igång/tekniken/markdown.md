@@ -7,24 +7,6 @@ eleventyNavigation:
     excerpt: Innehållet på kurswebbens sidor skrivs i Markdown
 ---
 
-{% intro %}
-
-Markdown är fantastiskt!
-
-### Sidan använder
-
-- Markdown för allt innehåll
-
-{% endintro %}
-
-{% instruktioner %}
-
-Läs mer om [Markdown](https://www.markdownguide.org/).
-
-Fråga Jens efter den lilla gröna boken, [GitHub flavored markdown](https://guides.github.com/features/mastering-markdown/)
-
-{% endinstruktioner %}
-
 {% uppgifter %}
 
 {% bas %}
@@ -40,3 +22,18 @@ Skriv Markdown
 {% endbas %}
 
 {% enduppgifter %}
+
+{% instruktioner %}
+
+Markdown är fantastiskt!
+
+### Sidan använder
+
+- Markdown för allt innehåll
+
+Läs mer om [Markdown](https://www.markdownguide.org/).
+
+Fråga Jens efter den lilla gröna boken, [GitHub flavored markdown](https://guides.github.com/features/mastering-markdown/)
+
+{% endinstruktioner %}
+

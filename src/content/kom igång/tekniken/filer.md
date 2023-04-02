@@ -7,7 +7,20 @@ eleventyNavigation:
     excerpt: Kurswebben har en bestämd filstruktur som måste följas för att den ska kunna byggas
 ---
 
-{% intro %}
+{% uppgifter %}
+
+{% bas %}
+
+#### Uppgift 1
+
+Kolla igenom projektets filer.
+
+{% endbas %}
+
+{% enduppgifter %}
+
+{% instruktioner %}
+## Introduktion
 
 Det här projektet innehåller ett större antal filer för att möjliggöra dess funktion.
 De filer du faktiskt behöver ändra på för att skapa din kurs kommer att förklaras under
@@ -22,9 +35,7 @@ Den här delens funktion är enbart en kort introduktion.
 -   Små missar i konfigurationen kan göra att det inte fungerar
 -   Fråga om du behöver hjälp
 
-{% endintro %}
-
-{% instruktioner %}
+## Instruktioner
 
 🛑 TODs systemfiler och kärna. Ändra inte på dessa.
 
@@ -79,15 +90,3 @@ package.json 🛑🔨 script för att köra, installera och bygga
 ```
 
 {% endinstruktioner %}
-
-{% uppgifter %}
-
-{% bas %}
-
-#### Uppgift 1
-
-Kolla igenom projektets filer.
-
-{% endbas %}
-
-{% enduppgifter %}

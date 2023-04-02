@@ -7,21 +7,6 @@ eleventyNavigation:
     excerpt: Delen är delen
 ---
 
-{% intro %}
-
-Introduktionstext.
-### Tänk på
-
-- Punktlista
-
-{% endintro %}
-
-{% instruktioner %}
-
-Instruktionsmaterial
-
-{% endinstruktioner %}
-
 {% uppgifter %}
 
 {% bas %}
@@ -37,3 +22,16 @@ Andra uppgiften. Ändra i det reproducerade.
 {% endbas %}
 
 {% enduppgifter %}
+
+{% instruktioner %}
+
+Introduktionstext.
+### Tänk på
+
+- Punktlista
+
+
+Instruktionsmaterial
+
+{% endinstruktioner %}
+

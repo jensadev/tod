@@ -13,15 +13,10 @@ layout: layouts/base.njk
             </h1>
             <span class="text-muted">{{ content | emojiReadTime }}</span>
         </header>
-        {% if test %}
-        <div class="part__test flow">
+        <div class="sidebar" data-direction="rtl">
             {{ content | safe }}
         </div>
     </article>
-    {% else %}
-    {{ content | safe }}
-    </div>
     {% include "partials/nav-bottom.njk" %}
-    {% endif %}
     {% include "templates/notes.njk" %}
 </main>

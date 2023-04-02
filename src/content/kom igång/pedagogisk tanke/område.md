@@ -7,12 +7,9 @@ eleventyNavigation:
     excerpt: Kursens övergripande teman bryts ned i områden
 ---
 
-{% intro %}
+{% instruktioner %}
 
 Ett område är en specifik del i ett tema. Det kan vara olika system, tekniker osv.
 
-{% endintro %}
-
-{% instruktioner %}
 
 {% endinstruktioner %}

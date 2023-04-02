@@ -7,7 +7,24 @@ eleventyNavigation:
     excerpt: Sidans metadata är information till byggsystemet
 ---
 
-{% intro %}
+{% uppgifter %}
+
+{% bas %}
+
+#### Uppgift 1
+
+Redigera och spara `meta.js`.
+
+#### Uppgift 2
+
+Redigera titel i `index.md`.
+
+{% endbas %}
+
+{% enduppgifter %}
+
+
+{% instruktioner %}
 
 Sidans metadata sparas i en speciell javascript-fil. Denna behöver redigeras för
 att sidans funktioner ska fungera.
@@ -18,10 +35,6 @@ att sidans funktioner ska fungera.
 -   siteName i metadata måste stämma överrens med title i `src/index.md`
 -   Vill du välja färg för sidan, ange en färgkod i themeColor
 -   Sidan är i javascript, syntax är viktigt
-
-{% endintro %}
-
-{% instruktioner %}
 
 🛑 När du redigerar metadata(`siteName:` egenskapen) så kommer guiden att sluta fungera.
 Detta på grund av att temat [Kom igång](/kom-igang/) är kopplat till `siteName: 'Ämnestitel'`.
@@ -72,22 +85,6 @@ eleventyNavigation:
 ```
 
 {% endinstruktioner %}
-
-{% uppgifter %}
-
-{% bas %}
-
-#### Uppgift 1
-
-Redigera och spara `meta.js`.
-
-#### Uppgift 2
-
-Redigera titel i `index.md`.
-
-{% endbas %}
-
-{% enduppgifter %}
 
 {% facit %}
 

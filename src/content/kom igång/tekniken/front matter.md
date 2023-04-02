@@ -7,7 +7,26 @@ eleventyNavigation:
     excerpt: Beskriver extra information om kurswebbens sidor
 ---
 
-{% intro %}
+{% uppgifter %}
+
+{% bas %}
+
+#### Uppgift 1
+
+Kolla igenom front matter för en eller flera delar
+
+#### Uppgift 2
+
+Kolla igenom front matter för tema, område
+
+{% endbas %}
+
+{% enduppgifter %}
+
+
+{% instruktioner %}
+
+## Introduktion
 
 Varje sida i din kurs struktur är baserad på Markdown filer. Dessa filer innehåller
 något som kallas front matter.
@@ -20,9 +39,7 @@ Front matter skapar strukturen, navigationen och placerar filen på rätt ställ
 -   Formatteringen
 -   eleventyNavigation är det som styr navigeringen på sidan
 
-{% endintro %}
-
-{% instruktioner %}
+## Instruktioner
 
 Den här sidans front matter ser ut som följer.
 **Det är front matter för en del.**
@@ -64,18 +81,3 @@ Redigera sedan värdet för `tags`. Är det flera taggar så används en array, 
 
 {% endinstruktioner %}
 
-{% uppgifter %}
-
-{% bas %}
-
-#### Uppgift 1
-
-Kolla igenom front matter för en eller flera delar
-
-#### Uppgift 2
-
-Kolla igenom front matter för tema, område
-
-{% endbas %}
-
-{% enduppgifter %}

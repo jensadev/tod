@@ -7,7 +7,31 @@ eleventyNavigation:
     excerpt: Delen är delen
 ---
 
-{% intro %}
+{% uppgifter "intro text if needed" %}
+
+{% bas %}
+
+#### Uppgift 1
+
+Kolla igenom front matter för en eller flera delar
+
+#### Uppgift 2
+
+Kolla igenom front matter för tema, område
+
+{% endbas %}
+
+{% extra %}
+
+#### Uppgift 3
+
+Gör saker med tekniken!
+
+{% endextra %}
+
+{% enduppgifter %}
+
+{% instruktioner %}
 
 Varje sida i din kurs struktur är baserad på Markdown filer. Dessa filer innehåller
 något som kallas front matter.
@@ -19,10 +43,6 @@ Front matter skapar strukturen, navigationen och placerar filen på rätt ställ
 -   Front matter måste finnas med i .md filerna
 -   Formatteringen
 -   eleventyNavigation är det som styr navigeringen på sidan
-
-{% endintro %}
-
-{% instruktioner %}
 
 Den här sidans front matter ser ut som följer.
 **Det är front matter för en del.**
@@ -64,29 +84,7 @@ Redigera sedan värdet för `tags`. Är det flera taggar så används en array, 
 
 {% endinstruktioner %}
 
-{% uppgifter "intro text if needed" %}
 
-{% bas %}
-
-#### Uppgift 1
-
-Kolla igenom front matter för en eller flera delar
-
-#### Uppgift 2
-
-Kolla igenom front matter för tema, område
-
-{% endbas %}
-
-{% extra %}
-
-#### Uppgift 3
-
-Gör saker med tekniken!
-
-{% endextra %}
-
-{% enduppgifter %}
 
 {% facit "headertext" %}
 

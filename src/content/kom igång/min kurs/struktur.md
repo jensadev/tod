@@ -7,7 +7,20 @@ eleventyNavigation:
     excerpt: Kurswebben är byggd efter en satt struktur, den är viktig att följa för att systemet ska fungera
 ---
 
-{% intro %}
+{% uppgifter %}
+
+{% bas %}
+
+#### Uppgift 1
+
+Studera strukturen för den här guiden, temat kom igång
+{% endbas %}
+{% enduppgifter %}
+
+
+{% instruktioner %}
+
+## Introduktion
 
 En kurswebb består av ämne, teman, områden och delar. Detta är nära sammankopplat och
 behöver följa en viss struktur och regler för att det ska fungera.
@@ -19,9 +32,7 @@ behöver följa en viss struktur och regler för att det ska fungera.
 -   Teman kan bestå av flera områden
 -   Områden kan bestå av flera delar
 
-{% endintro %}
-
-{% instruktioner %}
+## Instruktioner
 
 Studera strukturen för den här guiden.
 
@@ -37,12 +48,3 @@ Studera strukturen för den här guiden.
 
 {% endinstruktioner %}
 
-{% uppgifter %}
-
-{% bas %}
-
-#### Uppgift 1
-
-Studera strukturen för den här guiden, temat kom igång
-{% endbas %}
-{% enduppgifter %}

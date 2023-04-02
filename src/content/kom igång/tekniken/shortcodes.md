@@ -7,7 +7,7 @@ eleventyNavigation:
     excerpt: För att visa innehållet finns det ett antal shortcodes till hjälp
 ---
 
-{% intro %}
+{% instruktioner %}
 
 Shortcodes är en typ av funktioner som kan användas från MD filer för att till exempel lägga till ett HTML-element.
 
@@ -15,10 +15,6 @@ Shortcodes är en typ av funktioner som kan användas från MD filer för att ti
 
 - Stuff
 - More stuff
-
-{% endintro %}
-
-{% instruktioner %}
 
 Instruktioner för hur du kan använda en shortcode.
 
