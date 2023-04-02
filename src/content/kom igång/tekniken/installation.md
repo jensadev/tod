@@ -7,23 +7,8 @@ eleventyNavigation:
     excerpt: Det första steget i att skapa din egen kurswebb
 ---
 
-{% uppgifter %}
 
-{% bas %}
-
-#### Uppgift 1
-
-Klona templaten.
-
-#### Uppgift 2
-
-Installera och kör npm script.
-
-{% endbas %}
-
-{% enduppgifter %}
-
-{% instruktioner %}
+{% instructions %}
 
 ## Introduktion
 
@@ -70,5 +55,21 @@ npm start
 Förhoppningsvis kan du nu surfa till [localhost:8080](http://localhost:8080) och se en lokal
 kopia av den här webbplatsen.
 
-{% endinstruktioner %}
+{% endinstructions %}
 
+
+{% questions %}
+
+{% base %}
+
+#### Uppgift 1
+
+Klona templaten.
+
+#### Uppgift 2
+
+Installera och kör npm script.
+
+{% endbase %}
+
+{% endquestions %}

@@ -7,19 +7,9 @@ eleventyNavigation:
     excerpt: Kurswebben har en bestämd filstruktur som måste följas för att den ska kunna byggas
 ---
 
-{% uppgifter %}
 
-{% bas %}
+{% instructions %}
 
-#### Uppgift 1
-
-Kolla igenom projektets filer.
-
-{% endbas %}
-
-{% enduppgifter %}
-
-{% instruktioner %}
 ## Introduktion
 
 Det här projektet innehåller ett större antal filer för att möjliggöra dess funktion.
@@ -89,4 +79,17 @@ LICENSE 📄 CC BY-NC 4.0
 package.json 🛑🔨 script för att köra, installera och bygga
 ```
 
-{% endinstruktioner %}
+{% endinstructions %}
+
+
+{% questions %}
+
+{% base %}
+
+#### Uppgift 1
+
+Kolla igenom projektets filer.
+
+{% endbase %}
+
+{% endquestions %}

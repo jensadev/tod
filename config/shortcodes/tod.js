@@ -1,7 +1,7 @@
 const { star, stars } = require('./index');
 
 module.exports = {
-    instruktioner: (content) => {
+    instructions: (content) => {
         return `<div class="part__instructions flow">${content}</div>`;
     },
 
@@ -18,23 +18,23 @@ module.exports = {
     //     </h2>
     //     ${content}</div>`;
     // },
-    uppgifter: (content, lead) => {
-        return `<div class="part__assignments flow"><header>
+    questions: (content, lead) => {
+        return `<div class="part__questions region flow"><header>
         <h2 id="uppgifter" tabindex="-1">Uppgifter <a class="header-anchor" href="#uppgifter">
         <span class="anchor" aria-hidden="true">#</span></a></h2>
         ${lead ? lead : ''}</header>${content}</div>`;
     },
-    bas: (content) => {
-        return `<div class="part__assignments-basic"><h3>${star()}</h3><div class="flow">${content}</div></div>`;
+    base: (content) => {
+        return `<div class="part__questions-base"><h3>${star()}</h3><div class="flow">${content}</div></div>`;
     },
-    extra: (content) => {
-        return `<div class="part__assignments-extra"><h3>${stars()}</h3><div class="flow">${content}</div></div>`;
+    advanced: (content) => {
+        return `<div class="part__questions-advanced"><h3>${stars()}</h3><div class="flow">${content}</div></div>`;
     },
-    facit: (content, title) => {
-        return `<div class="part__solution flow">
-        <h2 id="facit" tabindex="-1">${
+    extra: (content, title) => {
+        return `<div class="part__extra flow">
+        <h2 id="extra" tabindex="-1">${
             title || 'Hjälp'
-        } <a class="header-anchor" href="#facit"><span class="anchor" aria-hidden="true">#</span></a></h2>
+        } <a class="header-anchor" href="#extra"><span class="anchor" aria-hidden="true">#</span></a></h2>
         ${content}</div>`;
     },
     lead: (content) => {

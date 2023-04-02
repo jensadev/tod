@@ -7,20 +7,9 @@ eleventyNavigation:
     excerpt: För att inkludera bilder i dina delar så krävs det en speciell shortcode
 ---
 
-{% uppgifter %}
-
-{% bas %}
-
-#### Uppgift 1
-
-Testa att använda en bild i en av dina delar
-
-{% endbas %}
-
-{% enduppgifter %}
 
 
-{% instruktioner %}
+{% instructions %}
 
 ## Instruktioner
 
@@ -41,5 +30,17 @@ Denna shortcode baserar sig i sin tur på [11tys bild-plugin](https://www.11ty.d
 Bilden kommer automatiskt kopieras, döpas om och optimeras när sidan skapas.
 Resultatet finner du i byggmappen, `/public/img/`
 
-{% endinstruktioner %}
+{% endinstructions %}
 
+
+{% questions %}
+
+{% base %}
+
+#### Uppgift 1
+
+Testa att använda en bild i en av dina delar
+
+{% endbase %}
+
+{% endquestions %}

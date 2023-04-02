@@ -2,13 +2,13 @@ export default class Storage {
     constructor(subject, data) {
         this.subject = subject;
         this.data = data;
-        this.version = 2;
+        this.version = 3;
 
         let storage = JSON.parse(window.localStorage.getItem(this.subject));
 
         const storageTemplate = {
             subject: this.subject,
-            assignments: [],
+            questions: [],
             version: this.version,
         };
 
@@ -49,81 +49,81 @@ export default class Storage {
             result = temp ? temp : false;
         }
         if (id && result) {
-            const temp = result.assignments.find((a) => a.id === id);
+            const temp = result.questions.find((a) => a.id === id);
             result = temp ? temp : false;
         }
 
         return result;
     }
 
-    findAssignmentByID(id, data = false) {
+    findQuestionByID(id, data = false) {
         if (!data) {
-            const temp = this.storage.assignments.find((a) => a.id === id);
+            const temp = this.storage.questions.find((a) => a.id === id);
             return temp ? temp : false;
         }
         const temp = this.data.themes.filter((t) => {
             return t.areas.find((a) => {
                 return a.parts.find((p) => {
-                    return p.assignments.find((a) => a.id === id);
+                    return p.questions.find((a) => a.id === id);
                 });
             });
         });
-        // from temp find theme, area, part and assignment
+        // from temp find theme, area, part and question
         if (temp.length > 0) {
             const theme = temp[0].theme;
             const area = temp[0].areas.filter((a) => {
                 return a.parts.find((p) => {
-                    return p.assignments.find((a) => a.id === id);
+                    return p.questions.find((a) => a.id === id);
                 });
             })[0].area;
             const part = temp[0].areas
                 .filter((a) => {
                     return a.parts.find((p) => {
-                        return p.assignments.find((a) => a.id === id);
+                        return p.questions.find((a) => a.id === id);
                     });
                 })[0]
                 .parts.filter((p) => {
-                    return p.assignments.find((a) => a.id === id);
+                    return p.questions.find((a) => a.id === id);
                 })[0].part;
-            const assignment = temp[0].areas
+            const question = temp[0].areas
                 .filter((a) => {
                     return a.parts.find((p) => {
-                        return p.assignments.find((a) => a.id === id);
+                        return p.questions.find((a) => a.id === id);
                     });
                 })[0]
                 .parts.filter((p) => {
-                    return p.assignments.find((a) => a.id === id);
+                    return p.questions.find((a) => a.id === id);
                 })[0]
-                .assignments.filter((a) => a.id === id)[0];
+                .questions.filter((a) => a.id === id)[0];
             return {
                 theme,
                 area,
                 part,
-                assignment,
+                question,
             };
         }
         return false;
     }
 
-    getAssignments(theme, area, part) {
+    getQuestions(theme, area, part) {
         const result = this.find(theme, area, part);
-        return result ? result.assignments : false;
+        return result ? result.questions : false;
     }
 
-    createAssignment(id, type) {
-        const newAssignment = {
+    createQuestion(id, type) {
+        const newQuestion = {
             id: id,
             type,
             completed: false,
             date: null,
         };
-        this.storage.assignments.push(newAssignment);
+        this.storage.questions.push(newQuestion);
         this.save();
-        return newAssignment;
+        return newQuestion;
     }
 
-    updateAssignment(id) {
-        const result = this.findAssignmentByID(id);
+    updateQuestion(id) {
+        const result = this.findQuestionByID(id);
         if (result) {
             result.completed = !result.completed;
             result.date = Date.now();
@@ -131,40 +131,36 @@ export default class Storage {
         this.save();
     }
 
-    assignmentsStatus(theme, area, part) {
-        const assignments = this.getAssignments(theme, area, part);
+    questionsStatus(theme, area, part) {
+        const questions = this.getQuestions(theme, area, part);
 
         const result = {
             total: 0,
-            basic: {
+            base: {
                 total: 0,
                 completed: 0,
             },
-            extra: {
+            advanced: {
                 total: 0,
                 completed: 0,
             },
         };
 
-        if (assignments.length > 0) {
-            result.total = assignments.length;
-            for (const assignment of assignments) {
-                if (assignment.type === 'basic') {
-                    result.basic.total++;
-                    const assignmentStatus = this.findAssignmentByID(
-                        assignment.id
-                    );
-                    if (assignmentStatus.completed) {
-                        result.basic.completed++;
+        if (questions.length > 0) {
+            result.total = questions.length;
+            for (const question of questions) {
+                if (question.type === 'base') {
+                    result.base.total++;
+                    const questionStatus = this.findQuestionByID(question.id);
+                    if (questionStatus.completed) {
+                        result.base.completed++;
                     }
                 }
-                if (assignment.type === 'extra') {
-                    result.extra.total++;
-                    const assignmentStatus = this.findAssignmentByID(
-                        assignment.id
-                    );
-                    if (assignmentStatus.completed) {
-                        result.extra.completed++;
+                if (question.type === 'advanced') {
+                    result.advanced.total++;
+                    const questionStatus = this.findQuestionByID(question.id);
+                    if (questionStatus.completed) {
+                        result.advanced.completed++;
                     }
                 }
             }
@@ -189,24 +185,24 @@ export default class Storage {
 
     areaStatus(area) {
         const result = this.findAreaWithTheme(area);
-        let assignmentsCompleted = [];
+        let questionsCompleted = [];
         if (result) {
             for (const part of result.area.parts) {
-                const check = this.assignmentsStatus(
+                const check = this.questionsStatus(
                     result.theme,
                     result.area.area,
                     part.part
                 );
                 if (check) {
-                    assignmentsCompleted.push(check);
+                    questionsCompleted.push(check);
                 }
             }
         }
         let total = 0;
         let completed = 0;
-        for (const assignment of assignmentsCompleted) {
-            total += assignment.total;
-            completed += assignment.basic.completed;
+        for (const question of questionsCompleted) {
+            total += question.total;
+            completed += question.base.completed;
         }
         return {
             total,
@@ -215,11 +211,11 @@ export default class Storage {
         };
     }
 
-    lastCompletedAssignment() {
+    lastCompletedQuestion() {
         let completed = [];
-        for (const assignment of this.storage.assignments) {
-            if (assignment.completed) {
-                completed.push(assignment);
+        for (const question of this.storage.questions) {
+            if (question.completed) {
+                completed.push(question);
             }
         }
         if (completed.length > 0) {

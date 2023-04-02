@@ -7,27 +7,10 @@ eleventyNavigation:
     excerpt: Sidans metadata är information till byggsystemet
 ---
 
-{% uppgifter %}
 
-{% bas %}
+{% instructions %}
 
-#### Uppgift 1
-
-Redigera och spara `meta.js`.
-
-#### Uppgift 2
-
-Redigera titel i `index.md`.
-
-{% endbas %}
-
-{% enduppgifter %}
-
-
-{% instruktioner %}
-
-Sidans metadata sparas i en speciell javascript-fil. Denna behöver redigeras för
-att sidans funktioner ska fungera.
+Sidans metadata sparas i en speciell javascript-fil. Denna behöver redigeras för att sidans funktioner ska fungera.
 
 ### Tänk på
 
@@ -36,9 +19,7 @@ att sidans funktioner ska fungera.
 -   Vill du välja färg för sidan, ange en färgkod i themeColor
 -   Sidan är i javascript, syntax är viktigt
 
-🛑 När du redigerar metadata(`siteName:` egenskapen) så kommer guiden att sluta fungera.
-Detta på grund av att temat [Kom igång](/kom-igang/) är kopplat till `siteName: 'Ämnestitel'`.
-Av den anledningen kan det vara klokt att kolla igenom
+🛑 När du redigerar metadata(`siteName:` egenskapen) så kommer guiden att sluta fungera. Detta på grund av att temat [Kom igång](/kom-igang/) är kopplat till `siteName: 'Ämnestitel'`. Av den anledningen kan det vara klokt att kolla igenom
 [Min kurs delen](/kom-igang/min-kurs/) av guiden först.
 
 Öppna `src/_data/meta.js` för redigering.
@@ -84,9 +65,35 @@ eleventyNavigation:
 ---
 ```
 
-{% endinstruktioner %}
+{% endinstructions %}
 
-{% facit %}
+
+{% questions %}
+
+{% base %}
+
+#### Uppgift 1
+
+Vilken typ av data sparas i `meta.js`?
+
+#### Uppgift 2
+
+Vad är det viktigt att tänka på när du ändrar titeln på din sida?
+
+{% endbase %}
+
+{% advanced %}
+
+#### Uppgift 3
+
+Kontrollera vad som faktiskt sker när du kör `npm start`.
+
+{% endadvanced %}
+
+{% endquestions %}
+
+
+{% extra %}
 
 #### Uppgift 1
 
@@ -96,16 +103,12 @@ Kontrollera så att du har startat Eleventys-byggsystem.
 npm start
 ```
 
-Efter att du redigerat filen och sparat så kommer din sida byggas på nytt.
-Stämmer inte din metadata överrens med front matter i `index.md` så kommer byggscriptet
-generera fel och din sida kommer inte byggas.
+Efter att du redigerat filen och sparat så kommer din sida byggas på nytt. Stämmer inte din metadata överrens med front matter i `index.md` så kommer byggscriptet generera fel och din sida kommer inte byggas.
 
 #### Uppgift 2
 
-Om du redigerat key under eleventyNavigation och sparat så kommer byggscriptet
-att köras igen. Om de nu stämmer överrens så bör sidan bygga utan problem.
+Om du redigerat key under eleventyNavigation och sparat så kommer byggscriptet att köras igen. Om de nu stämmer överrens så bör sidan bygga utan problem.
 
-Ladda sidan på [localhost](http://localhost:8080) och kontrollera att dina
-senaste ändringar syns.
+Ladda sidan på [localhost](http://localhost:8080) och kontrollera att dina senaste ändringar syns.
 
-{% endfacit %}
+{% endextra %}

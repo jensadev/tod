@@ -7,16 +7,7 @@ eleventyNavigation:
     excerpt: Ämnessidan är introduktionen till kursen
 ---
 
-{% uppgifter %}
-
-{% bas %}
-
-{% endbas %}
-
-{% enduppgifter %}
-
-
-{% instruktioner %}
+{% instructions %}
 
 ## Introduktion
 
@@ -46,5 +37,12 @@ eleventyNavigation:
 Din sidas text-innehåll
 ```
 
-{% endinstruktioner %}
+{% endinstructions %}
 
+{% questions %}
+
+{% base %}
+
+{% endbase %}
+
+{% endquestions %}

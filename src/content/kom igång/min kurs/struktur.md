@@ -7,18 +7,8 @@ eleventyNavigation:
     excerpt: Kurswebben är byggd efter en satt struktur, den är viktig att följa för att systemet ska fungera
 ---
 
-{% uppgifter %}
 
-{% bas %}
-
-#### Uppgift 1
-
-Studera strukturen för den här guiden, temat kom igång
-{% endbas %}
-{% enduppgifter %}
-
-
-{% instruktioner %}
+{% instructions %}
 
 ## Introduktion
 
@@ -46,5 +36,15 @@ Studera strukturen för den här guiden.
 
 {% image "content/images/struktur.png", "Skärmdump av strukturen" %}
 
-{% endinstruktioner %}
+{% endinstructions %}
 
+
+{% questions %}
+
+{% base %}
+
+#### Uppgift 1
+
+Studera strukturen för den här guiden, temat kom igång
+{% endbase %}
+{% endquestions %}

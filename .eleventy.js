@@ -32,12 +32,11 @@ const {
 } = require('./config/shortcodes/index.js');
 
 const {
-    intro,
-    instruktioner,
-    uppgifter,
-    bas,
+    instructions,
+    questions,
+    base,
+    advanced,
     extra,
-    facit,
     lead,
     hint,
 } = require('./config/shortcodes/tod.js');
@@ -84,12 +83,11 @@ module.exports = (eleventyConfig) => {
 
     eleventyConfig.addNunjucksAsyncShortcode('image', image);
 
-    eleventyConfig.addPairedShortcode('intro', intro);
-    eleventyConfig.addPairedShortcode('instruktioner', instruktioner);
-    eleventyConfig.addPairedShortcode('uppgifter', uppgifter);
-    eleventyConfig.addPairedShortcode('bas', bas);
+    eleventyConfig.addPairedShortcode('instructions', instructions);
+    eleventyConfig.addPairedShortcode('questions', questions);
+    eleventyConfig.addPairedShortcode('base', base);
+    eleventyConfig.addPairedShortcode('advanced', advanced);
     eleventyConfig.addPairedShortcode('extra', extra);
-    eleventyConfig.addPairedShortcode('facit', facit);
     eleventyConfig.addPairedShortcode('lead', lead);
     eleventyConfig.addPairedShortcode('hint', hint);
 

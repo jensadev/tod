@@ -1,3 +1,28 @@
+.part {
+    padding: var(--space-xs-s);
+    background-color: var(--color-gray-100);
+
+    &__header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: baseline;
+        display: flex;
+
+        h1 {
+            font-size: var(--step-4);
+        }
+    }
+
+    &__content {
+        flex-direction: row-reverse;
+        @media (max-width: 20rem) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__extra {
+    }
+}
 // .part {
 //     display: flex;
 //     flex-wrap: wrap;

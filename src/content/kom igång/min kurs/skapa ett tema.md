@@ -6,16 +6,18 @@ eleventyNavigation:
     order: 3
     excerpt: Teman skapas i systemets src mapp och samlar ett eller flera områden
 ---
-{% uppgifter %}
 
-{% bas %}
-
-{% endbas %}
-
-{% enduppgifter %}
-{% instruktioner %}
+{% instructions %}
 
 ## Skapa ett tema
 
 
-{% endinstruktioner %}
+{% endinstructions %}
+
+{% questions %}
+
+{% base %}
+
+{% endbase %}
+
+{% endquestions %}

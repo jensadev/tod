@@ -198,15 +198,15 @@ h3 {
 }
 
 h1 {
-  font-size: var(--step-5);
-}
-
-h2 {
   font-size: var(--step-4);
 }
 
-h3 {
+h2 {
   font-size: var(--step-3);
+}
+
+h3 {
+  font-size: var(--step-2);
 }
 
 p,
@@ -253,6 +253,10 @@ main:focus {
 }
 .bg-theme--top {
   background-color: var(--color-primary--dark);
+}
+
+pre[class*=language-] {
+  font-size: var(--step-0);
 }
 
 .button {
@@ -820,4 +824,26 @@ input[type=search]::-webkit-search-cancel-button {
   */
 .sidebar[data-direction=rtl] {
   flex-direction: row-reverse;
+}
+
+.part {
+  padding: var(--space-xs-s);
+  background-color: var(--color-gray-100);
+}
+.part__header {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  display: flex;
+}
+.part__header h1 {
+  font-size: var(--step-4);
+}
+.part__content {
+  flex-direction: row-reverse;
+}
+@media (max-width: 20rem) {
+  .part__content {
+    flex-direction: column-reverse;
+  }
 }

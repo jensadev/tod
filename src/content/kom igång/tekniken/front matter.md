@@ -7,24 +7,10 @@ eleventyNavigation:
     excerpt: Beskriver extra information om kurswebbens sidor
 ---
 
-{% uppgifter %}
-
-{% bas %}
-
-#### Uppgift 1
-
-Kolla igenom front matter för en eller flera delar
-
-#### Uppgift 2
-
-Kolla igenom front matter för tema, område
-
-{% endbas %}
-
-{% enduppgifter %}
 
 
-{% instruktioner %}
+
+{% instructions %}
 
 ## Introduktion
 
@@ -79,5 +65,20 @@ Redigera sedan värdet för `tags`. Är det flera taggar så används en array, 
 }
 ```
 
-{% endinstruktioner %}
+{% endinstructions %}
 
+{% questions %}
+
+{% base %}
+
+#### Uppgift 1
+
+Kolla igenom front matter för en eller flera delar
+
+#### Uppgift 2
+
+Kolla igenom front matter för tema, område
+
+{% endbase %}
+
+{% endquestions %}

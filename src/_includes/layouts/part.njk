@@ -6,14 +6,14 @@ layout: layouts/base.njk
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 {% set test = eleventyNavigation.test %}
 <main class="container flow" tabindex="-1" role="main" id="main-content">
-    <article class="part">
+    <article class="part flow">
         <header class="part__header">
             <h1 class="part__header-title" id="title">
                 {{ title }} <a class="header-anchor" href="#title"><span class="anchor" aria-hidden="true">#</span></a>
             </h1>
             <span class="text-muted">{{ content | emojiReadTime }}</span>
         </header>
-        <div class="sidebar" data-direction="rtl">
+        <div class="part__content">
             {{ content | safe }}
         </div>
     </article>
