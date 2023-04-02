@@ -6,5 +6,5 @@ layout: layouts/base.njk
 
     {% set currentPage = page.fileSlug %}
     {% set navPages = collections.all | eleventyNavigation(currentPage) %}
-    {% include "components/categorylist.njk" %}
+    {% include "partials/categorylist.njk" %}
 </main>

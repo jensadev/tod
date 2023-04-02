@@ -20,7 +20,7 @@
 {% endmacro %}
 
 {% if navPages %}
-<div class="grid" data-layout="masonry">
+<div class="grid" data-layout="50-50">
     {% for entry in navPages %}
     {{ renderNavListItem(entry, loop.index) }}
     {% endfor %}
