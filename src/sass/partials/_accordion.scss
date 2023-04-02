@@ -33,14 +33,13 @@
                 display: flex;
                 place-items: center;
 
+                max-width: unset;
+
                 a {
                     text-decoration: none;
                     &:hover {
                         text-decoration: underline;
                     }
-                }
-                span {
-                    line-height: 1;
                 }
             }
         }

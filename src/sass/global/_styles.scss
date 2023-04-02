@@ -65,9 +65,16 @@ main:focus {
     outline: none;
 }
 
-.bg-theme {
-    background-color: var(--color-primary--light);
-    &--top {
-        background-color: var(--color-primary--dark);
-    }
+main {
+    margin-top: var(--space-s);
+}
+
+code:not([class]) {
+    background-color: var(--color-gray-300);
+    padding-inline: 0.2em;
+}
+
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
 }

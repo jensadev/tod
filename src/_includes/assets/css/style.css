@@ -248,11 +248,18 @@ main:focus {
   outline: none;
 }
 
-.bg-theme {
-  background-color: var(--color-primary--light);
+main {
+  margin-top: var(--space-s);
 }
-.bg-theme--top {
-  background-color: var(--color-primary--dark);
+
+code:not([class]) {
+  background-color: var(--color-gray-300);
+  padding-inline: 0.2em;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
 }
 
 pre[class*=language-] {
@@ -330,10 +337,17 @@ pre[class*=language-] {
 .star {
   fill: var(--color-primary);
 }
+.star svg {
+  display: block;
+}
 
 .stars {
+  display: flex;
   padding-left: var(--space-xs);
   fill: var(--color-primary);
+}
+.stars svg {
+  display: block;
 }
 
 .dropdown {
@@ -413,6 +427,7 @@ pre[class*=language-] {
 .accordion__item-list li {
   display: flex;
   place-items: center;
+  max-width: unset;
 }
 .accordion__item-list li:nth-child(odd) {
   background-color: var(--color-gray-200);
@@ -422,9 +437,6 @@ pre[class*=language-] {
 }
 .accordion__item-list li a:hover {
   text-decoration: underline;
-}
-.accordion__item-list li span {
-  line-height: 1;
 }
 .accordion__controls {
   justify-content: flex-end;
@@ -469,7 +481,6 @@ accordion-section h3 {
   .navbar__search {
     display: block;
     margin-top: var(--space-s);
-    margin-bottom: var(--space-s);
   }
 }
 .navbar__header {
@@ -844,8 +855,27 @@ input[type=search]::-webkit-search-cancel-button {
   flex-direction: row-reverse;
 }
 
+.primary {
+  color: var(--color-primary);
+}
+
+.warning {
+  border-color: orange;
+}
+
+.danger {
+  border-color: red;
+}
+
+.bg-theme {
+  background-color: var(--color-primary--light);
+}
+.bg-theme--top {
+  background-color: var(--color-primary--dark);
+}
+
 .part {
-  padding: var(--space-xs-s);
+  padding-inline: var(--space-xs-s);
   background-color: var(--color-gray-100);
 }
 .part__header {
@@ -864,4 +894,8 @@ input[type=search]::-webkit-search-cancel-button {
   .part__content {
     flex-direction: column-reverse;
   }
+}
+.page {
+  padding-inline: var(--space-xs-s);
+  background-color: var(--color-gray-100);
 }

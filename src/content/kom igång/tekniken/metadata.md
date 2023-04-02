@@ -10,6 +10,8 @@ eleventyNavigation:
 
 {% instructions %}
 
+## Introduktion
+
 Sidans metadata sparas i en speciell javascript-fil. Denna behöver redigeras för att sidans funktioner ska fungera.
 
 ### Tänk på
@@ -18,6 +20,8 @@ Sidans metadata sparas i en speciell javascript-fil. Denna behöver redigeras f�
 -   siteName i metadata måste stämma överrens med title i `src/index.md`
 -   Vill du välja färg för sidan, ange en färgkod i themeColor
 -   Sidan är i javascript, syntax är viktigt
+
+## Instruktioner
 
 🛑 När du redigerar metadata(`siteName:` egenskapen) så kommer guiden att sluta fungera. Detta på grund av att temat [Kom igång](/kom-igang/) är kopplat till `siteName: 'Ämnestitel'`. Av den anledningen kan det vara klokt att kolla igenom
 [Min kurs delen](/kom-igang/min-kurs/) av guiden först.
@@ -95,8 +99,6 @@ Kontrollera vad som faktiskt sker när du kör `npm start`.
 
 {% extra %}
 
-#### Uppgift 1
-
 Kontrollera så att du har startat Eleventys-byggsystem.
 
 ```bash
@@ -104,8 +106,6 @@ npm start
 ```
 
 Efter att du redigerat filen och sparat så kommer din sida byggas på nytt. Stämmer inte din metadata överrens med front matter i `index.md` så kommer byggscriptet generera fel och din sida kommer inte byggas.
-
-#### Uppgift 2
 
 Om du redigerat key under eleventyNavigation och sparat så kommer byggscriptet att köras igen. Om de nu stämmer överrens så bör sidan bygga utan problem.
 
