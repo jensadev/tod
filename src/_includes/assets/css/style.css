@@ -895,6 +895,66 @@ input[type=search]::-webkit-search-cancel-button {
     flex-direction: column-reverse;
   }
 }
+.part tbody,
+.part td,
+.part tfoot,
+.part th,
+.part thead,
+.part tr {
+  border: 0 solid;
+  border-color: inherit;
+}
+.part table {
+  vertical-align: top;
+  caption-side: bottom;
+  width: 100%;
+  margin-bottom: var(--step-0);
+  border-spacing: 2px;
+  border-collapse: collapse;
+  border-color: var(--color-gray-300);
+}
+.part table thead {
+  vertical-align: bottom;
+  text-align: left;
+}
+.part table thead tr {
+  display: table-row;
+  vertical-align: inherit;
+}
+.part table thead tr th {
+  padding: var(--step--2) var(--step--2);
+  border-bottom-width: 1px;
+  box-shadow: inset 0 0 0 9999px var(--color-gray-100);
+  background-color: var(--color-gray-300);
+}
+.part table tbody {
+  display: table-row-group;
+  vertical-align: middle;
+}
+.part table tbody tr {
+  display: table-row;
+  vertical-align: inherit;
+}
+.part table tbody tr td {
+  padding: var(--step--2) var(--step--2);
+  border-bottom-width: 1px;
+  box-shadow: inset 0 0 0 9999px var(--color-gray-100);
+  background-color: var(--color-gray-300);
+}
+.part picture > img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+.part__questions h3 > svg {
+  fill: var(--color-primary);
+}
+.part__questions-header > input {
+  width: 1em;
+  height: 1em;
+  margin-left: var(--space-s);
+}
+
 .page {
   padding-inline: var(--space-xs-s);
   background-color: var(--color-gray-100);

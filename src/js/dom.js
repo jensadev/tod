@@ -49,22 +49,22 @@ const hideElement = (element) => {
 
 const showHideElements = (status) => {
     if (!status) return;
-    const extra = document.querySelector('.part__extra');
+    // const extra = document.querySelector('.part__extra');
     const advanced = document.querySelector('.part__questions-advanced > div');
     if (status.base.total === status.base.completed) {
         if (advanced) {
             showElement(advanced);
         }
-        if (extra) {
-            showElement(extra);
-        }
+        // if (extra) {
+        //     showElement(extra);
+        // }
     } else {
         if (advanced) {
             hideElement(advanced);
         }
-        if (extra) {
-            hideElement(extra);
-        }
+        // if (extra) {
+        //     hideElement(extra);
+        // }
     }
 };
 
@@ -111,7 +111,7 @@ const createCheckbox = (element, id, checked) => {
     input.id = strip(id);
     input.checked = checked || false;
     const label = createLabel(id);
-    element.classList.add('part__assignments-header');
+    element.classList.add('part__questions-header');
     element.appendChild(label);
     element.appendChild(input);
     return input;

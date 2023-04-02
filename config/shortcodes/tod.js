@@ -4,20 +4,6 @@ module.exports = {
     instructions: (content) => {
         return `<div class="part__instructions flow">${content}</div>`;
     },
-
-    // intro: (content) => {
-    //     return `<div class="part__introduction flow">
-    //     <h2 id="introduktion" tabindex="-1">Introduktion <a class="header-anchor" href="#introduktion">
-    //     <span class="anchor" aria-hidden="true">#</span></a></h2>
-    //     ${content}</div>`;
-    // },
-    // instruktioner: (content, title) => {
-    //     return `<div class="part__instructions flow">
-    //     <h2 id="instruktioner" tabindex="-1">${title || 'Instruktioner'}
-    //     <a class="header-anchor" href="#instruktioner"><span class="anchor" aria-hidden="true">#</span></a>
-    //     </h2>
-    //     ${content}</div>`;
-    // },
     questions: (content, lead) => {
         return `<div class="part__questions region flow"><header>
         <h2 id="uppgifter" tabindex="-1">Uppgifter <a class="header-anchor" href="#uppgifter">
