@@ -1,27 +1,27 @@
 {% set currentPage %}{{ page.fileSlug }}{% endset %}
 {% set navPages = collections.all | eleventyNavigation(eleventyNavigation.parent) %}
-<nav class="nav-bottom" role="navigation" aria-label="secondary">
-    <ul class="nav-bottom__list">
+<nav class="prev-next" role="navigation" aria-label="secondary">
+    <ul class="prev-next__list">
         {%- set previousPost = navPages | prev(page.url) %}
-        <li class="nav-bottom__list-item">
+        <li>
             {%- if previousPost %}
-            <a class="nav-bottom__list-item-link" href="{{ previousPost.url | url }}">
+            <a class="button button--primary prev-next__prev" href="{{ previousPost.url | url }}">
                 {% svg "chevron_left_FILL0_wght400_GRAD0_opsz24.svg" %}
                 <span class="nav-bottom__list-text--left">{{ previousPost.title | capitalize }}</span>
             </a>
             {% endif %}
         </li>
         {%- set nextPost = navPages | next(page.url) %}
-        <li class="nav-bottom__list-item {{ 'test' if nextPost.test }}">
+        <li>
             {%- if nextPost %}
-            <a class="nav-bottom__list-item-link" href="{{ nextPost.url | url }}">
-                <span class="nav-bottom__list-text--right">{{ nextPost.title | capitalize }}</span>
+            <a class="button button--primary prev-next__next" href="{{ nextPost.url | url }}">
+                <span>{{ nextPost.title | capitalize }}</span>
                 {% svg "chevron_right_FILL0_wght400_GRAD0_opsz24.svg" %}
             </a>
             {% else %}
             {% set test = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.parent) %}
-            <a class="nav-bottom__list-item-link" href="{{ test[1].url | url }}">
-                <span class="nav-bottom__list-text--right">Tema: {{ test[1].title | capitalize }}</span>
+            <a class="button button--primary prev-next__next" href="{{ test[1].url | url }}">
+                <span>Tema: {{ test[1].title | capitalize }}</span>
                 {% svg "chevron_right_FILL0_wght400_GRAD0_opsz24.svg" %}
             </a>
             {% endif %}

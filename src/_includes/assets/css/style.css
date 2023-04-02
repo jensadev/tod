@@ -393,7 +393,7 @@ pre[class*=language-] {
   margin-bottom: var(--space-s);
 }
 .accordion__section h2 {
-  padding: var(--padding-xs-s);
+  padding: var(--space-xs-s);
   width: 100%;
   max-width: unset;
   text-transform: uppercase;
@@ -407,11 +407,15 @@ pre[class*=language-] {
   margin: 0;
 }
 .accordion__item-list {
-  padding: var(--padding-xs-s);
+  margin: 0;
+  padding: var(--space-xs-s);
 }
 .accordion__item-list li {
   display: flex;
   place-items: center;
+}
+.accordion__item-list li:nth-child(odd) {
+  background-color: var(--color-gray-200);
 }
 .accordion__item-list li a {
   text-decoration: none;
@@ -428,6 +432,7 @@ pre[class*=language-] {
   display: flex;
   margin-bottom: 0.2em;
   list-style: none;
+  font-size: var(--step-0);
 }
 
 .mh-0 {
@@ -728,6 +733,19 @@ input[type=search]::-webkit-search-cancel-button {
 }
 .continue__list li a:hover {
   text-decoration: underline;
+}
+
+.prev-next__list {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  font-size: var(--step-0);
+}
+.prev-next__list > li > a > svg {
+  fill: currentColor;
 }
 
 .flow > * + * {

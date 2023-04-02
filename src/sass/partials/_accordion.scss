@@ -7,7 +7,7 @@
         --flow-space: var(--space-s);
         margin-bottom: var(--space-s);
         h2 {
-            padding: var(--padding-xs-s);
+            padding: var(--space-xs-s);
             width: 100%;
             max-width: unset;
             text-transform: uppercase;
@@ -23,8 +23,13 @@
     }
     &__item {
         &-list {
-            padding: var(--padding-xs-s);
+            margin: 0;
+            padding: var(--space-xs-s);
+
             li {
+                &:nth-child(odd) {
+                    background-color: var(--color-gray-200);
+                }
                 display: flex;
                 place-items: center;
 
@@ -49,6 +54,7 @@
         margin-bottom: 0.2em;
 
         list-style: none;
+        font-size: var(--step-0);
     }
 }
 
