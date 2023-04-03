@@ -41,7 +41,7 @@ const imageShortcode = async (
 ) => {
     const metadata = await Image(`./src/${src}`, {
         widths: [500, 1000],
-        outputDir: './dist/img/',
+        outputDir: './public/img/',
     });
 
     const imageAttributes = {
