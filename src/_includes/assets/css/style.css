@@ -428,11 +428,12 @@ pre[class*=language-] {
 }
 .accordion__item-list {
   margin: 0;
-  padding: var(--space-xs-s);
+  padding: var(--space-xs);
 }
 .accordion__item-list li {
+  align-items: center;
   display: flex;
-  place-items: center;
+  padding: var(--space-2xs);
   max-width: unset;
 }
 .accordion__item-list li:nth-child(odd) {

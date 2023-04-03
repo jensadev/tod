@@ -24,17 +24,18 @@
     &__item {
         &-list {
             margin: 0;
-            padding: var(--space-xs-s);
+            padding: var(--space-xs);
 
             li {
+                align-items: center;
+                display: flex;
+
+                padding: var(--space-2xs);
+                max-width: unset;
+
                 &:nth-child(odd) {
                     background-color: var(--color-gray-200);
                 }
-                display: flex;
-                place-items: center;
-
-                max-width: unset;
-
                 a {
                     text-decoration: none;
                     &:hover {
