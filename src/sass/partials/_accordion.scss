@@ -7,7 +7,7 @@
         --flow-space: var(--space-s);
         margin-bottom: var(--space-s);
         h2 {
-            padding: var(--space-xs-s);
+            padding: var(--space-s);
             width: 100%;
             max-width: unset;
             text-transform: uppercase;
@@ -68,7 +68,7 @@
 
 accordion-section {
     display: block;
-    padding: var(--space-xs) var(--space-s);
+    padding: var(--space-s);
 
     h3 {
         text-transform: uppercase;

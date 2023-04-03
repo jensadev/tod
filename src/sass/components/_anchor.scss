@@ -1,0 +1,10 @@
+.header-anchor {
+    text-decoration: none;
+}
+.anchor {
+    color: var(--color-primary);
+    opacity: 0.6;
+    &:hover {
+        opacity: 1;
+    }
+}
