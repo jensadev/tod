@@ -1,10 +1,8 @@
 const fs = require('fs');
-
 const htmlmin = require('html-minifier');
-
 const parseTransform = require('./src/transforms/parse-transform.js');
-
 const markdownLibrary = require('./config/plugins/markdown');
+
 const emojiReadTime = require('@11tyrocks/eleventy-plugin-emoji-readtime');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
@@ -15,7 +13,6 @@ const {
     readableDate,
     htmlDateString,
     slugUrl,
-    capitalize,
     fixTestsPages,
     next,
     prev,
@@ -97,8 +94,26 @@ module.exports = (eleventyConfig) => {
     // Markdown
     eleventyConfig.setLibrary('md', markdownLibrary);
 
-    // Transforms
+    // Transform that parses HTML for TOD json
     eleventyConfig.addTransform('parse', parseTransform);
+
+    // 404
+    eleventyConfig.setBrowserSyncConfig({
+        callbacks: {
+            ready: (err, bs) => {
+                bs.addMiddleware('*', (req, res) => {
+                    const content_404 = fs.readFileSync('public/404.html');
+                    // Add 404 http status code in request header.
+                    res.writeHead(404, {
+                        'Content-Type': 'text/html; charset=UTF-8',
+                    });
+                    // Provides the 404 content without redirect.
+                    res.write(content_404);
+                    res.end();
+                });
+            },
+        },
+    });
 
     // Minify
     eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
@@ -121,26 +136,6 @@ module.exports = (eleventyConfig) => {
     });
     eleventyConfig.addPassthroughCopy('./src/assets/icons');
     eleventyConfig.addPassthroughCopy('./src/service-worker.js');
-
-    // 404
-    eleventyConfig.setBrowserSyncConfig({
-        callbacks: {
-            ready: (err, bs) => {
-                bs.addMiddleware('*', (req, res) => {
-                    const content_404 = fs.readFileSync('public/404.html');
-                    // Add 404 http status code in request header.
-                    res.writeHead(404, {
-                        'Content-Type': 'text/html; charset=UTF-8',
-                    });
-                    // Provides the 404 content without redirect.
-                    res.write(content_404);
-                    res.end();
-                });
-            },
-        },
-    });
-
-    eleventyConfig.setUseGitIgnore(false);
 
     return {
         templateForms: ['njk', 'md'],

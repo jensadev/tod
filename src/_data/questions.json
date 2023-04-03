@@ -1,19 +1,14 @@
 [
   {
-    "theme": "amnestitel",
-    "areas": [
-      {
-        "area": "slutuppgifter",
-        "parts": []
-      }
-    ]
-  },
-  {
     "theme": "kom-igang",
     "areas": [
       {
         "area": "min-kurs",
         "parts": [
+          {
+            "part": "skapa-ett-omrade",
+            "questions": []
+          },
           {
             "part": "skapa-en-del",
             "questions": []
@@ -23,17 +18,13 @@
             "questions": []
           },
           {
-            "part": "skapa-ett-amne",
-            "questions": []
-          },
-          {
             "part": "struktur",
             "questions": [
               "Studera strukturen för den här guiden, temat kom igång"
             ]
           },
           {
-            "part": "skapa-ett-omrade",
+            "part": "skapa-ett-amne",
             "questions": []
           }
         ]
@@ -65,34 +56,22 @@
             ]
           },
           {
+            "part": "front-matter",
+            "questions": [
+              "Kolla igenom front matter för en eller flera delar",
+              "Kolla igenom front matter för tema, område"
+            ]
+          },
+          {
             "part": "filer",
             "questions": [
               "Kolla igenom projektets filer."
             ]
           },
           {
-            "part": "markdown",
+            "part": "hosta",
             "questions": [
-              "Läs Markdown",
-              "Skriv Markdown"
-            ]
-          },
-          {
-            "part": "metadata",
-            "questions": [
-              "Vilken typ av data sparas i meta.js?",
-              "Vad är det viktigt att tänka på när du ändrar titeln på din sida?"
-            ]
-          },
-          {
-            "part": "shortcodes",
-            "questions": []
-          },
-          {
-            "part": "front-matter",
-            "questions": [
-              "Kolla igenom front matter för en eller flera delar",
-              "Kolla igenom front matter för tema, område"
+              "Hosta din första kurssida"
             ]
           },
           {
@@ -103,12 +82,33 @@
             ]
           },
           {
-            "part": "hosta",
+            "part": "metadata",
             "questions": [
-              "Hosta din första kurssida"
+              "Vilken typ av data sparas i meta.js?",
+              "Vad är det viktigt att tänka på när du ändrar titeln på din sida?"
             ]
+          },
+          {
+            "part": "markdown",
+            "questions": [
+              "Läs Markdown",
+              "Skriv Markdown"
+            ]
+          },
+          {
+            "part": "shortcodes",
+            "questions": []
           }
         ]
+      }
+    ]
+  },
+  {
+    "theme": "amnestitel",
+    "areas": [
+      {
+        "area": "slutuppgifter",
+        "parts": []
       }
     ]
   }

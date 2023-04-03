@@ -26,8 +26,8 @@ eleventyExcludeFromCollections: true
             <li>Område: {{ area.area }}</li>
             <ul>
                 {% for part in area.parts %}
-                {% for assignment in part.assignments %}
-                <li>{{ assignment }}</li>
+                {% for question in part.questions %}
+                <li>{{ question }}</li>
                 {% endfor %}
                 {% endfor %}
             </ul>
