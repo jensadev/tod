@@ -2,23 +2,3 @@
   publish = "public"
   command = "npm run build"
   environment = { NODE_VERSION = "18" }
-
-[[plugins]]
-package = "netlify-plugin-csp-generator"
-
-  [plugins.inputs]
-  buildDir = "public"
-
-  [plugins.inputs.policies]
-    defaultSrc = "'self'"
-    fontSrc = "'self'"
-    styleSrc = "'self' 'unsafe-hashes' 'unsafe-inline' http: https:"
-    scriptSrc = "'self' 'unsafe-hashes' 'unsafe-inline' http: https:"
-    frameSrc = "https://youtube.com https://www.youtube.com https://www.youtube-nocookie.com"
-    frameAncestors = "'none'"
-    connectSrc = "'self' https://*.analytics.google.com/ https://*.google-analytics.com"
-    imgSrc = "'self' 'unsafe-hashes' 'unsafe-inline' http: https:"
-    workerSrc = "'self'"
-    manifestSrc = "'self'"
-    objectSrc = "'none'"
-    baseUri = "'none'"
