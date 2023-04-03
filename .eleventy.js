@@ -114,7 +114,7 @@ module.exports = (eleventyConfig) => {
         return content;
     });
 
-    // Copy assets to dist
+    // Copy assets to public directory
     eleventyConfig.addPassthroughCopy('./src/assets/fonts');
     eleventyConfig.addPassthroughCopy({
         './src/assets/favicon.ico': '/favicon.ico',
@@ -127,7 +127,7 @@ module.exports = (eleventyConfig) => {
         callbacks: {
             ready: (err, bs) => {
                 bs.addMiddleware('*', (req, res) => {
-                    const content_404 = fs.readFileSync('dist/404.html');
+                    const content_404 = fs.readFileSync('public/404.html');
                     // Add 404 http status code in request header.
                     res.writeHead(404, {
                         'Content-Type': 'text/html; charset=UTF-8',
@@ -147,7 +147,7 @@ module.exports = (eleventyConfig) => {
         markdownTemplateEngine: 'njk',
         dir: {
             input: 'src',
-            output: 'dist',
+            output: 'public',
         },
         passthroughFileCopy: true,
     };

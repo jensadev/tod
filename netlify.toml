@@ -1,5 +1,5 @@
 [build]
-  publish = "dist"
+  publish = "public"
   command = "npm run build"
   environment = { NODE_VERSION = "18" }
 
@@ -7,11 +7,15 @@
 package = "netlify-plugin-csp-generator"
 
   [plugins.inputs]
-  buildDir = "dist"
+  buildDir = "public"
 
   [plugins.inputs.policies]
     defaultSrc = "'self'"
-    styleSrc = "'unsafe-hashes'"
-    scriptSrc = "'self' https://www.google-analytics.com https://ssl.google-analytics.com https://www.googletagmanager.com"
+    styleSrc = "'unsafe-hashes' https://cdnjs.cloudflare.com/"
+    styleSrcElem = "'unsafe-hashes'"
+    scriptSrc = "'self' https://www.google-analytics.com https://ssl.google-analytics.com https://www.googletagmanager.com https://cdnjs.cloudflare.com/ https://d33wubrfki0l68.cloudfront.net/"
     frameSrc = "'self' https://youtube.com https://www.youtube.com https://www.youtube-nocookie.com"
     frameAncestors = "'none'"
+    connectSrc = "'self' https://region1.analytics.google.com/"
+    imgSrc = "'self' https://region1.analytics.google.com/"
+    workerSrc = "'self'"

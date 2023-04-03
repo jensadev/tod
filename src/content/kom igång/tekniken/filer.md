@@ -35,7 +35,7 @@ Den här delens funktion är enbart en kort introduktion.
 mall för hur du skapar och konfigurerar din kurs.
 
 ```shell
-dist/ 📁 här hamnar din sida när du kör/bygger den
+public/ 📁 här hamnar din sida när du kör/bygger den
 node_modules/ 🛑📁 npm paketen, installerade av npm install
 src/ 📁 här finner du projektets filer
     _data/ 📁
