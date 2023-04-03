@@ -1,0 +1,14 @@
+{% if updates.items %}
+<aside>
+    {% set latest = updates.items.slice(0,3) %}
+    <h2>Senaste uppdateringar</h2>
+    <ul role="list">
+        {% for item in latest %}
+        <li>
+            <time datetime="{{ item.date | htmlDateString }}">{{ item.date | readableDate }}</time>
+            - {{ item.text }}
+        </li>
+        {% endfor %}
+    </ul>
+</aside>
+{% endif %}

@@ -7,16 +7,18 @@ eleventyNavigation:
     excerpt: Området skapas under tema, med en egen mapp och index fil
 ---
 
-{% intro %}
 
-### Sidan använder
+{% instructions %}
 
-{% endintro %}
+## Skapa ett område
 
-{% instruktioner %}
 
-{% endinstruktioner %}
+{% endinstructions %}
 
-{% uppgifter %}
+{% questions %}
 
-{% enduppgifter %}
+{% base %}
+
+{% endbase %}
+
+{% endquestions %}

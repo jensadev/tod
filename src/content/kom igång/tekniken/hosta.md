@@ -7,14 +7,12 @@ eleventyNavigation:
     excerpt: Hosting på engelska, hosta eller hysa på svenska är något som krävs för att kurswebben ska kunna användas
 ---
 
-{% intro %}
+
+{% instructions %}
+
+## content
 
 För att hosta sidan, så att andra kan använda den så använder den här guiden [Netlify](https://www.netlify.com/).
-
-
-{% endintro %}
-
-{% instruktioner %}
 
 🛑 Kom tillbaka till den här delen när du är klar med resten av guiden.
 
@@ -30,16 +28,18 @@ Klicka här för att [skapa en sida från ett GitHub repo](https://app.netlify.c
 -   Vänta medans Netlify kör `npm build`
 -   Surfa till din kurssida
 
-{% endinstruktioner %}
+{% endinstructions %}
 
-{% uppgifter %}
 
-{% bas %}
+
+{% questions %}
+
+{% base %}
 
 #### Uppgift 1
 
 Hosta din första kurssida
 
-{% endbas %}
+{% endbase %}
 
-{% enduppgifter %}
+{% endquestions %}

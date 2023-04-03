@@ -1,48 +1,33 @@
-@use 'sass:color';
 .button {
-    place-content: center;
+    align-items: center;
+    display: flex;
 
-    display: grid;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--space-2xs) var(--space-xs);
 
-    transition: all 0.2s ease-in-out;
-
-    border: var(--border-solid-300);
-    padding: var(--step--5) var(--step--3);
-
-    background-color: var(--color-primary);
+    background-color: transparent;
     cursor: pointer;
 
-    font-size: var(--step-0);
     font-weight: 700;
-    letter-spacing: var(--ls-neg);
+    text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    color: var(--color-on-primary);
-    fill: currentColor;
+    color: inherit;
+    white-space: nowrap;
+    overflow: hidden;
 
-    width: fit-content;
-
-    &:hover {
-        box-shadow: var(--shadow-elevation-low);
-        border-color: var(--color-gray-600);
-
-        color: var(--color-on-primary--light);
+    &--primary {
+        background-color: var(--color-primary);
+        color: var(--color-on-primary);
+        &:hover {
+            color: var(--color-on-primary--light);
+        }
     }
 
     &__icon {
-        border: none;
-
         line-height: 1;
-
-        &:hover {
-            box-shadow: none;
-
-            > svg {
-                transform: scale(1.2);
-
-                transition: transform 0.1s ease-in-out;
-            }
-        }
+        fill: currentColor;
     }
 
     &__close {
@@ -52,7 +37,7 @@
 
         transition: all 0.2s ease-in-out;
 
-        padding: var(--step--5) var(--step--3);
+        padding: var(--space-2xs) var(--space-xs);
 
         background-color: transparent;
         cursor: pointer;
@@ -64,13 +49,5 @@
         &:hover {
             color: var(--color-gray-900);
         }
-    }
-}
-
-.button.active {
-    > svg {
-        transform: scale(1.2);
-
-        transition: transform 0.1s ease-in-out;
     }
 }

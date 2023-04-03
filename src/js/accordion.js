@@ -156,8 +156,8 @@ const accordion = () => {
             const buttons = document.createElement('div');
             buttons.innerHTML = `
               <ul class="accordion__controls" aria-label="section controls">
-                <li><button id="expand" class="button">visa alla</button></li>
-                <li><button id="collapse" class="button">dölj alla</button></li>
+                <li><button id="expand" class="button button--primary">visa alla</button></li>
+                <li><button id="collapse" class="button button--primary">dölj alla</button></li>
               </ul>
               `;
 

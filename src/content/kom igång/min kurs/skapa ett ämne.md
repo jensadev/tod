@@ -7,7 +7,9 @@ eleventyNavigation:
     excerpt: Ämnessidan är introduktionen till kursen
 ---
 
-{% intro %}
+{% instructions %}
+
+## Introduktion
 
 För att ändra ämne och innehåll på en kurssida så behöver du redigera sidans
 metadata och ämnesindex.
@@ -17,9 +19,7 @@ metadata och ämnesindex.
 -   Metadata och ämnesindex titel måste överrensstämma
 -   Om du ändrar i detta testrepo så kommer guiden sluta fungera
 
-{% endintro %}
-
-{% instruktioner %}
+## Instruktioner
 
 [Redigera metadata](../tekniken/metadata.html)
 
@@ -37,12 +37,12 @@ eleventyNavigation:
 Din sidas text-innehåll
 ```
 
-{% endinstruktioner %}
+{% endinstructions %}
 
-{% uppgifter %}
+{% questions %}
 
-{% bas %}
+{% base %}
 
-{% endbas %}
+{% endbase %}
 
-{% enduppgifter %}
+{% endquestions %}

@@ -6,22 +6,17 @@ layout: layouts/base.njk
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 {% set test = eleventyNavigation.test %}
 <main class="container flow" tabindex="-1" role="main" id="main-content">
-    <div class="part">
+    <article class="part region flow">
         <header class="part__header">
             <h1 class="part__header-title" id="title">
                 {{ title }} <a class="header-anchor" href="#title"><span class="anchor" aria-hidden="true">#</span></a>
             </h1>
             <span class="text-muted">{{ content | emojiReadTime }}</span>
         </header>
-        {% if test %}
-        <section class="part__test flow">
+        <div class="part__content">
             {{ content | safe }}
-        </section>
-    </div>
-    {% else %}
-    {{ content | safe }}
-    </div>
-    {% include "components/nav-bottom.njk" %}
-    {% endif %}
-    {% include "components/templates/notes.njk" %}
+        </div>
+    </article>
+    {% include "partials/prev-next.njk" %}
+    {% include "templates/notes.njk" %}
 </main>

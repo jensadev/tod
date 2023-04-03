@@ -7,19 +7,17 @@ eleventyNavigation:
     excerpt: Delen är den minsta delen och innehåller en eller flera uppgifter att göra
 ---
 
-{% intro %}
-### Sidan använder
+{% instructions %}
 
-{% endintro %}
+## Skapa en del
 
-{% instruktioner %}
 
-{% endinstruktioner %}
+{% endinstructions %}
 
-{% uppgifter %}
+{% questions %}
 
-{% bas %}
+{% base %}
 
-{% endbas %}
+{% endbase %}
 
-{% enduppgifter %}
+{% endquestions %}

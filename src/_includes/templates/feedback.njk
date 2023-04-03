@@ -1,0 +1,39 @@
+<button id="feedback-open" class="button button__icon button--primary button__feedback" aria-label="Lämna feedback">
+    {% svg "sms_failed_FILL0_wght400_GRAD0_opsz24.svg", "icon" %}
+</button>
+
+<template id="feedback">
+    <div id="feedback-overlay" class="overlay" role="dialog">
+        <div class="overlay__inner">
+            <header class="overlay__header">
+                <h2>Feedback</h2>
+            </header>
+            <form class="form flow" name="feedback" action="/success" method="POST" netlify-honeypot="bot-field"
+                data-netlify="true">
+                <div class="hidden">
+                    <label>
+                        Don’t fill this out if you’re human:
+                    </label>
+                    <input name="bot-field">
+                </div>
+                <div class="hidden">
+                    <input name="page" id="page" value="{{ page.fileSlug }}" readonly>
+                </div>
+                <div class="form__section">
+                    <label class="form__label" for="message">Meddelande:</label>
+                    <textarea class="form__input" name="message" id="message" rows="4" required="true"
+                        placeholder="Har du feedback? Berätta gärna, men dela inte känslig information. Har du frågor? Lämna din email för återkoppling."></textarea>
+                </div>
+                <div class="form__section">
+                    <label class="form__label" for="yourEmail">Email (om du önskar återkoppling):</label>
+                    <input class="form__input" name="email" type="email" id="yourEmail">
+                </div>
+                <div class="feedback__footer">
+                    <button id="feedback-close" class="button button--primary button-cancel" type="button"
+                        aria-label="stäng">Ångra</button>
+                    <button class="button button--primary" type="submit">Skicka</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</template>

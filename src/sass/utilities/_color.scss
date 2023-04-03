@@ -1,0 +1,18 @@
+.primary {
+    color: var(--color-primary);
+}
+
+.warning {
+    border-color: orange;
+}
+
+.danger {
+    border-color: red;
+}
+
+.bg-theme {
+    background-color: var(--color-primary--light);
+    &--top {
+        background-color: var(--color-primary--dark);
+    }
+}

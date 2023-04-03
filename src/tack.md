@@ -1,6 +1,6 @@
 ---
 title: Tack
-layout: layouts/theme-area.njk
+layout: layouts/page.njk
 permalink: /success/index.html
 excludeFromCollections: true
 ---

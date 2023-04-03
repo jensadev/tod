@@ -1,7 +1,10 @@
-@use "container";
-@use "display";
-@use "flow";
-@use "list";
-@use "skip-link";
-@use "stretched-link";
-@use "visually-hidden";
+@forward 'flow';
+@forward 'container';
+@forward 'hidden';
+@forward 'region';
+@forward 'skip-link';
+@forward 'sr-only';
+@forward 'stretched-link';
+@forward 'grid';
+@forward 'sidebar';
+@forward 'color';

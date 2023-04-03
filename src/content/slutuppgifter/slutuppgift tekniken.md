@@ -8,6 +8,8 @@ eleventyNavigation:
     test: true
 ---
 
+{% instructions %}
+
 För att avsluta området så ska du kombinera det du hittills arbetat med i en slutuppgift.
 
 ## Instruktioner
@@ -95,3 +97,5 @@ Den här filen är ett skelett för att skapa en del. Det är nu din uppgift att
 ### Tips
 
 Det kan hjälpa att planera materialet först.
+
+{% endinstructions %}

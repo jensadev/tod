@@ -4,7 +4,7 @@ import { djb2_xor } from './djb2_xor';
 import {
     createProgressBar,
     createStars,
-    setupAssignments,
+    setupQuestions,
     showHideTests,
 } from './dom';
 import { notes } from './notes';
@@ -28,27 +28,31 @@ const setup = (jsonData, consentState = null) => {
             config.subject = config.subject.split('---')[2];
         }
     } else {
-        config.subject = strip(nav[0].textContent);
-        config.theme = nav[1] ? strip(nav[1].textContent) : null;
-        config.area = nav[2] ? strip(nav[2].textContent) : null;
-        config.part = nav[3] ? strip(nav[3].textContent) : null;
+        config.subject = strip(
+            document.querySelector('.navbar__header > a').textContent
+        );
+        config.theme = nav[0] ? strip(nav[0].textContent) : null;
+        config.area = nav[1] ? strip(nav[1].textContent) : null;
+        config.part = nav[2] ? strip(nav[2].textContent) : null;
+
+        console.log(config);
     }
 
     const storage = new Storage(config.subject, jsonData);
 
-    const lastCompletedAssignment = storage.lastCompletedAssignment();
-    if (lastCompletedAssignment) {
-        const assignmentData = storage.findAssignmentByID(
-            lastCompletedAssignment.id,
+    const lastCompletedQuestion = storage.lastCompletedQuestion();
+    if (lastCompletedQuestion) {
+        const questionData = storage.findQuestionByID(
+            lastCompletedQuestion.id,
             true
         );
-        if (assignmentData) {
+        if (questionData) {
             let check = localStorage.getItem('continue');
             if (check && Date.now() - 7200000 > check) {
                 localStorage.removeItem('continue');
                 check = false;
             }
-            continuePopup(check, assignmentData);
+            continuePopup(check, questionData);
         }
     }
 
@@ -57,7 +61,7 @@ const setup = (jsonData, consentState = null) => {
         document.querySelector('body').id = `tod-${djb2_xor(
             config.theme + config.area + config.part
         )}`;
-        setupAssignments(storage, config.theme, config.area, config.part);
+        setupQuestions(storage, config.theme, config.area, config.part);
     } else if (!config.theme) {
         // fix error on help etc
         accordion();
@@ -69,28 +73,29 @@ const setup = (jsonData, consentState = null) => {
                     let areaTotal = 0;
                     let areaCompleted = 0;
                     for (const part of area.parts) {
-                        const count = storage.assignmentsStatus(
+                        const count = storage.questionsStatus(
                             theme.theme,
                             area.area,
                             part.part
                         );
                         if (count) {
-                            areaTotal += count.basic.total;
-                            areaCompleted += count.basic.completed;
-                            if (count.basic.completed === count.basic.total) {
+                            areaTotal += count.base.total;
+                            areaCompleted += count.base.completed;
+                            if (count.base.completed === count.base.total) {
                                 const partElement = document.querySelector(
                                     `#part-${part.part}`
                                 );
                                 createStars(partElement);
                             }
-                            if (count.extra.total > 0) {
+                            if (count.advanced.total > 0) {
                                 if (
-                                    count.extra.completed === count.extra.total
+                                    count.advanced.completed ===
+                                    count.advanced.total
                                 ) {
                                     const partElement = document.querySelector(
                                         `#part-${part.part}`
                                     );
-                                    createStars(partElement, 'extra');
+                                    createStars(partElement, 'advanced');
                                 }
                             }
                         }

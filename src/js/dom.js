@@ -3,35 +3,37 @@ import confetti from 'canvas-confetti';
 import starSvg from '../assets/icons/grade_FILL1_wght400_GRAD0_opsz24.svg';
 import { restore, strip } from './strip';
 
-const setupAssignments = (storage, theme, area, part) => {
-    const element = document.querySelector('.part__assignments');
+const setupQuestions = (storage, theme, area, part) => {
+    const element = document.querySelector('.part__questions');
     if (!element) return;
 
-    const assignments = storage.getAssignments(theme, area, part);
+    console.log('setupQuestions', theme, area, part);
 
-    showHideElements(storage.assignmentsStatus(theme, area, part));
+    const questions = storage.getQuestions(theme, area, part);
 
-    if (assignments) {
-        const assignmentElements = element.querySelectorAll('h4');
-        for (const assignment of assignments) {
-            const title = restore(assignment.assignment);
-            let el = [...assignmentElements].find((el) => {
+    showHideElements(storage.questionsStatus(theme, area, part));
+
+    if (questions) {
+        const questionElements = element.querySelectorAll('h4');
+        for (const question of questions) {
+            const title = restore(question.question);
+            let el = [...questionElements].find((el) => {
                 return el.textContent === title;
             });
-            let storedAssignment = storage.findAssignmentByID(assignment.id);
-            if (storedAssignment === false) {
-                storedAssignment = storage.createAssignment(
-                    assignment.id,
-                    assignment.type
+            let storedQuestion = storage.findQuestionByID(question.id);
+            if (storedQuestion === false) {
+                storedQuestion = storage.createQuestion(
+                    question.id,
+                    question.type
                 );
             }
-            const box = createCheckbox(el, title, storedAssignment.completed);
+            const box = createCheckbox(el, title, storedQuestion.completed);
             box.addEventListener('change', () => {
                 if (confetti && box.checked) {
                     confetti();
                 }
-                storage.updateAssignment(assignment.id);
-                showHideElements(storage.assignmentsStatus(theme, area, part));
+                storage.updateQuestion(question.id);
+                showHideElements(storage.questionsStatus(theme, area, part));
             });
         }
     }
@@ -47,22 +49,22 @@ const hideElement = (element) => {
 
 const showHideElements = (status) => {
     if (!status) return;
-    const solution = document.querySelector('.part__solution');
-    const extra = document.querySelector('.part__assignments-extra > div');
-    if (status.basic.total === status.basic.completed) {
-        if (extra) {
-            showElement(extra);
+    // const extra = document.querySelector('.part__extra');
+    const advanced = document.querySelector('.part__questions-advanced > div');
+    if (status.base.total === status.base.completed) {
+        if (advanced) {
+            showElement(advanced);
         }
-        if (solution) {
-            showElement(solution);
-        }
+        // if (extra) {
+        //     showElement(extra);
+        // }
     } else {
-        if (extra) {
-            hideElement(extra);
+        if (advanced) {
+            hideElement(advanced);
         }
-        if (solution) {
-            hideElement(solution);
-        }
+        // if (extra) {
+        //     hideElement(extra);
+        // }
     }
 };
 
@@ -109,7 +111,7 @@ const createCheckbox = (element, id, checked) => {
     input.id = strip(id);
     input.checked = checked || false;
     const label = createLabel(id);
-    element.classList.add('part__assignments-header');
+    element.classList.add('part__questions-header');
     element.appendChild(label);
     element.appendChild(input);
     return input;
@@ -135,12 +137,11 @@ const createProgressBar = (element, total = 0, completed = 0) => {
 };
 
 const createLabel = (text) => {
-    console.log(text);
     const label = document.createElement('label');
-    label.classList.add('visually-hidden');
+    label.classList.add('sr-only');
     label.setAttribute('for', strip(text));
     label.textContent = `Jag är klar med ${text.replace(/-/g, ' ')}`;
     return label;
 };
 
-export { createProgressBar, createStars, setupAssignments, showHideTests };
+export { createProgressBar, createStars, setupQuestions, showHideTests };

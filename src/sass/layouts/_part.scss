@@ -1,0 +1,100 @@
+.part {
+    padding-inline: var(--space-xs-s);
+    background-color: var(--color-gray-100);
+
+    &__header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: baseline;
+        display: flex;
+
+        h1 {
+            font-size: var(--step-4);
+        }
+    }
+
+    &__content {
+        flex-direction: row-reverse;
+        @media (max-width: 20rem) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__extra {
+    }
+
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    tr {
+        border: 0 solid;
+        border-color: inherit;
+    }
+
+    table {
+        vertical-align: top;
+
+        caption-side: bottom;
+
+        width: 100%;
+        margin-bottom: var(--step-0);
+
+        border-spacing: 2px;
+        border-collapse: collapse;
+        border-color: var(--color-gray-300);
+
+        thead {
+            vertical-align: bottom;
+            text-align: left;
+            tr {
+                display: table-row;
+                vertical-align: inherit;
+                th {
+                    padding: var(--step--2) var(--step--2);
+
+                    border-bottom-width: 1px;
+                    box-shadow: inset 0 0 0 9999px var(--color-gray-100);
+                    background-color: var(--color-gray-300);
+                }
+            }
+        }
+        tbody {
+            display: table-row-group;
+            vertical-align: middle;
+            tr {
+                display: table-row;
+                vertical-align: inherit;
+                td {
+                    padding: var(--step--2) var(--step--2);
+
+                    border-bottom-width: 1px;
+                    box-shadow: inset 0 0 0 9999px var(--color-gray-100);
+                    background-color: var(--color-gray-300);
+                }
+            }
+        }
+    }
+
+    picture > img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+
+    &__questions {
+        h3 > svg {
+            fill: var(--color-primary);
+        }
+        &-header {
+            align-items: center;
+            gap: var(--gutter);
+            display: flex;
+            > input {
+                width: 1em;
+                height: 1em;
+            }
+        }
+    }
+}

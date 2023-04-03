@@ -8,6 +8,12 @@ En starter för kurswebbar.
 
 Systemet och innehållet på den här sidan är licensierat under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 
+## 3.1
+
+Lite kort om senaste uppdateringen. Ny CSS och ny struktur för att att kunna förenkla css / stilarna. Det behövdes.
+
+**Så 3.0.0 bryter kompatibilitet med tidigare versioner.**
+
 ## Syfte
 
 Denna template är en grunden för att jag, du eller andra ska kunna bygga kurswebbar utifrån en pedagogiska tanke om att dela upp ett ämne i teman, områden och delar.
@@ -27,6 +33,11 @@ Download/clone repo to local
 
 `cd reponame`
 
+Eller forka kalaset så får du större kontrol över vilka bitar du vill plocka in när det här repot uppdateras.
+
+## Uppdatering
+
+Det finns en `update.sh` fil att köra när du vill uppdatera din kopia till senaste TOD. Men var medveten om att den rensar och tar bort.
 
 ## Tack
 

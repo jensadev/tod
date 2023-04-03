@@ -1,0 +1,16 @@
+.feedback {
+    &__footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: var(--space-xs);
+    }
+}
+
+.button__feedback {
+    position: fixed;
+    left: 2vmin;
+    bottom: 2vmin;
+
+    // border: var(--border);
+    padding: var(--space-2xs);
+}

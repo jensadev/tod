@@ -7,7 +7,10 @@ eleventyNavigation:
     excerpt: Det första steget i att skapa din egen kurswebb
 ---
 
-{% intro %}
+
+{% instructions %}
+
+## Introduktion
 
 Att skapa en kurs kräver att du har ett [GitHub](https://github.com/) konto och att du har viss
 programvara installerad. Motorn finns som ett [templat repo](https://github.com/jensnti/tod)
@@ -23,9 +26,7 @@ Väl mött!
 -   [11ty](https://www.11ty.dev/) för att generera innehållet
 -   [Markdown](https://www.markdownguide.org/) för att märka upp text
 
-{% endintro %}
-
-{% instruktioner %}
+## Instruktioner
 
 För att kunna följa instruktionerna så kommer du att behöva kunna använda
 [GitHub](https://github.com/), köra [Node.js](https://nodejs.org/) och använda [npm](https://www.npmjs.com/).
@@ -54,11 +55,12 @@ npm start
 Förhoppningsvis kan du nu surfa till [localhost:8080](http://localhost:8080) och se en lokal
 kopia av den här webbplatsen.
 
-{% endinstruktioner %}
+{% endinstructions %}
 
-{% uppgifter %}
 
-{% bas %}
+{% questions %}
+
+{% base %}
 
 #### Uppgift 1
 
@@ -68,6 +70,6 @@ Klona templaten.
 
 Installera och kör npm script.
 
-{% endbas %}
+{% endbase %}
 
-{% enduppgifter %}
+{% endquestions %}

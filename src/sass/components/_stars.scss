@@ -1,0 +1,15 @@
+.star {
+    fill: var(--color-primary);
+    svg {
+        display: block;
+    }
+}
+
+.stars {
+    display: flex;
+    padding-left: var(--space-xs);
+    fill: var(--color-primary);
+    svg {
+        display: block;
+    }
+}

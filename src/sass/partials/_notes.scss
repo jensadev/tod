@@ -1,0 +1,23 @@
+.notes {
+    position: fixed;
+    bottom: 4vmin;
+
+    width: 100%;
+    max-width: min(42rem, 100vw - var(--space-m-l));
+    height: 20vh;
+    min-height: 16rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: var(--color-white);
+    border: var(--border);
+}
+
+.button__notes {
+    position: fixed;
+    right: 2vmin;
+    bottom: 2vmin;
+
+    // border: var(--border);
+    padding: var(--space-2xs);
+}

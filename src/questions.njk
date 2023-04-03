@@ -5,7 +5,8 @@ permalink: /fragor/
 eleventyExcludeFromCollections: true
 ---
 
-<header class="hero flow">
+<header class="flow">
+    <h1>Frågor</h1>
     <p class="lead">På den här sidan visas en översikt över alla frågor från de teman, områden och delar som kursen {{
         meta.siteName }} innehåller.
     </p>
@@ -16,7 +17,7 @@ eleventyExcludeFromCollections: true
         kan använda frågorna i dialog med eleverna eller för examination.
     </p>
 </header>
-<div>
+<div class="flow">
     <ul>
         {% for theme in questions %}
         <li>Tema: {{ theme.theme }}</li>

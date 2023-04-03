@@ -7,7 +7,9 @@ eleventyNavigation:
     excerpt: Innehållet på kurswebbens sidor skrivs i Markdown
 ---
 
-{% intro %}
+
+
+{% instructions %}
 
 Markdown är fantastiskt!
 
@@ -15,19 +17,15 @@ Markdown är fantastiskt!
 
 - Markdown för allt innehåll
 
-{% endintro %}
-
-{% instruktioner %}
-
 Läs mer om [Markdown](https://www.markdownguide.org/).
 
 Fråga Jens efter den lilla gröna boken, [GitHub flavored markdown](https://guides.github.com/features/mastering-markdown/)
 
-{% endinstruktioner %}
+{% endinstructions %}
 
-{% uppgifter %}
+{% questions %}
 
-{% bas %}
+{% base %}
 
 #### Uppgift 1
 
@@ -37,6 +35,6 @@ Läs Markdown
 
 Skriv Markdown
 
-{% endbas %}
+{% endbase %}
 
-{% enduppgifter %}
+{% endquestions %}

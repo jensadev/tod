@@ -1,0 +1,103 @@
+.navbar {
+    padding-top: var(--space-s);
+    padding-bottom: var(--space-s);
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+
+    a {
+        text-decoration: none;
+    }
+
+    &__inner {
+        position: relative;
+
+        justify-content: space-between;
+        align-items: center;
+
+        display: flex;
+    }
+
+    &__search {
+        display: none;
+        @media (min-width: 640px) {
+            display: block;
+            margin-top: var(--space-s);
+        }
+    }
+
+    &__header {
+        text-transform: uppercase;
+        font-size: var(--step-4);
+    }
+
+    &__right {
+        display: none;
+
+        @media (min-width: 640px) {
+            justify-content: flex-end;
+            align-items: center;
+            gap: var(--space-xs-s);
+
+            display: flex;
+        }
+
+        &--show {
+            position: absolute;
+            z-index: 200;
+            top: var(--space-m);
+            right: 0;
+
+            flex-direction: column;
+            display: flex;
+
+            padding: var(--space-3xs) 0;
+
+            background-color: var(--color-white);
+
+            > .button {
+                flex-direction: row-reverse;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+
+                padding: var(--space-2xs) var(--space-xs);
+                width: 100%;
+
+                color: var(--color-primary);
+                background-color: transparent;
+                &:hover {
+                    color: var(--color-primary);
+                    background-color: var(--color-gray-300);
+                }
+            }
+        }
+    }
+
+    &__toggle {
+        display: none;
+        gap: var(--space-s);
+        @media (max-width: 640px) {
+            display: block;
+        }
+    }
+
+    &__button {
+        // flex-direction: column;
+        // flex-wrap: wrap;
+        align-items: center;
+        // row-gap: 0.2em;
+        gap: var(--space-3xs);
+
+        border: none;
+        padding: 0;
+
+        font-size: var(--step-0);
+        line-height: 1;
+        &:hover {
+            color: var(--color-on-primary--light);
+        }
+    }
+
+    svg {
+        fill: currentColor;
+    }
+}

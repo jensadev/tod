@@ -8,8 +8,12 @@ eleventyNavigation:
     test: true
 ---
 
+{% instructions %}
+
 För att avsluta området så ska du kombinera det du hittills arbetat med i en slutuppgift.
 
 ## Instruktioner
 
 Skapa och publicera din kurs.
+
+{% endinstructions %}

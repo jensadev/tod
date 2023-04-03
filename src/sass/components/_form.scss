@@ -1,4 +1,20 @@
-.checkbox {
-    width: var(--step-0);
-    height: var(--step-0);
+.form {
+    padding: var(--space-xs-s);
+    &__section {
+        display: flex;
+        flex-direction: column;
+        input,
+        textarea {
+            border: 1px solid var(--color-gray-300);
+            padding: var(--space-3xs) var(--space-xs);
+
+            font-size: var(--step-0);
+        }
+        input {
+            width: 100%;
+        }
+        textarea {
+            width: 100%;
+        }
+    }
 }
