@@ -12,7 +12,7 @@ package = "netlify-plugin-csp-generator"
   [plugins.inputs.policies]
     defaultSrc = "'self'"
     fontSrc = "'self'"
-    styleSrc = "https://cdnjs.cloudflare.com/ 'unsafe-hashes'"
+    styleSrc = "'unsafe-hashes' https://cdnjs.cloudflare.com/"
     scriptSrc = "'self' https://www.google-analytics.com https://ssl.google-analytics.com https://www.googletagmanager.com https://cdnjs.cloudflare.com/ https://d33wubrfki0l68.cloudfront.net/"
     frameSrc = "'self' https://youtube.com https://www.youtube.com https://www.youtube-nocookie.com"
     frameAncestors = "'none'"
