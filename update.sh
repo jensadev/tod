@@ -25,7 +25,7 @@ rm -rf src/shortcodes
 rm -rf src/transforms
 rm -rf src/utils
 rm -f src/json/*.json
-rm src/_data/questions.json
+rm -f src/_data/questions.json
 rm -rf config/
 
 # copy files from tod-latest
@@ -48,7 +48,8 @@ cp tod-latest/src/service-worker.js src/
 cp tod-latest/src/sitemap.xml.njk src/
 cp tod-latest/src/tack.md src/
 
-cp -r config/ .
+mkdir -p config
+cp -r tod-latest/config/ .
 cp -r tod-latest/src/_includes src/
 cp -r tod-latest/src/assets src/
 cp -r tod-latest/src/js src/
