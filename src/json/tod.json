@@ -1,0 +1,209 @@
+{
+  "subject": "amnestitel",
+  "themes": [
+    {
+      "theme": "kom-igang",
+      "areas": [
+        {
+          "area": "min-kurs",
+          "parts": [
+            {
+              "part": "skapa-ett-omrade",
+              "questions": []
+            },
+            {
+              "part": "struktur",
+              "questions": [
+                {
+                  "question": "uppgift-1",
+                  "text": "Studera strukturen för den här guiden, temat kom igång",
+                  "id": 4116419602,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "skapa-en-del",
+              "questions": []
+            },
+            {
+              "part": "skapa-ett-amne",
+              "questions": []
+            },
+            {
+              "part": "skapa-ett-tema",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "area": "pedagogisk-tanke",
+          "parts": [
+            {
+              "part": "del",
+              "questions": []
+            },
+            {
+              "part": "omrade",
+              "questions": []
+            },
+            {
+              "part": "tema",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "area": "tekniken",
+          "parts": [
+            {
+              "part": "filer",
+              "questions": [
+                {
+                  "question": "uppgift-1",
+                  "text": "Kolla igenom projektets filer.",
+                  "id": 3529409307,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "front-matter",
+              "questions": [
+                {
+                  "question": "uppgift-1",
+                  "text": "Kolla igenom front matter för en eller flera delar",
+                  "id": 2766238328,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "question": "uppgift-2",
+                  "text": "Kolla igenom front matter för tema, område",
+                  "id": 2766238331,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "bilder",
+              "questions": [
+                {
+                  "question": "uppgift-1",
+                  "text": "Testa att använda en bild i en av dina delar",
+                  "id": 2683737051,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "markdown",
+              "questions": [
+                {
+                  "question": "uppgift-1",
+                  "text": "Läs Markdown",
+                  "id": 4027734536,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "question": "uppgift-2",
+                  "text": "Skriv Markdown",
+                  "id": 4027734539,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "installation",
+              "questions": [
+                {
+                  "question": "uppgift-1",
+                  "text": "Klona templaten.",
+                  "id": 562848435,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "question": "uppgift-2",
+                  "text": "Installera och kör npm script.",
+                  "id": 562848432,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "hosta",
+              "questions": [
+                {
+                  "question": "uppgift-1",
+                  "text": "Hosta din första kurssida",
+                  "id": 2343593294,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
+            {
+              "part": "shortcodes",
+              "questions": []
+            },
+            {
+              "part": "metadata",
+              "questions": [
+                {
+                  "question": "uppgift-1",
+                  "text": "Vilken typ av data sparas i meta.js?",
+                  "id": 1689645858,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "question": "uppgift-2",
+                  "text": "Vad är det viktigt att tänka på när du ändrar titeln på din sida?",
+                  "id": 1689645857,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "question": "uppgift-3",
+                  "id": 1689645856,
+                  "type": "advanced",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "amnestitel",
+      "areas": [
+        {
+          "area": "slutuppgifter",
+          "parts": []
+        }
+      ]
+    }
+  ]
+}
