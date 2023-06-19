@@ -29,6 +29,7 @@ rm -f src/_data/questions.json
 rm -rf config/
 
 # copy files from tod-latest
+cp tod-latest/netlify.toml .
 cp tod-latest/.eleventy.js .
 cp tod-latest/.eleventyignore .
 cp tod-latest/.gitignore .
