@@ -32,7 +32,8 @@ let questions = themes
     })
     .filter((theme) => {
         return theme.areas.length > 0;
-    });
+    })
+    .filter(theme != "slutuppgifter");
 
 fs.writeFileSync(
     './src/_data/questions.json',

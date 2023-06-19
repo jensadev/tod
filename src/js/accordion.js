@@ -18,10 +18,12 @@ const accordion = () => {
         <style>
           h3 {
             margin: 0;
+            min-height: 48px;
           }
           h3 button {
             all: inherit;
             justify-content: space-between;
+            align-items: center;
             display: flex;
             box-sizing: border-box;
             width: 100%;
@@ -45,7 +47,6 @@ const accordion = () => {
           [aria-expanded] rect {
             fill: currentColor;
           }
-
         </style>
       `;
 

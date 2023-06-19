@@ -25,18 +25,21 @@
         &-list {
             margin: 0;
             padding: var(--space-xs);
-
+            
             li {
                 align-items: center;
                 display: flex;
-
+                
                 padding: var(--space-2xs);
                 max-width: unset;
-
+                
                 &:nth-child(odd) {
                     background-color: var(--color-gray-200);
                 }
                 a {
+                    display: grid;
+                    place-content: center;
+                    min-height: 48px;
                     text-decoration: none;
                     &:hover {
                         text-decoration: underline;

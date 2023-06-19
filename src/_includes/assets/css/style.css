@@ -452,6 +452,9 @@ pre[class*=language-] {
   background-color: var(--color-gray-200);
 }
 .accordion__item-list li a {
+  display: grid;
+  place-content: center;
+  min-height: 48px;
   text-decoration: none;
 }
 .accordion__item-list li a:hover {
@@ -651,6 +654,7 @@ input[type=search]::-webkit-search-cancel-button {
 }
 
 .footer {
+  margin-top: var(--space-l-xl);
   background-color: var(--color-primary);
   font-size: var(--step-0);
   color: var(--color-on-primary);
