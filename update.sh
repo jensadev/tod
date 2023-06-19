@@ -2,7 +2,7 @@
 echo "TOD - Update Script"
 echo "run this script from the root of your tod project"
 echo "it will fetch the latest version of tod and replace all files"
-echo "-------------------"
+echo "------------------------------"
 
 # check if current directory == tod and if so exit
 if [[ "$PWD" == *"tod" ]]; then
@@ -36,7 +36,6 @@ cp tod-latest/generateQuestions.js .
 cp tod-latest/LICENSE .
 cp tod-latest/rollup.config.js .
 cp tod-latest/update.sh .
-
 cp tod-latest/src/404.njk src/
 cp tod-latest/src/hjälp.md src/
 cp tod-latest/src/manifest.json.njk src/
@@ -47,7 +46,6 @@ cp tod-latest/src/search-index.json.njk src/
 cp tod-latest/src/service-worker.js src/
 cp tod-latest/src/sitemap.xml.njk src/
 cp tod-latest/src/tack.md src/
-
 mkdir -p config
 cp -r tod-latest/config/ .
 cp -r tod-latest/src/_includes src/
@@ -56,6 +54,7 @@ cp -r tod-latest/src/js src/
 cp -r tod-latest/src/sass src/
 cp -r tod-latest/src/transforms src/
 cp -r tod-latest/src/utils src/
+cp tod-latest/src/_data/color-tokens.js src/_data/
 
 # clean up
 rm -rf tod-latest
