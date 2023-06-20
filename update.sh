@@ -11,7 +11,7 @@ if [[ "$PWD" == *"tod" ]]; then
 fi
 
 # fetch a copy of the tod repo
-git clone https://github.com/jensnti/tod tod-latest
+git clone https://github.com/jensadev/tod tod-latest
 
 # remove files/folders that are to be replaced
 rm -rf src/_includes

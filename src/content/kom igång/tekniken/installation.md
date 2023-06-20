@@ -13,10 +13,10 @@ eleventyNavigation:
 ## Introduktion
 
 Att skapa en kurs kräver att du har ett [GitHub](https://github.com/) konto och att du har viss
-programvara installerad. Motorn finns som ett [templat repo](https://github.com/jensnti/tod)
+programvara installerad. Motorn finns som ett [templat repo](https://github.com/jensadev/tod)
 på [GitHub](https://github.com/) som du klonar för att använda. Hittar du något fel,
-eller vill föreslå en förbättring så kan du skicka ett [ärende](https://github.com/jensnti/tod/issues)
-eller öppna en tråd i [forumet](https://github.com/jensnti/tod/discussions).
+eller vill föreslå en förbättring så kan du skicka ett [ärende](https://github.com/jensadev/tod/issues)
+eller öppna en tråd i [forumet](https://github.com/jensadev/tod/discussions).
 Väl mött!
 
 ### Sidan använder
@@ -31,7 +31,7 @@ Väl mött!
 För att kunna följa instruktionerna så kommer du att behöva kunna använda
 [GitHub](https://github.com/), köra [Node.js](https://nodejs.org/) och använda [npm](https://www.npmjs.com/).
 
-[Klicka här för att skapa ett nytt repo från den här templaten](https://github.com/jensnti/tod/generate).
+[Klicka här för att skapa ett nytt repo från den här templaten](https://github.com/jensadev/tod/generate).
 
 När repot är skapat så klonar du det till din dator med valfri GitHub klient.
 

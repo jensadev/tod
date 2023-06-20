@@ -19,7 +19,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/jensnti/tod.git"
+        "url": "git+https://github.com/jensadev/tod.git"
     },
     "keywords": [
         "education"
@@ -27,7 +27,7 @@
     "author": "Jens Andreasson",
     "license": "CC BY-NC 4.0",
     "bugs": {
-        "url": "https://github.com/jensnti/tod/issues"
+        "url": "https://github.com/jensadev/tod/issues"
     },
     "homepage": "https://tod.jensa.dev",
     "dependencies": {

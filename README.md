@@ -19,15 +19,15 @@ Lite kort om senaste uppdateringen. Ny CSS och ny struktur för att att kunna f�
 Denna template är en grunden för att jag, du eller andra ska kunna bygga kurswebbar utifrån en pedagogiska tanke om att dela upp ett ämne i teman, områden och delar.
 Templaten används på följande sidor:
 
--   [webbutveckling](https://github.com/jensnti/tod-webbutveckling)
--   [programmering](https://github.com/jensnti/tod-programmering)
--   [git och github](https://github.com/jensnti/tod-github)
+-   [webbutveckling](https://github.com/jensadev/tod-webbutveckling)
+-   [programmering](https://github.com/jensadev/tod-programmering)
+-   [git och github](https://github.com/jensadev/tod-github)
 
 För att skapa din egen kurswebb så kan du utgå från denna template. Den kommer med instruktioner för att komma igång, men de är inte 100% uppdaterade.
 
 ## Installation
 
-[Use template](https://github.com/jensnti/tod/generate)
+[Use template](https://github.com/jensadev/tod/generate)
 
 Download/clone repo to local
 
