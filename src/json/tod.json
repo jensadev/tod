@@ -8,7 +8,15 @@
           "area": "min-kurs",
           "parts": [
             {
+              "part": "skapa-en-del",
+              "questions": []
+            },
+            {
               "part": "skapa-ett-omrade",
+              "questions": []
+            },
+            {
+              "part": "skapa-ett-tema",
               "questions": []
             },
             {
@@ -25,15 +33,7 @@
               ]
             },
             {
-              "part": "skapa-en-del",
-              "questions": []
-            },
-            {
               "part": "skapa-ett-amne",
-              "questions": []
-            },
-            {
-              "part": "skapa-ett-tema",
               "questions": []
             }
           ]
@@ -58,6 +58,19 @@
         {
           "area": "tekniken",
           "parts": [
+            {
+              "part": "bilder",
+              "questions": [
+                {
+                  "question": "uppgift-1",
+                  "text": "Testa att använda en bild i en av dina delar",
+                  "id": 2683737051,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                }
+              ]
+            },
             {
               "part": "filer",
               "questions": [
@@ -93,33 +106,12 @@
               ]
             },
             {
-              "part": "bilder",
+              "part": "hosta",
               "questions": [
                 {
                   "question": "uppgift-1",
-                  "text": "Testa att använda en bild i en av dina delar",
-                  "id": 2683737051,
-                  "type": "base",
-                  "completed": false,
-                  "date": null
-                }
-              ]
-            },
-            {
-              "part": "markdown",
-              "questions": [
-                {
-                  "question": "uppgift-1",
-                  "text": "Läs Markdown",
-                  "id": 4027734536,
-                  "type": "base",
-                  "completed": false,
-                  "date": null
-                },
-                {
-                  "question": "uppgift-2",
-                  "text": "Skriv Markdown",
-                  "id": 4027734539,
+                  "text": "Hosta din första kurssida",
+                  "id": 2343593294,
                   "type": "base",
                   "completed": false,
                   "date": null
@@ -148,21 +140,25 @@
               ]
             },
             {
-              "part": "hosta",
+              "part": "markdown",
               "questions": [
                 {
                   "question": "uppgift-1",
-                  "text": "Hosta din första kurssida",
-                  "id": 2343593294,
+                  "text": "Läs Markdown",
+                  "id": 4027734536,
+                  "type": "base",
+                  "completed": false,
+                  "date": null
+                },
+                {
+                  "question": "uppgift-2",
+                  "text": "Skriv Markdown",
+                  "id": 4027734539,
                   "type": "base",
                   "completed": false,
                   "date": null
                 }
               ]
-            },
-            {
-              "part": "shortcodes",
-              "questions": []
             },
             {
               "part": "metadata",
@@ -191,6 +187,10 @@
                   "date": null
                 }
               ]
+            },
+            {
+              "part": "shortcodes",
+              "questions": []
             }
           ]
         }
