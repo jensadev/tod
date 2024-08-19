@@ -5,7 +5,11 @@ templateEngineOverride: njk
 <main class="container flow" tabindex="-1" role="main" id="main-content">
     {{ content | safe }}
 
-    {% set navPages = collections.slutuppgifter | fixTestsPages(navPages) %}
+    {% if collections.slutuppgifter %}
+        {% set navPages = collections.slutuppgifter | fixTestsPages(navPages) %}
+    {% else %}
+        {% set navPages = [] %}
+    {% endif %}
 
     {% include "partials/categorylist.njk" %}
 </main>
